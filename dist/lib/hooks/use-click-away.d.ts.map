@@ -1,0 +1,1 @@
+{"version":3,"file":"use-click-away.d.ts","sourceRoot":"","sources":["../../../src/lib/hooks/use-click-away.tsx"],"names":[],"mappings":"AAAA,OAAO,KAAyC,MAAM,OAAO,CAAC;AAE9D,MAAM,MAAM,KAAK,GAAG;IAClB,SAAS,CAAC,EAAE,OAAO,CAAC;IACpB,QAAQ,EAAE,MAAM,IAAI,CAAC;CACtB,CAAC;AAEF,wBAAgB,YAAY,CAAC,EAAE,SAAmB,EAAE,QAAQ,EAAE,EAAE,KAAK;;EAsBpE"}

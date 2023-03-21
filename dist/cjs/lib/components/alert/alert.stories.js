@@ -1,0 +1,28 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.ErrorAlert = exports.SuccessAlert = void 0;
+var tslib_1 = require("tslib");
+var jsx_runtime_1 = require("react/jsx-runtime");
+var alert_1 = tslib_1.__importStar(require("./alert"));
+// More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
+exports.default = {
+    title: 'Alert',
+    component: alert_1.default,
+    // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
+    argTypes: {},
+};
+// More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
+var Template = function (args) { return (0, jsx_runtime_1.jsx)(alert_1.default, tslib_1.__assign({}, args)); };
+exports.SuccessAlert = Template.bind({});
+// More on args: https://storybook.js.org/docs/react/writing-stories/args
+exports.SuccessAlert.args = {
+    status: alert_1.AlertStatus.Success,
+    message: 'Success'
+};
+exports.ErrorAlert = Template.bind({});
+// More on args: https://storybook.js.org/docs/react/writing-stories/args
+exports.ErrorAlert.args = {
+    status: alert_1.AlertStatus.Error,
+    message: 'Error'
+};
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiYWxlcnQuc3Rvcmllcy5qcyIsInNvdXJjZVJvb3QiOiIiLCJzb3VyY2VzIjpbIi4uLy4uLy4uLy4uLy4uL3NyYy9saWIvY29tcG9uZW50cy9hbGVydC9hbGVydC5zdG9yaWVzLnRzeCJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOzs7OztBQUdBLHVEQUEyQztBQUUzQywwR0FBMEc7QUFDMUcsa0JBQWU7SUFDYixLQUFLLEVBQUUsT0FBTztJQUNkLFNBQVMsRUFBRSxlQUFLO0lBQ2hCLHFFQUFxRTtJQUNyRSxRQUFRLEVBQUUsRUFDVDtDQUM2QixDQUFDO0FBRWpDLDJHQUEyRztBQUMzRyxJQUFNLFFBQVEsR0FBaUMsVUFBQyxJQUFJLElBQUssT0FBQSx1QkFBQyxlQUFLLHVCQUFLLElBQUksRUFBSSxFQUFuQixDQUFtQixDQUFDO0FBRWhFLFFBQUEsWUFBWSxHQUFHLFFBQVEsQ0FBQyxJQUFJLENBQUMsRUFBRSxDQUFDLENBQUM7QUFDOUMseUVBQXlFO0FBQ3pFLG9CQUFZLENBQUMsSUFBSSxHQUFHO0lBQ2xCLE1BQU0sRUFBRSxtQkFBVyxDQUFDLE9BQU87SUFDM0IsT0FBTyxFQUFFLFNBQVM7Q0FDbkIsQ0FBQztBQUVXLFFBQUEsVUFBVSxHQUFHLFFBQVEsQ0FBQyxJQUFJLENBQUMsRUFBRSxDQUFDLENBQUM7QUFDNUMseUVBQXlFO0FBQ3pFLGtCQUFVLENBQUMsSUFBSSxHQUFHO0lBQ2hCLE1BQU0sRUFBRSxtQkFBVyxDQUFDLEtBQUs7SUFDekIsT0FBTyxFQUFFLE9BQU87Q0FDakIsQ0FBQyIsInNvdXJjZXNDb250ZW50IjpbImltcG9ydCBSZWFjdCBmcm9tICdyZWFjdCc7XG5pbXBvcnQge0NvbXBvbmVudE1ldGEsIENvbXBvbmVudFN0b3J5fSBmcm9tICdAc3Rvcnlib29rL3JlYWN0JztcblxuaW1wb3J0IEFsZXJ0LCB7QWxlcnRTdGF0dXN9IGZyb20gXCIuL2FsZXJ0XCI7XG5cbi8vIE1vcmUgb24gZGVmYXVsdCBleHBvcnQ6IGh0dHBzOi8vc3Rvcnlib29rLmpzLm9yZy9kb2NzL3JlYWN0L3dyaXRpbmctc3Rvcmllcy9pbnRyb2R1Y3Rpb24jZGVmYXVsdC1leHBvcnRcbmV4cG9ydCBkZWZhdWx0IHtcbiAgdGl0bGU6ICdBbGVydCcsXG4gIGNvbXBvbmVudDogQWxlcnQsXG4gIC8vIE1vcmUgb24gYXJnVHlwZXM6IGh0dHBzOi8vc3Rvcnlib29rLmpzLm9yZy9kb2NzL3JlYWN0L2FwaS9hcmd0eXBlc1xuICBhcmdUeXBlczoge1xuICB9LFxufSBhcyBDb21wb25lbnRNZXRhPHR5cGVvZiBBbGVydD47XG5cbi8vIE1vcmUgb24gY29tcG9uZW50IHRlbXBsYXRlczogaHR0cHM6Ly9zdG9yeWJvb2suanMub3JnL2RvY3MvcmVhY3Qvd3JpdGluZy1zdG9yaWVzL2ludHJvZHVjdGlvbiN1c2luZy1hcmdzXG5jb25zdCBUZW1wbGF0ZTogQ29tcG9uZW50U3Rvcnk8dHlwZW9mIEFsZXJ0PiA9IChhcmdzKSA9PiA8QWxlcnQgey4uLmFyZ3N9IC8+O1xuXG5leHBvcnQgY29uc3QgU3VjY2Vzc0FsZXJ0ID0gVGVtcGxhdGUuYmluZCh7fSk7XG4vLyBNb3JlIG9uIGFyZ3M6IGh0dHBzOi8vc3Rvcnlib29rLmpzLm9yZy9kb2NzL3JlYWN0L3dyaXRpbmctc3Rvcmllcy9hcmdzXG5TdWNjZXNzQWxlcnQuYXJncyA9IHtcbiAgc3RhdHVzOiBBbGVydFN0YXR1cy5TdWNjZXNzLFxuICBtZXNzYWdlOiAnU3VjY2Vzcydcbn07XG5cbmV4cG9ydCBjb25zdCBFcnJvckFsZXJ0ID0gVGVtcGxhdGUuYmluZCh7fSk7XG4vLyBNb3JlIG9uIGFyZ3M6IGh0dHBzOi8vc3Rvcnlib29rLmpzLm9yZy9kb2NzL3JlYWN0L3dyaXRpbmctc3Rvcmllcy9hcmdzXG5FcnJvckFsZXJ0LmFyZ3MgPSB7XG4gIHN0YXR1czogQWxlcnRTdGF0dXMuRXJyb3IsXG4gIG1lc3NhZ2U6ICdFcnJvcidcbn07Il19

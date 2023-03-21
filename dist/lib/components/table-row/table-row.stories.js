@@ -1,0 +1,11 @@
+import { jsx as _jsx } from "react/jsx-runtime";
+import { TableRow } from './table-row';
+export default {
+    component: TableRow,
+    title: 'TableRow',
+};
+export var primary = function () {
+    var props = {};
+    return _jsx(TableRow, {});
+};
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoidGFibGUtcm93LnN0b3JpZXMuanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyIuLi8uLi8uLi8uLi9zcmMvbGliL2NvbXBvbmVudHMvdGFibGUtcm93L3RhYmxlLXJvdy5zdG9yaWVzLnRzeCJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiO0FBRUEsT0FBTyxFQUFFLFFBQVEsRUFBaUIsTUFBTSxhQUFhLENBQUM7QUFFdEQsZUFBZTtJQUNiLFNBQVMsRUFBRSxRQUFRO0lBQ25CLEtBQUssRUFBRSxVQUFVO0NBQ2xCLENBQUM7QUFFRixNQUFNLENBQUMsSUFBTSxPQUFPLEdBQUc7SUFDckIsSUFBTSxLQUFLLEdBQWtCLEVBQUUsQ0FBQztJQUVoQyxPQUFPLEtBQUMsUUFBUSxLQUFHLENBQUM7QUFDdEIsQ0FBQyxDQUFDIiwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IFJlYWN0IGZyb20gJ3JlYWN0JztcblxuaW1wb3J0IHsgVGFibGVSb3csIFRhYmxlUm93UHJvcHMgfSBmcm9tICcuL3RhYmxlLXJvdyc7XG5cbmV4cG9ydCBkZWZhdWx0IHtcbiAgY29tcG9uZW50OiBUYWJsZVJvdyxcbiAgdGl0bGU6ICdUYWJsZVJvdycsXG59O1xuXG5leHBvcnQgY29uc3QgcHJpbWFyeSA9ICgpID0+IHtcbiAgY29uc3QgcHJvcHM6IFRhYmxlUm93UHJvcHMgPSB7fTtcblxuICByZXR1cm4gPFRhYmxlUm93IC8+O1xufTtcbiJdfQ==
