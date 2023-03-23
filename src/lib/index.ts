@@ -33,7 +33,7 @@ export * from './components/text/text';
 export * from './components/accordion/accordion';
 export * from './components/page-tile-tabs-header/page-tile-tabs-header';
 export * from './components/wizard-tile/wizard-tile';
-export * from './components/navigation';
+export * from './components/dropdown-menu';
 export * from './hooks/use-click-away';
 export * from './utils/match-media';
 export * from './utils/match-size';
