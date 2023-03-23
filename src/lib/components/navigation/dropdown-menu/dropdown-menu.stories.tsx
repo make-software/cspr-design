@@ -2,12 +2,12 @@ import React from "react";
 import Menu from "./menu/menu";
 import MenuItem from "./menu-item/menu-item";
 import { ComponentMeta, ComponentStory } from "@storybook/react";
-import BodyText from "../body-text/body-text";
-import FlexRow from "../flex-row/flex-row";
-import SvgIcon from "../svg-icon/svg-icon";
+import BodyText from "../../body-text/body-text";
+import FlexRow from "../../flex-row/flex-row";
+import SvgIcon from "../../svg-icon/svg-icon";
 import styled from "styled-components";
 
-import {IconAccount, IconDisconnectLink, IconFile, IconVerified} from "../../assets/icons";
+import {IconAccount, IconDisconnectLink, IconFile, IconVerified} from "../../../assets/icons";
 
 export default {
   component: Menu,
@@ -32,13 +32,13 @@ Primary.args = {
   children: (
     <>
       <MenuItem>
-        <BodyText size={2}>Faucet</BodyText>
+        <BodyText size={3}>Faucet</BodyText>
       </MenuItem>
       <MenuItem>
-        <BodyText size={2}>Deploy contract</BodyText>
+        <BodyText size={3}>Deploy contract</BodyText>
       </MenuItem>
       <MenuItem>
-        <BodyText size={2}>Connected peers</BodyText>
+        <BodyText size={3}>Connected peers</BodyText>
       </MenuItem>
     </>
   ),

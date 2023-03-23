@@ -1,7 +1,7 @@
 import React, { useState, PropsWithChildren, useEffect } from "react";
-import { useClickAway } from "../../../hooks/use-click-away";
+import { useClickAway } from "../../../../hooks/use-click-away";
 import styled from "styled-components";
-import FlexRow from "../../flex-row/flex-row";
+import FlexRow from "../../../flex-row/flex-row";
 
 const Container = styled(FlexRow)<{ isOpen: boolean }>(({ theme, isOpen }) => ({
   borderRadius: theme.borderRadius.base,

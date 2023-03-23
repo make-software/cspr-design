@@ -1,6 +1,6 @@
 import React, { PropsWithChildren } from "react";
 import styled from "styled-components";
-import FlexRow from "../../flex-row/flex-row";
+import FlexRow from "../../../flex-row/flex-row";
 
 const ItemContainer = styled(FlexRow)(({ theme }) => ({
   width: "100%",
@@ -8,29 +8,20 @@ const ItemContainer = styled(FlexRow)(({ theme }) => ({
   padding: "12px 24px",
   ":hover, :active": {
     background: theme.styleguideColors.fillSecondaryBlueHover,
-    fontWeight: 600,
   },
 }));
 
 const MenuItemWrapper = styled.li(({ theme }) =>
   theme.withMedia({
     display: "flex",
-    color: [
-      theme.styleguideColors.contentTertiary,
-      theme.styleguideColors.contentTertiary,
-      theme.styleguideColors.contentPrimary,
-    ],
+    color: theme.styleguideColors.contentPrimary,
     "&:hover": {
       cursor: "pointer",
       "> *": {
         color: [
-          theme.styleguideColors.contentOnFill,
-          theme.styleguideColors.contentOnFill,
           theme.styleguideColors.contentBlue,
         ],
         fill: [
-          theme.styleguideColors.contentOnFill,
-          theme.styleguideColors.contentOnFill,
           theme.styleguideColors.contentBlue,
         ],
       },
