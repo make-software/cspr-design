@@ -1,5 +1,9 @@
 ## Available Scripts in cspr-ui-library
 
+To install:
+
+`npm i github:make-software/cspr-ui-library`
+
 In the project directory, you can run:
 
 ### `npm run storybook`
