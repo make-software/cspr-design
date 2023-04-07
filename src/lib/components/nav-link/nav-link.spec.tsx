@@ -1,11 +1,11 @@
 import React from 'react';
 import { render } from '@testing-library/react';
 
-import A from './a';
+import NavLink from './nav-link';
 
-describe('A', () => {
+describe('NavLink', () => {
   it('should render successfully', () => {
-    const { baseElement } = render(<A />);
+    const { baseElement } = render(<NavLink to="" />);
     expect(baseElement).toBeTruthy();
   });
 });

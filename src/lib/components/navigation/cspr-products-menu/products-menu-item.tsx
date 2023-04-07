@@ -1,0 +1,129 @@
+import React from "react";
+import { Badge } from "../../badge/badge";
+import CaptionText from "../../caption-text/caption-text";
+import FlexRow from "../../flex-row/flex-row";
+import NavLink from "../../nav-link/nav-link";
+import FlexColumn from "../../flex-column/flex-column";
+import SubtitleText from "../../subtitle-text/subtitle-text";
+import styled, { useTheme } from "styled-components";
+import { useMatchMedia } from "../../../utils/match-media";
+import SvgIcon from "../../svg-icon/svg-icon";
+
+export interface ProductsMenuItemProps {
+  comingSoonBadgeLabel?: string;
+  newBadgeLabel?: string;
+  selected?: boolean;
+  descriptionText?: string;
+  nameLabel: string;
+  link: string;
+  icon: string;
+}
+
+export enum ThemeModeType {
+  light = "light",
+  dark = "dark",
+}
+
+export const ProductItemWrapper = styled.span<{
+  isOpen?: boolean;
+  selected?: boolean;
+}>(({ theme, isOpen, selected }) =>
+  theme.withMedia({
+    display: "flex",
+    flex: "1 1 auto",
+    justifyContent: "center",
+    alignItems: "center",
+    padding: ["8px 12px", "8px 12px", "16px"],
+    width: ["208px", "208px", "172px"],
+    height: ["56px", "56px", "137px"],
+
+    "&:hover": {
+      borderRadius: theme.borderRadius.base,
+      background: theme.styleguideColors.backgroundSecondary,
+    },
+
+    ...(selected && {
+      background: theme.styleguideColors.backgroundSecondary,
+      pointerEvents: "none",
+    }),
+  })
+);
+
+export const ProductItemLink = styled(NavLink)(({ theme, disabled }) =>
+  theme.withMedia({
+    color: theme.styleguideColors.contentPrimary,
+
+    "&:hover": {
+      color: theme.styleguideColors.contentBlue,
+    },
+    "&:active": {
+      color: theme.styleguideColors.contentLightBlue,
+    },
+
+    ...(disabled && {
+      color: theme.styleguideColors.contentSecondary,
+      "&:hover > *": {
+        color: theme.styleguideColors.contentSecondary,
+      },
+    }),
+  })
+);
+
+const defaultIcon = {
+  [ThemeModeType.light]: "assets/icons/ic-sand-clock-light.svg",
+  [ThemeModeType.dark]: "assets/icons/ic-sand-clock-dark.svg",
+};
+
+export const ProductsMenuItem = ({
+  nameLabel,
+  link,
+  icon,
+  descriptionText,
+  selected = false,
+  newBadgeLabel,
+  comingSoonBadgeLabel,
+}: ProductsMenuItemProps) => {
+  const theme = useTheme();
+  console.log(theme);
+
+  let badge;
+  if (comingSoonBadgeLabel) {
+    badge = <Badge label={comingSoonBadgeLabel} variation={"violet"} />;
+  } else if (newBadgeLabel) {
+    badge = <Badge label={newBadgeLabel} variation={"green"} />;
+  } else {
+    badge = (
+      <CaptionText size={2} variation={"lightGray"}>
+        {descriptionText}
+      </CaptionText>
+    );
+  }
+
+  const mobile = (
+    <FlexRow itemsSpacing={8} justify={"flex-start"} grow={1}>
+      <SvgIcon src={icon || defaultIcon["light"]} size={32} />
+      <FlexColumn itemsSpacing={4}>
+        {badge}
+        <ProductItemLink href={link} disabled={!!comingSoonBadgeLabel}>
+          <SubtitleText size={1}>{nameLabel}</SubtitleText>
+        </ProductItemLink>
+      </FlexColumn>
+    </FlexRow>
+  );
+
+  const desktop = (
+    <FlexColumn itemsSpacing={16} align={"center"} justify={"center"} grow={1}>
+      <SvgIcon src={icon || defaultIcon["light"]} size={48} />
+      <FlexColumn itemsSpacing={4} align={"center"}>
+        {badge}
+        <ProductItemLink href={link} disabled={!!comingSoonBadgeLabel}>
+          <SubtitleText size={1}>{nameLabel}</SubtitleText>
+        </ProductItemLink>
+      </FlexColumn>
+    </FlexColumn>
+  );
+
+  const productMedia = useMatchMedia([mobile, mobile, desktop], []);
+
+  return <ProductItemWrapper>{productMedia}</ProductItemWrapper>;
+};
