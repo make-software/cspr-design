@@ -20,9 +20,26 @@ export const Primary = Template.bind({});
 Primary.args = {
   children: (
     <>
-      <ProductsMenuItem nameLabel={"some name"} link={""} icon={"assets/icons/ic-sand-clock-light.svg"} />
-      <ProductsMenuItem nameLabel={"some name1"} link={""} icon={""} />
-      <ProductsMenuItem nameLabel={"some name2"} link={""} icon={""} />
+      <ProductsMenuItem
+        nameLabel={"CSPR.live Explorer"}
+        descriptionText={"CSPR.live Block explorer"}
+        link={""}
+        icon={"assets/icons/ic-sand-clock-light.svg"}
+      />
+      <ProductsMenuItem
+        nameLabel={"Casper Wallet"}
+        link={""}
+        icon={""}
+        newBadgeLabel={"New"}
+      />
+      <ProductsMenuItem
+        nameLabel={"CSPR.studio (Beta)"}
+        link={""}
+        icon={""}
+        comingSoonBadgeLabel={"Coming soom"}
+      />
+      <ProductsMenuItem nameLabel={"some name3"} link={""} icon={""} />
+      <ProductsMenuItem nameLabel={"some name3"} link={""} icon={""} />
       <ProductsMenuItem nameLabel={"some name3"} link={""} icon={""} />
     </>
   ),
