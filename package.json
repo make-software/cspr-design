@@ -10,7 +10,7 @@
     "build:dist": "npm run build:esm && npm run build:cjs && npm run copy-assets",
     "build:esm": "tsc",
     "build:cjs": "tsc --module commonjs --outDir dist/cjs",
-    "copy-assets": "cp -rv src/lib/assets/ dist/assets/",
+    "copy-assets": "cp -rv src/lib/assets/ dist/lib/assets/",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
     "start": "react-scripts start",
