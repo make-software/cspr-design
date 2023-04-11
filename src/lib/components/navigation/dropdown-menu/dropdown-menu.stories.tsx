@@ -7,8 +7,6 @@ import FlexRow from "../../flex-row/flex-row";
 import SvgIcon from "../../svg-icon/svg-icon";
 import styled from "styled-components";
 
-import {IconAccount, IconDisconnectLink, IconFile, IconVerified} from "../../../assets/icons";
-
 export default {
   component: Menu,
   title: "Dropdown Menu",
@@ -51,30 +49,19 @@ WithIcons.args = {
     <>
       <MenuItem>
         <BodyText size={2}>
-          <FlexRow align="center">
-            <IconAccount />
-            View Account
-          </FlexRow>
+          <FlexRow align="center">View Account</FlexRow>
         </BodyText>
       </MenuItem>
       <MenuItem>
         <BodyText size={2}>
-          <FlexRow align="center">
-            <IconFile />
-            Activity Export
-          </FlexRow>
+          <FlexRow align="center">Activity Export</FlexRow>
         </BodyText>
       </MenuItem>
       <MenuItem>
-        <BodyText size={2}>
-          <IconVerified /> Verify Active Address
-        </BodyText>
+        <BodyText size={2}>Verify Active Address</BodyText>
       </MenuItem>
       <MenuItem>
-        <BodyText size={2}>
-          <IconDisconnectLink />
-          Disconnect Account
-        </BodyText>
+        <BodyText size={2}>Disconnect Account</BodyText>
       </MenuItem>
     </>
   ),

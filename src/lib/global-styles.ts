@@ -1,5 +1,5 @@
-import "../lib/assets/fonts/inter/inter.css";
-import "../lib/assets/fonts/jetbrains-mono/jetbrains-mono.css";
+import "./assets/fonts/inter/inter.css";
+import "./assets/fonts/jetbrains-mono/jetbrains-mono.css";
 import { createGlobalStyle } from "styled-components";
 
 const GlobalStyles = createGlobalStyle`

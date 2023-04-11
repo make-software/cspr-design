@@ -29,6 +29,9 @@
     "moduleResolution": "node",
     "jsx": "react-jsx"
   },
+  "assets": [
+    "src/lib/assets/**/*"
+  ],
   "include": [
     "src/lib/**/*"
   ],

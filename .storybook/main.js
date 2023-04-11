@@ -11,6 +11,7 @@ module.exports = {
     "@storybook/addon-styling",
     "@react-theming/storybook-addon",
   ],
+  staticDirs: ['../public', '../src/lib/'],
   framework: "@storybook/react",
   core: {
     builder: "@storybook/builder-webpack5",

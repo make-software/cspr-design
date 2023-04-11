@@ -1,1 +1,0 @@
-{"version":3,"file":"caption-text.d.ts","sourceRoot":"","sources":["../../../../src/lib/components/caption-text/caption-text.tsx"],"names":[],"mappings":";AAIA,OAAa,EAAE,SAAS,EAAE,MAAM,cAAc,CAAC;AAG/C,MAAM,WAAW,gBAAiB,SAAQ,SAAS;IACjD,IAAI,EAAE,CAAC,GAAG,CAAC,CAAC;IACZ,UAAU,CAAC,EAAE,CAAC,GAAG,CAAC,CAAC;CACpB;AAoBD,wBAAgB,WAAW,CAAC,KAAK,EAAE,gBAAgB,eAElD;AAED,eAAe,WAAW,CAAC"}

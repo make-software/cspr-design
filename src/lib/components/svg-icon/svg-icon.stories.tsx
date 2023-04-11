@@ -8,11 +8,11 @@ export default {
 } as ComponentMeta<typeof SvgIcon>;
 
 const Template: ComponentStory<typeof SvgIcon> = (args) => (
-  <SvgIcon {...args} />
+  <SvgIcon {...args} color={'#000000'} />
 );
 
 export const Primary = Template.bind({});
 // More on args: https://storybook.js.org/docs/react/writing-stories/args
 Primary.args = {
-  src: '../../assets/icons/ic-verified.svg',
+  src: './assets/icons/ic-facebook.svg',
 };

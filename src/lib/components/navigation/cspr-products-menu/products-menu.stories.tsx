@@ -24,7 +24,7 @@ Primary.args = {
         nameLabel={"CSPR.live Explorer"}
         descriptionText={"CSPR.live Block explorer"}
         link={""}
-        icon={"assets/icons/ic-sand-clock-light.svg"}
+        icon={"../assets/icons/ic-sand-clock-light.svg"}
       />
       <ProductsMenuItem
         nameLabel={"Casper Wallet"}
