@@ -1,5 +1,5 @@
-import { keyframes } from 'styled-components';
-import { withMedia } from './utils/match-media';
+import { keyframes } from "styled-components";
+import { withMedia } from "./utils/match-media";
 
 const PAGE_MIN_WIDTH = 320;
 const PAGE_MAX_WIDTH = 1176;
