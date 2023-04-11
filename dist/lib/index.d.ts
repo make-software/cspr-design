@@ -35,6 +35,8 @@ export * from './components/accordion/accordion';
 export * from './components/page-tile-tabs-header/page-tile-tabs-header';
 export * from './components/wizard-tile/wizard-tile';
 export * from './components/navigation/dropdown-menu';
+export * from './components/navigation/cspr-products-menu/products-menu';
+export * from './components/navigation/cspr-products-menu/products-menu-item';
 export * from './hooks/use-click-away';
 export * from './utils/match-media';
 export * from './utils/match-size';
