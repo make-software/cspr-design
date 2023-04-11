@@ -22,3 +22,15 @@ Your app is ready to be deployed!
 
 https://user-images.githubusercontent.com/2861356/227374604-7ccd1146-c0b4-4d00-b28f-df9da59ddd4f.mp4
 
+- Provide global styles
+  Provide a component, that can set up global styles above theme.
+
+  Example:
+  ```
+  import GlobalStyles from "@make-software/cspr-ui";
+  import {ThemeProvider} from "styled-components";
+
+  <ThemeProvider theme={theme}>
+    <GlobalStyles />
+  </ThemeProvider>
+  ```
