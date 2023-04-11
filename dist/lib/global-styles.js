@@ -1,0 +1,8 @@
+import { __makeTemplateObject } from "tslib";
+import "../lib/assets/fonts/inter/inter.css";
+import "../lib/assets/fonts/jetbrains-mono/jetbrains-mono.css";
+import { createGlobalStyle } from "styled-components";
+var GlobalStyles = createGlobalStyle(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n  html {\n    font-size: 10px;\n    font-family: 'Inter', sans-serif;\n    box-sizing: border-box;\n    overflow-y: visible;\n  }\n"], ["\n  html {\n    font-size: 10px;\n    font-family: 'Inter', sans-serif;\n    box-sizing: border-box;\n    overflow-y: visible;\n  }\n"])));
+export default GlobalStyles;
+var templateObject_1;
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiZ2xvYmFsLXN0eWxlcy5qcyIsInNvdXJjZVJvb3QiOiIiLCJzb3VyY2VzIjpbIi4uLy4uL3NyYy9saWIvZ2xvYmFsLXN0eWxlcy50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiO0FBQUEsT0FBTyxxQ0FBcUMsQ0FBQztBQUM3QyxPQUFPLHVEQUF1RCxDQUFDO0FBQy9ELE9BQU8sRUFBRSxpQkFBaUIsRUFBRSxNQUFNLG1CQUFtQixDQUFDO0FBRXRELElBQU0sWUFBWSxHQUFHLGlCQUFpQiwwTUFBQSx1SUFPckMsSUFBQSxDQUFDO0FBR0YsZUFBZSxZQUFZLENBQUEiLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgXCIuLi9saWIvYXNzZXRzL2ZvbnRzL2ludGVyL2ludGVyLmNzc1wiO1xuaW1wb3J0IFwiLi4vbGliL2Fzc2V0cy9mb250cy9qZXRicmFpbnMtbW9uby9qZXRicmFpbnMtbW9uby5jc3NcIjtcbmltcG9ydCB7IGNyZWF0ZUdsb2JhbFN0eWxlIH0gZnJvbSBcInN0eWxlZC1jb21wb25lbnRzXCI7XG5cbmNvbnN0IEdsb2JhbFN0eWxlcyA9IGNyZWF0ZUdsb2JhbFN0eWxlYFxuICBodG1sIHtcbiAgICBmb250LXNpemU6IDEwcHg7XG4gICAgZm9udC1mYW1pbHk6ICdJbnRlcicsIHNhbnMtc2VyaWY7XG4gICAgYm94LXNpemluZzogYm9yZGVyLWJveDtcbiAgICBvdmVyZmxvdy15OiB2aXNpYmxlO1xuICB9XG5gO1xuXG5cbmV4cG9ydCBkZWZhdWx0IEdsb2JhbFN0eWxlcyJdfQ==
