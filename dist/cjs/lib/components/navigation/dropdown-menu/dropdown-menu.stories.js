@@ -1,0 +1,39 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.WithIcons = exports.Primary = void 0;
+var tslib_1 = require("tslib");
+var jsx_runtime_1 = require("react/jsx-runtime");
+var menu_1 = tslib_1.__importDefault(require("./menu/menu"));
+var menu_item_1 = tslib_1.__importDefault(require("./menu-item/menu-item"));
+var body_text_1 = tslib_1.__importDefault(require("../../body-text/body-text"));
+var flex_row_1 = tslib_1.__importDefault(require("../../flex-row/flex-row"));
+var svg_icon_1 = tslib_1.__importDefault(require("../../svg-icon/svg-icon"));
+var styled_components_1 = tslib_1.__importDefault(require("styled-components"));
+exports.default = {
+    component: menu_1.default,
+    title: "Dropdown Menu",
+    args: {
+        opened: true,
+    },
+};
+var StyledSvgIcon = (0, styled_components_1.default)(svg_icon_1.default)(function (_a) {
+    var theme = _a.theme;
+    return ({
+        color: theme.styleguideColors.contentTertiary,
+        path: {
+            fill: theme.styleguideColors.contentTertiary,
+        },
+    });
+});
+var Template = function (args) { return (0, jsx_runtime_1.jsx)(menu_1.default, tslib_1.__assign({}, args)); };
+exports.Primary = Template.bind({});
+// More on args: https://storybook.js.org/docs/react/writing-stories/args
+exports.Primary.args = {
+    children: ((0, jsx_runtime_1.jsxs)(jsx_runtime_1.Fragment, { children: [(0, jsx_runtime_1.jsx)(menu_item_1.default, { children: (0, jsx_runtime_1.jsx)(body_text_1.default, tslib_1.__assign({ size: 3 }, { children: "Faucet" })) }), (0, jsx_runtime_1.jsx)(menu_item_1.default, { children: (0, jsx_runtime_1.jsx)(body_text_1.default, tslib_1.__assign({ size: 3 }, { children: "Deploy contract" })) }), (0, jsx_runtime_1.jsx)(menu_item_1.default, { children: (0, jsx_runtime_1.jsx)(body_text_1.default, tslib_1.__assign({ size: 3 }, { children: "Connected peers" })) })] })),
+};
+exports.WithIcons = Template.bind({});
+// More on args: https://storybook.js.org/docs/react/writing-stories/args
+exports.WithIcons.args = {
+    children: ((0, jsx_runtime_1.jsxs)(jsx_runtime_1.Fragment, { children: [(0, jsx_runtime_1.jsx)(menu_item_1.default, { children: (0, jsx_runtime_1.jsx)(body_text_1.default, tslib_1.__assign({ size: 2 }, { children: (0, jsx_runtime_1.jsx)(flex_row_1.default, tslib_1.__assign({ align: "center" }, { children: "View Account" })) })) }), (0, jsx_runtime_1.jsx)(menu_item_1.default, { children: (0, jsx_runtime_1.jsx)(body_text_1.default, tslib_1.__assign({ size: 2 }, { children: (0, jsx_runtime_1.jsx)(flex_row_1.default, tslib_1.__assign({ align: "center" }, { children: "Activity Export" })) })) }), (0, jsx_runtime_1.jsx)(menu_item_1.default, { children: (0, jsx_runtime_1.jsx)(body_text_1.default, tslib_1.__assign({ size: 2 }, { children: "Verify Active Address" })) }), (0, jsx_runtime_1.jsx)(menu_item_1.default, { children: (0, jsx_runtime_1.jsx)(body_text_1.default, tslib_1.__assign({ size: 2 }, { children: "Disconnect Account" })) })] })),
+};
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiZHJvcGRvd24tbWVudS5zdG9yaWVzLmpzIiwic291cmNlUm9vdCI6IiIsInNvdXJjZXMiOlsiLi4vLi4vLi4vLi4vLi4vLi4vc3JjL2xpYi9jb21wb25lbnRzL25hdmlnYXRpb24vZHJvcGRvd24tbWVudS9kcm9wZG93bi1tZW51LnN0b3JpZXMudHN4Il0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7Ozs7O0FBQ0EsNkRBQStCO0FBQy9CLDRFQUE2QztBQUU3QyxnRkFBaUQ7QUFDakQsNkVBQThDO0FBQzlDLDZFQUE4QztBQUM5QyxnRkFBdUM7QUFFdkMsa0JBQWU7SUFDYixTQUFTLEVBQUUsY0FBSTtJQUNmLEtBQUssRUFBRSxlQUFlO0lBQ3RCLElBQUksRUFBRTtRQUNKLE1BQU0sRUFBRSxJQUFJO0tBQ2I7Q0FDNEIsQ0FBQztBQUVoQyxJQUFNLGFBQWEsR0FBRyxJQUFBLDJCQUFNLEVBQUMsa0JBQU8sQ0FBQyxDQUFDLFVBQUMsRUFBUztRQUFQLEtBQUssV0FBQTtJQUFPLE9BQUEsQ0FBQztRQUNwRCxLQUFLLEVBQUUsS0FBSyxDQUFDLGdCQUFnQixDQUFDLGVBQWU7UUFDN0MsSUFBSSxFQUFFO1lBQ0osSUFBSSxFQUFFLEtBQUssQ0FBQyxnQkFBZ0IsQ0FBQyxlQUFlO1NBQzdDO0tBQ0YsQ0FBQztBQUxtRCxDQUtuRCxDQUFDLENBQUM7QUFFSixJQUFNLFFBQVEsR0FBZ0MsVUFBQyxJQUFJLElBQUssT0FBQSx1QkFBQyxjQUFJLHVCQUFLLElBQUksRUFBSSxFQUFsQixDQUFrQixDQUFDO0FBRTlELFFBQUEsT0FBTyxHQUFHLFFBQVEsQ0FBQyxJQUFJLENBQUMsRUFBRSxDQUFDLENBQUM7QUFDekMseUVBQXlFO0FBQ3pFLGVBQU8sQ0FBQyxJQUFJLEdBQUc7SUFDYixRQUFRLEVBQUUsQ0FDUiw2REFDRSx1QkFBQyxtQkFBUSxjQUNQLHVCQUFDLG1CQUFRLHFCQUFDLElBQUksRUFBRSxDQUFDLDRCQUFtQixHQUMzQixFQUNYLHVCQUFDLG1CQUFRLGNBQ1AsdUJBQUMsbUJBQVEscUJBQUMsSUFBSSxFQUFFLENBQUMscUNBQTRCLEdBQ3BDLEVBQ1gsdUJBQUMsbUJBQVEsY0FDUCx1QkFBQyxtQkFBUSxxQkFBQyxJQUFJLEVBQUUsQ0FBQyxxQ0FBNEIsR0FDcEMsSUFDVixDQUNKO0NBQ0YsQ0FBQztBQUVXLFFBQUEsU0FBUyxHQUFHLFFBQVEsQ0FBQyxJQUFJLENBQUMsRUFBRSxDQUFDLENBQUM7QUFDM0MseUVBQXlFO0FBQ3pFLGlCQUFTLENBQUMsSUFBSSxHQUFHO0lBQ2YsUUFBUSxFQUFFLENBQ1IsNkRBQ0UsdUJBQUMsbUJBQVEsY0FDUCx1QkFBQyxtQkFBUSxxQkFBQyxJQUFJLEVBQUUsQ0FBQyxnQkFDZix1QkFBQyxrQkFBTyxxQkFBQyxLQUFLLEVBQUMsUUFBUSxrQ0FBdUIsSUFDckMsR0FDRixFQUNYLHVCQUFDLG1CQUFRLGNBQ1AsdUJBQUMsbUJBQVEscUJBQUMsSUFBSSxFQUFFLENBQUMsZ0JBQ2YsdUJBQUMsa0JBQU8scUJBQUMsS0FBSyxFQUFDLFFBQVEscUNBQTBCLElBQ3hDLEdBQ0YsRUFDWCx1QkFBQyxtQkFBUSxjQUNQLHVCQUFDLG1CQUFRLHFCQUFDLElBQUksRUFBRSxDQUFDLDJDQUFrQyxHQUMxQyxFQUNYLHVCQUFDLG1CQUFRLGNBQ1AsdUJBQUMsbUJBQVEscUJBQUMsSUFBSSxFQUFFLENBQUMsd0NBQStCLEdBQ3ZDLElBQ1YsQ0FDSjtDQUNGLENBQUMiLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgUmVhY3QgZnJvbSBcInJlYWN0XCI7XG5pbXBvcnQgTWVudSBmcm9tIFwiLi9tZW51L21lbnVcIjtcbmltcG9ydCBNZW51SXRlbSBmcm9tIFwiLi9tZW51LWl0ZW0vbWVudS1pdGVtXCI7XG5pbXBvcnQgeyBDb21wb25lbnRNZXRhLCBDb21wb25lbnRTdG9yeSB9IGZyb20gXCJAc3Rvcnlib29rL3JlYWN0XCI7XG5pbXBvcnQgQm9keVRleHQgZnJvbSBcIi4uLy4uL2JvZHktdGV4dC9ib2R5LXRleHRcIjtcbmltcG9ydCBGbGV4Um93IGZyb20gXCIuLi8uLi9mbGV4LXJvdy9mbGV4LXJvd1wiO1xuaW1wb3J0IFN2Z0ljb24gZnJvbSBcIi4uLy4uL3N2Zy1pY29uL3N2Zy1pY29uXCI7XG5pbXBvcnQgc3R5bGVkIGZyb20gXCJzdHlsZWQtY29tcG9uZW50c1wiO1xuXG5leHBvcnQgZGVmYXVsdCB7XG4gIGNvbXBvbmVudDogTWVudSxcbiAgdGl0bGU6IFwiRHJvcGRvd24gTWVudVwiLFxuICBhcmdzOiB7XG4gICAgb3BlbmVkOiB0cnVlLFxuICB9LFxufSBhcyBDb21wb25lbnRNZXRhPHR5cGVvZiBNZW51PjtcblxuY29uc3QgU3R5bGVkU3ZnSWNvbiA9IHN0eWxlZChTdmdJY29uKSgoeyB0aGVtZSB9KSA9PiAoe1xuICBjb2xvcjogdGhlbWUuc3R5bGVndWlkZUNvbG9ycy5jb250ZW50VGVydGlhcnksXG4gIHBhdGg6IHtcbiAgICBmaWxsOiB0aGVtZS5zdHlsZWd1aWRlQ29sb3JzLmNvbnRlbnRUZXJ0aWFyeSxcbiAgfSxcbn0pKTtcblxuY29uc3QgVGVtcGxhdGU6IENvbXBvbmVudFN0b3J5PHR5cGVvZiBNZW51PiA9IChhcmdzKSA9PiA8TWVudSB7Li4uYXJnc30gLz47XG5cbmV4cG9ydCBjb25zdCBQcmltYXJ5ID0gVGVtcGxhdGUuYmluZCh7fSk7XG4vLyBNb3JlIG9uIGFyZ3M6IGh0dHBzOi8vc3Rvcnlib29rLmpzLm9yZy9kb2NzL3JlYWN0L3dyaXRpbmctc3Rvcmllcy9hcmdzXG5QcmltYXJ5LmFyZ3MgPSB7XG4gIGNoaWxkcmVuOiAoXG4gICAgPD5cbiAgICAgIDxNZW51SXRlbT5cbiAgICAgICAgPEJvZHlUZXh0IHNpemU9ezN9PkZhdWNldDwvQm9keVRleHQ+XG4gICAgICA8L01lbnVJdGVtPlxuICAgICAgPE1lbnVJdGVtPlxuICAgICAgICA8Qm9keVRleHQgc2l6ZT17M30+RGVwbG95IGNvbnRyYWN0PC9Cb2R5VGV4dD5cbiAgICAgIDwvTWVudUl0ZW0+XG4gICAgICA8TWVudUl0ZW0+XG4gICAgICAgIDxCb2R5VGV4dCBzaXplPXszfT5Db25uZWN0ZWQgcGVlcnM8L0JvZHlUZXh0PlxuICAgICAgPC9NZW51SXRlbT5cbiAgICA8Lz5cbiAgKSxcbn07XG5cbmV4cG9ydCBjb25zdCBXaXRoSWNvbnMgPSBUZW1wbGF0ZS5iaW5kKHt9KTtcbi8vIE1vcmUgb24gYXJnczogaHR0cHM6Ly9zdG9yeWJvb2suanMub3JnL2RvY3MvcmVhY3Qvd3JpdGluZy1zdG9yaWVzL2FyZ3NcbldpdGhJY29ucy5hcmdzID0ge1xuICBjaGlsZHJlbjogKFxuICAgIDw+XG4gICAgICA8TWVudUl0ZW0+XG4gICAgICAgIDxCb2R5VGV4dCBzaXplPXsyfT5cbiAgICAgICAgICA8RmxleFJvdyBhbGlnbj1cImNlbnRlclwiPlZpZXcgQWNjb3VudDwvRmxleFJvdz5cbiAgICAgICAgPC9Cb2R5VGV4dD5cbiAgICAgIDwvTWVudUl0ZW0+XG4gICAgICA8TWVudUl0ZW0+XG4gICAgICAgIDxCb2R5VGV4dCBzaXplPXsyfT5cbiAgICAgICAgICA8RmxleFJvdyBhbGlnbj1cImNlbnRlclwiPkFjdGl2aXR5IEV4cG9ydDwvRmxleFJvdz5cbiAgICAgICAgPC9Cb2R5VGV4dD5cbiAgICAgIDwvTWVudUl0ZW0+XG4gICAgICA8TWVudUl0ZW0+XG4gICAgICAgIDxCb2R5VGV4dCBzaXplPXsyfT5WZXJpZnkgQWN0aXZlIEFkZHJlc3M8L0JvZHlUZXh0PlxuICAgICAgPC9NZW51SXRlbT5cbiAgICAgIDxNZW51SXRlbT5cbiAgICAgICAgPEJvZHlUZXh0IHNpemU9ezJ9PkRpc2Nvbm5lY3QgQWNjb3VudDwvQm9keVRleHQ+XG4gICAgICA8L01lbnVJdGVtPlxuICAgIDwvPlxuICApLFxufTtcbiJdfQ==
