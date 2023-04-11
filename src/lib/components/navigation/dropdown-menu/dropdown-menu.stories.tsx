@@ -1,15 +1,15 @@
 import React from "react";
+import styled from "styled-components";
 import Menu from "./menu/menu";
 import MenuItem from "./menu-item/menu-item";
 import { ComponentMeta, ComponentStory } from "@storybook/react";
 import BodyText from "../../body-text/body-text";
 import FlexRow from "../../flex-row/flex-row";
 import SvgIcon from "../../svg-icon/svg-icon";
-import styled from "styled-components";
 import SubtitleText from "../../subtitle-text/subtitle-text";
 
 // @ts-ignore
-import * as ActivityIcon from "../../../assets/icons/ic-file.svg";
+import ActivityIcon from "../../../assets/icons/ic-file.svg";
 
 export default {
   component: Menu,
@@ -63,7 +63,7 @@ WithIcons.args = {
         <BodyText size={2}>
           <FlexRow align="center" gap={6}>
             <StyledSvgIcon src={ActivityIcon} />
-            Activity Export
+            <SubtitleText size={2}>Activity Export</SubtitleText>
           </FlexRow>
         </BodyText>
       </MenuItem>

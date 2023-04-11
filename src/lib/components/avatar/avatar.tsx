@@ -114,25 +114,25 @@ export const Avatar = React.forwardRef<Ref, AvatarProps>(function Avatar(
   //   );
   // }
 
-  // if (src) {
-  //   const cachedUrl = getImageProxyUrl(src, {
-  //     ttl: CACHE_TTL,
-  //     width: getSize(size) * RETINA_SCALE,
-  //   });
-  //   return (
-  //     <span ref={ref} {...props}>
-  //       <BackgroundWrapper
-  //         size={size}
-  //         style={{
-  //           background: `url("${cachedUrl}") center no-repeat`,
-  //           backgroundSize: `contain`,
-  //         }}
-  //       >
-  //         <div style={{ width: getSize(size), height: getSize(size) }} />
-  //       </BackgroundWrapper>
-  //     </span>
-  //   );
-  // }
+  if (src) {
+    const cachedUrl = getImageProxyUrl(src, {
+      ttl: CACHE_TTL,
+      width: getSize(size) * RETINA_SCALE,
+    });
+    return (
+      <span ref={ref} {...props}>
+        <BackgroundWrapper
+          size={size}
+          style={{
+            background: `url("${cachedUrl}") center no-repeat`,
+            backgroundSize: `contain`,
+          }}
+        >
+          <div style={{ width: getSize(size), height: getSize(size) }} />
+        </BackgroundWrapper>
+      </span>
+    );
+  }
   if (hash && isValidAccountHash(hash)) {
     return (
       <span ref={ref} {...props}>

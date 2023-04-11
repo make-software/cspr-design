@@ -11,6 +11,8 @@ export const getImageProxyUrl = (
     return undefined;
   }
 
+  return url;
+
   // return config.image_proxy_url
   //   ? `${config.image_proxy_url}/${width},fit,ttl${ttl}/${url}`
   //   : url;
