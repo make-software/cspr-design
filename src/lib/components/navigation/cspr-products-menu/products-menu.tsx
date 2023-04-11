@@ -12,8 +12,9 @@ export interface ProductsMenuProps {
 const ProductsMenuWrapper = styled.ul<{
   containerPadding?: string;
 }>(({ theme }) => ({
-  maxWidth: "500px",
-  padding: '0'
+  maxWidth: "620px",
+  padding: '8px',
+  margin: 0
 }));
 
 export const ProductsMenu = ({

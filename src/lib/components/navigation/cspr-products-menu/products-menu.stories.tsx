@@ -2,6 +2,9 @@ import { ComponentMeta, ComponentStory } from "@storybook/react";
 import React from "react";
 import { ProductsMenu } from "./products-menu";
 import { ProductsMenuItem } from "./products-menu-item";
+import { NavigationContainer } from "../container";
+import styled from "styled-components";
+import SubtitleText from "../../subtitle-text/subtitle-text";
 
 export default {
   component: ProductsMenu,
@@ -11,8 +14,22 @@ export default {
   },
 } as ComponentMeta<typeof ProductsMenu>;
 
+// @ts-ignore
+const MenuContainer = styled.div(() => ({
+  marginTop: "40px",
+  left: "10px",
+  position: "absolute",
+}));
+
 const Template: ComponentStory<typeof ProductsMenu> = (args) => (
-  <ProductsMenu {...args} />
+  <NavigationContainer>
+    <SubtitleText size={2} variation={"lightGray"}>
+      CSPR Products
+    </SubtitleText>
+    <MenuContainer>
+      <ProductsMenu {...args} />
+    </MenuContainer>
+  </NavigationContainer>
 );
 
 export const Primary = Template.bind({});

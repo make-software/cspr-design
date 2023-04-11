@@ -15,8 +15,8 @@ const SettingsContainer = styled.div(({ theme }) =>
 
 export interface ContainerProps {}
 
-export const Container = ({ children }: PropsWithChildren<ContainerProps>) => {
+export const NavigationContainer = ({ children }: PropsWithChildren<ContainerProps>) => {
   return <SettingsContainer>{children}</SettingsContainer>;
 };
 
-export default Container;
+export default NavigationContainer;

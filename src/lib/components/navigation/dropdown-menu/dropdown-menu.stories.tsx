@@ -6,6 +6,10 @@ import BodyText from "../../body-text/body-text";
 import FlexRow from "../../flex-row/flex-row";
 import SvgIcon from "../../svg-icon/svg-icon";
 import styled from "styled-components";
+import SubtitleText from "../../subtitle-text/subtitle-text";
+
+// @ts-ignore
+import * as ActivityIcon from "../../../assets/icons/ic-file.svg";
 
 export default {
   component: Menu,
@@ -16,9 +20,9 @@ export default {
 } as ComponentMeta<typeof Menu>;
 
 const StyledSvgIcon = styled(SvgIcon)(({ theme }) => ({
-  color: theme.styleguideColors.contentTertiary,
+  color: theme.styleguideColors.fillPrimaryBlue,
   path: {
-    fill: theme.styleguideColors.contentTertiary,
+    fill: theme.styleguideColors.fillPrimaryBlue,
   },
 }));
 
@@ -49,12 +53,18 @@ WithIcons.args = {
     <>
       <MenuItem>
         <BodyText size={2}>
-          <FlexRow align="center">View Account</FlexRow>
+          <FlexRow align="center" gap={6}>
+            <StyledSvgIcon src={"./assets/icons/ic-user.svg"} />
+            <SubtitleText size={2}>View Account</SubtitleText>
+          </FlexRow>
         </BodyText>
       </MenuItem>
       <MenuItem>
         <BodyText size={2}>
-          <FlexRow align="center">Activity Export</FlexRow>
+          <FlexRow align="center" gap={6}>
+            <StyledSvgIcon src={ActivityIcon} />
+            Activity Export
+          </FlexRow>
         </BodyText>
       </MenuItem>
       <MenuItem>

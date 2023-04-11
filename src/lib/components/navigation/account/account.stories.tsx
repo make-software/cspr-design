@@ -1,7 +1,7 @@
 import React from "react";
 import { ComponentMeta, ComponentStory } from "@storybook/react";
 import Account from "./account";
-import Container from "../container/container";
+import NavigationContainer from "../container/container";
 
 export default {
   component: Account,
@@ -10,9 +10,9 @@ export default {
 } as ComponentMeta<typeof Account>;
 
 const Template: ComponentStory<typeof Account> = (args) => (
-  <Container>
+  <NavigationContainer>
     <Account {...args} />
-  </Container>
+  </NavigationContainer>
 );
 
 export const Primary = Template.bind({});
