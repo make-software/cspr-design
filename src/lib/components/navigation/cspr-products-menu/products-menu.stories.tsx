@@ -24,18 +24,18 @@ Primary.args = {
         nameLabel={"CSPR.live Explorer"}
         descriptionText={"CSPR.live Block explorer"}
         link={""}
-        icon={"../assets/icons/ic-sand-clock-light.svg"}
+        icon={"./assets/icons/logos/cspr-live.svg"}
       />
       <ProductsMenuItem
         nameLabel={"Casper Wallet"}
         link={""}
-        icon={""}
+        icon={"./assets/icons/logos/cspr-wallet.svg"}
         newBadgeLabel={"New"}
       />
       <ProductsMenuItem
         nameLabel={"CSPR.studio (Beta)"}
         link={""}
-        icon={""}
+        icon={"./assets/icons/logos/cspr-nft-studio.svg"}
         comingSoonBadgeLabel={"Coming soom"}
       />
       <ProductsMenuItem nameLabel={"some name3"} link={""} icon={""} />
