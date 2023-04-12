@@ -44,5 +44,4 @@ export * from './utils/named-key-prefix';
 export * from './utils/detect-browser';
 export * from './utils/formatters';
 export * from './theme-config';
-export * from './global-styles';
 export * from './types';

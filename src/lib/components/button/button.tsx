@@ -21,11 +21,11 @@ const BaseButton = styled.button<ButtonProps>(
       height
     ),
     fontSize: matchSize(
-      { '24': '1.1rem', '36': '1.4rem', '40': '1.4rem' },
+      { '24': theme.scale('1.1rem'), '36': theme.scale('1.4rem'), '40': theme.scale('1.4rem') },
       height
     ),
     minHeight: matchSize({ '24': 24, '36': 36, '40': 40 }, height),
-    lineHeight: matchSize({ '24': '2rem', '36': '2rem', '40': '2rem' }, height),
+    lineHeight: matchSize({ '24': theme.scale('2rem'), '36': theme.scale('2rem'), '40': theme.scale('2rem') }, height),
     padding: matchSize(
       { '24': '2px 10px', '36': '8px 25px', '40': '10px 30px' },
       height

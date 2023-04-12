@@ -27,23 +27,23 @@ const StyledText = styled(Text)<HeaderTextProps>(
         ),
     fontSize: matchSize(
       {
-        0: '3.2rem',
-        1: '2.8rem',
-        2: '2.4rem',
-        3: '2.4rem',
-        4: '2rem',
-        5: '1.8rem',
+        0: theme.scale('3.2rem'),
+        1: theme.scale('2.8rem'),
+        2: theme.scale('2.4rem'),
+        3: theme.scale('2.4rem'),
+        4: theme.scale('2rem'),
+        5: theme.scale('1.8rem'),
       },
       size
     ),
     lineHeight: matchSize(
       {
-        0: '4.8rem',
-        1: '4rem',
-        2: '2.8rem',
-        3: '2.8rem',
-        4: '2rem',
-        5: '2.4rem',
+        0: theme.scale('4.8rem'),
+        1: theme.scale('4rem'),
+        2: theme.scale('2.8rem'),
+        3: theme.scale('2.8rem'),
+        4: theme.scale('2rem'),
+        5: theme.scale('2.4rem'),
       },
       size
     ),

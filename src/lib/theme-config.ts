@@ -10,6 +10,7 @@ const themeCommon = {
   // do not use for now, let's see if we need it at all
   // media: MediaQueries,
   withMedia: withMedia,
+  scale: (value) => `calc(${value} * 10/16)`,
   zIndex: {
     dropdown: 10,
     modal: 15,

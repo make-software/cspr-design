@@ -23,8 +23,8 @@ const StyledText = styled(Text)<SubtitleTextProps>(
           },
           size
         ),
-    fontSize: '1.4rem',
-    lineHeight: '2.0rem',
+    fontSize: theme.scale('1.4rem'),
+    lineHeight: theme.scale('2.0rem'),
   })
 );
 
