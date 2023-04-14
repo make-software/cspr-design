@@ -34,6 +34,8 @@ export * from './components/text/text';
 export * from './components/accordion/accordion';
 export * from './components/page-tile-tabs-header/page-tile-tabs-header';
 export * from './components/wizard-tile/wizard-tile';
+export * from './components/navigation/container';
+export * from './components/navigation/account';
 export * from './components/navigation/dropdown-menu';
 export * from './components/navigation/cspr-products-menu/products-menu';
 export * from './components/navigation/cspr-products-menu/products-menu-item';
@@ -44,6 +46,5 @@ export * from './utils/named-key-prefix';
 export * from './utils/detect-browser';
 export * from './utils/formatters';
 export * from './theme-config';
-export * from './global-styles';
 export * from './types';
 //# sourceMappingURL=index.d.ts.map
