@@ -1,8 +1,11 @@
 import { keyframes } from "styled-components";
 import { withMedia } from "./utils/match-media";
 
+const scaleFont = (rem, rootSize) => `calc(${rem} * 10/${rootSize})`
+
 const PAGE_MIN_WIDTH = 320;
 const PAGE_MAX_WIDTH = 1176;
+const ROOT_FONT_SIZE = 16;
 
 const themeCommon = {
   minWidth: PAGE_MIN_WIDTH,
@@ -10,7 +13,8 @@ const themeCommon = {
   // do not use for now, let's see if we need it at all
   // media: MediaQueries,
   withMedia: withMedia,
-  scale: (value) => `calc(${value} * 10/16)`,
+  rootFontSize: ROOT_FONT_SIZE,
+  scale: scaleFont,
   zIndex: {
     dropdown: 10,
     modal: 15,
@@ -164,6 +168,7 @@ export const themeConfig: any = {
       tableRowSeparator: '1px solid #F2F3F5', // borderPrimary
     },
   },
+  rootFontSize: '10'
 };
 
 type ThemeConfig = typeof themeConfig.light;

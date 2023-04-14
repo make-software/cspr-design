@@ -2,6 +2,7 @@ import React from "react";
 import { themeConfig } from "../src/lib";
 import { ThemeProvider } from "styled-components";
 import { withThemeFromJSXProvider } from "@storybook/addon-styling";
+import GlobalStyles from "../src/lib/global-styles";
 
 export const decorators = [
   withThemeFromJSXProvider({
@@ -11,6 +12,7 @@ export const decorators = [
     },
     defaultTheme: "light",
     Provider: ThemeProvider,
+    GlobalStyles: GlobalStyles,
   }),
 ];
 
