@@ -44,7 +44,11 @@ const Handled = () => {
     return  (
         <FlexRow itemsSpacing={10}>
             <FlexColumn itemsSpacing={10}>
-                <Checkbox checked={isChecked} label="check it" onChange={() => setIsChecked(prevState => !prevState)}/>
+                <Checkbox
+                    checked={isChecked}
+                    label="check it"
+                    onChange={() => setIsChecked(prevState => !prevState)}
+                />
             </FlexColumn>
         </FlexRow>
     )
