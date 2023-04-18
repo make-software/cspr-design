@@ -1,5 +1,5 @@
 import React from 'react';
-import { ComponentMeta, ComponentStory } from "@storybook/react";
+import { ComponentMeta, ComponentStory } from '@storybook/react';
 import styled from 'styled-components';
 import Avatar from './avatar'
 import FlexRow from '../flex-row/flex-row';
@@ -11,7 +11,7 @@ export default {
     title: 'Avatar',
     args: {
         size: 'default',
-        hash: '01f5f1fa995ab7e966428e5a1aed797526ad5b2454c50a63a7aaa2dfeae6a996c2'
+        hash: '01f5f1fa995ab7e966428e5a1aed797526ad5b2454c50a63a7aaa2dfeae6a996c2',
     },
 } as ComponentMeta<typeof Avatar>;
 
