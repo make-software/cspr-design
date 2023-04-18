@@ -20,8 +20,8 @@ const StyledText = styled(Text)<BodyTextProps>(({ theme, size = 3 }) => ({
     },
     size
   ),
-  fontSize: theme.scale('1.3rem', theme.rootFontSize),
-  lineHeight: theme.scale('2rem', theme.rootFontSize),
+  fontSize: theme.scale('1.3rem'),
+  lineHeight: theme.scale('2rem'),
 }));
 
 export const BodyText = React.forwardRef<Ref, BodyTextProps>(function BodyText(

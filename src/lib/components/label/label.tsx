@@ -21,6 +21,7 @@ const StyledText = styled(Text)<LabelProps>(
       },
       size
     ),
+    fontSize: theme.scale('1rem'),
     textTransform: transform,
   })
 );

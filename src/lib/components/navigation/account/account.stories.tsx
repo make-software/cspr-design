@@ -1,7 +1,7 @@
 import React from "react";
 import { ComponentMeta, ComponentStory } from "@storybook/react";
 import Account from "./account";
-import NavigationContainer from "../container/container";
+import { NavigationSettingsContainer } from '../container';
 
 export default {
   component: Account,
@@ -10,9 +10,9 @@ export default {
 } as ComponentMeta<typeof Account>;
 
 const Template: ComponentStory<typeof Account> = (args) => (
-  <NavigationContainer>
+  <NavigationSettingsContainer>
     <Account {...args} />
-  </NavigationContainer>
+  </NavigationSettingsContainer>
 );
 
 export const AccountWithPublicKey = Template.bind({});

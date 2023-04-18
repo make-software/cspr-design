@@ -1,6 +1,6 @@
 import React, { PropsWithChildren, useEffect, useState } from "react";
 import { useClickAway } from "../../../hooks/use-click-away";
-import { MenuProps } from "../dropdown-menu/menu/menu";
+import { MenuProps } from "../dropdown-menu/menu/dropdown-menu";
 import styled from "styled-components";
 import FlexRow from "../../flex-row/flex-row";
 
@@ -20,7 +20,7 @@ const BaseMenuWrapper = styled.div(({ theme }) => ({
     borderRadius: theme.borderRadius.base,
 }));
 
-export const BaseMenu = ({
+export const BaseDropdownMenu = ({
   opened = false,
   onClose,
   children,

@@ -1,4 +1,4 @@
-import { Menu } from './menu/menu';
-import { MenuItem } from './menu-item/menu-item';
+import { DropdownMenu } from './menu/dropdown-menu';
+import { DropdownMenuItem } from './menu-item/dropdown-menu-item';
 
-export { Menu, MenuItem };
+export { DropdownMenu, DropdownMenuItem };

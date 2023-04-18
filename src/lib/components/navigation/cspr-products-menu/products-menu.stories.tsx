@@ -2,7 +2,7 @@ import { ComponentMeta, ComponentStory } from "@storybook/react";
 import React from "react";
 import { ProductsMenu } from "./products-menu";
 import { ProductsMenuItem } from "./products-menu-item";
-import { NavigationContainer } from "../container";
+import { NavigationSettingsContainer } from "../container";
 import styled from "styled-components";
 import SubtitleText from "../../subtitle-text/subtitle-text";
 
@@ -22,14 +22,14 @@ const MenuContainer = styled.div(() => ({
 }));
 
 const Template: ComponentStory<typeof ProductsMenu> = (args) => (
-  <NavigationContainer>
+  <NavigationSettingsContainer>
     <SubtitleText size={2} variation={"lightGray"}>
       CSPR Products
     </SubtitleText>
     <MenuContainer>
       <ProductsMenu {...args} />
     </MenuContainer>
-  </NavigationContainer>
+  </NavigationSettingsContainer>
 );
 
 export const Primary = Template.bind({});

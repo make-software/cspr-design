@@ -5,6 +5,7 @@ import Button from './button';
 import FlexRow from '../flex-row/flex-row';
 import FlexColumn from '../flex-column/flex-column';
 import BodyText from '../body-text/body-text';
+import { ComponentStory } from '@storybook/react';
 
 const Container = styled.div(({ theme }) => ({
   display: 'flex',
@@ -19,7 +20,21 @@ const Container = styled.div(({ theme }) => ({
 export default {
   component: Button,
   title: 'Button',
+  argTypes: {
+      height: '36',
+      disabled: false,
+      color: 'primaryRed',
+      children: 'Button'
+  },
 };
+
+const Template: ComponentStory<typeof Button> = (args) => (<Container><Button {...args} /></Container>);
+export const ButtonSize = Template.bind({});
+ButtonSize.args = {
+    height: '36',
+    children: 'Button'
+}
+
 
 const primary = (disabled: boolean = false) => (
   <Button disabled={disabled}>Primary</Button>

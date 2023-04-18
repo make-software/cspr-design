@@ -1,6 +1,6 @@
-import "./assets/fonts/inter/inter.css";
-import "./assets/fonts/jetbrains-mono/jetbrains-mono.css";
-import {createGlobalStyle} from "styled-components";
+import './assets/fonts/inter/inter.css';
+import './assets/fonts/jetbrains-mono/jetbrains-mono.css';
+import { createGlobalStyle } from 'styled-components';
 
 const GlobalStyles = createGlobalStyle`
   html {
@@ -9,5 +9,4 @@ const GlobalStyles = createGlobalStyle`
   }
 `;
 
-
-export default GlobalStyles
+export default GlobalStyles;

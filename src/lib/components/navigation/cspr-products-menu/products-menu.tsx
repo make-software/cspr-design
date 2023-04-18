@@ -1,5 +1,5 @@
 import React, { PropsWithChildren } from "react";
-import { BaseMenu } from "../base-menu/base-menu";
+import { BaseDropdownMenu } from "../base-dropdown-menu/base-dropdown-menu";
 import styled from "styled-components";
 import FlexRow from "../../flex-row/flex-row";
 import {useMatchMedia} from "../../../utils/match-media";
@@ -25,10 +25,10 @@ export const ProductsMenu = ({
   const ProductContainer = useMatchMedia([FlexColumn, FlexColumn, FlexRow], []);
 
   return (
-    <BaseMenu opened={opened}>
+    <BaseDropdownMenu opened={opened}>
       <ProductsMenuWrapper>
         <ProductContainer wrap={'wrap'}>{children}</ProductContainer>
       </ProductsMenuWrapper>
-    </BaseMenu>
+    </BaseDropdownMenu>
   );
 };

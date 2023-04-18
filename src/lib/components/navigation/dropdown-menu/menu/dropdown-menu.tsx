@@ -1,5 +1,5 @@
 import React, { PropsWithChildren } from "react";
-import { BaseMenu } from "../../base-menu/base-menu";
+import { BaseDropdownMenu } from "../../base-dropdown-menu/base-dropdown-menu";
 import FlexColumn from "../../../flex-column/flex-column";
 import styled from "styled-components";
 
@@ -12,12 +12,12 @@ export interface MenuProps {
   onClose?: () => void;
 }
 
-export const Menu = ({ children, ...rest }: PropsWithChildren<MenuProps>) => {
+export const DropdownMenu = ({ children, ...rest }: PropsWithChildren<MenuProps>) => {
   return (
-    <BaseMenu {...rest}>
+    <BaseDropdownMenu {...rest}>
       <StyledFlexColumn>{children}</StyledFlexColumn>
-    </BaseMenu>
+    </BaseDropdownMenu>
   );
 };
 
-export default Menu;
+export default DropdownMenu;

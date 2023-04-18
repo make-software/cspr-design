@@ -29,7 +29,7 @@ const MenuItemWrapper = styled.li(({ theme }) =>
   })
 );
 
-export const MenuItem = ({ children }: PropsWithChildren<any>) => {
+export const DropdownMenuItem = ({ children }: PropsWithChildren<any>) => {
   return (
     <MenuItemWrapper>
       <ItemContainer>{children}</ItemContainer>
@@ -37,4 +37,4 @@ export const MenuItem = ({ children }: PropsWithChildren<any>) => {
   );
 };
 
-export default MenuItem;
+export default DropdownMenuItem;

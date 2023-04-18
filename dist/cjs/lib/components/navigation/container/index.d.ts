@@ -1,2 +1,2 @@
-export * from './container';
+export * from './containers';
 //# sourceMappingURL=index.d.ts.map

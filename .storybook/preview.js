@@ -1,7 +1,7 @@
-import React from "react";
-import { themeConfig } from "../src/lib";
-import { ThemeProvider } from "styled-components";
-import { withThemeFromJSXProvider } from "@storybook/addon-styling";
+import React from 'react';
+import { themeConfig } from '../src/lib';
+import { ThemeProvider } from 'styled-components';
+import { withThemeFromJSXProvider } from '@storybook/addon-styling';
 import GlobalStyles from "../src/lib/global-styles";
 
 export const decorators = [
@@ -10,14 +10,14 @@ export const decorators = [
       light: themeConfig.light,
       dark: themeConfig.dark,
     },
-    defaultTheme: "light",
+    defaultTheme: 'light',
     Provider: ThemeProvider,
     GlobalStyles: GlobalStyles,
   }),
 ];
 
 export const parameters = {
-  actions: { argTypesRegex: "^on[A-Z].*" },
+  actions: { argTypesRegex: '^on[A-Z].*' },
   controls: {
     matchers: {
       color: /(background|color)$/i,

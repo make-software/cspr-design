@@ -1,0 +1,10 @@
+import { __assign } from "tslib";
+import { themeConfig } from './theme-config';
+export var createTheme = function (_a) {
+    var _b = _a.fontSize, fontSize = _b === void 0 ? 10 : _b;
+    var themeLight = __assign(__assign({}, themeConfig.light), { rootFontSize: fontSize });
+    var themeDark = __assign(__assign({}, themeConfig.dark), { rootFontSize: fontSize });
+    return { light: themeLight, dark: themeDark };
+};
+export default createTheme;
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoidGhlbWUtY3JlYXRlLmpzIiwic291cmNlUm9vdCI6IiIsInNvdXJjZXMiOlsiLi4vLi4vc3JjL2xpYi90aGVtZS1jcmVhdGUudHN4Il0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7QUFBQSxPQUFPLEVBQUMsV0FBVyxFQUFDLE1BQU0sZ0JBQWdCLENBQUM7QUFFM0MsTUFBTSxDQUFDLElBQU0sV0FBVyxHQUFHLFVBQUMsRUFBZTtRQUFkLGdCQUFhLEVBQWIsUUFBUSxtQkFBRyxFQUFFLEtBQUE7SUFDdEMsSUFBTSxVQUFVLHlCQUFPLFdBQVcsQ0FBQyxLQUFLLEtBQUUsWUFBWSxFQUFFLFFBQVEsR0FBQyxDQUFDO0lBQ2xFLElBQU0sU0FBUyx5QkFBTyxXQUFXLENBQUMsSUFBSSxLQUFFLFlBQVksRUFBRSxRQUFRLEdBQUMsQ0FBQztJQUVoRSxPQUFPLEVBQUMsS0FBSyxFQUFFLFVBQVUsRUFBRSxJQUFJLEVBQUUsU0FBUyxFQUFDLENBQUM7QUFDaEQsQ0FBQyxDQUFDO0FBQ0YsZUFBZSxXQUFXLENBQUMiLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQge3RoZW1lQ29uZmlnfSBmcm9tICcuL3RoZW1lLWNvbmZpZyc7XG5cbmV4cG9ydCBjb25zdCBjcmVhdGVUaGVtZSA9ICh7Zm9udFNpemUgPSAxMH0pID0+IHtcbiAgICBjb25zdCB0aGVtZUxpZ2h0ID0gey4uLnRoZW1lQ29uZmlnLmxpZ2h0LCByb290Rm9udFNpemU6IGZvbnRTaXplfTtcbiAgICBjb25zdCB0aGVtZURhcmsgPSB7Li4udGhlbWVDb25maWcuZGFyaywgcm9vdEZvbnRTaXplOiBmb250U2l6ZX07XG5cbiAgICByZXR1cm4ge2xpZ2h0OiB0aGVtZUxpZ2h0LCBkYXJrOiB0aGVtZURhcmt9O1xufTtcbmV4cG9ydCBkZWZhdWx0IGNyZWF0ZVRoZW1lOyJdfQ==
