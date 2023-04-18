@@ -1,4 +1,5 @@
 import React from 'react';
+import { ComponentMeta, ComponentStory } from "@storybook/react";
 import styled from 'styled-components';
 import Avatar from './avatar'
 import FlexRow from "../flex-row/flex-row";
@@ -8,13 +9,24 @@ import SubtitleText from '../subtitle-text/subtitle-text';
 export default {
     component: Avatar,
     title: 'Avatar',
-};
+    args: {
+        size: 'default',
+        hash: '01f5f1fa995ab7e966428e5a1aed797526ad5b2454c50a63a7aaa2dfeae6a996c2'
+    },
+} as ComponentMeta<typeof Avatar>;
 
 const StyledBlock = styled.div`
   display: flex;
   align-items: center;
 `;
 
+const Template: ComponentStory<typeof Avatar> = (args) => (
+    <FlexRow itemsSpacing={10}>
+        <FlexColumn itemsSpacing={10}>
+            <Avatar {...args}/>
+        </FlexColumn>
+    </FlexRow>
+);
 const AvatarTypes = ({size}) => (
     <>
         <SubtitleText size={2}>{size}</SubtitleText>
@@ -39,4 +51,6 @@ export const allOptions = () => (
         </FlexColumn>
     </FlexRow>
 );
+
+export const Primary = Template.bind({});
 
