@@ -12,7 +12,7 @@ export const decorators = [
     },
     defaultTheme: 'light',
     Provider: ThemeProvider,
-    GlobalStyles: GlobalStyles,
+    GlobalStyles: GlobalStyles, // use GlobalStyles to provide necessary fonts.
   }),
 ];
 

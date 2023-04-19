@@ -5,6 +5,7 @@ import { ProductsMenuItem } from "./products-menu-item";
 import { NavigationSettingsContainer } from "../container";
 import styled from "styled-components";
 import SubtitleText from "../../subtitle-text/subtitle-text";
+import BodyText from "../../body-text/body-text";
 
 export default {
   component: ProductsMenu,
@@ -23,9 +24,9 @@ const MenuContainer = styled.div(() => ({
 
 const Template: ComponentStory<typeof ProductsMenu> = (args) => (
   <NavigationSettingsContainer>
-    <SubtitleText size={2} variation={"lightGray"}>
+    <BodyText size={2} variation={"lightGray"}>
       CSPR Products
-    </SubtitleText>
+    </BodyText>
     <MenuContainer>
       <ProductsMenu {...args} />
     </MenuContainer>

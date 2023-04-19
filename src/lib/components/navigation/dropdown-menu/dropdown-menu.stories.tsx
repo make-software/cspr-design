@@ -1,19 +1,18 @@
-import React from "react";
-import styled from "styled-components";
-import DropdownMenu from "./menu/dropdown-menu";
-import DropdownMenuItem from "./menu-item/dropdown-menu-item";
-import { ComponentMeta, ComponentStory } from "@storybook/react";
-import BodyText from "../../body-text/body-text";
-import FlexRow from "../../flex-row/flex-row";
-import SvgIcon from "../../svg-icon/svg-icon";
-import SubtitleText from "../../subtitle-text/subtitle-text";
+import React from 'react';
+import styled from 'styled-components';
+import DropdownMenu from './menu/dropdown-menu';
+import DropdownMenuItem from './menu-item/dropdown-menu-item';
+import { ComponentMeta, ComponentStory } from '@storybook/react';
+import BodyText from '../../body-text/body-text';
+import FlexRow from '../../flex-row/flex-row';
+import SvgIcon from '../../svg-icon/svg-icon';
 
 // @ts-ignore
-import ActivityIcon from "../../../assets/icons/ic-file.svg";
+import ActivityIcon from '../../../assets/icons/ic-file.svg';
 
 export default {
   component: DropdownMenu,
-  title: "Dropdown Menu",
+  title: 'Dropdown Menu',
   args: {
     opened: true,
   },
@@ -55,7 +54,7 @@ WithIcons.args = {
         <BodyText size={2}>
           <FlexRow align="center" gap={6}>
             <StyledSvgIcon src={"./assets/icons/ic-user.svg"} />
-            <SubtitleText size={2}>View Account</SubtitleText>
+            <BodyText size={2}>View Account</BodyText>
           </FlexRow>
         </BodyText>
       </DropdownMenuItem>
@@ -63,7 +62,7 @@ WithIcons.args = {
         <BodyText size={2}>
           <FlexRow align="center" gap={6}>
             <StyledSvgIcon src={ActivityIcon} />
-            <SubtitleText size={2}>Activity Export</SubtitleText>
+            <BodyText size={2}>Activity Export</BodyText>
           </FlexRow>
         </BodyText>
       </DropdownMenuItem>

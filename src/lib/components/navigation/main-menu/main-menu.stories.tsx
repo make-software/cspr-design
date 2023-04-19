@@ -6,11 +6,12 @@ import { MainMenu } from './main-menu';
 import SubtitleText from '../../subtitle-text/subtitle-text';
 import NavLink from '../../nav-link/nav-link';
 import styled from 'styled-components';
+import BodyText from '../../body-text/body-text';
 
-export const Container = styled.div(({ theme }) =>
+const Container = styled.div(({ theme }) =>
   theme.withMedia({
     background: theme.styleguideColors.backgroundTertiary,
-    maxWidth: theme.maxWidth,
+    // maxWidth: theme.maxWidth,
     height: [undefined, undefined, 72],
   })
 );
@@ -34,20 +35,28 @@ Primary.args = {
     <>
       <MainMenuItem>
         <NavLink>
-          <SubtitleText size={3}>Home</SubtitleText>
+          <BodyText size={3}>Home</BodyText>
         </NavLink>
       </MainMenuItem>
       <MainMenuItem>
-        <SubtitleText size={3}>Block</SubtitleText>
+        <NavLink>
+          <BodyText size={3}>Block</BodyText>
+        </NavLink>
       </MainMenuItem>
       <MainMenuItem>
-        <SubtitleText size={3}>Deploys</SubtitleText>
+        <NavLink>
+          <BodyText size={3}>Deploys</BodyText>
+        </NavLink>
       </MainMenuItem>
       <MainMenuItem>
-        <SubtitleText size={3}>Contracts</SubtitleText>
+        <NavLink>
+          <BodyText size={3}>Contracts</BodyText>
+        </NavLink>
       </MainMenuItem>
       <MainMenuItem>
-        <SubtitleText size={3}>Validators</SubtitleText>
+        <NavLink>
+          <BodyText size={3}>Validators</BodyText>
+        </NavLink>
       </MainMenuItem>
     </>
   ),

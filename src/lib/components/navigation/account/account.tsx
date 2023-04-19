@@ -1,10 +1,10 @@
 import FlexRow from "../../flex-row/flex-row";
-import SubtitleText from "../../subtitle-text/subtitle-text";
 import { formatHash } from "../../../utils/formatters";
 import Avatar from "../../avatar/avatar";
 import styled from "styled-components";
+import BodyText from "../../body-text/body-text";
 
-const StyledSubtitleText = styled(SubtitleText)(({ theme }) => ({
+const StyledBodyText = styled(BodyText)(({ theme }) => ({
   color: theme.styleguideColors.contentTertiary,
 }));
 
@@ -21,9 +21,9 @@ export const Account = ({ hash, logo }: AccountProps) => {
       ) : (
         <Avatar hash={hash} size="small" />
       )}
-      <StyledSubtitleText size={2} monotype>
+      <StyledBodyText size={2} monotype>
         {formatHash(hash)}
-      </StyledSubtitleText>
+      </StyledBodyText>
     </FlexRow>
   );
 };

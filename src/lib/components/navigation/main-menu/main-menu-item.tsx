@@ -6,12 +6,13 @@ const NavItem = styled.li(({ theme }) =>
     display: 'flex',
     color: theme.styleguideColors.contentTertiary,
     padding: ['16px 32px', '16px 48px', '0 12px', '0 16px'],
-    '&:first-child': {
-      paddingLeft: ['16px 32px', '16px 48px', '0', '0'],
-    },
-    '&:last-child': {
-      paddingRight: [undefined, undefined, '0'],
-    },
+    width: '100%',
+    // '&:first-child': {
+    //   paddingLeft: ['16px 32px', '16px 48px', '0', '0'],
+    // },
+    // '&:last-child': {
+    //   paddingRight: [undefined, undefined, '0'],
+    // },
   })
 );
 

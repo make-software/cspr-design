@@ -29,10 +29,14 @@ const MenuItemWrapper = styled.li(({ theme }) =>
   })
 );
 
-export const DropdownMenuItem = ({ children }: PropsWithChildren<any>) => {
+interface DropdownMenuItemProps {
+    onClick?: () => void;
+}
+
+export const DropdownMenuItem = (props: PropsWithChildren<DropdownMenuItemProps>) => {
   return (
-    <MenuItemWrapper>
-      <ItemContainer>{children}</ItemContainer>
+    <MenuItemWrapper {...props}>
+      <ItemContainer>{props.children}</ItemContainer>
     </MenuItemWrapper>
   );
 };

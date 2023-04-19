@@ -4,19 +4,11 @@ import { withMedia } from "./utils/match-media";
 
 const PAGE_MIN_WIDTH = 320;
 const PAGE_MAX_WIDTH = 1176;
-const ROOT_FONT_SIZE = 10;
-
-function scaleFont(rem) {
-  // @ts-ignore
-  return `calc(${rem} * ${this.htmlFontSize}/16 )`
-}
 
 const themeCommon = {
   minWidth: PAGE_MIN_WIDTH,
   maxWidth: PAGE_MAX_WIDTH,
   withMedia: withMedia,
-  htmlFontSize: ROOT_FONT_SIZE,
-  scale: scaleFont,
   zIndex: {
     dropdown: 10,
     modal: 15,

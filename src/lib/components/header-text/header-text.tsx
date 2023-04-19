@@ -8,10 +8,11 @@ import Text, { TextProps } from '../text/text';
 /* eslint-disable-next-line */
 export interface HeaderTextProps extends TextProps {
   size: Size;
+  scale?: 'sm' | 'md' | 'lg' | 'xl' | '2xl';
 }
 
 const StyledText = styled(Text)<HeaderTextProps>(
-  ({ theme, size = 2, monotype = false }) => ({
+  ({ theme, size = 2, scale = 'sm', monotype = false }) => ({
     fontWeight: monotype
       ? theme.typography.fontWeight.regular
       : matchSize(
@@ -27,25 +28,23 @@ const StyledText = styled(Text)<HeaderTextProps>(
         ),
     fontSize: matchSize(
       {
-        0: theme.scale('3.2rem'),
-        1: theme.scale('2.8rem'),
-        2: theme.scale('2.4rem'),
-        3: theme.scale('2.4rem'),
-        4: theme.scale('2rem'),
-        5: theme.scale('1.8rem'),
+        '2xl': '3.25rem',
+        xl: '2.875rem',
+        lg: '2.5rem',
+        md: '2rem',
+        sm: '1.75rem',
       },
-      size
+      scale
     ),
     lineHeight: matchSize(
       {
-        0: theme.scale('4.8rem'),
-        1: theme.scale('4rem'),
-        2: theme.scale('2.8rem'),
-        3: theme.scale('2.8rem'),
-        4: theme.scale('2rem'),
-        5: theme.scale('2.4rem'),
+        '2xl': '4.5rem',
+        xl: '4rem',
+        lg: '3.5rem',
+        md: '3rem',
+        sm: '2.5rem',
       },
-      size
+      scale
     ),
   })
 );

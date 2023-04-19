@@ -7,7 +7,7 @@
     "registry": "https://npm.pkg.github.com/make-software"
   },
   "scripts": {
-    "build:dist": "npm run build:esm && npm run build:cjs && npm run copy-assets",
+    "build:dist": "rm -rf ./dist && npm run build:esm && npm run build:cjs && npm run copy-assets",
     "build:esm": "tsc",
     "build:cjs": "tsc --module commonjs --outDir dist/cjs",
     "copy-assets": "cp -rv src/lib/assets/ dist/lib/assets/",

@@ -26,11 +26,10 @@ const MenuContainer = styled.ul(({ theme }) =>
     display: 'flex',
     flexDirection: ['column', 'column', 'row'],
     justifyContent: 'space-between',
-    alignItems: 'center',
+    alignItems: ['baseline', 'baseline', 'center'],
     height: '100%',
-    // maxWidth: theme.maxWidth,
-    // width: '100%',
-    // padding: ['19px 16px', '19px 32px', '0px 56px', '0px'],
+    width: '100%',
+    padding: ['0', '0', '0px 56px', '0px'],
     margin: [0],
   })
 );

@@ -1,13 +1,13 @@
-import React from "react";
-import { Badge } from "../../badge/badge";
-import CaptionText from "../../caption-text/caption-text";
-import FlexRow from "../../flex-row/flex-row";
-import NavLink from "../../nav-link/nav-link";
-import FlexColumn from "../../flex-column/flex-column";
-import SubtitleText from "../../subtitle-text/subtitle-text";
-import styled, { useTheme } from "styled-components";
-import { useMatchMedia } from "../../../utils/match-media";
-import SvgIcon from "../../svg-icon/svg-icon";
+import React from 'react';
+import { Badge } from '../../badge/badge';
+import CaptionText from '../../caption-text/caption-text';
+import FlexRow from '../../flex-row/flex-row';
+import NavLink from '../../nav-link/nav-link';
+import FlexColumn from '../../flex-column/flex-column';
+import styled from 'styled-components';
+import { useMatchMedia } from '../../../utils/match-media';
+import SvgIcon from '../../svg-icon/svg-icon';
+import BodyText from '../../body-text/body-text';
 
 export interface ProductsMenuItemProps {
   comingSoonBadgeLabel?: string;
@@ -83,9 +83,6 @@ export const ProductsMenuItem = ({
   newBadgeLabel,
   comingSoonBadgeLabel,
 }: ProductsMenuItemProps) => {
-  const theme = useTheme();
-  console.log(theme);
-
   let badge;
   if (comingSoonBadgeLabel) {
     badge = <Badge label={comingSoonBadgeLabel} variation={"violet"} />;
@@ -105,7 +102,7 @@ export const ProductsMenuItem = ({
       <FlexColumn itemsSpacing={4}>
         {badge}
         <ProductItemLink href={link} disabled={!!comingSoonBadgeLabel}>
-          <SubtitleText size={1}>{nameLabel}</SubtitleText>
+          <BodyText size={1}>{nameLabel}</BodyText>
         </ProductItemLink>
       </FlexColumn>
     </FlexRow>
@@ -117,7 +114,7 @@ export const ProductsMenuItem = ({
       <FlexColumn itemsSpacing={4} align={"center"}>
         {badge}
         <ProductItemLink href={link} disabled={!!comingSoonBadgeLabel}>
-          <SubtitleText size={1}>{nameLabel}</SubtitleText>
+          <BodyText size={1}>{nameLabel}</BodyText>
         </ProductItemLink>
       </FlexColumn>
     </FlexColumn>

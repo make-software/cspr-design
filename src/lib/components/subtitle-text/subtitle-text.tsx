@@ -9,10 +9,11 @@ type Ref = HTMLSpanElement;
 /* eslint-disable-next-line */
 export interface SubtitleTextProps extends TextProps {
   size: 1 | 2 | 3;
+  scale?: 'md' | 'lg';
 }
 
 const StyledText = styled(Text)<SubtitleTextProps>(
-  ({ theme, size, monotype = false }) => ({
+  ({ theme, size, scale = 'md', monotype = false }) => ({
     fontWeight: monotype
       ? theme.typography.fontWeight.regular
       : matchSize(
@@ -23,8 +24,14 @@ const StyledText = styled(Text)<SubtitleTextProps>(
           },
           size
         ),
-    fontSize: theme.scale('1.4rem'),
-    lineHeight: theme.scale('2.0rem'),
+    fontSize: matchSize(
+      {
+        md: '1.5rem',
+        lg: '1.25rem',
+      },
+      scale
+    ),
+    lineHeight: '2rem',
   })
 );
 
