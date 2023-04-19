@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import DropdownMenu from './dropdown-menu';
-import DropdownMenuItem from './dropdown-menu-item';
+import { DropdownMenu } from './dropdown-menu';
+import { DropdownMenuItem } from './dropdown-menu-item';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import BodyText from '../../body-text/body-text';
 import FlexRow from '../../flex-row/flex-row';

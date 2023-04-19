@@ -4,7 +4,6 @@ import { ProductsMenu } from "./products-menu";
 import { ProductsMenuItem } from "./products-menu-item";
 import { NavigationSettingsContainer } from "../container";
 import styled from "styled-components";
-import SubtitleText from "../../subtitle-text/subtitle-text";
 import BodyText from "../../body-text/body-text";
 
 export default {

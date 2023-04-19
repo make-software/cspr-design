@@ -4,5 +4,4 @@ export interface MenuProps {
     onClose?: () => void;
 }
 export declare const DropdownMenu: ({ children, ...rest }: PropsWithChildren<MenuProps>) => JSX.Element;
-export default DropdownMenu;
 //# sourceMappingURL=dropdown-menu.d.ts.map
