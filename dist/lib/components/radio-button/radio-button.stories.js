@@ -1,0 +1,18 @@
+import { __assign } from "tslib";
+import { jsx as _jsx } from "react/jsx-runtime";
+import RadioButton from './radio-button';
+import FlexRow from '../flex-row/flex-row';
+import FlexColumn from '../flex-column/flex-column';
+export default {
+    component: RadioButton,
+    title: 'RadioButton',
+    args: {
+        value: 'casper',
+        selected: 'casper',
+        disabled: true,
+        label: 'Test Net'
+    },
+};
+var Template = function (args) { return (_jsx(FlexRow, __assign({ itemsSpacing: 30 }, { children: _jsx(FlexColumn, __assign({ itemsSpacing: 20 }, { children: _jsx(RadioButton, __assign({}, args)) })) }))); };
+export var Primary = Template.bind({});
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoicmFkaW8tYnV0dG9uLnN0b3JpZXMuanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyIuLi8uLi8uLi8uLi9zcmMvbGliL2NvbXBvbmVudHMvcmFkaW8tYnV0dG9uL3JhZGlvLWJ1dHRvbi5zdG9yaWVzLnRzeCJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOztBQUVBLE9BQU8sV0FBVyxNQUFNLGdCQUFnQixDQUFDO0FBQ3pDLE9BQU8sT0FBTyxNQUFNLHNCQUFzQixDQUFDO0FBQzNDLE9BQU8sVUFBVSxNQUFNLDRCQUE0QixDQUFDO0FBRXBELGVBQWU7SUFDWCxTQUFTLEVBQUUsV0FBVztJQUN0QixLQUFLLEVBQUUsYUFBYTtJQUNwQixJQUFJLEVBQUU7UUFDRixLQUFLLEVBQUUsUUFBUTtRQUNmLFFBQVEsRUFBRSxRQUFRO1FBQ2xCLFFBQVEsRUFBRSxJQUFJO1FBQ2QsS0FBSyxFQUFFLFVBQVU7S0FDcEI7Q0FDaUMsQ0FBQztBQUV2QyxJQUFNLFFBQVEsR0FBdUMsVUFBQyxJQUFJLElBQUssT0FBQSxDQUMzRCxLQUFDLE9BQU8sYUFBQyxZQUFZLEVBQUUsRUFBRSxnQkFDckIsS0FBQyxVQUFVLGFBQUMsWUFBWSxFQUFFLEVBQUUsZ0JBQ3hCLEtBQUMsV0FBVyxlQUFLLElBQUksRUFBRyxJQUNmLElBQ1AsQ0FDYixFQU44RCxDQU05RCxDQUFDO0FBRUYsTUFBTSxDQUFDLElBQU0sT0FBTyxHQUFHLFFBQVEsQ0FBQyxJQUFJLENBQUMsRUFBRSxDQUFDLENBQUMiLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgUmVhY3QgZnJvbSAncmVhY3QnO1xuaW1wb3J0IHsgQ29tcG9uZW50TWV0YSwgQ29tcG9uZW50U3RvcnkgfSBmcm9tICdAc3Rvcnlib29rL3JlYWN0JztcbmltcG9ydCBSYWRpb0J1dHRvbiBmcm9tICcuL3JhZGlvLWJ1dHRvbic7XG5pbXBvcnQgRmxleFJvdyBmcm9tICcuLi9mbGV4LXJvdy9mbGV4LXJvdyc7XG5pbXBvcnQgRmxleENvbHVtbiBmcm9tICcuLi9mbGV4LWNvbHVtbi9mbGV4LWNvbHVtbic7XG5cbmV4cG9ydCBkZWZhdWx0IHtcbiAgICBjb21wb25lbnQ6IFJhZGlvQnV0dG9uLFxuICAgIHRpdGxlOiAnUmFkaW9CdXR0b24nLFxuICAgIGFyZ3M6IHtcbiAgICAgICAgdmFsdWU6ICdjYXNwZXInLFxuICAgICAgICBzZWxlY3RlZDogJ2Nhc3BlcicsXG4gICAgICAgIGRpc2FibGVkOiB0cnVlLFxuICAgICAgICBsYWJlbDogJ1Rlc3QgTmV0J1xuICAgIH0sXG59IGFzIENvbXBvbmVudE1ldGE8dHlwZW9mIFJhZGlvQnV0dG9uPjtcblxuY29uc3QgVGVtcGxhdGU6IENvbXBvbmVudFN0b3J5PHR5cGVvZiBSYWRpb0J1dHRvbj4gPSAoYXJncykgPT4gKFxuICAgIDxGbGV4Um93IGl0ZW1zU3BhY2luZz17MzB9PlxuICAgICAgICA8RmxleENvbHVtbiBpdGVtc1NwYWNpbmc9ezIwfT5cbiAgICAgICAgICAgIDxSYWRpb0J1dHRvbiB7Li4uYXJnc30vPlxuICAgICAgICA8L0ZsZXhDb2x1bW4+XG4gICAgPC9GbGV4Um93PlxuKTtcblxuZXhwb3J0IGNvbnN0IFByaW1hcnkgPSBUZW1wbGF0ZS5iaW5kKHt9KTtcbiJdfQ==

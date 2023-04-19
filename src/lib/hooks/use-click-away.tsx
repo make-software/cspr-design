@@ -1,11 +1,11 @@
 import React, { useCallback, useEffect, useRef } from 'react';
 
-export type Props = {
+export type ClickAwayProps = {
   eventType?: 'click';
   callback: () => void;
 };
 
-export function useClickAway({ eventType = 'click', callback }: Props) {
+export function useClickAway({ eventType = 'click', callback }: ClickAwayProps) {
   const ref = useRef<HTMLDivElement>(null);
 
   const handleClickOutside = useCallback(

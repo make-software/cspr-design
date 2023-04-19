@@ -1,0 +1,26 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.Primary = void 0;
+var tslib_1 = require("tslib");
+var jsx_runtime_1 = require("react/jsx-runtime");
+var flex_column_1 = tslib_1.__importDefault(require("./flex-column"));
+var flex_box_1 = tslib_1.__importDefault(require("../flex-box/flex-box"));
+var flex_row_1 = tslib_1.__importDefault(require("../flex-row/flex-row"));
+var styled_components_1 = tslib_1.__importDefault(require("styled-components"));
+exports.default = {
+    component: flex_column_1.default,
+    title: 'FlexColumn',
+    args: {
+        itemsSpacing: 10,
+        direction: 'column',
+        justify: 'center',
+        align: 'center',
+        grow: 10,
+    },
+};
+var StyledBlock = styled_components_1.default.div(templateObject_1 || (templateObject_1 = tslib_1.__makeTemplateObject(["\n  height: 100px;\n  width: 100px;\n  border: 1px solid #0a0a0a;\n  font-weight: bolder;\n  color: #fff;\n  :nth-child(1n) {\n    background: black;\n  }\n  :nth-child(2n) {\n    background: red;\n  }\n  :nth-child(3n) {\n    background: green;\n  }\n"], ["\n  height: 100px;\n  width: 100px;\n  border: 1px solid #0a0a0a;\n  font-weight: bolder;\n  color: #fff;\n  :nth-child(1n) {\n    background: black;\n  }\n  :nth-child(2n) {\n    background: red;\n  }\n  :nth-child(3n) {\n    background: green;\n  }\n"])));
+var Block = function () { return ((0, jsx_runtime_1.jsxs)(flex_box_1.default, { children: [(0, jsx_runtime_1.jsx)(StyledBlock, { children: "Block 1" }), (0, jsx_runtime_1.jsx)(StyledBlock, { children: "Block 2" }), (0, jsx_runtime_1.jsx)(StyledBlock, { children: "Block 3" })] })); };
+var Template = function (args) { return ((0, jsx_runtime_1.jsxs)(flex_row_1.default, tslib_1.__assign({ itemsSpacing: 30 }, { children: [(0, jsx_runtime_1.jsxs)(flex_column_1.default, tslib_1.__assign({ itemsSpacing: 10 }, { children: [(0, jsx_runtime_1.jsx)(Block, {}), (0, jsx_runtime_1.jsx)(Block, {})] })), (0, jsx_runtime_1.jsx)(flex_column_1.default, tslib_1.__assign({}, args, { children: (0, jsx_runtime_1.jsx)(Block, {}) }))] }))); };
+exports.Primary = Template.bind({});
+var templateObject_1;
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiZmxleC1jb2x1bW4uc3Rvcmllcy5qcyIsInNvdXJjZVJvb3QiOiIiLCJzb3VyY2VzIjpbIi4uLy4uLy4uLy4uLy4uL3NyYy9saWIvY29tcG9uZW50cy9mbGV4LWNvbHVtbi9mbGV4LWNvbHVtbi5zdG9yaWVzLnRzeCJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOzs7OztBQUVBLHNFQUF1QztBQUN2QywwRUFBMkM7QUFDM0MsMEVBQTJDO0FBQzNDLGdGQUF1QztBQUV2QyxrQkFBZTtJQUNYLFNBQVMsRUFBRSxxQkFBVTtJQUNyQixLQUFLLEVBQUUsWUFBWTtJQUNuQixJQUFJLEVBQUU7UUFDRixZQUFZLEVBQUUsRUFBRTtRQUNoQixTQUFTLEVBQUUsUUFBUTtRQUNuQixPQUFPLEVBQUUsUUFBUTtRQUNqQixLQUFLLEVBQUUsUUFBUTtRQUNmLElBQUksRUFBRSxFQUFFO0tBQ1g7Q0FDZ0MsQ0FBQztBQUd0QyxJQUFNLFdBQVcsR0FBRywyQkFBTSxDQUFDLEdBQUcseVVBQUEsOFBBZTdCLElBQUEsQ0FBQTtBQUVELElBQU0sS0FBSyxHQUFHLGNBQU0sT0FBQSxDQUNoQix3QkFBQyxrQkFBTyxlQUNKLHVCQUFDLFdBQVcsMEJBQXNCLEVBQ2xDLHVCQUFDLFdBQVcsMEJBQXNCLEVBQ2xDLHVCQUFDLFdBQVcsMEJBQXNCLElBQzVCLENBQ2IsRUFObUIsQ0FNbkIsQ0FBQztBQUVGLElBQU0sUUFBUSxHQUFzQyxVQUFDLElBQUksSUFBSyxPQUFBLENBQzFELHdCQUFDLGtCQUFPLHFCQUFDLFlBQVksRUFBRSxFQUFFLGlCQUNyQix3QkFBQyxxQkFBVSxxQkFBQyxZQUFZLEVBQUUsRUFBRSxpQkFDeEIsdUJBQUMsS0FBSyxLQUFFLEVBQ1IsdUJBQUMsS0FBSyxLQUFFLEtBQ0MsRUFDYix1QkFBQyxxQkFBVSx1QkFBSyxJQUFJLGNBQ2hCLHVCQUFDLEtBQUssS0FBRSxJQUNDLEtBQ1AsQ0FDYixFQVY2RCxDQVU3RCxDQUFDO0FBRVcsUUFBQSxPQUFPLEdBQUcsUUFBUSxDQUFDLElBQUksQ0FBQyxFQUFFLENBQUMsQ0FBQyIsInNvdXJjZXNDb250ZW50IjpbImltcG9ydCBSZWFjdCBmcm9tICdyZWFjdCc7XG5pbXBvcnQgeyBDb21wb25lbnRNZXRhLCBDb21wb25lbnRTdG9yeSB9IGZyb20gJ0BzdG9yeWJvb2svcmVhY3QnO1xuaW1wb3J0IEZsZXhDb2x1bW4gZnJvbSAnLi9mbGV4LWNvbHVtbic7XG5pbXBvcnQgRmxleEJveCBmcm9tICcuLi9mbGV4LWJveC9mbGV4LWJveCc7XG5pbXBvcnQgRmxleFJvdyBmcm9tICcuLi9mbGV4LXJvdy9mbGV4LXJvdyc7XG5pbXBvcnQgc3R5bGVkIGZyb20gJ3N0eWxlZC1jb21wb25lbnRzJztcblxuZXhwb3J0IGRlZmF1bHQge1xuICAgIGNvbXBvbmVudDogRmxleENvbHVtbixcbiAgICB0aXRsZTogJ0ZsZXhDb2x1bW4nLFxuICAgIGFyZ3M6IHtcbiAgICAgICAgaXRlbXNTcGFjaW5nOiAxMCxcbiAgICAgICAgZGlyZWN0aW9uOiAnY29sdW1uJyxcbiAgICAgICAganVzdGlmeTogJ2NlbnRlcicsXG4gICAgICAgIGFsaWduOiAnY2VudGVyJyxcbiAgICAgICAgZ3JvdzogMTAsXG4gICAgfSxcbn0gYXMgQ29tcG9uZW50TWV0YTx0eXBlb2YgRmxleENvbHVtbj47XG5cblxuY29uc3QgU3R5bGVkQmxvY2sgPSBzdHlsZWQuZGl2YFxuICBoZWlnaHQ6IDEwMHB4O1xuICB3aWR0aDogMTAwcHg7XG4gIGJvcmRlcjogMXB4IHNvbGlkICMwYTBhMGE7XG4gIGZvbnQtd2VpZ2h0OiBib2xkZXI7XG4gIGNvbG9yOiAjZmZmO1xuICA6bnRoLWNoaWxkKDFuKSB7XG4gICAgYmFja2dyb3VuZDogYmxhY2s7XG4gIH1cbiAgOm50aC1jaGlsZCgybikge1xuICAgIGJhY2tncm91bmQ6IHJlZDtcbiAgfVxuICA6bnRoLWNoaWxkKDNuKSB7XG4gICAgYmFja2dyb3VuZDogZ3JlZW47XG4gIH1cbmBcblxuY29uc3QgQmxvY2sgPSAoKSA9PiAoXG4gICAgPEZsZXhCb3g+XG4gICAgICAgIDxTdHlsZWRCbG9jaz5CbG9jayAxPC9TdHlsZWRCbG9jaz5cbiAgICAgICAgPFN0eWxlZEJsb2NrPkJsb2NrIDI8L1N0eWxlZEJsb2NrPlxuICAgICAgICA8U3R5bGVkQmxvY2s+QmxvY2sgMzwvU3R5bGVkQmxvY2s+XG4gICAgPC9GbGV4Qm94PlxuKTtcblxuY29uc3QgVGVtcGxhdGU6IENvbXBvbmVudFN0b3J5PHR5cGVvZiBGbGV4Q29sdW1uPiA9IChhcmdzKSA9PiAoXG4gICAgPEZsZXhSb3cgaXRlbXNTcGFjaW5nPXszMH0+XG4gICAgICAgIDxGbGV4Q29sdW1uIGl0ZW1zU3BhY2luZz17MTB9PlxuICAgICAgICAgICAgPEJsb2NrLz5cbiAgICAgICAgICAgIDxCbG9jay8+XG4gICAgICAgIDwvRmxleENvbHVtbj5cbiAgICAgICAgPEZsZXhDb2x1bW4gey4uLmFyZ3N9PlxuICAgICAgICAgICAgPEJsb2NrLz5cbiAgICAgICAgPC9GbGV4Q29sdW1uPlxuICAgIDwvRmxleFJvdz5cbik7XG5cbmV4cG9ydCBjb25zdCBQcmltYXJ5ID0gVGVtcGxhdGUuYmluZCh7fSk7XG4iXX0=

@@ -8,7 +8,7 @@ interface StyledBadgeProps {
   bgColor: BadgeBackgroundColor;
 }
 
-interface BadgeProps {
+export interface BadgeProps {
   label: string | React.ReactNode;
   variation?: BadgeBackgroundColor;
   capitalize?: boolean;

@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import {BaseProps} from "../../types";
 
-interface Props extends BaseProps {
+export interface Props extends BaseProps {
   tabsCount: number;
 }
 

@@ -1,6 +1,6 @@
 import React from 'react';
 type BadgeBackgroundColor = 'green' | 'violet' | 'blue';
-interface BadgeProps {
+export interface BadgeProps {
     label: string | React.ReactNode;
     variation?: BadgeBackgroundColor;
     capitalize?: boolean;

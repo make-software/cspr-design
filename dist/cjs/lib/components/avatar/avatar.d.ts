@@ -3,7 +3,7 @@ export declare const isValidAccountHash: (accountHash?: string | null) => accoun
 export interface AvatarProps {
     hash?: string | null;
     src?: string | null;
-    size?: "default" | "big" | "medium" | "small";
+    size?: "default" | "big" | "average" | "medium" | "small";
     loading?: boolean;
     isErc20?: boolean;
 }
