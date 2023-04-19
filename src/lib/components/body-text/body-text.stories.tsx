@@ -1,0 +1,37 @@
+import React from 'react';
+import { ComponentMeta, ComponentStory } from '@storybook/react';
+import BodyText from './body-text';
+import FlexRow from '../flex-row/flex-row';
+import FlexColumn from '../flex-column/flex-column';
+import CaptionText from '../caption-text/caption-text';
+import TruncateBox from '../truncate-box/truncate-box';
+
+export default {
+    component: BodyText,
+    title: 'BodyText',
+    args: {
+        size: 1,
+        monotype: true,
+        uppercase: false,
+        loading: false,
+    },
+} as ComponentMeta<typeof BodyText>;
+
+const Template: ComponentStory<typeof BodyText> = (args) => (
+    <FlexRow itemsSpacing={30}>
+        <FlexColumn itemsSpacing={20}>
+            <CaptionText size={1}>Simple Text</CaptionText>
+            <BodyText {...args}>Inter, Regular, 13 pt - Body</BodyText>
+        </FlexColumn>
+        <FlexColumn itemsSpacing={20}>
+            <CaptionText size={1}>Long Text</CaptionText>
+            <BodyText {...args}>
+                <TruncateBox size={1}>
+                    01f5f1fa995ab7e966428e5a1aed797526ad5b2454c50a63a7aaa2dfeae6a996c2
+                </TruncateBox>
+            </BodyText>
+        </FlexColumn>
+    </FlexRow>
+);
+
+export const Primary = Template.bind({});
