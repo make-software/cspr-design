@@ -14,6 +14,7 @@ export default {
         rightLabel: 'right label',
         status: 'success',
         statusText: 'status text',
+        disabled: false,
     },
 } as ComponentMeta<typeof FormField>;
 
