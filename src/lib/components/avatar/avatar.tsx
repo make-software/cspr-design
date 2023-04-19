@@ -20,7 +20,7 @@ export const isValidAccountHash = (
 export interface AvatarProps {
   hash?: string | null;
   src?: string | null;
-  size?: "default" | "big" | "halfMedium" | "medium" | "small";
+  size?: "default" | "big" | "average" | "medium" | "small";
   loading?: boolean;
   isErc20?: boolean;
 }
@@ -29,7 +29,7 @@ const getCornerRadius = (size: AvatarProps["size"] = "default") =>
   ({
     small: 2,
     default: 2,
-    halfMedium: 4,
+    average: 4,
     medium: 12,
     big: 12,
   }[size]);
@@ -38,7 +38,7 @@ const getSize = (size: AvatarProps["size"] = "default") =>
   ({
     small: 20,
     default: 32,
-    halfMedium: 40,
+    average: 40,
     medium: 80,
     big: 124,
   }[size]);
@@ -47,7 +47,7 @@ const getBgColor = (size: AvatarProps["size"] = "default") =>
   ({
     small: "contentTertiary",
     default: "contentQuaternary",
-    halfMedium: "contentQuaternary",
+    average: "contentQuaternary",
     medium: "contentQuaternary",
     big: "contentQuaternary",
   }[size]);
@@ -56,7 +56,7 @@ const getPadding = (size: AvatarProps["size"] = "default") =>
   ({
     small: 0,
     default: 0,
-    halfMedium: 0,
+    average: 0,
     medium: 0,
     big: 0,
   }[size]);
@@ -65,7 +65,7 @@ const getMargin = (size: AvatarProps["size"] = "default") =>
   ({
     small: 0,
     default: 4,
-    halfMedium: 4,
+    average: 4,
     medium: 4,
     big: 0,
   }[size]);

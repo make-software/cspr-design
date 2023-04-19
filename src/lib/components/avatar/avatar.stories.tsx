@@ -46,7 +46,7 @@ export const allOptions = () => (
         <FlexColumn itemsSpacing={10}>
             <AvatarTypes size='small'/>
             <AvatarTypes size='default'/>
-            <AvatarTypes size='halfMedium'/>
+            <AvatarTypes size='average'/>
             <AvatarTypes size='medium'/>
             <AvatarTypes size='big'/>
         </FlexColumn>
