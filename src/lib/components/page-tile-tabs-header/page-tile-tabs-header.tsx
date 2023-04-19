@@ -17,6 +17,8 @@ const StyledWrapper = styled.div<{ childrenCount: number }>(
     })
 );
 
-export const PageTileTabsHeader = ({ tabsCount, children }: Props) => {
+const PageTileTabsHeader = ({ tabsCount, children }: Props) => {
   return <StyledWrapper childrenCount={tabsCount}>{children}</StyledWrapper>;
 };
+
+export default PageTileTabsHeader
