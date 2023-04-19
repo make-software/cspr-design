@@ -3,8 +3,8 @@ import { ComponentMeta, ComponentStory } from '@storybook/react';
 import Link from './link';
 import FlexRow from '../flex-row/flex-row';
 import FlexColumn from '../flex-column/flex-column';
-import TruncateBox from "../truncate-box/truncate-box";
-import BodyText from "../body-text/body-text";
+import TruncateBox from '../truncate-box/truncate-box';
+import BodyText from '../body-text/body-text';
 
 export default {
     component: Link,
