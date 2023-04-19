@@ -1,6 +1,6 @@
 import React, { PropsWithChildren, useEffect, useState } from "react";
 import { useClickAway } from "../../../hooks/use-click-away";
-import { MenuProps } from "../dropdown-menu/menu/dropdown-menu";
+import { MenuProps } from "../dropdown-menu/dropdown-menu";
 import styled from "styled-components";
 import FlexRow from "../../flex-row/flex-row";
 

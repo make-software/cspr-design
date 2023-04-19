@@ -1,4 +1,4 @@
-import { DropdownMenu } from './menu/dropdown-menu';
-import { DropdownMenuItem } from './menu-item/dropdown-menu-item';
+import { DropdownMenu } from './dropdown-menu';
+import { DropdownMenuItem } from './dropdown-menu-item';
 export { DropdownMenu, DropdownMenuItem };
 //# sourceMappingURL=index.d.ts.map

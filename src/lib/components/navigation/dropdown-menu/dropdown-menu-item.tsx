@@ -1,6 +1,6 @@
 import React, { PropsWithChildren } from "react";
 import styled from "styled-components";
-import FlexRow from "../../../flex-row/flex-row";
+import FlexRow from "../../flex-row/flex-row";
 
 const ItemContainer = styled(FlexRow)(({ theme }) => ({
   width: "100%",
