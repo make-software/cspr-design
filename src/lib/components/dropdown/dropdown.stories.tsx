@@ -6,7 +6,7 @@ import FlexColumn from '../flex-column/flex-column';
 
 export default {
     component: Dropdown,
-    title: 'Dropdown',
+    title: 'Core/Components/Dropdown',
     args: {
         value: { value: 'faucet', label: 'Faucet' },
         areItemsRemovable: true,

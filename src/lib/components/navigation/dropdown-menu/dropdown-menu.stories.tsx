@@ -12,7 +12,7 @@ import ActivityIcon from '../../../assets/icons/ic-file.svg';
 
 export default {
   component: DropdownMenu,
-  title: 'Dropdown Menu',
+  title: 'Common/Navigation/Dropdown Menu',
   args: {
     opened: true,
   },

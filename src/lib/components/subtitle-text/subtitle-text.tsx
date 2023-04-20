@@ -26,8 +26,8 @@ const StyledText = styled(Text)<SubtitleTextProps>(
         ),
     fontSize: matchSize(
       {
-        md: '1.5rem',
-        lg: '1.25rem',
+        lg: '1.5rem',
+        md: '1.25rem',
       },
       scale
     ),

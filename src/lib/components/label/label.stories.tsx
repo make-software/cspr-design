@@ -8,7 +8,7 @@ import BodyText from '../body-text/body-text';
 
 export default {
     component: Label,
-    title: 'Label',
+    title: 'Core/Typography/Label',
     args: {
         size: 2,
         variation: 'blue',

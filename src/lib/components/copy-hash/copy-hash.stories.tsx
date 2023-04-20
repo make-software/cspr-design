@@ -6,7 +6,7 @@ import FlexColumn from '../flex-column/flex-column';
 
 export default {
   component: CopyHash,
-  title: 'CopyHash',
+  title: 'Common/Components/CopyHash',
   args: {
     value: 'some value',
   },

@@ -1,5 +1,5 @@
+import React, { useState } from 'react';
 import FlexRow from '../flex-row/flex-row';
-import { useState } from 'react';
 import BodyText from '../body-text/body-text';
 import styled from 'styled-components';
 import SvgIcon from '../svg-icon/svg-icon';

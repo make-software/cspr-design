@@ -7,7 +7,7 @@ import styled from 'styled-components';
 
 export default {
     component: FlexColumn,
-    title: 'FlexColumn',
+    title: 'Common/Layout/FlexColumn',
     args: {
         itemsSpacing: 10,
         direction: 'column',

@@ -6,7 +6,7 @@ import FlexColumn from '../flex-column/flex-column';
 
 export default {
     component: Input,
-    title: 'Input',
+    title: 'Core/Components/Input',
     args: {
         value: 'USA',
         placeholder: 'Type here',

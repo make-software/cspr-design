@@ -11,7 +11,7 @@ import FlexRow from '../flex-row/flex-row';
 
 export default {
   component: Text,
-  title: 'Text',
+  title: 'Core/Typography/Text',
 };
 
 export const allTexts = () => (

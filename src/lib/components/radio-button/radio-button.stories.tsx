@@ -6,7 +6,7 @@ import FlexColumn from '../flex-column/flex-column';
 
 export default {
     component: RadioButton,
-    title: 'RadioButton',
+    title: 'Core/Components/RadioButton',
     args: {
         value: 'casper',
         selected: 'casper',
