@@ -25,21 +25,22 @@ export const BaseDropdownMenu = ({
   onClose,
   children,
 }: PropsWithChildren<MenuProps>) => {
-  const [isOpen, setIsOpen] = useState(opened);
-
-  const { ref } = useClickAway({
-    callback: () => {
-      setIsOpen(false);
-      onClose && onClose();
-    },
-  });
-
-  useEffect(() => {
-    setIsOpen(opened);
-  }, [opened]);
+  // const [isOpen, setIsOpen] = useState(opened);
+  //
+  // const { ref } = useClickAway({
+  //   callback: () => {
+  //     setIsOpen(false);
+  //     onClose && onClose();
+  //   },
+  // });
+  //
+  // useEffect(() => {
+  //   setIsOpen(opened);
+  // }, [opened]);
 
   return (
-    <Container isOpen={isOpen} ref={ref}>
+    // <Container isOpen={isOpen} ref={ref}>
+    <Container isOpen={opened}>
       <BaseMenuWrapper>{children}</BaseMenuWrapper>
     </Container>
   );
