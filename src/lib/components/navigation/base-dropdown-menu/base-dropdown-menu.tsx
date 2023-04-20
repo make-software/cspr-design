@@ -31,16 +31,16 @@ export const BaseDropdownMenu = ({
     setIsOpen(opened);
   }, [opened]);
 
-  const { ref } = useClickAway({
-    callback: () => {
-      setIsOpen(false);
-      onClose && onClose();
-    },
-  });
+  // const { ref } = useClickAway({
+  //   callback: () => {
+  //     setIsOpen(false);
+  //     onClose && onClose();
+  //   },
+  // });
 
   return (
-    <Container isOpen={isOpen} ref={ref}>
-    {/*<Container isOpen={opened}>*/}
+    // <Container isOpen={isOpen} ref={ref}>
+    <Container isOpen={isOpen}>
       <BaseMenuWrapper>{children}</BaseMenuWrapper>
     </Container>
   );
