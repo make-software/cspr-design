@@ -41,6 +41,7 @@
     "test.ts",
     "**/*.spec.ts",
     "**/*.spec.tsx",
+    "**/*.stories.tsx",
     "stories"
   ]
 }

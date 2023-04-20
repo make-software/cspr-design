@@ -19,5 +19,3 @@ export const DropdownMenu = ({ children, ...rest }: PropsWithChildren<MenuProps>
     </BaseDropdownMenu>
   );
 };
-
-export default DropdownMenu;

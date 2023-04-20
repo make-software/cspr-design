@@ -41,4 +41,3 @@ export const DropdownMenuItem = (props: PropsWithChildren<DropdownMenuItemProps>
   );
 };
 
-export default DropdownMenuItem;

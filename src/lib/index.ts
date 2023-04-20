@@ -3,6 +3,7 @@ export * from './components/avatar/avatar';
 export * from './components/body-text/body-text';
 export * from './components/button/button';
 export * from './components/badge/badge';
+export * from './components/copy-hash/copy-hash';
 export * from './components/caption-text/caption-text';
 export * from './components/checkbox/checkbox';
 export * from './components/circular-indicator/circular-indicator';
