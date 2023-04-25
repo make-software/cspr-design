@@ -24,7 +24,7 @@ const Template: ComponentStory<typeof PageTileTabsHeader> = () => (
             <TabMenuItem key={2} active onClick={() => {}}>
               Tab 2
             </TabMenuItem>
-            <TabMenuItem key={1} active={false} onClick={() => {}}>
+            <TabMenuItem key={3} active={false} onClick={() => {}}>
               Tab 3
             </TabMenuItem>
           </TabMenu>
