@@ -67,3 +67,5 @@ export const CopyHash = ({
     </FlexRow>
   );
 };
+
+export default CopyHash;

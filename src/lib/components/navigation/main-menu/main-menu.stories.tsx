@@ -37,7 +37,7 @@ Primary.args = {
           <BodyText size={3}>Home</BodyText>
         </NavLink>
       </MainMenuItem>
-      <MainMenuItem>
+      <MainMenuItem selected>
         <NavLink>
           <BodyText size={3}>Block</BodyText>
         </NavLink>
