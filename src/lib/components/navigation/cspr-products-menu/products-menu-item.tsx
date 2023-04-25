@@ -20,8 +20,8 @@ export interface ProductsMenuItemProps {
 }
 
 export enum ThemeModeType {
-  light = "light",
-  dark = "dark",
+  light = 'light',
+  dark = 'dark',
 }
 
 export const ProductItemWrapper = styled.span<{
@@ -29,22 +29,22 @@ export const ProductItemWrapper = styled.span<{
   selected?: boolean;
 }>(({ theme, isOpen, selected }) =>
   theme.withMedia({
-    display: "flex",
-    flex: "1 1 auto",
-    justifyContent: "center",
-    alignItems: "center",
-    padding: ["8px 12px", "8px 12px", "16px"],
-    width: ["208px", "208px", "172px"],
-    height: ["56px", "56px", "137px"],
+    display: 'flex',
+    flex: '1 1 auto',
+    justifyContent: 'center',
+    alignItems: 'center',
+    padding: ['8px 12px', '8px 12px', '16px'],
+    width: ['208px', '208px', '172px'],
+    height: ['56px', '56px', '137px'],
 
-    "&:hover": {
+    '&:hover': {
       borderRadius: theme.borderRadius.base,
       background: theme.styleguideColors.backgroundSecondary,
     },
 
     ...(selected && {
       background: theme.styleguideColors.backgroundSecondary,
-      pointerEvents: "none",
+      pointerEvents: 'none',
     }),
   })
 );
@@ -52,17 +52,18 @@ export const ProductItemWrapper = styled.span<{
 export const ProductItemLink = styled(NavLink)(({ theme, disabled }) =>
   theme.withMedia({
     color: theme.styleguideColors.contentPrimary,
+    textDecoration: 'none',
 
-    "&:hover": {
+    '&:hover': {
       color: theme.styleguideColors.contentBlue,
     },
-    "&:active": {
+    '&:active': {
       color: theme.styleguideColors.contentLightBlue,
     },
 
     ...(disabled && {
       color: theme.styleguideColors.contentSecondary,
-      "&:hover > *": {
+      '&:hover > *': {
         color: theme.styleguideColors.contentSecondary,
       },
     }),
@@ -70,8 +71,8 @@ export const ProductItemLink = styled(NavLink)(({ theme, disabled }) =>
 );
 
 const defaultIcon = {
-  [ThemeModeType.light]: "assets/icons/ic-sand-clock-light.svg",
-  [ThemeModeType.dark]: "assets/icons/ic-sand-clock-dark.svg",
+  [ThemeModeType.light]: 'assets/icons/ic-sand-clock-light.svg',
+  [ThemeModeType.dark]: 'assets/icons/ic-sand-clock-dark.svg',
 };
 
 export const ProductsMenuItem = ({
@@ -85,42 +86,51 @@ export const ProductsMenuItem = ({
 }: ProductsMenuItemProps) => {
   let badge;
   if (comingSoonBadgeLabel) {
-    badge = <Badge label={comingSoonBadgeLabel} variation={"violet"} />;
+    badge = <Badge label={comingSoonBadgeLabel} variation={'violet'} />;
   } else if (newBadgeLabel) {
-    badge = <Badge label={newBadgeLabel} variation={"green"} />;
+    badge = <Badge label={newBadgeLabel} variation={'green'} />;
   } else {
     badge = (
-      <CaptionText size={2} variation={"lightGray"}>
+      <CaptionText size={2} variation={'lightGray'}>
         {descriptionText}
       </CaptionText>
     );
   }
 
   const mobile = (
-    <FlexRow itemsSpacing={8} justify={"flex-start"} grow={1}>
-      <SvgIcon src={icon || defaultIcon["light"]} size={32} />
-      <FlexColumn itemsSpacing={4}>
-        {badge}
-        <ProductItemLink href={link} disabled={!!comingSoonBadgeLabel}>
-          <BodyText size={1}>{nameLabel}</BodyText>
-        </ProductItemLink>
-      </FlexColumn>
+    <FlexRow itemsSpacing={8} justify={'flex-start'} grow={1}>
+      <ProductItemLink href={link} disabled={!!comingSoonBadgeLabel}>
+        <FlexRow itemsSpacing={8} grow={1}>
+          <SvgIcon src={icon || defaultIcon['light']} size={32} />
+          <FlexColumn itemsSpacing={4}>
+            {badge}
+            <BodyText size={1}>{nameLabel}</BodyText>
+          </FlexColumn>
+        </FlexRow>
+      </ProductItemLink>
     </FlexRow>
   );
 
   const desktop = (
-    <FlexColumn itemsSpacing={16} align={"center"} justify={"center"} grow={1}>
-      <SvgIcon src={icon || defaultIcon["light"]} size={48} />
-      <FlexColumn itemsSpacing={4} align={"center"}>
-        {badge}
-        <ProductItemLink href={link} disabled={!!comingSoonBadgeLabel}>
+    <ProductItemLink href={link} disabled={!!comingSoonBadgeLabel}>
+      <FlexColumn
+        itemsSpacing={16}
+        align={'center'}
+        justify={'center'}
+        grow={1}
+      >
+        <SvgIcon src={icon || defaultIcon['light']} size={48} />
+        <FlexColumn itemsSpacing={4} align={'center'}>
+          {badge}
           <BodyText size={1}>{nameLabel}</BodyText>
-        </ProductItemLink>
+        </FlexColumn>
       </FlexColumn>
-    </FlexColumn>
+    </ProductItemLink>
   );
 
   const productMedia = useMatchMedia([mobile, mobile, desktop], []);
 
-  return <ProductItemWrapper>{productMedia}</ProductItemWrapper>;
+  return (
+    <ProductItemWrapper selected={selected}>{productMedia}</ProductItemWrapper>
+  );
 };
