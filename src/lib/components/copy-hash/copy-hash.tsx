@@ -5,7 +5,10 @@ import styled from 'styled-components';
 import SvgIcon from '../svg-icon/svg-icon';
 import copy from 'copy-to-clipboard';
 
-const SuccessIcon = styled(SvgIcon)(({ theme }) => ({
+import SuccessIcon from '../../assets/icons/ic-success.svg';
+import CopyIcon from '../../assets/icons/ic-copy.svg';
+
+const SuccessIconWrapper = styled(SvgIcon)(({ theme }) => ({
   color: theme.styleguideColors.contentGreen,
 }));
 
@@ -51,7 +54,7 @@ export const CopyHash = ({
     >
       {isCopiedHash ? (
         <FlexRow align={'center'}>
-          <SuccessIcon src={'./assets/icons/ic-success.svg'} marginRight />
+          <SuccessIconWrapper src={SuccessIcon} marginRight />
           {!minified && (
             <BodyText size={2} variation="green">
               {copiedLabel}
@@ -60,7 +63,7 @@ export const CopyHash = ({
         </FlexRow>
       ) : (
         <FlexRow align={'center'}>
-          <StyledSvgIcon src="./assets/icons/ic-copy.svg" marginRight />
+          <StyledSvgIcon src={CopyIcon} marginRight />
           {!minified && <BodyText size={2}>{label}</BodyText>}
         </FlexRow>
       )}
