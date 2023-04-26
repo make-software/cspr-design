@@ -5,7 +5,7 @@ import Alert, {AlertStatus} from "./alert";
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
-  title: 'Alert',
+  title: 'Common/Components/Alert',
   component: Alert,
   // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
   argTypes: {

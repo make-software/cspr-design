@@ -6,15 +6,18 @@ import FlexColumn from '../flex-column/flex-column';
 
 export default {
   component: CopyHash,
-  title: 'CopyHash',
+  title: 'Common/Components/CopyHash',
   args: {
     value: 'some value',
+    label: 'Copy Public Key',
+    copiedLabel: 'Copied!',
+    minified: false,
   },
 } as ComponentMeta<typeof CopyHash>;
 
 const Template: ComponentStory<typeof CopyHash> = (args) => (
   <FlexColumn itemsSpacing={16}>
-    <CopyHash value={'some value'} />
+    <CopyHash {...args} />
     <BodyText size={2} variation={'darkGray'}>
       NOTE: CopyHash button allow you to copy value, which you can provide in
       `value` property to clipboard

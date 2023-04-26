@@ -7,7 +7,7 @@ import styled from 'styled-components';
 
 export default {
     component: FlexRow,
-    title: 'FlexRow',
+    title: 'Common/Layout/FlexRow',
     args: {
         itemsSpacing: 10,
         justify: 'center',

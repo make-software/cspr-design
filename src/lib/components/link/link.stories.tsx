@@ -8,7 +8,7 @@ import BodyText from '../body-text/body-text';
 
 export default {
     component: Link,
-    title: 'Link',
+    title: 'Core/Components/Link',
     args: {
         color: 'primaryBlue',
         href: './',

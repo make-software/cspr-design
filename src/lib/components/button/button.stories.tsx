@@ -19,7 +19,7 @@ const Container = styled.div(({ theme }) => ({
 
 export default {
   component: Button,
-  title: 'Button',
+  title: 'Core/Components/Button',
   argTypes: {
       height: '36',
       disabled: false,

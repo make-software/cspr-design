@@ -1,11 +1,14 @@
+import React, { useState } from 'react';
 import FlexRow from '../flex-row/flex-row';
-import { useState } from 'react';
 import BodyText from '../body-text/body-text';
 import styled from 'styled-components';
 import SvgIcon from '../svg-icon/svg-icon';
 import copy from 'copy-to-clipboard';
 
-const SuccessIcon = styled(SvgIcon)(({ theme }) => ({
+import SuccessIcon from '../../assets/icons/ic-success.svg';
+import CopyIcon from '../../assets/icons/ic-copy.svg';
+
+const SuccessIconWrapper = styled(SvgIcon)(({ theme }) => ({
   color: theme.styleguideColors.contentGreen,
 }));
 
@@ -26,7 +29,19 @@ const StyledSvgIcon = styled(SvgIcon)(({ theme }) =>
   })
 );
 
-export const CopyHash = ({ value }) => {
+export interface CopyHashProps {
+  value: string;
+  label?: string;
+  copiedLabel?: string;
+  minified?: boolean;
+}
+
+export const CopyHash = ({
+  value,
+  label = 'Copy Public Key',
+  copiedLabel = 'Copied!',
+  minified = false,
+}: CopyHashProps) => {
   const [isCopiedHash, setIsCopiedHash] = useState(false);
   return (
     <FlexRow
@@ -39,17 +54,21 @@ export const CopyHash = ({ value }) => {
     >
       {isCopiedHash ? (
         <FlexRow align={'center'}>
-          <SuccessIcon src={'assets/icons/ic-success.svg'} marginRight />
-          <BodyText size={2} variation="green">
-            Copied!
-          </BodyText>
+          <SuccessIconWrapper src={SuccessIcon} marginRight />
+          {!minified && (
+            <BodyText size={3} variation="green">
+              {copiedLabel}
+            </BodyText>
+          )}
         </FlexRow>
       ) : (
         <FlexRow align={'center'}>
-          <StyledSvgIcon src="assets/icons/ic-copy.svg" marginRight />
-          <BodyText size={2}>Copy Public Key</BodyText>
+          <StyledSvgIcon src={CopyIcon} marginRight />
+          {!minified && <BodyText size={3}>{label}</BodyText>}
         </FlexRow>
       )}
     </FlexRow>
   );
 };
+
+export default CopyHash;

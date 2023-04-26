@@ -3,7 +3,6 @@ import { ComponentMeta, ComponentStory } from '@storybook/react';
 
 import { MainMenuItem } from './main-menu-item';
 import { MainMenu } from './main-menu';
-import SubtitleText from '../../subtitle-text/subtitle-text';
 import NavLink from '../../nav-link/nav-link';
 import styled from 'styled-components';
 import BodyText from '../../body-text/body-text';
@@ -18,7 +17,7 @@ const Container = styled.div(({ theme }) =>
 
 export default {
   component: MainMenuItem,
-  title: 'Main Menu',
+  title: 'Common/Navigation/Main Menu',
   args: {},
 } as ComponentMeta<typeof MainMenuItem>;
 
@@ -38,7 +37,7 @@ Primary.args = {
           <BodyText size={3}>Home</BodyText>
         </NavLink>
       </MainMenuItem>
-      <MainMenuItem>
+      <MainMenuItem selected>
         <NavLink>
           <BodyText size={3}>Block</BodyText>
         </NavLink>

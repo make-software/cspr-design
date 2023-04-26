@@ -24,10 +24,10 @@ const StyledText = styled(Text)<BodyTextProps>(
     ),
     fontSize: matchSize(
       {
-        xs: '0.813rem',
-        sm: '0.875rem',
-        md: '1rem',
         lg: '1.125rem',
+        md: '1rem',
+        sm: '0.875rem',
+        xs: '0.813rem',
       },
       scale
     ),

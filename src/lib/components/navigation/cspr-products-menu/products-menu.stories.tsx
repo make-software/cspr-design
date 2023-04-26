@@ -8,7 +8,7 @@ import BodyText from '../../body-text/body-text';
 
 export default {
   component: ProductsMenu,
-  title: 'Products Menu',
+  title: "Common/Navigation/Products Menu",
   args: {
     opened: true,
   },

@@ -6,7 +6,7 @@ import FlexColumn from '../flex-column/flex-column';
 
 export default {
     component: Checkbox,
-    title: 'Checkbox',
+    title: 'Core/Components/Checkbox',
     args: {
         checked: true,
         label: 'checkbox',

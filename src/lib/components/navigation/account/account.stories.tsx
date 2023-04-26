@@ -5,7 +5,7 @@ import { NavigationSettingsContainer } from '../container';
 
 export default {
   component: Account,
-  title: "Account",
+  title: "Common/Navigation/Account",
   args: {},
 } as ComponentMeta<typeof Account>;
 

@@ -12,7 +12,7 @@ import ActivityIcon from '../../../assets/icons/ic-file.svg';
 
 export default {
   component: DropdownMenu,
-  title: 'Dropdown Menu',
+  title: 'Common/Navigation/Dropdown Menu',
   args: {
     opened: true,
   },
@@ -25,7 +25,9 @@ const StyledSvgIcon = styled(SvgIcon)(({ theme }) => ({
   },
 }));
 
-const Template: ComponentStory<typeof DropdownMenu> = (args) => <DropdownMenu {...args} />;
+const Template: ComponentStory<typeof DropdownMenu> = (args) => (
+  <DropdownMenu {...args} />
+);
 
 export const Primary = Template.bind({});
 // More on args: https://storybook.js.org/docs/react/writing-stories/args
@@ -53,7 +55,7 @@ WithIcons.args = {
       <DropdownMenuItem>
         <BodyText size={2}>
           <FlexRow align="center" gap={6}>
-            <StyledSvgIcon src={"./assets/icons/ic-user.svg"} />
+            <StyledSvgIcon src={'./assets/icons/ic-user.svg'} />
             <BodyText size={2}>View Account</BodyText>
           </FlexRow>
         </BodyText>

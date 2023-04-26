@@ -7,7 +7,7 @@ import styled from 'styled-components';
 
 export default {
     component: FlexBox,
-    title: 'FlexBox',
+    title: 'Common/Layout/FlexBox',
     args: {
         gap: 10,
         wrap: 'wrap',
