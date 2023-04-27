@@ -99,7 +99,7 @@ export const ProductsMenuItem = ({
 
   const mobile = (
     <FlexRow itemsSpacing={8} justify={'flex-start'} grow={1}>
-      <ProductItemLink href={link} disabled={!!comingSoonBadgeLabel}>
+      <ProductItemLink href={link} target={'_blank'} disabled={!!comingSoonBadgeLabel}>
         <FlexRow itemsSpacing={8} grow={1}>
           <SvgIcon src={icon || defaultIcon['light']} size={32} />
           <FlexColumn itemsSpacing={4}>
@@ -112,7 +112,7 @@ export const ProductsMenuItem = ({
   );
 
   const desktop = (
-    <ProductItemLink href={link} disabled={!!comingSoonBadgeLabel}>
+    <ProductItemLink href={link} target={'_blank'} disabled={!!comingSoonBadgeLabel}>
       <FlexColumn
         itemsSpacing={16}
         align={'center'}
