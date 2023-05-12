@@ -1,19 +1,22 @@
 import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import ConfirmationWindow from './confirmation-window';
+import ConfirmationWindow, { ModalPosition } from './confirmation-window';
 import FlexRow from '../flex-row/flex-row';
 import FlexColumn from '../flex-column/flex-column';
 import BodyText from '../body-text/body-text';
+import { LockImage } from '../lock-image/lock-image';
 
 export default {
   component: ConfirmationWindow,
   title: 'Modal Window',
   args: {
     isOpen: true,
+    position: ModalPosition.TopRight,
+    bodyImg: <LockImage size={100} />,
     title: 'Please, set your recovery password first',
     information:
       'To perform this action you need to set up first your account and password.',
-    withHeader: false,
+    withHeader: true,
     confirmLabel: 'Yes',
     dismissLabel: 'No',
     onConfirm: () => {},

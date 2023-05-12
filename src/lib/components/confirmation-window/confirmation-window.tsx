@@ -1,5 +1,5 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled, { useTheme } from 'styled-components';
 import FlexRow from '../flex-row/flex-row';
 import FlexColumn from '../flex-column/flex-column';
 import Button from '../button/button';
@@ -7,29 +7,78 @@ import BodyText from '../body-text/body-text';
 import ReactModal from 'react-modal';
 import ModalHeader from './modal-header';
 import SubtitleText from '../subtitle-text/subtitle-text';
+import { ThemeModeType } from '../navigation/cspr-products-menu/products-menu-item';
+
+export enum ModalPosition {
+  TopRight = 'topRight',
+  Center = 'center',
+}
+
+export interface ModalPositionProps {
+  position: ModalPosition;
+}
 
 export interface ConfirmationWindowSceneProps {
   isOpen: boolean;
+  bodyImg?: React.ReactElement;
+  position: ModalPosition;
   title: string;
   withHeader?: boolean;
-  headerLogoSrc?: string;
-  information?: string;
+  headerLogo?: string;
+  information?: React.ReactElement | string;
   confirmLabel: string;
   onConfirm: () => void;
   confirmColor?: string;
   dismissLabel?: string;
   onDismiss: () => void;
+  themeMode?: ThemeModeType;
+  portalClass?: string;
 }
 
-const ModalContainer = styled(FlexColumn)(({ theme }) =>
-  theme.withMedia({
-    width: ['311px', '400px', '462px'],
-  })
+const centerModalStyles = {
+  left: '50%',
+  right: 'auto',
+  bottom: 'auto',
+  border: 'none',
+  borderRadius: '12px',
+  padding: '32px 24px 24px 24px',
+  top: '50%',
+  transform: 'translate(-50%, -50%)',
+};
+
+const topModalStyles = {
+  top: '40px',
+  left: 'auto',
+  right: '40px',
+  border: 'none',
+  bottom: 'auto',
+  borderRadius: '12px',
+  padding: '16px 24px 24px 24px'
+};
+
+const ModalContainer = styled(FlexColumn)<ModalPositionProps>(
+  ({ theme, position }) =>
+    theme.withMedia({
+      width:
+        position === ModalPosition.TopRight
+          ? ['350px', '350px', '350px']
+          : ['261px', '400px', '446px'],
+      background: theme.styleguideColors.backgroundPrimary,
+      borderColor: theme.styleguideColors.backgroundPrimary,
+    })
 );
 
-const StyledCaption = styled.div(({ theme }) =>
+const ImageWrapper = styled(FlexRow)(({ theme }) =>
+    theme.withMedia({
+      margin: '15px 0 35px 0',
+    })
+);
+
+const StyledCaption = styled.div<ModalPositionProps>(({ theme, position }) =>
   theme.withMedia({
-    textAlign: 'center',
+    textAlign: position === ModalPosition.TopRight
+        ? 'left'
+        : 'center',
     marginBottom: '16px',
   })
 );
@@ -37,49 +86,70 @@ const StyledCaption = styled.div(({ theme }) =>
 const StyledCaptionText = styled(SubtitleText)(({ theme }) =>
   theme.withMedia({
     fontWeight: [600, 600, 700],
+    fontSize: ['20px', '24px', '24px'],
   })
 );
 
-const InformationText = styled(BodyText)(({ theme }) =>
-  theme.withMedia({
-    textAlign: 'center',
-    color: theme.styleguideColors.contentSecondary,
-  })
+const InformationText = styled(BodyText)<ModalPositionProps>(
+  ({ theme, position }) =>
+    theme.withMedia({
+      textAlign: position === ModalPosition.TopRight
+          ? 'left' 
+          : 'center',
+      color: theme.styleguideColors.contentSecondary,
+    })
 );
 
-const ButtonsContainer = styled(FlexRow)(({ theme }) =>
-  theme.withMedia({
-    marginTop: ['32px', '32px', '56px'],
-    flexDirection: ['column', 'row', 'row'],
-  })
+const ButtonsContainer = styled(FlexRow)<ModalPositionProps>(
+  ({ theme, position }) =>
+    theme.withMedia({
+      marginTop:
+        position === ModalPosition.TopRight
+            ? '40px' 
+            : ['32px', '32px', '56px'],
+      flexDirection: ['column', 'row', 'row'],
+    })
 );
 
 export const ConfirmationWindow = ({
   isOpen,
+  position,
   title,
   withHeader,
-  headerLogoSrc,
+  headerLogo,
+  bodyImg,
   information,
   confirmLabel,
   confirmColor,
   onConfirm,
   dismissLabel,
   onDismiss,
+  themeMode,
+  portalClass = 'portal',
 }: ConfirmationWindowSceneProps) => {
-  const modalStyle = {
-    overlay: {
-      backgroundColor: '#0E1126A0',
-    },
-    content: {
-      left: '50%',
-      right: 'auto',
-      bottom: 'auto',
-      borderRadius: '12px',
-      padding: '32px 16px 16px',
-      top: '50%',
-      transform: 'translate(-50%, -50%)',
-    },
-  };
+  const theme = useTheme();
+
+    const modalStyle = {
+      overlay: {
+        backgroundColor: '#0E1126A0',
+      },
+      content:
+        position === ModalPosition.TopRight
+          ? {
+              ...topModalStyles,
+              ...{
+                backgroundColor: theme.styleguideColors.backgroundPrimary,
+                borderColor: theme.styleguideColors.backgroundPrimary,
+              },
+            }
+          : {
+              ...centerModalStyles,
+              ...{
+                backgroundColor: theme.styleguideColors.backgroundPrimary,
+                borderColor: theme.styleguideColors.backgroundPrimary,
+              },
+            },
+    };
 
   return (
     <>
@@ -90,26 +160,32 @@ export const ConfirmationWindow = ({
           onRequestClose={onDismiss}
           shouldCloseOnEsc
           shouldCloseOnOverlayClick
-          portalClassName={'cspr'}
+          portalClassName={portalClass}
         >
-          <ModalContainer>
+          <ModalContainer position={position}>
             {withHeader && (
               <ModalHeader
-                headerLogoSrc={headerLogoSrc}
+                themeMode={themeMode}
+                headerLogo={headerLogo}
                 onDismiss={onDismiss}
               />
             )}
-            <StyledCaption>
+            {bodyImg && <ImageWrapper justify="center">{bodyImg}</ImageWrapper>}
+            <StyledCaption position={position}>
               <StyledCaptionText size={1} scale="lg">
                 {title}
               </StyledCaptionText>
             </StyledCaption>
-            <FlexRow>
-              <InformationText size={3} scale="sm">
+            <FlexRow justify="center">
+              <InformationText position={position} size={3} scale="sm">
                 {information}
               </InformationText>
             </FlexRow>
-            <ButtonsContainer gap={'16px'} justify={'space-between'}>
+            <ButtonsContainer
+              position={position}
+              gap={'16px'}
+              justify={'space-between'}
+            >
               {dismissLabel && (
                 <Button color={'secondaryBlue'} onClick={onDismiss}>
                   {dismissLabel}

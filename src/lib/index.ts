@@ -42,6 +42,8 @@ export * from './components/navigation/dropdown-menu/dropdown-menu-item';
 export * from './components/navigation/cspr-products-menu/products-menu';
 export * from './components/navigation/cspr-products-menu/products-menu-item';
 export * from './components/confirmation-window/confirmation-window';
+export * from './components/lock-image/lock-image';
+export * from './components/document-image/document-image';
 export * from './hooks/use-click-away';
 export * from './utils/match-media';
 export * from './utils/match-size';

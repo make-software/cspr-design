@@ -2,12 +2,12 @@ import React from 'react';
 import styled from 'styled-components';
 import FlexRow from '../flex-row/flex-row';
 import SvgIcon from '../svg-icon/svg-icon';
-import CSPRLiveLogo from '../../assets/icons/logos/cspr-live-full.svg';
+import { ThemeModeType } from '../navigation/cspr-products-menu/products-menu-item';
 import CloseIcon from '../../assets/icons/ic-close.svg';
 
 const ModalHeaderContainer = styled(FlexRow)(({ theme }) =>
   theme.withMedia({
-    marginBottom: ['40px', '46px', '46px'],
+    marginBottom: '40px',
   })
 );
 
@@ -22,24 +22,18 @@ const StyledSvgIcon = styled(SvgIcon)(({ theme }) => ({
   },
 }));
 
-const StyledImg = styled.img(() => ({
-  marginLeft: '4px',
-}));
-
 interface ModalHeaderProps {
   onDismiss: () => void;
-  headerLogoSrc?: string;
+  headerLogo?: string;
+  themeMode?: ThemeModeType;
 }
 
-const ModalHeader = ({ onDismiss, headerLogoSrc }: ModalHeaderProps) => {
+const ModalHeader = ({ onDismiss, headerLogo }: ModalHeaderProps) => {
   return (
-    <ModalHeaderContainer justify="space-between" align="center">
-      <StyledImg
-        src={headerLogoSrc ? headerLogoSrc : CSPRLiveLogo}
-        alt="CSPR logo"
-      />
+    <ModalHeaderContainer justify={headerLogo ? "space-between": "end"} align="center">
+        {headerLogo && <SvgIcon src={headerLogo} />}
       <CloseButton onClick={onDismiss}>
-        <StyledSvgIcon src={CloseIcon} size={16} />
+        <StyledSvgIcon src={CloseIcon} size={20} />
       </CloseButton>
     </ModalHeaderContainer>
   );
