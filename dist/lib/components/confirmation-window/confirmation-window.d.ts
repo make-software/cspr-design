@@ -13,7 +13,7 @@ export interface ConfirmationWindowSceneProps {
     position: ModalPosition;
     title: string;
     withHeader?: boolean;
-    headerLogo?: string;
+    headerLogo?: React.ReactElement;
     information?: React.ReactElement | string;
     confirmLabel: string;
     onConfirm: () => void;

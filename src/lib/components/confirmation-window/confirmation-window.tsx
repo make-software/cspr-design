@@ -24,7 +24,7 @@ export interface ConfirmationWindowSceneProps {
   position: ModalPosition;
   title: string;
   withHeader?: boolean;
-  headerLogo?: string;
+  headerLogo?: React.ReactElement;
   information?: React.ReactElement | string;
   confirmLabel: string;
   onConfirm: () => void;
@@ -53,7 +53,7 @@ const topModalStyles = {
   border: 'none',
   bottom: 'auto',
   borderRadius: '12px',
-  padding: '16px 24px 24px 24px'
+  padding: '16px 24px 24px 24px',
 };
 
 const ModalContainer = styled(FlexColumn)<ModalPositionProps>(
@@ -69,16 +69,14 @@ const ModalContainer = styled(FlexColumn)<ModalPositionProps>(
 );
 
 const ImageWrapper = styled(FlexRow)(({ theme }) =>
-    theme.withMedia({
-      margin: '15px 0 35px 0',
-    })
+  theme.withMedia({
+    margin: '15px 0 35px 0',
+  })
 );
 
 const StyledCaption = styled.div<ModalPositionProps>(({ theme, position }) =>
   theme.withMedia({
-    textAlign: position === ModalPosition.TopRight
-        ? 'left'
-        : 'center',
+    textAlign: position === ModalPosition.TopRight ? 'left' : 'center',
     marginBottom: '16px',
   })
 );
@@ -93,9 +91,7 @@ const StyledCaptionText = styled(SubtitleText)(({ theme }) =>
 const InformationText = styled(BodyText)<ModalPositionProps>(
   ({ theme, position }) =>
     theme.withMedia({
-      textAlign: position === ModalPosition.TopRight
-          ? 'left' 
-          : 'center',
+      textAlign: position === ModalPosition.TopRight ? 'left' : 'center',
       color: theme.styleguideColors.contentSecondary,
     })
 );
@@ -104,9 +100,7 @@ const ButtonsContainer = styled(FlexRow)<ModalPositionProps>(
   ({ theme, position }) =>
     theme.withMedia({
       marginTop:
-        position === ModalPosition.TopRight
-            ? '40px' 
-            : ['32px', '32px', '56px'],
+        position === ModalPosition.TopRight ? '40px' : ['32px', '32px', '56px'],
       flexDirection: ['column', 'row', 'row'],
     })
 );
@@ -129,27 +123,27 @@ export const ConfirmationWindow = ({
 }: ConfirmationWindowSceneProps) => {
   const theme = useTheme();
 
-    const modalStyle = {
-      overlay: {
-        backgroundColor: '#0E1126A0',
-      },
-      content:
-        position === ModalPosition.TopRight
-          ? {
-              ...topModalStyles,
-              ...{
-                backgroundColor: theme.styleguideColors.backgroundPrimary,
-                borderColor: theme.styleguideColors.backgroundPrimary,
-              },
-            }
-          : {
-              ...centerModalStyles,
-              ...{
-                backgroundColor: theme.styleguideColors.backgroundPrimary,
-                borderColor: theme.styleguideColors.backgroundPrimary,
-              },
+  const modalStyle = {
+    overlay: {
+      backgroundColor: '#0E1126A0',
+    },
+    content:
+      position === ModalPosition.TopRight
+        ? {
+            ...topModalStyles,
+            ...{
+              backgroundColor: theme.styleguideColors.backgroundPrimary,
+              borderColor: theme.styleguideColors.backgroundPrimary,
             },
-    };
+          }
+        : {
+            ...centerModalStyles,
+            ...{
+              backgroundColor: theme.styleguideColors.backgroundPrimary,
+              borderColor: theme.styleguideColors.backgroundPrimary,
+            },
+          },
+  };
 
   return (
     <>

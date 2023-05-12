@@ -24,14 +24,17 @@ const StyledSvgIcon = styled(SvgIcon)(({ theme }) => ({
 
 interface ModalHeaderProps {
   onDismiss: () => void;
-  headerLogo?: string;
+  headerLogo?: React.ReactElement;
   themeMode?: ThemeModeType;
 }
 
 const ModalHeader = ({ onDismiss, headerLogo }: ModalHeaderProps) => {
   return (
-    <ModalHeaderContainer justify={headerLogo ? "space-between": "end"} align="center">
-        {headerLogo && <SvgIcon src={headerLogo} />}
+    <ModalHeaderContainer
+      justify={headerLogo ? 'space-between' : 'end'}
+      align="center"
+    >
+      {headerLogo && headerLogo}
       <CloseButton onClick={onDismiss}>
         <StyledSvgIcon src={CloseIcon} size={20} />
       </CloseButton>
