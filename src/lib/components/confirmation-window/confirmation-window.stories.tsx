@@ -4,7 +4,6 @@ import ConfirmationWindow, { ModalPosition } from './confirmation-window';
 import FlexRow from '../flex-row/flex-row';
 import FlexColumn from '../flex-column/flex-column';
 import BodyText from '../body-text/body-text';
-import { LockImage } from '../lock-image/lock-image';
 
 export default {
   component: ConfirmationWindow,
@@ -12,7 +11,6 @@ export default {
   args: {
     isOpen: true,
     position: ModalPosition.TopRight,
-    bodyImg: <LockImage size={100} />,
     title: 'Please, set your recovery password first',
     information:
       'To perform this action you need to set up first your account and password.',
