@@ -1,5 +1,5 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import React from 'react';
+import React, { useState } from 'react';
 import { ProductsMenu } from './products-menu';
 import { ProductsMenuItem } from './products-menu-item';
 import { NavigationSettingsContainer } from '../container';
@@ -8,7 +8,7 @@ import BodyText from '../../body-text/body-text';
 
 export default {
   component: ProductsMenu,
-  title: "Common/Navigation/Products Menu",
+  title: 'Common/Navigation/Products Menu',
   args: {
     opened: true,
   },
@@ -21,16 +21,29 @@ const MenuContainer = styled.div(() => ({
   position: 'absolute',
 }));
 
-const Template: ComponentStory<typeof ProductsMenu> = (args) => (
-  <NavigationSettingsContainer>
-    <BodyText size={2} variation={'lightGray'}>
-      CSPR Products
-    </BodyText>
-    <MenuContainer>
-      <ProductsMenu {...args} />
-    </MenuContainer>
-  </NavigationSettingsContainer>
-);
+const Template: ComponentStory<typeof ProductsMenu> = (args) => {
+  const [opened, setOpened] = useState(false);
+
+  return (
+    <NavigationSettingsContainer>
+      <div style={{ display: 'flex', flexDirection: 'column'}}
+        onMouseOver={() => {
+          setOpened(true);
+        }}
+        onMouseOut={() => {
+          setOpened(false);
+        }}
+      >
+        <BodyText size={2} variation={'lightGray'}>
+          CSPR Products
+        </BodyText>
+        <MenuContainer>
+          <ProductsMenu opened={opened} {...args} />
+        </MenuContainer>
+      </div>
+    </NavigationSettingsContainer>
+  );
+};
 
 export const Primary = Template.bind({});
 Primary.args = {

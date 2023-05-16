@@ -1,24 +1,34 @@
-import React, { PropsWithChildren } from 'react';
+import * as React from 'react';
 import { BaseDropdownMenu } from '../base-dropdown-menu/base-dropdown-menu';
 import FlexColumn from '../../flex-column/flex-column';
 import styled from 'styled-components';
 
-const StyledFlexColumn = styled(FlexColumn)(() => ({
-  padding: '16px 0',
-}));
+const StyledFlexColumn = styled(FlexColumn)<{ multiColumn?: boolean }>(
+  ({ theme, multiColumn }) => ({
+    padding: '8px 0',
+    ...(multiColumn && {
+      padding: '8px',
+      '& li:hover > *': {
+        borderRadius: theme.borderRadius.base,
+      },
+    }),
+  })
+);
 
 export interface MenuProps {
   opened?: boolean;
   onClose?: () => void;
+  multiColumn?: boolean;
 }
 
 export const DropdownMenu = ({
   children,
+  multiColumn,
   ...rest
-}: PropsWithChildren<MenuProps>) => {
+}: React.PropsWithChildren<MenuProps>) => {
   return (
     <BaseDropdownMenu {...rest}>
-      <StyledFlexColumn>{children}</StyledFlexColumn>
+      <StyledFlexColumn multiColumn={multiColumn}>{children}</StyledFlexColumn>
     </BaseDropdownMenu>
   );
 };

@@ -7,9 +7,15 @@ const NavItem = styled.li<{ selected?: boolean }>(({ theme, selected }) =>
     color: theme.styleguideColors.contentTertiary,
     padding: ['16px 32px', '16px 48px', '0 12px', '0 16px'],
     width: '100%',
+    height: '100%',
+    alignItems: 'center',
     ...(selected && {
-      backgroundColor: theme.styleguideColors.fillGreen,
+      color: theme.styleguideColors.contentOnFill,
     }),
+    '& > *:hover': {
+      cursor: 'pointer',
+      color: theme.styleguideColors.contentOnFill,
+    },
   })
 );
 

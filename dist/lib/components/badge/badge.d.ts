@@ -1,5 +1,5 @@
 import React from 'react';
-type BadgeBackgroundColor = 'green' | 'violet' | 'blue';
+type BadgeBackgroundColor = 'green' | 'violet' | 'blue' | 'gray';
 export interface BadgeProps {
     label: string | React.ReactNode;
     variation?: BadgeBackgroundColor;

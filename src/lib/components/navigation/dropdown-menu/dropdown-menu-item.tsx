@@ -7,12 +7,13 @@ const ItemContainer = styled(FlexRow)(({ theme }) => ({
   cursor: 'pointer',
   padding: '12px 24px',
   ':hover, :active': {
-    background: theme.styleguideColors.fillSecondaryBlueHover,
+    background: theme.styleguideColors.fillSecondary,
   },
 }));
 
 const MenuItemWrapper = styled.li(({ theme }) =>
   theme.withMedia({
+    boxSizing: 'border-box',
     display: 'flex',
     color: theme.styleguideColors.contentPrimary,
     '&:hover': {
@@ -20,6 +21,7 @@ const MenuItemWrapper = styled.li(({ theme }) =>
       '> *': {
         color: [theme.styleguideColors.contentBlue],
         fill: [theme.styleguideColors.contentBlue],
+        background: theme.styleguideColors.fillSecondary,
       },
     },
   })

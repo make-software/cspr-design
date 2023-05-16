@@ -33,29 +33,19 @@ Primary.args = {
   children: (
     <>
       <MainMenuItem>
-        <NavLink>
-          <BodyText size={3}>Home</BodyText>
-        </NavLink>
+        <BodyText size={3}>Home</BodyText>
       </MainMenuItem>
       <MainMenuItem selected>
-        <NavLink>
-          <BodyText size={3}>Block</BodyText>
-        </NavLink>
+        <BodyText size={3}>Block</BodyText>
       </MainMenuItem>
       <MainMenuItem>
-        <NavLink>
-          <BodyText size={3}>Deploys</BodyText>
-        </NavLink>
+        <BodyText size={3}>Deploys</BodyText>
       </MainMenuItem>
       <MainMenuItem>
-        <NavLink>
-          <BodyText size={3}>Contracts</BodyText>
-        </NavLink>
+        <BodyText size={3}>Contracts</BodyText>
       </MainMenuItem>
       <MainMenuItem>
-        <NavLink>
-          <BodyText size={3}>Validators</BodyText>
-        </NavLink>
+        <BodyText size={3}>Validators</BodyText>
       </MainMenuItem>
     </>
   ),

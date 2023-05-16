@@ -105,6 +105,7 @@ export const themeConfig: any = {
       separator: `1px solid #1A2347`, // borderPrimary
       tableRowSeparator: '1px solid #1A2347', // borderPrimary
     },
+    themeName: 'dark'
   },
   light: {
     ...themeCommon,
@@ -161,6 +162,7 @@ export const themeConfig: any = {
       separator: '1px solid #F2F3F5', // borderPrimary
       tableRowSeparator: '1px solid #F2F3F5', // borderPrimary
     },
+    themeName: 'light'
   },
 };
 

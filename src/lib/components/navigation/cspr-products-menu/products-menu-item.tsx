@@ -4,7 +4,7 @@ import CaptionText from '../../caption-text/caption-text';
 import FlexRow from '../../flex-row/flex-row';
 import NavLink from '../../nav-link/nav-link';
 import FlexColumn from '../../flex-column/flex-column';
-import styled from 'styled-components';
+import styled, { useTheme } from 'styled-components';
 import { useMatchMedia } from '../../../utils/match-media';
 import SvgIcon from '../../svg-icon/svg-icon';
 import BodyText from '../../body-text/body-text';
@@ -84,6 +84,8 @@ export const ProductsMenuItem = ({
   newBadgeLabel,
   comingSoonBadgeLabel,
 }: ProductsMenuItemProps) => {
+  const theme = useTheme();
+
   let badge;
   if (comingSoonBadgeLabel) {
     badge = <Badge label={comingSoonBadgeLabel} variation={'violet'} />;
@@ -101,7 +103,7 @@ export const ProductsMenuItem = ({
     <FlexRow itemsSpacing={8} justify={'flex-start'} grow={1}>
       <ProductItemLink href={link} target={'_blank'} disabled={!!comingSoonBadgeLabel}>
         <FlexRow itemsSpacing={8} grow={1}>
-          <SvgIcon src={icon || defaultIcon['light']} size={32} />
+          <SvgIcon src={icon || defaultIcon[theme.themeName]} size={32} />
           <FlexColumn itemsSpacing={4}>
             {badge}
             <BodyText size={1}>{nameLabel}</BodyText>
@@ -119,7 +121,7 @@ export const ProductsMenuItem = ({
         justify={'center'}
         grow={1}
       >
-        <SvgIcon src={icon || defaultIcon['light']} size={48} />
+        <SvgIcon src={icon || defaultIcon[theme.themeName]} size={48} />
         <FlexColumn itemsSpacing={4} align={'center'}>
           {badge}
           <BodyText size={1}>{nameLabel}</BodyText>

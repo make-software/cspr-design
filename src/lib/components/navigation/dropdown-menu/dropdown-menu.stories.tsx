@@ -9,12 +9,14 @@ import SvgIcon from '../../svg-icon/svg-icon';
 
 // @ts-ignore
 import ActivityIcon from '../../../assets/icons/ic-file.svg';
+import FlexColumn from '../../flex-column/flex-column';
 
 export default {
   component: DropdownMenu,
   title: 'Common/Navigation/Dropdown Menu',
   args: {
     opened: true,
+    multiColumn: false,
   },
 } as ComponentMeta<typeof DropdownMenu>;
 
@@ -23,6 +25,13 @@ const StyledSvgIcon = styled(SvgIcon)(({ theme }) => ({
   path: {
     fill: theme.styleguideColors.fillPrimaryBlue,
   },
+}));
+
+const StyledFlexColumn = styled(FlexColumn)(({ theme }) => ({
+  gap: '4px',
+  flexWrap: 'wrap',
+  height: '336px',
+  width: '325px',
 }));
 
 const Template: ComponentStory<typeof DropdownMenu> = (args) => (
@@ -44,6 +53,37 @@ Primary.args = {
         <BodyText size={3}>Connected peers</BodyText>
       </DropdownMenuItem>
     </>
+  ),
+};
+
+const TemplateMulti: ComponentStory<typeof DropdownMenu> = (args) => (
+  <DropdownMenu {...args} />
+);
+export const MultiColumn = TemplateMulti.bind({
+    multiColumn: true
+});
+// More on args: https://storybook.js.org/docs/react/writing-stories/args
+MultiColumn.args = {
+  children: (
+    <StyledFlexColumn>
+      {[
+        'English',
+        'Українська',
+        'Polski',
+        'Türkçe',
+        'Español',
+        'Français',
+        'Nederlands',
+        'Русский',
+        'Azerbaijani',
+      ].map((lang) => {
+        return (
+          <DropdownMenuItem key={`lang-${lang}`}>
+            <BodyText size={3}>{lang}</BodyText>
+          </DropdownMenuItem>
+        );
+      })}
+    </StyledFlexColumn>
   ),
 };
 
