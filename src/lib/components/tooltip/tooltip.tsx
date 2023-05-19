@@ -1,0 +1,73 @@
+import React from 'react';
+import {
+  Tooltip as ReakitTooltip,
+  TooltipReference,
+  useTooltipState,
+} from 'reakit/Tooltip';
+import styled from 'styled-components';
+import { BaseProps } from '../../types';
+import BodyText from '../body-text/body-text';
+import CaptionText from '../caption-text/caption-text';
+import FlexColumn from '../flex-column/flex-column';
+
+type Ref = HTMLDivElement;
+
+export interface TooltipProps extends BaseProps {
+  title?: string | null;
+  caption?: string | null;
+  children?: React.ReactElement<any> & any;
+  monotype?: boolean;
+  limitWidth?: boolean;
+}
+
+const StyledReactTooltip = styled(ReakitTooltip)(({ theme }) => ({
+  zIndex: theme.zIndex.tooltip,
+  color: theme.styleguideColors.contentPrimary,
+  backgroundColor: theme.styleguideColors.backgroundPrimary,
+  borderRadius: theme.borderRadius.base,
+  padding: theme.padding[2],
+  boxShadow: theme.boxShadow.tooltip,
+
+  transition: 'opacity 250ms ease-in-out',
+  opacity: 0,
+
+  '&[data-enter]': {
+    opacity: 1,
+  },
+}));
+
+export const Tooltip = React.forwardRef<Ref, TooltipProps>(
+  ({ children, limitWidth, title, caption, monotype, ...props }, ref) => {
+    const tooltip = useTooltipState({ animated: 250 });
+
+    if (children == null) {
+      return null;
+    }
+
+    if (title == null) {
+      return <>{children}</>;
+    }
+
+    return (
+      <>
+        <TooltipReference {...tooltip} ref={children.ref} {...children.props}>
+          {(referenceProps) => React.cloneElement(children, referenceProps)}
+        </TooltipReference>
+        <StyledReactTooltip {...tooltip} {...props}>
+          <div style={{ maxWidth: limitWidth ? '500px' : undefined }}>
+            <FlexColumn>
+              <CaptionText size={2} variation="gray">
+                {caption}
+              </CaptionText>
+              <BodyText size={3} monotype={monotype}>
+                {title}
+              </BodyText>
+            </FlexColumn>
+          </div>
+        </StyledReactTooltip>
+      </>
+    );
+  }
+);
+
+export default Tooltip;

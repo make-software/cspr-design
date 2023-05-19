@@ -20,6 +20,9 @@ export enum HashLength {
   LARGE = 25,
 }
 
+export const DEFAULT_PRECISION = 5;
+export const FULL_PRECISION = 9;
+
 const formatDistanceTokens = {
   lessThanXSeconds: 'second',
   xSeconds: 'second',
@@ -199,3 +202,4 @@ export const formatHash = (
 
   return lastDigits ? `${truncatedHash}-${lastDigits}` : `${truncatedHash}`;
 };
+
