@@ -27,7 +27,7 @@ const InputContainer = styled('div')<InputProps>(
     fontFamily: monotype
       ? theme.typography.fontFamily.mono
       : theme.typography.fontFamily.primary,
-    fontSize: '1.4rem',
+    fontSize: '0.875rem',
     lineHeight: matchSize({ '36': '20px', '40': '20px' }, height),
     height: matchSize({ '36': '36px', '40': '40px' }, height),
 
