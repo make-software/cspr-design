@@ -2,6 +2,7 @@ import React, { ReactNode } from 'react';
 import styled from 'styled-components';
 import { BaseProps } from '../../types';
 import { SubtitleText } from '../subtitle-text/subtitle-text';
+import CaptionText from "../caption-text/caption-text";
 
 const getThemeColor = (status?: FormFieldStatus | null) => {
   if (status == null) {
@@ -69,7 +70,7 @@ export function FormField({
       {children}
 
       <StatusTextContainer status={status}>
-        <SubtitleText size={2}>{statusText}</SubtitleText>
+        <CaptionText size={2}>{statusText}</CaptionText>
       </StatusTextContainer>
     </StyledContainer>
   );
