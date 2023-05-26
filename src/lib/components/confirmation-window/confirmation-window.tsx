@@ -85,6 +85,7 @@ const StyledCaptionText = styled(SubtitleText)(({ theme }) =>
   theme.withMedia({
     fontWeight: [600, 600, 700],
     fontSize: ['20px', '24px', '24px'],
+    color: theme.styleguideColors.contentPrimary,
   })
 );
 
