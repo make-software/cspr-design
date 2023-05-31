@@ -86,6 +86,7 @@ export enum InputValidationType {
   PositiveInteger = 'positive_int',
   CSPR = 'cspr',
   email = 'email',
+  password = 'password',
 }
 
 export interface InputProps extends BaseProps {
@@ -150,6 +151,9 @@ export function Input({
           },
           [InputValidationType.email]: {
             type: 'email',
+          },
+          [InputValidationType.password]: {
+            type: 'password',
           },
         }[validationType];
 

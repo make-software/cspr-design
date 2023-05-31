@@ -43,9 +43,12 @@ export interface AccountInfoRowProps {
   disabled?: boolean;
 }
 
+const StyledIconContainer = styled.span`
+  margin-left: 10px;
+`;
+
 export function AccountInfoRow(props: AccountInfoRowProps) {
-  const { publicKey, accountEmpty, accountBalance, loading, error } =
-    props;
+  const { publicKey, accountEmpty, accountBalance, loading, error } = props;
 
   const responsiveHashSize = useMatchMedia(
     [HashLength.TINY, HashLength.SMALL, HashLength.SMALL, HashLength.SMALL],
@@ -67,7 +70,9 @@ export function AccountInfoRow(props: AccountInfoRowProps) {
                   {formatHash(publicKey, responsiveHashSize)}
                 </BodyText>
               </Tooltip>
-              <CopyHash value={publicKey} minified variation="gray" />
+              <StyledIconContainer>
+                <CopyHash value={publicKey} minified variation="gray" />
+              </StyledIconContainer>
             </FlexRow>
             <BalanceText size={3} monotype>
               {emptyBalance ? (

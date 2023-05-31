@@ -3,7 +3,8 @@ import { BaseProps } from '../../types';
 export declare enum InputValidationType {
     PositiveInteger = "positive_int",
     CSPR = "cspr",
-    email = "email"
+    email = "email",
+    password = "password"
 }
 export interface InputProps extends BaseProps {
     disabled?: boolean;
