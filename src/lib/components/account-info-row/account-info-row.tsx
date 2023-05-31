@@ -35,7 +35,8 @@ const BalanceText = styled(BodyText)(({}) => ({
 
 export interface AccountInfoRowProps {
   publicKey: string;
-  label: string;
+  label?: string;
+  rightLabel?: string;
   accountBalance: string | null;
   loading: boolean;
   error: string | null;
@@ -48,7 +49,15 @@ const StyledIconContainer = styled.span`
 `;
 
 export function AccountInfoRow(props: AccountInfoRowProps) {
-  const { publicKey, accountEmpty, accountBalance, loading, error } = props;
+  const {
+    publicKey,
+    label,
+    rightLabel = 'Balance',
+    accountEmpty,
+    accountBalance,
+    loading,
+    error,
+  } = props;
 
   const responsiveHashSize = useMatchMedia(
     [HashLength.TINY, HashLength.SMALL, HashLength.SMALL, HashLength.SMALL],
@@ -61,6 +70,10 @@ export function AccountInfoRow(props: AccountInfoRowProps) {
 
   return (
     <StyledFlexColumn disabled={props.disabled} gap={4}>
+      <FlexRow justify="space-between">
+        <BodyText size={1}>{label}</BodyText>
+        <BodyText size={1}>{rightLabel}</BodyText>
+      </FlexRow>
       <ValuesRow justify="space-between" align="center">
         {publicKey && (
           <>

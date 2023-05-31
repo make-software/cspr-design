@@ -90,12 +90,12 @@ export function TextRow(props: TextRowProps) {
         {label && (
           <Tooltip title={labelTooltipText} limitWidth>
             <FlexRow gap={3} align={'center'}>
-              <SubtitleText size={1}>{label}</SubtitleText>
+              <BodyText size={1}>{label}</BodyText>
               {labelIcon}
             </FlexRow>
           </Tooltip>
         )}
-        {rightLabel && <SubtitleText size={1}>{rightLabel}</SubtitleText>}
+        {rightLabel && <BodyText size={1}>{rightLabel}</BodyText>}
       </LabelContainer>
       <InputContainer>
         {prefixIcon && <PrefixContainer>{prefixIcon}</PrefixContainer>}

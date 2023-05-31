@@ -2,7 +2,8 @@ import React from 'react';
 export declare const ValuesRow: import("styled-components").StyledComponent<React.ForwardRefExoticComponent<import("../flex-row/flex-row").FlexRowProps & React.RefAttributes<HTMLDivElement>>, import("styled-components").DefaultTheme, {}, never>;
 export interface AccountInfoRowProps {
     publicKey: string;
-    label: string;
+    label?: string;
+    rightLabel?: string;
     accountBalance: string | null;
     loading: boolean;
     error: string | null;
