@@ -79,7 +79,7 @@ export function TextRow(props: TextRowProps) {
   } = props;
 
   const responsiveHashSize = useMatchMedia(
-    [HashLength.SMALL, HashLength.MEDIUM, HashLength.LARGE, HashLength.FULL],
+    [HashLength.SMALL, HashLength.MEDIUM, HashLength.LARGE],
     []
   );
   const responsiveTruncateSize = useMatchMedia<Size>([2, 3, 4, 5], []);
