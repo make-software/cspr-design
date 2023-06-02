@@ -102,7 +102,7 @@ export function TextRow(props: TextRowProps) {
         <FlexRow itemsSpacing={4}>
           {type === TextRowType.Hash ? (
             <Tooltip title={text}>
-              <BodyText size={3} monotype={true}>
+              <BodyText size={3} monotype scale={"xs"}>
                 {formatHash(text || '', responsiveHashSize)}
               </BodyText>
             </Tooltip>
