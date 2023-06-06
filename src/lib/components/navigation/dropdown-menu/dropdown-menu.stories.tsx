@@ -17,6 +17,7 @@ export default {
   args: {
     opened: true,
     multiColumn: false,
+    padding: undefined
   },
 } as ComponentMeta<typeof DropdownMenu>;
 
@@ -44,6 +45,29 @@ Primary.args = {
   children: (
     <>
       <DropdownMenuItem>
+        <BodyText size={3}>Faucet</BodyText>
+      </DropdownMenuItem>
+      <DropdownMenuItem>
+        <BodyText size={3}>Deploy contract</BodyText>
+      </DropdownMenuItem>
+      <DropdownMenuItem>
+        <BodyText size={3}>Connected peers</BodyText>
+      </DropdownMenuItem>
+    </>
+  ),
+};
+
+
+const TemplateWithCustomItemPadding: ComponentStory<typeof DropdownMenu> = (args) => (
+    <DropdownMenu {...args} />
+);
+
+export const PrimaryWithCustomItemPadding = TemplateWithCustomItemPadding.bind({});
+// More on args: https://storybook.js.org/docs/react/writing-stories/args
+PrimaryWithCustomItemPadding.args = {
+  children: (
+    <>
+      <DropdownMenuItem padding={'12px 0px'}>
         <BodyText size={3}>Faucet</BodyText>
       </DropdownMenuItem>
       <DropdownMenuItem>
