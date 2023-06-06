@@ -20,9 +20,11 @@ export interface UserInputWindowSceneProps {
     validationMessage?: string;
     placeholder?: string;
     required?: boolean;
+    shouldCloseOnEsc?: boolean;
+    shouldCloseOnOverlayClick?: boolean;
     themeMode?: ThemeModeType;
     portalClass?: string;
 }
-export declare const UserInputWindow: ({ isOpen, position, title, withHeader, headerLogo, bodyImg, information, confirmLabel, confirmColor, onConfirm, dismissLabel, onDismiss, themeMode, inputType, placeholder, required, inputLabel, validationMessage, portalClass, }: UserInputWindowSceneProps) => JSX.Element;
+export declare const UserInputWindow: ({ isOpen, position, title, withHeader, headerLogo, bodyImg, information, confirmLabel, confirmColor, onConfirm, dismissLabel, shouldCloseOnEsc, shouldCloseOnOverlayClick, onDismiss, themeMode, inputType, placeholder, required, inputLabel, validationMessage, portalClass, }: UserInputWindowSceneProps) => JSX.Element;
 export default UserInputWindow;
 //# sourceMappingURL=user-input-window.d.ts.map

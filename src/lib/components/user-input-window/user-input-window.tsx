@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useCallback, useState } from 'react';
 import styled, { useTheme } from 'styled-components';
 import FlexRow from '../flex-row/flex-row';
 import FlexColumn from '../flex-column/flex-column';
@@ -6,6 +6,8 @@ import Button from '../button/button';
 import Input, { InputValidationType } from '../input/input';
 import BodyText from '../body-text/body-text';
 import ReactModal from 'react-modal';
+import { useClickAway } from '../../hooks/use-click-away';
+import { useEscapeKey } from '../../hooks/use-escape-key';
 import ModalHeader from './modal-header';
 import SubtitleText from '../subtitle-text/subtitle-text';
 import { ThemeModeType } from '../navigation/cspr-products-menu/products-menu-item';
@@ -32,6 +34,8 @@ export interface UserInputWindowSceneProps {
   validationMessage?: string;
   placeholder?: string;
   required?: boolean;
+  shouldCloseOnEsc?: boolean;
+  shouldCloseOnOverlayClick?: boolean;
   themeMode?: ThemeModeType;
   portalClass?: string;
 }
@@ -125,6 +129,8 @@ export const UserInputWindow = ({
   confirmColor,
   onConfirm,
   dismissLabel,
+  shouldCloseOnEsc,
+  shouldCloseOnOverlayClick,
   onDismiss,
   themeMode,
   inputType,
@@ -137,10 +143,21 @@ export const UserInputWindow = ({
   const theme = useTheme();
 
   const [value, setValue] = useState('');
-  const error =
-    inputType === InputValidationType.password &&
-    !!value &&
-    /^[a-zA-Z0-9]{12}/.test(value);
+  const [formError, setFormError] = useState<string | null>(null);
+  const [showModal, setShowModal] = useState<boolean>(isOpen);
+
+  useEscapeKey(() => shouldCloseOnEsc && setShowModal(false));
+
+  const getRegexByInputType = useCallback(() => {
+    switch (inputType) {
+      case InputValidationType.password:
+        return /^[a-zA-Z0-9]{12}/;
+      default:
+        return /^[a-zA-Z0-9]{12}/;
+    }
+  }, []);
+
+  const regexMatched = !!value && getRegexByInputType().test(value);
 
   const modalStyle = {
     overlay: {
@@ -164,18 +181,35 @@ export const UserInputWindow = ({
           },
   };
 
+  const handleEnterKeyDown = (e) => {
+    if (e.key === 'Enter') {
+      onConfirm(e.target.value);
+    }
+  };
+
+  const { ref } = useClickAway({
+    callback: () => {
+      shouldCloseOnOverlayClick && setShowModal(false);
+    },
+  });
+
+  const handleInputChange = (e) => {
+    regexMatched ? setFormError(null) : setFormError(`${validationMessage}`);
+    setValue(e.target.value);
+  };
+
   return (
     <>
-      {isOpen && (
+      {showModal && (
         <ReactModal
-          isOpen={isOpen}
+          isOpen={showModal}
           style={modalStyle}
           onRequestClose={onDismiss}
           shouldCloseOnEsc
           shouldCloseOnOverlayClick
           portalClassName={portalClass}
         >
-          <ModalContainer position={position}>
+          <ModalContainer position={position} ref={ref}>
             {withHeader && (
               <ModalHeader
                 themeMode={themeMode}
@@ -198,12 +232,13 @@ export const UserInputWindow = ({
               <StyledInput
                 required={required}
                 value={value}
-                onChange={(event) => setValue(event.target.value)}
+                onChange={handleInputChange}
+                onKeyDown={handleEnterKeyDown}
                 label={<BodyText size={2}>{inputLabel}</BodyText>}
                 placeholder={placeholder}
-                error={!error}
+                error={!!formError}
                 validationType={inputType}
-                validationText={validationMessage}
+                validationText={formError}
               />
             </FlexRow>
             <ButtonsContainer

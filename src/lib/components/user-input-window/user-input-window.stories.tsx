@@ -18,6 +18,8 @@ export default {
       'To perform this action you need to set up first your account and password.',
     withHeader: true,
     confirmLabel: 'Yes',
+    shouldCloseOnEsc: true,
+    shouldCloseOnOverlayClick: true,
     dismissLabel: 'No',
     onConfirm: (value) => {
       console.log('value ', value);
