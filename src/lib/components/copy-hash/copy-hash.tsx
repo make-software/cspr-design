@@ -11,7 +11,7 @@ import CopyIcon from '../../assets/icons/ic-copy.svg';
 type CopyHashColor = 'blue' | 'gray';
 
 const copyHashColorMapper = {
-  blue: 'fillPrimaryBlue',
+  blue: 'contentBlue',
   gray: 'contentTertiary',
 };
 
