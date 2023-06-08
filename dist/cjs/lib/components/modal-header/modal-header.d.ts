@@ -5,6 +5,6 @@ export interface ModalHeaderProps {
     headerLogo?: React.ReactElement;
     themeMode?: ThemeModeType;
 }
-declare const ModalHeader: ({ onDismiss, headerLogo }: ModalHeaderProps) => JSX.Element;
+export declare const ModalHeader: ({ onDismiss, headerLogo }: ModalHeaderProps) => JSX.Element;
 export default ModalHeader;
 //# sourceMappingURL=modal-header.d.ts.map
