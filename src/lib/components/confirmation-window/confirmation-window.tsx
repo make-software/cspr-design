@@ -5,7 +5,7 @@ import FlexColumn from '../flex-column/flex-column';
 import Button from '../button/button';
 import BodyText from '../body-text/body-text';
 import ReactModal from 'react-modal';
-import ModalHeader from './modal-header';
+import ModalHeader from '../modal-header/modal-header';
 import SubtitleText from '../subtitle-text/subtitle-text';
 import { ThemeModeType } from '../navigation/cspr-products-menu/products-menu-item';
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import { ThemeModeType } from '../navigation/cspr-products-menu/products-menu-item';
-interface ModalHeaderProps {
+export interface ModalHeaderProps {
     onDismiss: () => void;
     headerLogo?: React.ReactElement;
     themeMode?: ThemeModeType;
