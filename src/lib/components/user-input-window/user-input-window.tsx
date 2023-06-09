@@ -157,7 +157,7 @@ export const UserInputWindow = ({
     }
   }, []);
 
-  const regexMatched = !!value && getRegexByInputType().test(value);
+  const regexMatched = (val) => !!val && getRegexByInputType().test(val);
 
   const modalStyle = {
     overlay: {
@@ -195,8 +195,13 @@ export const UserInputWindow = ({
   });
 
   const handleInputChange = (e) => {
-    regexMatched ? setFormError(null) : setFormError(`${validationMessage}`);
-    setValue(e.target.value);
+    let passVal = e.target.value;
+
+    !!passVal && regexMatched(passVal)
+      ? setFormError(null)
+      : setFormError(`${validationMessage}`);
+
+    setValue(passVal);
   };
 
   return (
