@@ -183,9 +183,13 @@ export const UserInputWindow = ({
   };
 
   const handleEnterKeyDown = (e) => {
-    if (e.key === 'Enter') {
-      onConfirm(e.target.value);
-    }
+    let val = e.target.value;
+
+    if (val && !formError) {
+      if (e.key === 'Enter') {
+        onConfirm(val);
+      }
+    } else return;
   };
 
   const { ref } = useClickAway({
@@ -260,6 +264,7 @@ export const UserInputWindow = ({
               <Button
                 color={confirmColor === 'red' ? 'primaryRed' : 'primaryBlue'}
                 onClick={() => onConfirm(value)}
+                disabled={value ? !!formError : true}
               >
                 {confirmLabel}
               </Button>

@@ -2,7 +2,7 @@ import React, { ReactNode } from 'react';
 import styled from 'styled-components';
 import { BaseProps } from '../../types';
 import { SubtitleText } from '../subtitle-text/subtitle-text';
-import CaptionText from "../caption-text/caption-text";
+import CaptionText from '../caption-text/caption-text';
 
 const getThemeColor = (status?: FormFieldStatus | null) => {
   if (status == null) {
@@ -35,9 +35,14 @@ const LabelContainer = styled('div')(({ theme }) => ({
 
 const StatusTextContainer = styled('div')<FormFieldProps>(
   ({ theme, status: status }) => ({
+    position: 'relative',
     color: theme.styleguideColors[getThemeColor(status)],
   })
 );
+
+const StatusCaptionText = styled(CaptionText)`
+  position: absolute;
+`;
 
 export enum FormFieldStatus {
   Error = 'error',
@@ -70,7 +75,7 @@ export function FormField({
       {children}
 
       <StatusTextContainer status={status}>
-        <CaptionText size={2}>{statusText}</CaptionText>
+        <StatusCaptionText size={2}>{statusText}</StatusCaptionText>
       </StatusTextContainer>
     </StyledContainer>
   );
