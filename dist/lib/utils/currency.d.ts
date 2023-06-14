@@ -5,4 +5,6 @@ export declare enum PrecisionCase {
 export declare const MOTES_PER_CSPR_RATE = "1000000000";
 export declare const currencyPrecisionByCase: (precisionCase?: PrecisionCase) => 0 | 5 | 9;
 export declare const motesToCSPR: (motes: string) => string;
+export declare const MOTES_PER_BOIN_RATE = "1000";
+export declare const motesToBOIN: (motes: string) => string;
 //# sourceMappingURL=currency.d.ts.map

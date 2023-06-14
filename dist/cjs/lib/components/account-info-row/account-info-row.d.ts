@@ -9,6 +9,7 @@ export interface AccountInfoRowProps {
     error: string | null;
     accountEmpty: boolean;
     disabled?: boolean;
+    ticker?: string;
 }
 export declare function AccountInfoRow(props: AccountInfoRowProps): JSX.Element;
 export default AccountInfoRow;
