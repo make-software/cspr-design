@@ -24,3 +24,9 @@ export const currencyPrecisionByCase = (precisionCase?: PrecisionCase) => {
 export const motesToCSPR = (motes: string): string => {
   return Big(motes).div(MOTES_PER_CSPR_RATE).toString();
 };
+
+export const MOTES_PER_BOIN_RATE = '1000'; // 1 000 MOTES === 1 BOIN
+
+export const motesToBOIN = (motes: string): string => {
+  return Big(motes).div(MOTES_PER_BOIN_RATE).toString();
+};

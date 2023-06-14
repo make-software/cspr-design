@@ -12,6 +12,7 @@ import { Cspr } from '../cspr/cspr';
 
 import { PrecisionCase } from '../../utils/currency';
 import { HashLength } from '../../utils/formatters';
+import Boin from "../boin/boin";
 
 export const ValuesRow = styled(FlexRow)(({ theme }) => ({
   height: 36,
@@ -33,6 +34,49 @@ const BalanceText = styled(BodyText)(({}) => ({
   textAlign: 'right',
 }));
 
+const StyledIconContainer = styled.span`
+  margin-left: 10px;
+`;
+
+interface TickerProps {
+  ticker: string;
+  motes?: string | null;
+  precisionCase?: PrecisionCase;
+  hideCurrency?: boolean;
+}
+
+const Ticker = ({ticker, ...props}: TickerProps) => ticker === 'CSPR' ? (<Cspr {...props}/>) : (<Boin {...props}/>)
+
+
+interface AccountInfoBalanceProps {
+  accountBalance: string | null;
+  loading: boolean;
+  error: string | null;
+  emptyBalance: boolean;
+  ticker?: string;
+}
+
+const AccountInfoBalance = ({accountBalance, emptyBalance, loading, error, ticker = 'CSPR'}: AccountInfoBalanceProps) => {
+  return (
+      <BalanceText size={3} monotype>
+        {emptyBalance ? (
+            <Ticker ticker={ticker} motes={'0'} precisionCase={PrecisionCase.deployCost} />
+        ) : loading ? (
+            'Loading...'
+        ) : error != null ? (
+            error
+        ) : (
+            <Ticker
+                ticker={ticker}
+                motes={accountBalance}
+                precisionCase={PrecisionCase.deployCost}
+            />
+        )}
+      </BalanceText>
+  )
+}
+
+
 export interface AccountInfoRowProps {
   publicKey: string;
   label?: string;
@@ -42,11 +86,8 @@ export interface AccountInfoRowProps {
   error: string | null;
   accountEmpty: boolean;
   disabled?: boolean;
+  ticker?:string;
 }
-
-const StyledIconContainer = styled.span`
-  margin-left: 10px;
-`;
 
 export function AccountInfoRow(props: AccountInfoRowProps) {
   const {
@@ -57,6 +98,7 @@ export function AccountInfoRow(props: AccountInfoRowProps) {
     accountBalance,
     loading,
     error,
+      ticker = 'CSPR'
   } = props;
 
   const responsiveHashSize = useMatchMedia(
@@ -87,20 +129,7 @@ export function AccountInfoRow(props: AccountInfoRowProps) {
                 <CopyHash value={publicKey} minified variation="gray" />
               </StyledIconContainer>
             </FlexRow>
-            <BalanceText size={3} monotype>
-              {emptyBalance ? (
-                <Cspr motes={'0'} precisionCase={PrecisionCase.deployCost} />
-              ) : loading ? (
-                'Loading...'
-              ) : error != null ? (
-                error
-              ) : (
-                <Cspr
-                  motes={accountBalance}
-                  precisionCase={PrecisionCase.deployCost}
-                />
-              )}
-            </BalanceText>
+            <AccountInfoBalance accountBalance={accountBalance} emptyBalance={emptyBalance} error={error} loading={loading} ticker={ticker}/>
           </>
         )}
       </ValuesRow>
