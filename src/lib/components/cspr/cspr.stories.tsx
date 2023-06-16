@@ -8,7 +8,7 @@ import { PrecisionCase } from '../../utils/currency';
 
 export default {
   component: Cspr,
-  title: 'Common/Components/Boin',
+  title: 'Common/Components/Cspr',
   args: {
     motes: '3000',
     precisionCase: PrecisionCase.deployCost,

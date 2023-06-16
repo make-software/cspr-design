@@ -36,7 +36,7 @@ const StyledFlexRow = styled(FlexRow)<{
 }));
 
 export interface CheckboxProps extends BaseProps {
-  label?: string;
+  label?: React.ReactElement | string;
   onChange?: (value?: any) => void;
   checked: boolean;
   disabled?: boolean;

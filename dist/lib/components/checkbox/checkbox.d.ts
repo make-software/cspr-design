@@ -1,7 +1,7 @@
-/// <reference types="react" />
+import React from 'react';
 import { BaseProps } from '../../types';
 export interface CheckboxProps extends BaseProps {
-    label?: string;
+    label?: React.ReactElement | string;
     onChange?: (value?: any) => void;
     checked: boolean;
     disabled?: boolean;
