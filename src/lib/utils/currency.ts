@@ -25,8 +25,6 @@ export const motesToCSPR = (motes: string): string => {
   return Big(motes).div(MOTES_PER_CSPR_RATE).toString();
 };
 
-export const MOTES_PER_BOIN_RATE = '1000000000'; // 1 000 MOTES === 1 BOIN
-
-export const motesToBOIN = (motes: string): string => {
-  return Big(motes).div(MOTES_PER_BOIN_RATE).toString();
+export const motesToCEP18Token = (motes: string, decimals: number): string => {
+  return Big(motes).div(Big(10).pow(decimals)).toString();
 };

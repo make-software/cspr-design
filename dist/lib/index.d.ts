@@ -47,6 +47,7 @@ export * from './components/tooltip/tooltip';
 export * from './components/account-info-row/account-info-row';
 export * from './components/text-row/text-row';
 export * from './components/progress-line/progress-line';
+export * from './components/cep18-token/cep18-token';
 export * from './components/cspr/cspr';
 export * from './components/user-input-window/user-input-window';
 export * from './hooks/use-click-away';

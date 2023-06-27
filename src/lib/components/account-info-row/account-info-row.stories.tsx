@@ -4,6 +4,12 @@ import AccountInfoRow from './account-info-row';
 import FlexRow from '../flex-row/flex-row';
 import FlexColumn from '../flex-column/flex-column';
 import BodyText from '../body-text/body-text';
+import styled from "styled-components";
+
+const AccountInfoContainer = styled(FlexRow)(() => ({
+    width: '100%',
+    marginBottom: '32px',
+}));
 
 export default {
   component: AccountInfoRow,
@@ -14,19 +20,39 @@ export default {
     label: 'Account',
     accountBalance: '3000000',
     loading: false,
-    error: '',
+    error: null,
     accountEmpty: false,
     disabled: false,
   },
 } as ComponentMeta<typeof AccountInfoRow>;
 
+const boinInfoRow = {
+    publicKey: '0202fa4d6ff148562fe18cdb5aca0bb6c3b96592cdacad8587eb906c3e4b1ac7258a',
+    label: 'Account',
+    accountBalance: '3987654321',
+    ticker: 'BOIN',
+    loading: false,
+    error: null,
+    accountEmpty: false,
+    disabled: false,
+    cep18Config: { decimals: 9, precision: 5},
+};
+
 const Template: ComponentStory<typeof AccountInfoRow> = (args) => (
-    <FlexRow itemsSpacing={30}>
-      <FlexColumn itemsSpacing={20}>
-        <BodyText size={2}>Account Info Row</BodyText>
-        <AccountInfoRow {...args} />
-      </FlexColumn>
-    </FlexRow>
+    <FlexColumn>
+      <AccountInfoContainer itemsSpacing={30}>
+        <FlexColumn itemsSpacing={20}>
+          <BodyText size={2}>CSPR Account Info Row</BodyText>
+          <AccountInfoRow {...args} />
+        </FlexColumn>
+      </AccountInfoContainer>
+      <AccountInfoContainer  itemsSpacing={30}>
+        <FlexColumn itemsSpacing={20}>
+          <BodyText  size={2}>BOIN Account Info Row</BodyText>
+          <AccountInfoRow {...boinInfoRow} />
+        </FlexColumn>
+      </AccountInfoContainer>
+    </FlexColumn>
 );
 
 export const Primary = Template.bind({});

@@ -1,5 +1,9 @@
 import React from 'react';
 export declare const ValuesRow: import("styled-components").StyledComponent<React.ForwardRefExoticComponent<import("../flex-row/flex-row").FlexRowProps & React.RefAttributes<HTMLDivElement>>, import("styled-components").DefaultTheme, {}, never>;
+export interface CEP18Config {
+    decimals: number;
+    precision: number;
+}
 export interface AccountInfoRowProps {
     publicKey: string;
     label?: string;
@@ -10,6 +14,7 @@ export interface AccountInfoRowProps {
     accountEmpty: boolean;
     disabled?: boolean;
     ticker?: string;
+    cep18Config?: CEP18Config;
 }
 export declare function AccountInfoRow(props: AccountInfoRowProps): JSX.Element;
 export default AccountInfoRow;
