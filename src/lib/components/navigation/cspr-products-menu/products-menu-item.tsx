@@ -70,6 +70,10 @@ export const ProductItemLink = styled(NavLink)(({ theme, disabled }) =>
   })
 );
 
+const StyledBodyText =  styled(BodyText)`
+    white-space: nowrap;
+`
+
 const defaultIcon = {
   [ThemeModeType.light]: 'assets/icons/ic-sand-clock-light.svg',
   [ThemeModeType.dark]: 'assets/icons/ic-sand-clock-dark.svg',
@@ -106,7 +110,7 @@ export const ProductsMenuItem = ({
           <SvgIcon src={icon || defaultIcon[theme.themeName]} size={32} />
           <FlexColumn itemsSpacing={4}>
             {badge}
-            <BodyText size={1}>{nameLabel}</BodyText>
+            <StyledBodyText size={1}>{nameLabel}</StyledBodyText>
           </FlexColumn>
         </FlexRow>
       </ProductItemLink>
@@ -124,7 +128,7 @@ export const ProductsMenuItem = ({
         <SvgIcon src={icon || defaultIcon[theme.themeName]} size={48} />
         <FlexColumn itemsSpacing={4} align={'center'}>
           {badge}
-          <BodyText size={1}>{nameLabel}</BodyText>
+          <StyledBodyText size={1}>{nameLabel}</StyledBodyText>
         </FlexColumn>
       </FlexColumn>
     </ProductItemLink>
