@@ -13,7 +13,7 @@ import FlexColumn from '../flex-column/flex-column';
 type Ref = HTMLDivElement;
 
 export interface TooltipProps extends BaseProps {
-  title?: string | null;
+  title?: JSX.Element | string | null;
   caption?: string | null;
   children?: React.ReactElement<any> & any;
   monotype?: boolean;
