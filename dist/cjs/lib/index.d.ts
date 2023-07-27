@@ -50,6 +50,7 @@ export * from './components/progress-line/progress-line';
 export * from './components/cep18-token/cep18-token';
 export * from './components/cspr/cspr';
 export * from './components/user-input-window/user-input-window';
+export * from './components/multiline-text-row/multiline-text-row';
 export * from './hooks/use-click-away';
 export * from './utils/match-media';
 export * from './utils/match-size';
