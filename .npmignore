@@ -1,0 +1,10 @@
+/.github
+/.idea/
+/.storybook/
+/public/
+/src/
+/.npmignore
+/.npmrc
+/.prettierrc
+/globals.d.ts
+/tsconfig.json
