@@ -79,6 +79,7 @@ export const themeConfig: any = {
       fillGreen: '#2DCC85',
       fillVioletGradient:
         'linear-gradient(266.5deg, #A880FF 9.3%, #8B5BF1 94.39%)',
+      fillBlueGradient: 'linear-gradient(89.56deg, #0021A5 0%, #2C53EF 75.01%)',
       fillLoadingInTable:
         'linear-gradient(90deg, #1B254A 43.6%, rgba(22, 29, 59, 0) 100%)',
       contentPrimary: '#DADCE5',
@@ -136,6 +137,7 @@ export const themeConfig: any = {
       fillGreen: '#2DCC85',
       fillVioletGradient:
         'linear-gradient(266.5deg, #A880FF 9.3%, #8B5BF1 94.39%)',
+      fillBlueGradient: 'linear-gradient(89.56deg, #0021A5 0%, #2C53EF 75.01%)',
       fillLoadingInTable:
         'linear-gradient(90deg, #F2F3F5 0%, rgba(255, 255, 255, 0) 100%)',
       contentPrimary: '#1A1919',

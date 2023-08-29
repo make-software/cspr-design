@@ -7,17 +7,17 @@ import BodyText from '../body-text/body-text';
 import TruncateBox from '../truncate-box/truncate-box';
 
 export default {
-    component: HeaderText,
-    title: 'Core/Typography/HeaderText',
-    args: {
-        size: 1,
-        scale: 'md',
-        variation: 'darkGray',
-        monotype: false,
-        uppercase: false,
-        capitalize: false,
-        loading: false,
-    },
+  component: HeaderText,
+  title: 'Core/Typography/HeaderText',
+  args: {
+    size: 1,
+    scale: 'md',
+    variation: 'darkGray',
+    monotype: false,
+    uppercase: false,
+    capitalize: false,
+    loading: false,
+  },
 } as ComponentMeta<typeof HeaderText>;
 
 const Template: ComponentStory<typeof HeaderText> = (args) => (

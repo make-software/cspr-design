@@ -8,17 +8,19 @@ type Ref = HTMLSpanElement;
 
 /* eslint-disable-next-line */
 export interface BodyTextProps extends TextProps {
-  size: 1 | 2 | 3;
+  size: 1 | 2 | 3 | 4;
   scale?: 'xs' | 'sm' | 'md' | 'lg';
+  lineHeight?: 'xs' | 'sm';
 }
 
 const StyledText = styled(Text)<BodyTextProps>(
-  ({ theme, size = 3, scale = 'sm' }) => ({
+  ({ theme, size = 3, scale = 'sm', lineHeight = 'sm' }) => ({
     fontWeight: matchSize(
       {
         1: theme.typography.fontWeight.semiBold,
         2: theme.typography.fontWeight.medium,
         3: theme.typography.fontWeight.regular,
+        4: theme.typography.fontWeight.light,
       },
       size
     ),
@@ -31,7 +33,13 @@ const StyledText = styled(Text)<BodyTextProps>(
       },
       scale
     ),
-    lineHeight: '1.5rem',
+    lineHeight: matchSize(
+      {
+        sm: '1.5rem',
+        xs: '1.25rem',
+      },
+      lineHeight
+    ),
   })
 );
 

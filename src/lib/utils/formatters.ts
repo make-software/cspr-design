@@ -1,4 +1,34 @@
-import { createIntl, createIntlCache } from '@formatjs/intl';
+import { createIntl, createIntlCache, MessageDescriptor } from '@formatjs/intl';
+import { formatDistanceToNowStrict, formatISO } from 'date-fns';
+import i18next from 'i18next';
+
+import en from 'date-fns/locale/en-US';
+import uk from 'date-fns/locale/uk';
+import es from 'date-fns/locale/es';
+import tr from 'date-fns/locale/tr';
+import nl from 'date-fns/locale/nl';
+import ru from 'date-fns/locale/ru';
+import pl from 'date-fns/locale/pl';
+import vi from 'date-fns/locale/vi';
+import fr from 'date-fns/locale/fr';
+import az from 'date-fns/locale/az';
+import { isBrowserSupportRelativeDateFormat } from './detect-browser';
+
+export const DEFAULT_PRECISION = 5;
+export const FULL_PRECISION = 9;
+
+const Locale = {
+  en: en,
+  es: es,
+  uk: uk,
+  tr: tr,
+  nl: nl,
+  ru: ru,
+  pl: pl,
+  vi: vi,
+  fr: fr,
+  az: az,
+};
 
 const cache = createIntlCache();
 const intl = createIntl(
@@ -11,27 +41,31 @@ const intl = createIntl(
   cache
 );
 
-export enum HashLength {
-  FULL = 0,
-  TINY = 5,
-  LITTLE = 10,
-  SMALL = 15,
-  MEDIUM = 20,
-  LARGE = 25,
-}
+export const formatMessage = (
+  descriptor: MessageDescriptor,
+  values?: Record<string, any>
+): string => {
+  return intl.formatMessage(descriptor, values);
+};
 
-export const DEFAULT_PRECISION = 5;
-export const FULL_PRECISION = 9;
-
-const formatDistanceTokens = {
-  lessThanXSeconds: 'second',
-  xSeconds: 'second',
-  lessThanXMinutes: 'minute',
-  xMinutes: 'minute',
-  xHours: 'hour',
-  xDays: 'day',
-  xMonths: 'month',
-  xYears: 'year',
+export const formatNumber = (
+  value: number | string,
+  {
+    precision,
+    notation,
+    compactDisplay,
+  }: {
+    precision?: number;
+    notation?: 'compact' | 'standard';
+    compactDisplay?: 'short' | 'long';
+  } = {}
+): string => {
+  return intl.formatNumber(value as number, {
+    minimumFractionDigits: precision || 0,
+    maximumFractionDigits: precision || 0,
+    notation,
+    compactDisplay,
+  });
 };
 
 const BIG_NUMBERS_NOTATION_SYMBOL = [
@@ -80,7 +114,7 @@ export const formatBigNumbers = (value) => {
 
   if (tiersWithoutSuffixes.includes(tier)) {
     return formatNumber(value, {
-      precision: 5,
+      precision: DEFAULT_PRECISION,
     });
   }
 
@@ -91,26 +125,6 @@ export const formatBigNumbers = (value) => {
   const scaledNumber = value / scale;
 
   return scaledNumber.toFixed(5) + suffix;
-};
-
-export const formatNumber = (
-  value: number | string,
-  {
-    precision,
-    notation,
-    compactDisplay,
-  }: {
-    precision?: number;
-    notation?: 'compact' | 'standard';
-    compactDisplay?: 'short' | 'long';
-  } = {}
-): string => {
-  return intl.formatNumber(value as number, {
-    minimumFractionDigits: precision || 0,
-    maximumFractionDigits: precision || 0,
-    notation,
-    compactDisplay,
-  });
 };
 
 export const formatCurrency = (
@@ -130,8 +144,16 @@ export const formatCurrency = (
   });
 };
 
-export const formatTimestamp = (value: string, locale = 'en'): string => {
+export const formatPercentage = (
+  value: number,
+  { precision }: { precision?: number } = {}
+) => {
+  return value.toFixed(precision || 2);
+};
+
+export const formatTimestamp = (value: string): string => {
   const date = new Date(value);
+  const locale = i18next.language || 'en';
   const nativeIntl = new Intl.DateTimeFormat(locale, {
     month: 'short',
     day: 'numeric',
@@ -145,7 +167,18 @@ export const formatTimestamp = (value: string, locale = 'en'): string => {
   return `${nativeIntl.format(date)}`;
 };
 
-export const formatDistance = (token, count, options) => {
+const formatDistanceTokens = {
+  lessThanXSeconds: 'second',
+  xSeconds: 'second',
+  lessThanXMinutes: 'minute',
+  xMinutes: 'minute',
+  xHours: 'hour',
+  xDays: 'day',
+  xMonths: 'month',
+  xYears: 'year',
+};
+
+const formatDistance = (token, count, options) => {
   options = options || {};
   const locale = options.locale.code || 'en';
 
@@ -156,7 +189,24 @@ export const formatDistance = (token, count, options) => {
     .replace('.', '');
 };
 
-export const formatDate = (value: string): string => {
+export const formatTimestampAge = (value: string): string => {
+  const date = new Date(value);
+  const isSupportedLanguageAndBrowser =
+    i18next.language !== 'az' && isBrowserSupportRelativeDateFormat;
+
+  return `${formatDistanceToNowStrict(date, {
+    addSuffix: true,
+    locale: {
+      ...Locale[i18next.language],
+      ...(isSupportedLanguageAndBrowser && {
+        formatDistance,
+      }),
+    },
+    roundingMethod: 'floor',
+  })}`;
+};
+
+export const formatDate = (value: string | number): string => {
   const date = new Date(value);
   return `${intl.formatDate(date, {
     month: 'short',
@@ -168,6 +218,16 @@ export const formatDate = (value: string): string => {
   })}`;
 };
 
+export const formatDateWithWeekday = (value: string): string => {
+  const date = new Date(value);
+  return `${intl.formatDate(date, {
+    month: 'short',
+    day: 'numeric',
+    year: 'numeric',
+    weekday: 'long',
+  })}`;
+};
+
 export const formatDateShort = (value: string): string => {
   const date = new Date(value);
   return `${intl.formatDate(date, {
@@ -175,6 +235,23 @@ export const formatDateShort = (value: string): string => {
     day: 'numeric',
   })}`;
 };
+
+export const formatDateWithMonthAndYear = (value: string): string => {
+  const date = new Date(value);
+  return `${intl.formatDate(date, {
+    month: 'short',
+    year: 'numeric',
+  })}`;
+};
+
+export enum HashLength {
+  FULL = 0,
+  TINY = 5,
+  LITTLE = 10,
+  SMALL = 15,
+  MEDIUM = 20,
+  LARGE = 25,
+}
 
 export const formatHash = (
   hash: string,
@@ -203,3 +280,17 @@ export const formatHash = (
   return lastDigits ? `${truncatedHash}-${lastDigits}` : `${truncatedHash}`;
 };
 
+export const formatISODateOnly = (date: Date): string => {
+  return formatISO(date, {
+    representation: 'date',
+  });
+};
+
+export const formatDeploysCount = (value): string =>
+  `${formatNumber(value, {
+    notation: 'compact',
+    compactDisplay: 'short',
+  })}`;
+
+export const formatRatesToCurrency = (value): string =>
+  formatNumber(value, { precision: 4 });

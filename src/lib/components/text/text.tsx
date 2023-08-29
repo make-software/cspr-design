@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import Skeleton from 'react-loading-skeleton';
 
 import { BaseProps } from '../../types';
 
@@ -87,8 +88,7 @@ export const Text = React.forwardRef<Ref, TextProps>(function Text(
   if (props.loading) {
     return (
       <StyledText ref={ref} {...props}>
-        <div>Loading</div>
-        {/*<Skeleton />*/}
+        <Skeleton />
       </StyledText>
     );
   }

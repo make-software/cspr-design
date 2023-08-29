@@ -1,0 +1,14 @@
+# Add files here to ignore them from prettier formatting
+
+/dist
+/public
+gulpfile.js
+*.json
+*.md
+
+# Ignore all HTML files:
+*.html
+
+# Ignore all CSS/SCSS files:
+*.css
+*.scss

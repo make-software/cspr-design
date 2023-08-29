@@ -3,7 +3,6 @@ import React from 'react';
 import { BaseProps } from '../../types';
 import { matchSize } from '../../utils/match-size';
 import FlexRow from '../flex-row/flex-row';
-import { BodyTextProps } from '../body-text/body-text';
 import styled from 'styled-components';
 import Text, { TextVariation } from '../text/text';
 
@@ -26,7 +25,12 @@ export const CircularIndicatorTextVariation: {
   [CircularIndicatorTextSize.default]: 'black',
 };
 
-const StyledText = styled(Text)<BodyTextProps & { textSize: 1 | 2 }>(
+const StyledText = styled(Text)<{
+    size: 1 | 2 | 3;
+    scale?: 'xs' | 'sm' | 'md' | 'lg';
+    lineHeight?: 'xs' | 'sm';
+    textSize: 1 | 2
+}>(
   ({ theme, size = 3, textSize }) => ({
     fontWeight: matchSize(
       {
@@ -38,12 +42,12 @@ const StyledText = styled(Text)<BodyTextProps & { textSize: 1 | 2 }>(
     ),
     fontSize: matchSize(
       {
-        1: '1.3rem',
-        2: '1.4rem',
+        1: '0.813rem',
+        2: '0.875rem',
       },
       textSize
     ),
-    lineHeight: '2rem',
+    lineHeight: '1.25rem',
   })
 );
 

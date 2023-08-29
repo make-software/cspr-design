@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import Label from '../label/label';
 
-type BadgeBackgroundColor = 'green' | 'violet' | 'blue' | 'gray';
+type BadgeBackgroundColor = 'green' | 'violet' | 'blue' | 'gray' | 'fillBlueGradient';
 
 interface StyledBadgeProps {
   bgColor: BadgeBackgroundColor;
@@ -20,6 +20,7 @@ const getBadgeBgColors = (theme, color: BadgeBackgroundColor) =>
     violet: theme.styleguideColors.fillVioletGradient,
     blue: theme.colorSpecialCase.blueBanner2,
     gray: theme.styleguideColors.contentQuaternary,
+    fillBlueGradient: theme.styleguideColors.fillBlueGradient,
   }[color]);
 
 const StyledBadge = styled.div<StyledBadgeProps>(({ theme, bgColor }) => ({

@@ -8,7 +8,7 @@ import Text, { TextProps } from '../text/text';
 /* eslint-disable-next-line */
 export interface HeaderTextProps extends TextProps {
   size: Size;
-  scale?: 'sm' | 'md' | 'lg' | 'xl' | '2xl';
+  scale?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl';
 }
 
 const StyledText = styled(Text)<HeaderTextProps>(
@@ -33,6 +33,7 @@ const StyledText = styled(Text)<HeaderTextProps>(
         lg: '2.5rem',
         md: '2rem',
         sm: '1.75rem',
+        xs: '1.5rem',
       },
       scale
     ),
@@ -43,6 +44,7 @@ const StyledText = styled(Text)<HeaderTextProps>(
         lg: '3.5rem',
         md: '3rem',
         sm: '2.5rem',
+        xs: '1.75rem',
       },
       scale
     ),
