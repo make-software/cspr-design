@@ -24,6 +24,7 @@ export interface TextProps extends BaseProps {
   monotype?: boolean;
   uppercase?: boolean;
   capitalize?: boolean;
+  capitalizeFirstLetter?: boolean;
   noWrap?: boolean;
   loading?: boolean;
   wordBreak?: boolean;
@@ -41,6 +42,7 @@ const StyledText = styled('span').withConfig({
     noWrap = false,
     uppercase = false,
     capitalize = false,
+    capitalizeFirstLetter = false,
     wordBreak = false,
   }) => ({
     fontFamily: monotype
@@ -73,6 +75,11 @@ const StyledText = styled('span').withConfig({
     }),
     ...(capitalize && {
       textTransform: 'capitalize',
+    }),
+    ...(capitalizeFirstLetter && {
+      '&:first-letter': {
+        textTransform: 'capitalize',
+      },
     }),
     ...(wordBreak && {
       wordBreak: 'break-word',

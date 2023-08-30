@@ -1,10 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
-import { BaseProps } from '../../types';
-import HeaderText from '../header-text/header-text';
+import HeaderText, {HeaderTextProps} from '../header-text/header-text';
 
 /* eslint-disable-next-line */
-export interface PageTileHeaderProps extends BaseProps {}
+export interface PageTileHeaderProps extends HeaderTextProps {}
 
 const StyledPageTileHeader = styled(HeaderText)(({ theme }) =>
   theme.withMedia({

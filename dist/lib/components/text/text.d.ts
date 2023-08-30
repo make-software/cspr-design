@@ -6,6 +6,7 @@ export interface TextProps extends BaseProps {
     monotype?: boolean;
     uppercase?: boolean;
     capitalize?: boolean;
+    capitalizeFirstLetter?: boolean;
     noWrap?: boolean;
     loading?: boolean;
     wordBreak?: boolean;

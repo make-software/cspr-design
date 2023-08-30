@@ -1,6 +1,6 @@
 /// <reference types="react" />
-import { BaseProps } from '../../types';
-export interface PageTileHeaderProps extends BaseProps {
+import { HeaderTextProps } from '../header-text/header-text';
+export interface PageTileHeaderProps extends HeaderTextProps {
 }
 export declare function PageTileHeader(props: PageTileHeaderProps): JSX.Element;
 export default PageTileHeader;
