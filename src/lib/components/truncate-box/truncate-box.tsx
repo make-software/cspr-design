@@ -7,6 +7,7 @@ import { matchSize } from '../../utils/match-size';
 /* eslint-disable-next-line */
 export interface TruncateBoxProps extends BaseProps {
   size?: Size;
+  lineHeight?: 'xs' | 'sm';
 }
 
 const getSize = (size: Size) =>
@@ -23,7 +24,7 @@ const getSize = (size: Size) =>
   );
 
 const StyledTruncateBox = styled('div')<TruncateBoxProps>(
-  ({ theme, size = 2 }) => ({
+  ({ theme, size = 2, lineHeight = 'sm' }) => ({
     display: 'inline-block',
     whiteSpace: 'nowrap',
     overflow: 'hidden',
@@ -35,6 +36,13 @@ const StyledTruncateBox = styled('div')<TruncateBoxProps>(
       content: "''",
       display: 'block',
     },
+      lineHeight: matchSize(
+          {
+              sm: '1.5rem',
+              xs: '1.25rem',
+          },
+          lineHeight
+      ),
   })
 );
 

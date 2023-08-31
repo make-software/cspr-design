@@ -5,21 +5,37 @@ import { ActivableProps } from '../../types';
 import Button, { ButtonProps } from '../button/button';
 import SvgIcon from '../svg-icon/svg-icon';
 import FlexRow from '../flex-row/flex-row';
+import {matchSize} from "../../utils/match-size";
 
 /* eslint-disable-next-line */
 export interface TabMenuItemProps extends ButtonProps, ActivableProps {
   disabled?: boolean;
   tooltip?: string;
+  lineHeight?: 'xs' | 'sm';
+  scale?: 'xs' | 'sm';
 }
 
 const StyledButton = styled(Button)<TabMenuItemProps>(
-  ({ theme, active, disabled }) =>
+  ({ theme, active, disabled, lineHeight = 'sm', scale = 'sm' }) =>
     theme.withMedia({
       minWidth: [131, 140],
       padding: '6px',
       maxWidth: 'fit-content',
       height: 32,
-      fontSize: '1.3rem',
+      fontSize: matchSize(
+          {
+              sm: '1.3rem',
+              xs: '0.8125rem',
+          },
+          scale
+      ),
+        lineHeight: matchSize(
+            {
+                sm: '1.5rem',
+                xs: '1.25rem',
+            },
+            lineHeight
+        ),
       fontWeight: theme.typography.fontWeight.medium,
       cursor: 'pointer',
       marginLeft: 2,

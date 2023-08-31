@@ -9,8 +9,14 @@ import { BaseProps } from '../../types';
 import BodyText from '../body-text/body-text';
 import CaptionText from '../caption-text/caption-text';
 import FlexColumn from '../flex-column/flex-column';
+import {matchSize} from "../../utils/match-size";
 
 type Ref = HTMLDivElement;
+
+type StyledReactTooltipProps = {
+    lineHeight?: 'xs' | 'sm';
+    scale?: 'xs' | 'sm';
+}
 
 export interface TooltipProps extends BaseProps {
   title?: JSX.Element | string | null;
@@ -19,8 +25,7 @@ export interface TooltipProps extends BaseProps {
   monotype?: boolean;
   limitWidth?: boolean;
 }
-
-const StyledReactTooltip = styled(ReakitTooltip)(({ theme }) => ({
+const StyledReactTooltip = styled(ReakitTooltip)<StyledReactTooltipProps>(({ theme, lineHeight = 'sm', scale = 'sm' }) => ({
   zIndex: theme.zIndex.tooltip,
   color: theme.styleguideColors.contentPrimary,
   backgroundColor: theme.styleguideColors.backgroundPrimary,
@@ -30,13 +35,26 @@ const StyledReactTooltip = styled(ReakitTooltip)(({ theme }) => ({
 
   transition: 'opacity 250ms ease-in-out',
   opacity: 0,
-
+  fontSize: matchSize(
+     {
+         sm: '1.3rem',
+         xs: '0.8125rem',
+     },
+      scale
+  ),
+  lineHeight: matchSize(
+      {
+          sm: '1.5rem',
+          xs: '1.25rem',
+      },
+      lineHeight
+  ),
   '&[data-enter]': {
     opacity: 1,
   },
 }));
 
-export const Tooltip = React.forwardRef<Ref, TooltipProps>(
+export const Tooltip = React.forwardRef<Ref, TooltipProps & StyledReactTooltipProps>(
   ({ children, limitWidth, title, caption, monotype, ...props }, ref) => {
     const tooltip = useTooltipState({ animated: 250 });
 
