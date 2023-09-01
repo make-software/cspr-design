@@ -147,6 +147,32 @@ export const ConfirmationWindow = ({
           },
   };
 
+    const StyledConfirmButton = styled(Button)(
+        ({ theme }) =>
+            theme.withMedia({
+                backgroundColor: theme.styleguideColors.fillPrimaryBlue,
+                ':hover': {
+                    background: theme.styleguideColors.fillPrimaryBlueHover,
+                },
+                ':active': {
+                    background: theme.styleguideColors.fillPrimaryBlueClick,
+                },
+            })
+    );
+
+    const StyledDismissButton = styled(Button)(
+        ({ theme }) =>
+            theme.withMedia({
+                color: theme.styleguideColors.contentBlue,
+                ':hover': {
+                    background: theme.styleguideColors.fillSecondaryBlueHover,
+                },
+                ':active': {
+                    background: theme.styleguideColors.fillSecondaryBlueClick,
+                },
+            })
+    );
+
   return (
     <>
       {isOpen && (
@@ -183,16 +209,13 @@ export const ConfirmationWindow = ({
               justify={'space-between'}
             >
               {dismissLabel && (
-                <Button color={'secondaryBlue'} onClick={onDismiss}>
+                <StyledDismissButton color={'utility'} onClick={onDismiss}>
                   {dismissLabel}
-                </Button>
+                </StyledDismissButton>
               )}
-              <Button
-                color={confirmColor === 'red' ? 'primaryRed' : 'primaryBlue'}
-                onClick={onConfirm}
-              >
+              <StyledConfirmButton onClick={onConfirm}>
                 {confirmLabel}
-              </Button>
+              </StyledConfirmButton>
             </ButtonsContainer>
           </ModalContainer>
         </ReactModal>
