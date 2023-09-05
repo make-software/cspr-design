@@ -12,6 +12,7 @@ export interface BadgeProps {
   label: string | React.ReactNode;
   variation?: BadgeBackgroundColor;
   capitalize?: boolean;
+  lineHeight?: 'xs' | 'sm';
 }
 
 const getBadgeBgColors = (theme, color: BadgeBackgroundColor) =>
@@ -48,10 +49,11 @@ export const Badge = ({
   label,
   variation = 'green',
   capitalize = true,
+  lineHeight = 'sm'
 }: BadgeProps) => {
   return (
     <StyledBadge bgColor={variation}>
-      <Label size={2} capitalize={capitalize}>
+      <Label size={2} capitalize={capitalize} lineHeight={lineHeight}>
         <StyledLabelContentWrapper>{label}</StyledLabelContentWrapper>
       </Label>
     </StyledBadge>

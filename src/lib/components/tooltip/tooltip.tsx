@@ -55,7 +55,7 @@ const StyledReactTooltip = styled(ReakitTooltip)<StyledReactTooltipProps>(({ the
 }));
 
 export const Tooltip = React.forwardRef<Ref, TooltipProps & StyledReactTooltipProps>(
-  ({ children, limitWidth, title, caption, monotype, ...props }, ref) => {
+  ({ children, limitWidth, title, caption, monotype, lineHeight = 'sm', scale = 'sm', ...props }, ref) => {
     const tooltip = useTooltipState({ animated: 250 });
 
     if (children == null) {
@@ -77,7 +77,7 @@ export const Tooltip = React.forwardRef<Ref, TooltipProps & StyledReactTooltipPr
               <CaptionText size={2} variation="gray">
                 {caption}
               </CaptionText>
-              <BodyText size={3} monotype={monotype}>
+              <BodyText size={3} monotype={monotype} lineHeight={lineHeight} scale={scale}>
                 {title}
               </BodyText>
             </FlexColumn>

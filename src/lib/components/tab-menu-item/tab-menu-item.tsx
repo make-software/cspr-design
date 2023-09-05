@@ -6,6 +6,7 @@ import Button, { ButtonProps } from '../button/button';
 import SvgIcon from '../svg-icon/svg-icon';
 import FlexRow from '../flex-row/flex-row';
 import {matchSize} from "../../utils/match-size";
+import Tooltip from "../tooltip/tooltip";
 
 /* eslint-disable-next-line */
 export interface TabMenuItemProps extends ButtonProps, ActivableProps {
@@ -80,6 +81,7 @@ const StyledButton = styled(Button)<TabMenuItemProps>(
 
 export function TabMenuItem(props: TabMenuItemProps) {
   return (
+      <Tooltip title={props.tooltip} limitWidth lineHeight={props.lineHeight}>
       <StyledButton color="utility" {...props}>
         <FlexRow gap={3} align={'center'}>
           {props.children}
@@ -88,6 +90,7 @@ export function TabMenuItem(props: TabMenuItemProps) {
           )}
         </FlexRow>
       </StyledButton>
+      </Tooltip>
   );
 }
 

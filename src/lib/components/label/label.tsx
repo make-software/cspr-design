@@ -10,10 +10,11 @@ type Transform = 'uppercase' | 'capitalize' | 'unset';
 export interface LabelProps extends TextProps {
   size: 1 | 2;
   transform?: Transform;
+  lineHeight?: 'xs' | 'sm';
 }
 
 const StyledText = styled(Text)<LabelProps>(
-  ({ theme, size = 2, transform = 'unset' }) => ({
+  ({ theme, size = 2, transform = 'unset', lineHeight = 'sm' }) => ({
     fontWeight: matchSize(
       {
         1: theme.typography.fontWeight.bold,
@@ -21,6 +22,13 @@ const StyledText = styled(Text)<LabelProps>(
       },
       size
     ),
+      lineHeight: matchSize(
+          {
+              sm: '1.5rem',
+              xs: '1.25rem',
+          },
+          lineHeight
+      ),
     fontSize: '0.625rem',
     textTransform: transform,
   })

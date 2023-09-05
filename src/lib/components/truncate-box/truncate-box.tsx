@@ -13,12 +13,12 @@ export interface TruncateBoxProps extends BaseProps {
 const getSize = (size: Size) =>
   matchSize(
     {
-      0: 10,
-      1: 10,
-      2: 23,
-      3: 35,
-      4: 45,
-      5: 55,
+      0: 6.25,
+      1: 6.25,
+      2: 14.375,
+      3: 21.875,
+      4: 28.125,
+      5: 34.375,
     },
     size
   );

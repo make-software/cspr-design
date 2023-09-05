@@ -7,7 +7,7 @@ export interface ButtonProps extends BaseProps {
     disabled?: boolean;
     height?: '24' | '36' | '40';
     width?: '100' | '120' | '176' | '100%';
-    lineHeight?: string;
+    lineHeight?: 'xs' | 'sm';
 }
 export declare const Button: React.ForwardRefExoticComponent<ButtonProps & React.RefAttributes<HTMLButtonElement>>;
 export default Button;

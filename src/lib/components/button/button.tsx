@@ -5,7 +5,7 @@ import { BaseProps } from '../../types';
 import { matchSize } from '../../utils/match-size';
 
 const BaseButton = styled.button<ButtonProps>(
-  ({ theme, disabled, height = '36', width = '100%', lineHeight }) => ({
+  ({ theme, disabled, height = '36', width = '100%', lineHeight = 'sm' }) => ({
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
@@ -25,9 +25,12 @@ const BaseButton = styled.button<ButtonProps>(
       height
     ),
     minHeight: matchSize({ '24': 24, '36': 36, '40': 40 }, height),
-    lineHeight: lineHeight ?? matchSize(
-      { '24': '1.5rem', '36': '1.5rem', '40': '1.5rem' },
-      height
+    lineHeight: matchSize(
+        {
+            sm: '1.5rem',
+            xs: '1.25rem',
+        },
+        lineHeight
     ),
     padding: matchSize(
       { '24': '2px 10px', '36': '8px 25px', '40': '10px 30px' },
@@ -167,7 +170,7 @@ export interface ButtonProps extends BaseProps {
   disabled?: boolean;
   height?: '24' | '36' | '40';
   width?: '100' | '120' | '176' | '100%';
-  lineHeight?: string;
+  lineHeight?: 'xs' | 'sm';
 }
 
 type Ref = HTMLButtonElement;
