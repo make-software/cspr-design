@@ -16,6 +16,7 @@ type Ref = HTMLDivElement;
 type StyledReactTooltipProps = {
     lineHeight?: 'xs' | 'sm';
     scale?: 'xs' | 'sm';
+    paddingScale?: 1 | 2;
 }
 
 export interface TooltipProps extends BaseProps {
@@ -25,12 +26,12 @@ export interface TooltipProps extends BaseProps {
   monotype?: boolean;
   limitWidth?: boolean;
 }
-const StyledReactTooltip = styled(ReakitTooltip)<StyledReactTooltipProps>(({ theme, lineHeight = 'sm', scale = 'sm' }) => ({
+const StyledReactTooltip = styled(ReakitTooltip)<StyledReactTooltipProps>(({ theme, lineHeight = 'sm', scale = 'sm', paddingScale = 2 }) => ({
   zIndex: theme.zIndex.tooltip,
   color: theme.styleguideColors.contentPrimary,
   backgroundColor: theme.styleguideColors.backgroundPrimary,
   borderRadius: theme.borderRadius.base,
-  padding: theme.padding[2],
+  padding: theme.padding[paddingScale],
   boxShadow: theme.boxShadow.tooltip,
 
   transition: 'opacity 250ms ease-in-out',

@@ -3,6 +3,7 @@ import { BaseProps, Size } from '../../types';
 export interface TruncateBoxProps extends BaseProps {
     size?: Size;
     lineHeight?: 'xs' | 'sm';
+    scale?: 'xs' | 'sm';
 }
 export declare const TruncateBox: React.ForwardRefExoticComponent<TruncateBoxProps & React.RefAttributes<HTMLDivElement>>;
 export default TruncateBox;

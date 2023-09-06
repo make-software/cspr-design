@@ -54,15 +54,19 @@ const StyledInput = styled('input')<InputProps>(({ theme }) => ({
   border: 'none',
   width: '100%',
   padding: 0,
+  '&[type=number]:focus, &[type=number]:blur': {
+     '-moz-appearance': 'number-input',
+  },
   '&[type=number]': {
-    '&::-webkit-inner-spin-button, &::-webkit-outer-spin-button': {
-      margin: 0,
-      '-webkit-appearance': 'none',
-      'pointer-events': 'none',
-    },
+      '-moz-appearance': 'textfield',
+     '&::-webkit-inner-spin-button, &::-webkit-outer-spin-button': {
+        margin: 0,
+         '-webkit-appearance': 'none',
+          'pointer-events': 'none',
+     },
   },
   '&::placeholder': {
-    color: theme.styleguideColors.contentSecondary,
+      color: theme.styleguideColors.contentSecondary,
   },
 }));
 

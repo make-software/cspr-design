@@ -10,7 +10,7 @@ type Transform = 'uppercase' | 'capitalize' | 'unset';
 export interface LabelProps extends TextProps {
   size: 1 | 2;
   transform?: Transform;
-  lineHeight?: 'xs' | 'sm';
+  lineHeight?: 'xxs' | 'xs' | 'sm';
 }
 
 const StyledText = styled(Text)<LabelProps>(
@@ -26,6 +26,7 @@ const StyledText = styled(Text)<LabelProps>(
           {
               sm: '1.5rem',
               xs: '1.25rem',
+              xxs: '0.75rem'
           },
           lineHeight
       ),

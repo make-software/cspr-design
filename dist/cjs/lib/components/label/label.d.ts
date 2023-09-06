@@ -4,7 +4,7 @@ type Transform = 'uppercase' | 'capitalize' | 'unset';
 export interface LabelProps extends TextProps {
     size: 1 | 2;
     transform?: Transform;
-    lineHeight?: 'xs' | 'sm';
+    lineHeight?: 'xxs' | 'xs' | 'sm';
 }
 export declare function Label(props: LabelProps): JSX.Element;
 export default Label;

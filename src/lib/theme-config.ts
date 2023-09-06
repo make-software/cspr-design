@@ -35,6 +35,7 @@ const themeCommon = {
     base: 4,
   },
   padding: {
+    1: '1.25em',
     2: '2em',
   },
   animations: {

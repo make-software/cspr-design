@@ -1,5 +1,9 @@
 import { ReactNode } from 'react';
 import { BaseProps } from '../../types';
+export declare enum LabelFontSize {
+    'default' = "default",
+    'small' = "small"
+}
 export declare enum FormFieldStatus {
     Error = "error",
     Success = "success"
@@ -10,7 +14,8 @@ export interface FormFieldProps extends BaseProps {
     status?: FormFieldStatus;
     statusText?: string | null;
     disabled?: boolean;
+    labelFontSize?: LabelFontSize;
 }
-export declare function FormField({ label, rightLabel, status, statusText, children, ...restProps }: FormFieldProps): JSX.Element;
+export declare function FormField({ label, rightLabel, status, statusText, children, labelFontSize, ...restProps }: FormFieldProps): JSX.Element;
 export default FormField;
 //# sourceMappingURL=form-field.d.ts.map

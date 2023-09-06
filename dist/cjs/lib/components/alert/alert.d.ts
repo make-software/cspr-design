@@ -1,11 +1,17 @@
 import React from 'react';
 export declare enum AlertStatus {
     Success = "success",
-    Error = "error"
+    Error = "error",
+    Info = "info",
+    Pending = "pending",
+    Warning = "warning"
 }
 export interface StatusMessageProps {
-    message: string | React.ReactNode;
+    title?: React.ReactNode | string;
+    message: React.ReactNode | string;
     status: AlertStatus;
+    scale?: 'xs' | 'sm' | 'md' | 'lg' | 'xl';
+    lineHeight?: 'xs' | 'sm';
 }
 export declare const Alert: (props: StatusMessageProps) => JSX.Element;
 export default Alert;

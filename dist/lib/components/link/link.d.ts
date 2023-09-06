@@ -4,6 +4,7 @@ export interface LinkProps extends React.HTMLAttributes<Ref> {
     href?: string;
     target?: string;
     color: Color;
+    lineHeight?: 'xs' | 'sm';
 }
 type Ref = HTMLAnchorElement;
 export declare const Link: React.ForwardRefExoticComponent<LinkProps & React.RefAttributes<HTMLAnchorElement>>;

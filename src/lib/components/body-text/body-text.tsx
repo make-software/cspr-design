@@ -9,7 +9,7 @@ type Ref = HTMLSpanElement;
 /* eslint-disable-next-line */
 export interface BodyTextProps extends TextProps {
   size: 1 | 2 | 3 | 4;
-  scale?: 'xs' | 'sm' | 'md' | 'lg';
+  scale?: 'xs' | 'sm' | 'md' | 'lg' | 'xl';
   lineHeight?: 'xs' | 'sm';
 }
 
@@ -26,6 +26,7 @@ const StyledText = styled(Text)<BodyTextProps>(
     ),
     fontSize: matchSize(
       {
+        xl: '1.25rem',
         lg: '1.125rem',
         md: '1rem',
         sm: '0.875rem',

@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { themeConfig } from '../../theme-config';
+import {matchSize} from "../../utils/match-size";
 
 type Color = 'primaryBlue' | 'primaryRed' | 'hash' | 'inherit';
 
@@ -35,12 +35,20 @@ export interface LinkProps extends React.HTMLAttributes<Ref> {
   href?: string;
   target?: string;
   color: Color;
+  lineHeight?: 'xs' | 'sm';
 }
 
 type Ref = HTMLAnchorElement;
-const StyledLink = styled.a<LinkProps>(({ theme, color }) => {
+const StyledLink = styled.a<LinkProps>(({ theme, color, lineHeight = 'sm' }) => {
   const stateColor = getStateColor(theme, color);
   return {
+    lineHeight: matchSize(
+        {
+          sm: '1.5rem',
+          xs: '1.25rem',
+        },
+        lineHeight
+    ),
     color: stateColor.color,
     '&:hover > *': {
       color: stateColor.hover,

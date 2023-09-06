@@ -8,6 +8,7 @@ import { matchSize } from '../../utils/match-size';
 export interface TruncateBoxProps extends BaseProps {
   size?: Size;
   lineHeight?: 'xs' | 'sm';
+  scale?: 'xs' | 'sm';
 }
 
 const getSize = (size: Size) =>
@@ -24,7 +25,7 @@ const getSize = (size: Size) =>
   );
 
 const StyledTruncateBox = styled('div')<TruncateBoxProps>(
-  ({ theme, size = 2, lineHeight = 'sm' }) => ({
+  ({ theme, size = 2, lineHeight = 'sm', scale = 'sm' }) => ({
     display: 'inline-block',
     whiteSpace: 'nowrap',
     overflow: 'hidden',
@@ -42,6 +43,13 @@ const StyledTruncateBox = styled('div')<TruncateBoxProps>(
               xs: '1.25rem',
           },
           lineHeight
+      ),
+      fontSize: matchSize(
+          {
+              sm: '1rem',
+              xs: '0.625rem',
+          },
+          scale
       ),
   })
 );

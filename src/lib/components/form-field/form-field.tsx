@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { BaseProps } from '../../types';
 import { SubtitleText } from '../subtitle-text/subtitle-text';
 import CaptionText from '../caption-text/caption-text';
+import BodyText from "../body-text/body-text";
 
 const getThemeColor = (status?: FormFieldStatus | null) => {
   if (status == null) {
@@ -44,6 +45,19 @@ const StatusCaptionText = styled(CaptionText)`
   position: absolute;
 `;
 
+export enum LabelFontSize {
+    'default' = 'default',
+    'small' = 'small',
+}
+
+const StyledLabelText = ({ labelFontSize, ...props }) => {
+    return labelFontSize === LabelFontSize.small ? (
+        <BodyText size={1} lineHeight={'xs'} {...props} />
+    ) : (
+        <SubtitleText size={1} {...props} />
+    );
+};
+
 export enum FormFieldStatus {
   Error = 'error',
   Success = 'success',
@@ -55,6 +69,7 @@ export interface FormFieldProps extends BaseProps {
   status?: FormFieldStatus;
   statusText?: string | null;
   disabled?: boolean;
+  labelFontSize?: LabelFontSize;
 }
 
 export function FormField({
@@ -63,13 +78,14 @@ export function FormField({
   status,
   statusText,
   children,
+  labelFontSize = LabelFontSize.default,
   ...restProps
 }: FormFieldProps) {
   return (
     <StyledContainer {...restProps}>
       <LabelContainer>
-        {label && <SubtitleText size={1}>{label}</SubtitleText>}
-        {rightLabel && <SubtitleText size={1}>{rightLabel}</SubtitleText>}
+        {label && <StyledLabelText labelFontSize={labelFontSize}>{label}</StyledLabelText>}
+        {rightLabel && <StyledLabelText labelFontSize={labelFontSize}>{rightLabel}</StyledLabelText>}
       </LabelContainer>
 
       {children}

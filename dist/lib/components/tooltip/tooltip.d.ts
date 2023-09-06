@@ -3,6 +3,7 @@ import { BaseProps } from '../../types';
 type StyledReactTooltipProps = {
     lineHeight?: 'xs' | 'sm';
     scale?: 'xs' | 'sm';
+    paddingScale?: 1 | 2;
 };
 export interface TooltipProps extends BaseProps {
     title?: JSX.Element | string | null;

@@ -30,9 +30,11 @@ export type MultiDropdownValue = {
     value: any;
 };
 export interface MultiSelectDropdownProps extends BaseProps {
+    value?: MultiDropdownValue[];
     items: MultiDropdownValue[];
-    label?: string;
+    label?: string | JSX.Element;
     placeholder?: string;
+    disabled?: boolean;
     onChange?: (ev: DropdownEventValue) => void;
     onSelect?: (ev: DropdownEventValue) => void;
     onRemove?: (ev: DropdownEventValue) => void;

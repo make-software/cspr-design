@@ -81,7 +81,7 @@ const StyledButton = styled(Button)<TabMenuItemProps>(
 
 export function TabMenuItem(props: TabMenuItemProps) {
   return (
-      <Tooltip title={props.tooltip} limitWidth lineHeight={props.lineHeight}>
+      <Tooltip title={props.tooltip} limitWidth lineHeight={props.lineHeight} scale={props.scale}>
       <StyledButton color="utility" {...props}>
         <FlexRow gap={3} align={'center'}>
           {props.children}
