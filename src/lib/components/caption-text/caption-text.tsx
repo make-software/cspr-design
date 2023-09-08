@@ -19,7 +19,13 @@ const StyledText = styled(Text)<CaptionTextProps>(({ theme, size = 2 }) => ({
     size
   ),
   fontSize: '0.688rem',
-  lineHeight: '1rem',
+    lineHeight: matchSize(
+        {
+            1: '1.25rem',
+            2: '1rem',
+        },
+        size
+    )
 }));
 
 export function CaptionText(props: CaptionTextProps) {

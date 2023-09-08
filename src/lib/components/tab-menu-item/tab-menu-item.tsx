@@ -14,6 +14,7 @@ export interface TabMenuItemProps extends ButtonProps, ActivableProps {
   tooltip?: string;
   lineHeight?: 'xs' | 'sm';
   scale?: 'xs' | 'sm';
+  tooltipPaddingScale?: 1 | 2;
 }
 
 const StyledButton = styled(Button)<TabMenuItemProps>(
@@ -81,7 +82,7 @@ const StyledButton = styled(Button)<TabMenuItemProps>(
 
 export function TabMenuItem(props: TabMenuItemProps) {
   return (
-      <Tooltip title={props.tooltip} limitWidth lineHeight={props.lineHeight} scale={props.scale}>
+      <Tooltip title={props.tooltip} limitWidth lineHeight={props.lineHeight} scale={props.scale} paddingScale={props.tooltipPaddingScale}>
       <StyledButton color="utility" {...props}>
         <FlexRow gap={3} align={'center'}>
           {props.children}

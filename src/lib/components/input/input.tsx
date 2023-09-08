@@ -2,7 +2,7 @@ import React, { ReactNode } from 'react';
 import styled from 'styled-components';
 import { BaseProps } from '../../types';
 import { matchSize } from '../../utils/match-size';
-import FormField, { FormFieldStatus } from '../form-field/form-field';
+import FormField, {FormFieldStatus, LabelFontSize} from '../form-field/form-field';
 import SvgIcon from '../svg-icon/svg-icon';
 
 const getThemeColorByError = (error?: boolean) => {
@@ -107,6 +107,7 @@ export interface InputProps extends BaseProps {
   max?: string;
   step?: string;
   label?: ReactNode | string;
+  labelFontSize?: LabelFontSize;
   rightLabel?: ReactNode | string;
   prefixIcon?: ReactNode | null;
   suffixIcon?: ReactNode | null;
@@ -135,6 +136,7 @@ export function Input({
   validationType,
   validationText,
   onFocus,
+                          labelFontSize = LabelFontSize.default,
   ...restProps
 }: InputProps) {
   const validationProps =
@@ -180,6 +182,7 @@ export function Input({
       status={error ? FormFieldStatus.Error : undefined}
       statusText={validationText}
       disabled={disabled}
+      labelFontSize={labelFontSize}
     >
       <InputContainer monotype={monotype} error={error} height={height}>
         {prefixIcon && <PrefixContainer>{prefixIcon}</PrefixContainer>}

@@ -6,6 +6,7 @@ export interface TabMenuItemProps extends ButtonProps, ActivableProps {
     tooltip?: string;
     lineHeight?: 'xs' | 'sm';
     scale?: 'xs' | 'sm';
+    tooltipPaddingScale?: 1 | 2;
 }
 export declare function TabMenuItem(props: TabMenuItemProps): JSX.Element;
 export default TabMenuItem;

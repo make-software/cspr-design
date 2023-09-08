@@ -1,5 +1,6 @@
 import { ReactNode } from 'react';
 import { BaseProps } from '../../types';
+import { LabelFontSize } from '../form-field/form-field';
 export declare enum InputValidationType {
     PositiveInteger = "positive_int",
     CSPR = "cspr",
@@ -20,6 +21,7 @@ export interface InputProps extends BaseProps {
     max?: string;
     step?: string;
     label?: ReactNode | string;
+    labelFontSize?: LabelFontSize;
     rightLabel?: ReactNode | string;
     prefixIcon?: ReactNode | null;
     suffixIcon?: ReactNode | null;
@@ -29,6 +31,6 @@ export interface InputProps extends BaseProps {
     validationType?: InputValidationType;
     validationText?: string | null;
 }
-export declare function Input({ id, className, style, disabled, monotype, height, label, rightLabel, prefixIcon, suffixIcon, suffixText, required, error, validationType, validationText, onFocus, ...restProps }: InputProps): JSX.Element;
+export declare function Input({ id, className, style, disabled, monotype, height, label, rightLabel, prefixIcon, suffixIcon, suffixText, required, error, validationType, validationText, onFocus, labelFontSize, ...restProps }: InputProps): JSX.Element;
 export default Input;
 //# sourceMappingURL=input.d.ts.map
