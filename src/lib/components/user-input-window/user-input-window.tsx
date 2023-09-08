@@ -161,7 +161,7 @@ export const UserInputWindow = ({
 
   const modalStyle = {
     overlay: {
-      backgroundColor: '#0E1126A0',
+      backgroundColor: theme.styleguideColors.backgroundOverlay,
       zIndex: 15,
     },
     content:

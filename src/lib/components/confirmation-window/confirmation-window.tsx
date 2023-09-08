@@ -126,7 +126,7 @@ export const ConfirmationWindow = ({
 
   const modalStyle = {
     overlay: {
-      backgroundColor: '#0E1126A0',
+      backgroundColor: theme.styleguideColors.backgroundOverlay,
       zIndex: 15,
     },
     content:
@@ -147,31 +147,29 @@ export const ConfirmationWindow = ({
           },
   };
 
-    const StyledConfirmButton = styled(Button)(
-        ({ theme }) =>
-            theme.withMedia({
-                backgroundColor: theme.styleguideColors.fillPrimaryBlue,
-                ':hover': {
-                    background: theme.styleguideColors.fillPrimaryBlueHover,
-                },
-                ':active': {
-                    background: theme.styleguideColors.fillPrimaryBlueClick,
-                },
-            })
-    );
+  const StyledConfirmButton = styled(Button)(({ theme }) =>
+    theme.withMedia({
+      backgroundColor: theme.styleguideColors.fillPrimaryBlue,
+      ':hover': {
+        background: theme.styleguideColors.fillPrimaryBlueHover,
+      },
+      ':active': {
+        background: theme.styleguideColors.fillPrimaryBlueClick,
+      },
+    })
+  );
 
-    const StyledDismissButton = styled(Button)(
-        ({ theme }) =>
-            theme.withMedia({
-                color: theme.styleguideColors.contentBlue,
-                ':hover': {
-                    background: theme.styleguideColors.fillSecondaryBlueHover,
-                },
-                ':active': {
-                    background: theme.styleguideColors.fillSecondaryBlueClick,
-                },
-            })
-    );
+  const StyledDismissButton = styled(Button)(({ theme }) =>
+    theme.withMedia({
+      color: theme.styleguideColors.contentBlue,
+      ':hover': {
+        background: theme.styleguideColors.fillSecondaryBlueHover,
+      },
+      ':active': {
+        background: theme.styleguideColors.fillSecondaryBlueClick,
+      },
+    })
+  );
 
   return (
     <>

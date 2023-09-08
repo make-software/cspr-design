@@ -1,6 +1,5 @@
-import { keyframes } from "styled-components";
-import { withMedia } from "./utils/match-media";
-
+import { keyframes } from 'styled-components';
+import { withMedia } from './utils/match-media';
 
 const PAGE_MIN_WIDTH = 320;
 const PAGE_MAX_WIDTH = 1176;
@@ -64,6 +63,7 @@ export const themeConfig: any = {
       backgroundQuaternary: '#0F1429',
       borderPrimary: '#1A2347',
       borderSecondary: '#5C6073',
+      backgroundOverlay: '#0E1126A0',
       borderRed: '#FF8680',
       fillPrimaryRed: '#B2332D',
       fillPrimaryRedHover: '#932F30',
@@ -107,7 +107,7 @@ export const themeConfig: any = {
       separator: `1px solid #1A2347`, // borderPrimary
       tableRowSeparator: '1px solid #1A2347', // borderPrimary
     },
-    themeName: 'dark'
+    themeName: 'dark',
   },
   light: {
     ...themeCommon,
@@ -122,6 +122,7 @@ export const themeConfig: any = {
       backgroundQuaternary: '#161A33',
       borderPrimary: '#F2F3F5',
       borderSecondary: '#D2D4D9',
+      backgroundOverlay: '#0E1126A0',
       borderRed: '#E6332A',
       fillPrimaryRed: '#E6332A',
       fillPrimaryRedHover: '#D23028',
@@ -165,7 +166,7 @@ export const themeConfig: any = {
       separator: '1px solid #F2F3F5', // borderPrimary
       tableRowSeparator: '1px solid #F2F3F5', // borderPrimary
     },
-    themeName: 'light'
+    themeName: 'light',
   },
 };
 
