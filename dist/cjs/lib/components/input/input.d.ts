@@ -1,6 +1,9 @@
 import { ReactNode } from 'react';
 import { BaseProps } from '../../types';
-import { LabelFontSize } from '../form-field/form-field';
+export declare enum LabelFontSize {
+    'default' = "default",
+    'small' = "small"
+}
 export declare enum InputValidationType {
     PositiveInteger = "positive_int",
     CSPR = "cspr",

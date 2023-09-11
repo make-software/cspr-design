@@ -2,8 +2,13 @@ import React, { ReactNode } from 'react';
 import styled from 'styled-components';
 import { BaseProps } from '../../types';
 import { matchSize } from '../../utils/match-size';
-import FormField, {FormFieldStatus, LabelFontSize} from '../form-field/form-field';
+import FormField, {FormFieldStatus} from '../form-field/form-field';
 import SvgIcon from '../svg-icon/svg-icon';
+
+export enum LabelFontSize {
+    'default' = 'default',
+    'small' = 'small',
+}
 
 const getThemeColorByError = (error?: boolean) => {
   if (error == null || !error) {
