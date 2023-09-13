@@ -1,6 +1,5 @@
-import React, { useCallback, useEffect, useRef, useState } from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
-import SvgIcon from '../svg-icon/svg-icon';
 import { BaseProps } from '../../types';
 import FlexColumn from '../flex-column/flex-column';
 import { useClickAway } from '../../hooks/use-click-away';

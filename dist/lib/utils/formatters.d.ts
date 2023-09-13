@@ -1,4 +1,7 @@
 import { MessageDescriptor } from '@formatjs/intl';
+export declare const MINIMUM_SHOWING_BALANCE = 0.00001;
+export declare const DEFAULT_AMOUNT_PRECISION = 4;
+export declare const SMALL_PRECISION = 2;
 export declare const DEFAULT_PRECISION = 5;
 export declare const FULL_PRECISION = 9;
 export declare const formatMessage: (descriptor: MessageDescriptor, values?: Record<string, any>) => string;

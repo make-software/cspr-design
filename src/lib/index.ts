@@ -19,6 +19,7 @@ export * from './components/link/link';
 export * from './components/nav-link/nav-link';
 export * from './components/page-tile/page-tile';
 export * from './components/page-tile-header/page-tile-header';
+export * from './components/page-tile-tabs-header/page-tile-tabs-header';
 export * from './components/radio-button/radio-button';
 export * from './components/subtitle-text/subtitle-text';
 export * from './components/svg-icon/svg-icon';

@@ -14,6 +14,9 @@ import fr from 'date-fns/locale/fr';
 import az from 'date-fns/locale/az';
 import { isBrowserSupportRelativeDateFormat } from './detect-browser';
 
+export const MINIMUM_SHOWING_BALANCE = 0.00001;
+export const DEFAULT_AMOUNT_PRECISION = 4;
+export const SMALL_PRECISION = 2;
 export const DEFAULT_PRECISION = 5;
 export const FULL_PRECISION = 9;
 

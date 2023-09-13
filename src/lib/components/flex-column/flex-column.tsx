@@ -1,6 +1,5 @@
 import React from 'react';
 
-import styled, { Interpolation } from 'styled-components';
 import FlexBox, { FlexBoxProps } from '../flex-box/flex-box';
 
 /* eslint-disable-next-line */
