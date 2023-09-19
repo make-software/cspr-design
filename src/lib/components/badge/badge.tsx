@@ -12,7 +12,7 @@ export interface BadgeProps {
   label: string | React.ReactNode;
   variation?: BadgeBackgroundColor;
   capitalize?: boolean;
-  lineHeight?: 'xs' | 'sm';
+  lineHeight?: 'xxs' | 'xs' | 'sm';
 }
 
 const getBadgeBgColors = (theme, color: BadgeBackgroundColor) =>

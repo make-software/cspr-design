@@ -16,6 +16,8 @@ export * from './components/header-text/header-text';
 export * from './components/input/input';
 export * from './components/label/label';
 export * from './components/link/link';
+export * from './components/navigation/main-menu/main-menu';
+export * from './components/navigation/main-menu/main-menu-item';
 export * from './components/nav-link/nav-link';
 export * from './components/page-tile/page-tile';
 export * from './components/page-tile-header/page-tile-header';

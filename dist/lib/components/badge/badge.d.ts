@@ -4,7 +4,7 @@ export interface BadgeProps {
     label: string | React.ReactNode;
     variation?: BadgeBackgroundColor;
     capitalize?: boolean;
-    lineHeight?: 'xs' | 'sm';
+    lineHeight?: 'xxs' | 'xs' | 'sm';
 }
 export declare const Badge: ({ label, variation, capitalize, lineHeight }: BadgeProps) => JSX.Element;
 export {};
