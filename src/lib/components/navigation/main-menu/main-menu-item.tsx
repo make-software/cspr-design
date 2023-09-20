@@ -5,8 +5,7 @@ const NavItem = styled.li<{ selected?: boolean }>(({ theme, selected }) =>
   theme.withMedia({
     display: 'flex',
     color: theme.styleguideColors.contentTertiary,
-    padding: ['16px 32px', '16px 48px', '0 12px', '0 16px'],
-    width: '100%',
+    padding: ['16px 32px', '16px 48px', '0 32px 0 0', '0 32px 0 0'],
     height: '100%',
     alignItems: 'center',
     ...(selected && {

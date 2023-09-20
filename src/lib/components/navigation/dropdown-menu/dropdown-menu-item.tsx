@@ -5,8 +5,9 @@ import FlexRow from '../../flex-row/flex-row';
 const ItemContainer = styled(FlexRow)<{ padding?: string }>(({ theme, padding }) => ({
   width: '100%',
   cursor: 'pointer',
-  padding: padding ?? '12px 24px',
+  padding: padding ?? '12px 16px',
   ':hover, :active': {
+    borderRadius: theme.borderRadius.base,
     background: theme.styleguideColors.fillSecondary,
   },
 }));
@@ -18,6 +19,7 @@ const MenuItemWrapper = styled.li(({ theme }) =>
     color: theme.styleguideColors.contentPrimary,
     '&:hover': {
       cursor: 'pointer',
+      borderRadius: theme.borderRadius.base,
       '> *': {
         color: [theme.styleguideColors.contentBlue],
         fill: [theme.styleguideColors.contentBlue],

@@ -8,7 +8,7 @@ const StyledFlexColumn = styled(FlexColumn)<{
     padding?: string
 }>(
   ({ theme, multiColumn, padding }) => ({
-    padding: padding ?? '8px 0',
+    padding: padding ?? '8px',
     ...(multiColumn && {
       padding: '8px',
       '& li:hover > *': {
