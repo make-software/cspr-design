@@ -92,9 +92,9 @@ export const ProductsMenuItem = ({
 
   let badge;
   if (comingSoonBadgeLabel) {
-    badge = <Badge label={comingSoonBadgeLabel} variation={'violet'} />;
+    badge = <Badge label={comingSoonBadgeLabel} variation={'violet'} lineHeight={'xxs'} />;
   } else if (newBadgeLabel) {
-    badge = <Badge label={newBadgeLabel} variation={'green'} />;
+    badge = <Badge label={newBadgeLabel} variation={'green'} lineHeight={'xxs'} />;
   } else {
     badge = (
       <CaptionText size={2} variation={'lightGray'}>
