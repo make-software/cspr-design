@@ -2,7 +2,6 @@ import React from 'react';
 import styled from 'styled-components';
 
 import { ActivableProps, BaseProps } from '../../types';
-import A from "../a/a";
 
 type Ref = HTMLAnchorElement;
 
@@ -14,7 +13,7 @@ export interface NavLinkProps extends BaseProps, ActivableProps {
   onMouseDown?: (ev: any) => void;
 }
 
-const StyledA = styled(A)<NavLinkProps>(({ theme, disabled, active }) => ({
+const StyledA = styled.a<NavLinkProps>(({ theme, disabled, active }) => ({
   color: theme.styleguideColors.contentTertiary,
 
   ':hover': {
