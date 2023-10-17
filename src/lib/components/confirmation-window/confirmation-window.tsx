@@ -136,6 +136,10 @@ export const ConfirmationWindow = ({
             ...{
               backgroundColor: theme.styleguideColors.backgroundPrimary,
               borderColor: theme.styleguideColors.backgroundPrimary,
+              boxShadow:
+                themeMode === ThemeModeType.dark
+                  ? '0px 16px 48px rgba(9, 12, 26, 0.5)'
+                  : '0px 16px 48px rgba(26, 25, 25, 0.2)',
             },
           }
         : {
@@ -143,6 +147,10 @@ export const ConfirmationWindow = ({
             ...{
               backgroundColor: theme.styleguideColors.backgroundPrimary,
               borderColor: theme.styleguideColors.backgroundPrimary,
+              boxShadow:
+                themeMode === ThemeModeType.dark
+                  ? '0px 16px 48px rgba(9, 12, 26, 0.5)'
+                  : '0px 16px 48px rgba(26, 25, 25, 0.2)',
             },
           },
   };
