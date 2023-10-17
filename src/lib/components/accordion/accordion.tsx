@@ -13,6 +13,7 @@ export interface AccordionProps extends BaseProps {
 
 interface RenderProps {
   isOpen: boolean;
+  setIsOpen: (isOpen: boolean) => void;
 }
 
 const AccordionContainer = styled(FlexColumn)<{
@@ -41,7 +42,7 @@ export function Accordion({
     },
   });
 
-  const renderProps: RenderProps = { isOpen };
+  const renderProps: RenderProps = { isOpen, setIsOpen };
 
   return (
     <AccordionContainer isOpen={isOpen} {...props}>
