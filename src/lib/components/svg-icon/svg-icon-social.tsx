@@ -15,6 +15,9 @@ const getSocialMediaColor = (type: SocialMediaType) => {
     medium: '#00AB6C',
     reddit: '#FF4500',
     wechat: '#7BB32E',
+    x: '#0f1419',
+    linkedin: '#0a66c2',
+    website: '#BABBBF'
   }[type];
 };
 
@@ -23,12 +26,15 @@ const getSocialMediaUrl = (type: SocialMediaType, userId: string) => {
     keybase: 'https://keybase.io/' + userId.replace('@', ''),
     telegram: 'https://t.me/' + userId.replace('@', ''),
     twitter: 'https://twitter.com/' + userId.replace('@', ''),
+    x: 'https://twitter.com/' + userId.replace('@', ''),
     github: 'https://github.com/' + userId.replace('@', ''),
     youtube: 'https://youtube.com/channel/' + userId,
     facebook: 'https://facebook.com/' + userId,
     medium: 'https://medium.com/' + userId,
     reddit: 'https://reddit.com/' + userId,
     wechat: `weixin://dl/chat?${userId}/`,
+    linkedin: 'https://www.linkedin.com/company/' + userId,
+    website: userId
   }[type];
 };
 
@@ -36,12 +42,15 @@ export type SocialMediaType =
   | 'keybase'
   | 'telegram'
   | 'twitter'
+  | 'x'
   | 'github'
   | 'youtube'
   | 'facebook'
   | 'medium'
   | 'reddit'
-  | 'wechat';
+  | 'wechat'
+  | 'linkedin'
+  | 'website';
 
 /* eslint-disable-next-line */
 export interface SvgIconSocialProps extends BaseProps {
