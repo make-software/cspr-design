@@ -15,7 +15,7 @@ const getSocialMediaColor = (type: SocialMediaType) => {
     medium: '#00AB6C',
     reddit: '#FF4500',
     wechat: '#7BB32E',
-    x: '#0f1419',
+    twitter_x: '#0f1419',
     linkedin: '#0a66c2',
     website: '#BABBBF'
   }[type];
@@ -26,7 +26,7 @@ const getSocialMediaUrl = (type: SocialMediaType, userId: string) => {
     keybase: 'https://keybase.io/' + userId.replace('@', ''),
     telegram: 'https://t.me/' + userId.replace('@', ''),
     twitter: 'https://twitter.com/' + userId.replace('@', ''),
-    x: 'https://twitter.com/' + userId.replace('@', ''),
+    twitter_x: 'https://twitter.com/' + userId.replace('@', ''),
     github: 'https://github.com/' + userId.replace('@', ''),
     youtube: 'https://youtube.com/channel/' + userId,
     facebook: 'https://facebook.com/' + userId,
@@ -42,7 +42,7 @@ export type SocialMediaType =
   | 'keybase'
   | 'telegram'
   | 'twitter'
-  | 'x'
+  | 'twitter_x'
   | 'github'
   | 'youtube'
   | 'facebook'
