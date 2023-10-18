@@ -8,7 +8,6 @@ export interface AccordionProps extends BaseProps {
 }
 interface RenderProps {
     isOpen: boolean;
-    setIsOpen: (isOpen: boolean) => void;
 }
 export declare function Accordion({ children, renderContent, disableClickAway, ...props }: AccordionProps): JSX.Element;
 export default Accordion;
