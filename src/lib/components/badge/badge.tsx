@@ -6,11 +6,13 @@ type BadgeBackgroundColor = 'green' | 'violet' | 'blue' | 'gray' | 'fillBlueGrad
 
 interface StyledBadgeProps {
   bgColor: BadgeBackgroundColor;
+  textColor?: string;
 }
 
 export interface BadgeProps {
   label: string | React.ReactNode;
   variation?: BadgeBackgroundColor;
+  textColor?: string;
   capitalize?: boolean;
   lineHeight?: 'xxs' | 'xs' | 'sm';
 }
@@ -24,11 +26,11 @@ const getBadgeBgColors = (theme, color: BadgeBackgroundColor) =>
     fillBlueGradient: theme.styleguideColors.fillBlueGradient,
   }[color]);
 
-const StyledBadge = styled.div<StyledBadgeProps>(({ theme, bgColor }) => ({
+const StyledBadge = styled.div<StyledBadgeProps>(({ theme, bgColor, textColor }) => ({
   display: 'flex',
   alignItems: 'center',
   width: 'fit-content',
-  color: theme.styleguideColors.contentOnFill,
+  color: textColor ? textColor : theme.styleguideColors.contentOnFill,
   background: getBadgeBgColors(theme, bgColor),
   borderRadius: '40px',
   minHeight: '17px',
@@ -48,11 +50,12 @@ const StyledLabelContentWrapper = styled.div(({ theme }) => ({
 export const Badge = ({
   label,
   variation = 'green',
+  textColor,
   capitalize = true,
   lineHeight = 'sm'
 }: BadgeProps) => {
   return (
-    <StyledBadge bgColor={variation}>
+    <StyledBadge bgColor={variation} textColor={textColor}>
       <Label size={2} capitalize={capitalize} lineHeight={lineHeight}>
         <StyledLabelContentWrapper>{label}</StyledLabelContentWrapper>
       </Label>
