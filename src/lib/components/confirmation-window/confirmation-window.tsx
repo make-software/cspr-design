@@ -106,6 +106,30 @@ const ButtonsContainer = styled(FlexRow)<ModalPositionProps>(
     })
 );
 
+const StyledConfirmButton = styled(Button)(({ theme }) =>
+    theme.withMedia({
+        backgroundColor: theme.styleguideColors.fillPrimaryBlue,
+        ':hover': {
+            background: theme.styleguideColors.fillPrimaryBlueHover,
+        },
+        ':active': {
+            background: theme.styleguideColors.fillPrimaryBlueClick,
+        },
+    })
+);
+
+const StyledDismissButton = styled(Button)(({ theme }) =>
+    theme.withMedia({
+        color: theme.styleguideColors.contentBlue,
+        ':hover': {
+            background: theme.styleguideColors.fillSecondaryBlueHover,
+        },
+        ':active': {
+            background: theme.styleguideColors.fillSecondaryBlueClick,
+        },
+    })
+);
+
 export const ConfirmationWindow = ({
   isOpen,
   position,
@@ -154,30 +178,6 @@ export const ConfirmationWindow = ({
             },
           },
   };
-
-  const StyledConfirmButton = styled(Button)(({ theme }) =>
-    theme.withMedia({
-      backgroundColor: theme.styleguideColors.fillPrimaryBlue,
-      ':hover': {
-        background: theme.styleguideColors.fillPrimaryBlueHover,
-      },
-      ':active': {
-        background: theme.styleguideColors.fillPrimaryBlueClick,
-      },
-    })
-  );
-
-  const StyledDismissButton = styled(Button)(({ theme }) =>
-    theme.withMedia({
-      color: theme.styleguideColors.contentBlue,
-      ':hover': {
-        background: theme.styleguideColors.fillSecondaryBlueHover,
-      },
-      ':active': {
-        background: theme.styleguideColors.fillSecondaryBlueClick,
-      },
-    })
-  );
 
   return (
     <>
