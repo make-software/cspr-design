@@ -66,8 +66,8 @@ const ModalContainer = styled(FlexColumn)<ModalPositionProps>(
     theme.withMedia({
       width:
         position === ModalPosition.TopRight
-          ? ['261px', '350px', '350px']
-          : ['261px', '400px', '446px'],
+          ? ['300px', '350px', '350px']
+          : ['300px', '400px', '446px'],
       background: theme.styleguideColors.backgroundPrimary,
       borderColor: theme.styleguideColors.backgroundPrimary,
     })

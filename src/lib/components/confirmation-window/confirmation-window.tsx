@@ -61,8 +61,8 @@ const ModalContainer = styled(FlexColumn)<ModalPositionProps>(
     theme.withMedia({
       width:
         position === ModalPosition.TopRight
-          ? ['261px', '350px', '350px']
-          : ['261px', '400px', '446px'],
+          ? ['300px', '350px', '350px']
+          : ['300px', '400px', '446px'],
       background: theme.styleguideColors.backgroundPrimary,
       borderColor: theme.styleguideColors.backgroundPrimary,
     })
@@ -107,27 +107,27 @@ const ButtonsContainer = styled(FlexRow)<ModalPositionProps>(
 );
 
 const StyledConfirmButton = styled(Button)(({ theme }) =>
-    theme.withMedia({
-        backgroundColor: theme.styleguideColors.fillPrimaryBlue,
-        ':hover': {
-            background: theme.styleguideColors.fillPrimaryBlueHover,
-        },
-        ':active': {
-            background: theme.styleguideColors.fillPrimaryBlueClick,
-        },
-    })
+  theme.withMedia({
+    backgroundColor: theme.styleguideColors.fillPrimaryBlue,
+    ':hover': {
+      background: theme.styleguideColors.fillPrimaryBlueHover,
+    },
+    ':active': {
+      background: theme.styleguideColors.fillPrimaryBlueClick,
+    },
+  })
 );
 
 const StyledDismissButton = styled(Button)(({ theme }) =>
-    theme.withMedia({
-        color: theme.styleguideColors.contentBlue,
-        ':hover': {
-            background: theme.styleguideColors.fillSecondaryBlueHover,
-        },
-        ':active': {
-            background: theme.styleguideColors.fillSecondaryBlueClick,
-        },
-    })
+  theme.withMedia({
+    color: theme.styleguideColors.contentBlue,
+    ':hover': {
+      background: theme.styleguideColors.fillSecondaryBlueHover,
+    },
+    ':active': {
+      background: theme.styleguideColors.fillSecondaryBlueClick,
+    },
+  })
 );
 
 export const ConfirmationWindow = ({
