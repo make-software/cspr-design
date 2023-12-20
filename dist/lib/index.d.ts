@@ -58,6 +58,7 @@ export * from './components/user-input-window/user-input-window';
 export * from './components/multiline-text-row/multiline-text-row';
 export * from './components/warning-message/warning-message';
 export * from './components/modal-content-header/modal-content-header';
+export * from './components/searchable-dropdown/searchable-dropdown';
 export * from './hooks/use-click-away';
 export * from './utils/match-media';
 export * from './utils/match-size';

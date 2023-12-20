@@ -7,7 +7,7 @@ import BodyText from '../../body-text/body-text';
 const StyledBodyText = styled(BodyText)<{ fontSize?: string }>(
   ({ theme, fontSize }) => ({
     color: theme.styleguideColors.contentTertiary,
-    fontSize: fontSize ? fontSize : '13px',
+    fontSize: fontSize,
   })
 );
 
