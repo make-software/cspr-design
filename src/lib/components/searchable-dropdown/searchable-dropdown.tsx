@@ -120,13 +120,10 @@ export const SearchableDropdown = ({
   onSelect,
   placeholder,
 }: SearchableDropdownProps) => {
-  const [query, setQuery] = useState('');
+  const [searchedValue, setSearchedValue] = useState('');
   const [isOpen, setIsOpen] = useState(false);
+  const [rotate, setRotate] = useState(false);
   const [icon, setIcon] = useState<React.ReactElement | null>(null);
-
-  useEffect(() => {
-    value.icon && setIcon(value.icon);
-  }, [value]);
 
   const inputRef = useRef(null);
 
@@ -136,50 +133,65 @@ export const SearchableDropdown = ({
     },
   });
 
+  useEffect(() => {
+    value.icon && setIcon(value.icon);
+  }, [value]);
+
+  useEffect(() => {
+    if (isOpen === rotate) return;
+
+    setRotate(isOpen);
+  }, [isOpen]);
+
   const selectOption = (option) => {
-    setQuery(() => '');
+    setSearchedValue('');
     onSelect(option);
 
     setIsOpen((isOpen) => !isOpen);
+    setIsOpen(!isOpen);
     setIcon(option.icon);
   };
 
-  const toggle = (e) => {
-    setIsOpen(e && e.target === inputRef.current);
+  const handleOpenDropdown = (e) => {
+    setIsOpen(true);
   };
 
   const getDisplayValue = () => {
-    if (query) return query;
+    if (searchedValue) return searchedValue;
     if (value) return value.label;
 
     return '';
   };
 
-  const filterOptionsWithSearchedValue = (options, query) => {
+  const filterOptionsWithSearchedValue = (options, searchedValue) => {
     return options.filter(
-      (option) => option.label.toLowerCase().indexOf(query.toLowerCase()) > -1
+      (option) =>
+        option.label.toLowerCase().indexOf(searchedValue.toLowerCase()) > -1
     );
   };
 
-  const searchedOptions = filterOptionsWithSearchedValue(items, query);
+  const searchedItems = filterOptionsWithSearchedValue(items, searchedValue);
 
   return (
     <StyledDropdown ref={ref}>
-      <FlexRow align="center" justify="space-between">
+      <FlexRow
+        align="center"
+        justify="space-between"
+        onClick={handleOpenDropdown}
+      >
         {icon && <CustomIcon>{icon}</CustomIcon>}
         <StyledInput
           ref={inputRef}
           placeholder={placeholder}
           value={getDisplayValue()}
           onChange={(e) => {
-            setQuery(e.target.value);
+            setSearchedValue(e.target.value);
             onSelect({});
           }}
-          onClick={toggle}
           fontSize={fontSize}
           icon={Boolean(icon)}
         />
-        <ArrowSvg src={isOpen ? UpIcon : DownIcon} />
+        <ArrowSvg src={rotate ? UpIcon : DownIcon} />
       </FlexRow>
 
       <ItemContainer
@@ -188,7 +200,7 @@ export const SearchableDropdown = ({
         fontSize={fontSize}
         maxHeight={maxHeight}
       >
-        {searchedOptions.map((item, index) => {
+        {searchedItems.map((item, index) => {
           return (
             <Item
               onClick={() => selectOption(item)}

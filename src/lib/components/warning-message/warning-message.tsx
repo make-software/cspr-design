@@ -33,6 +33,7 @@ const StyledHeaderRow = styled(FlexRow)(({ theme }) =>
 const StyledHeaderText = styled(BodyText)<{ margin: string }>(({ theme }) =>
   theme.withMedia({
     marginLeft: '8px',
+    lineHeight: ['18px', '1.5rem', '1.5rem'],
   })
 );
 
