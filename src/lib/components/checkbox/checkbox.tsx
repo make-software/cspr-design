@@ -61,7 +61,7 @@ const StyledCheckboxWrapper = ({ checkboxFontSize, ...props }) => {
 };
 
 export interface CheckboxProps extends BaseProps {
-  label?: string;
+  label?: string | React.ReactElement;
   onChange?: (value?: any) => void;
   checked: boolean;
   disabled?: boolean;

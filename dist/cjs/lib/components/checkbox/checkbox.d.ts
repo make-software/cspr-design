@@ -1,11 +1,11 @@
-/// <reference types="react" />
+import React from 'react';
 import { BaseProps } from '../../types';
 export declare enum CheckboxFontSize {
     'default' = "default",
     'small' = "small"
 }
 export interface CheckboxProps extends BaseProps {
-    label?: string;
+    label?: string | React.ReactElement;
     onChange?: (value?: any) => void;
     checked: boolean;
     disabled?: boolean;
