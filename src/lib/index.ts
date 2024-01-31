@@ -1,3 +1,8 @@
+import ErrorIcon from './assets/icons/ic-error.svg';
+import SuccessIcon from './assets/icons/ic-success.svg';
+import ArrowDown from './assets/icons/ic-arrow-down.svg';
+import MediaPlaceholder from './assets/icons/ic-media-placeholder.svg';
+import LockImage from './assets/icons/ic-lock-image.svg';
 export * from './components/alert/alert';
 export * from './components/avatar/avatar';
 export * from './components/body-text/body-text';
@@ -67,3 +72,8 @@ export * from './utils/detect-browser';
 export * from './utils/formatters';
 export * from './theme-config';
 export * from './types';
+export {ErrorIcon};
+export {SuccessIcon};
+export {ArrowDown};
+export {MediaPlaceholder};
+export {LockImage};
