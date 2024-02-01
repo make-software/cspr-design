@@ -6,6 +6,14 @@ import FlexColumn from '../flex-column/flex-column';
 import BodyText from '../body-text/body-text';
 import { ModalPosition } from '../confirmation-window/confirmation-window';
 import { InputValidationType } from '../input/input';
+import styled from 'styled-components';
+
+const StyledLabelText = styled.span(({ theme }) =>
+  theme.withMedia({
+    lineHeight: '20px',
+    fontSize:'14px',
+  })
+);
 
 export default {
   component: UserInputWindow,
@@ -19,10 +27,16 @@ export default {
     withHeader: true,
     confirmLabel: 'Yes',
     shouldCloseOnEsc: true,
-    shouldCloseOnOverlayClick: true,
+    shouldCloseOnOverlayClick: false,
     dismissLabel: 'No',
-    onConfirm: (value) => {
+    checkboxLabel: 'Trust this device and do not ask for the Unlock PIN to approve transactions.',
+    onConfirm: (value, isChecked) => {
       console.log('value ', value);
+      console.log('isChecked ', isChecked);
+    },
+    validationSetting: {
+      validationMessage: 'Wrong password',
+      regexpPattern: /^[a-zA-Z0-9]{12}/,
     },
     onDismiss: () => {},
     inputLabel: 'Password',

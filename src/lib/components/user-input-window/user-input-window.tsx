@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from 'react';
+import React, { useState } from 'react';
 import styled, { useTheme } from 'styled-components';
 import FlexRow from '../flex-row/flex-row';
 import FlexColumn from '../flex-column/flex-column';
@@ -15,7 +15,12 @@ import {
   ModalPosition,
   ModalPositionProps,
 } from '../confirmation-window/confirmation-window';
+import Checkbox, { CheckboxFontSize } from '../checkbox/checkbox';
 
+export interface ValidationProps {
+  validationMessage: string;
+  regexpPattern: any;
+}
 export interface UserInputWindowSceneProps {
   isOpen: boolean;
   bodyImg?: React.ReactElement;
@@ -25,18 +30,19 @@ export interface UserInputWindowSceneProps {
   headerLogo?: React.ReactElement;
   information?: React.ReactElement | string;
   confirmLabel: string;
-  onConfirm: (value: string) => void;
+  onConfirm: (value: string, isChecked?: boolean) => void;
   confirmColor?: string;
   dismissLabel?: string;
   onDismiss: () => void;
   inputLabel?: string;
   inputType: InputValidationType;
-  validationMessage?: string;
   placeholder?: string;
   required?: boolean;
   shouldCloseOnEsc?: boolean;
   shouldCloseOnOverlayClick?: boolean;
   themeMode?: ThemeModeType;
+  checkboxLabel?: string | React.ReactElement;
+  validationSetting?: ValidationProps;
   portalClass?: string;
 }
 
@@ -117,6 +123,40 @@ const StyledInput = styled(Input)(({ theme }) =>
   })
 );
 
+const CheckBoxContainer = styled.div(({ theme }) =>
+  theme.withMedia({
+    margin: '40px 0 -20px 0',
+  })
+);
+
+const handleTheme = (theme, position) => {
+  const modalStyle = {
+    overlay: {
+      backgroundColor: theme.styleguideColors.backgroundOverlay,
+      zIndex: 15,
+    },
+    content:
+        position === ModalPosition.TopRight
+            ? {
+              ...topModalStyles,
+              ...{
+                backgroundColor: theme.styleguideColors.backgroundPrimary,
+                borderColor: theme.styleguideColors.backgroundPrimary,
+              },
+            }
+            : {
+              ...centerModalStyles,
+              ...{
+                backgroundColor: theme.styleguideColors.backgroundPrimary,
+                borderColor: theme.styleguideColors.backgroundPrimary,
+              },
+            },
+  };
+
+  return modalStyle;
+};
+
+
 export const UserInputWindow = ({
   isOpen,
   position,
@@ -137,60 +177,17 @@ export const UserInputWindow = ({
   placeholder,
   required = false,
   inputLabel,
-  validationMessage,
+  checkboxLabel,
+  validationSetting,
   portalClass = 'portal',
 }: UserInputWindowSceneProps) => {
   const theme = useTheme();
-
   const [value, setValue] = useState('');
+  const [isChecked, setIsChecked] = useState<boolean>(false);
   const [formError, setFormError] = useState<string | null>(null);
   const [showModal, setShowModal] = useState<boolean>(isOpen);
 
   useEscapeKey(() => shouldCloseOnEsc && setShowModal(false));
-
-  const getRegexByInputType = useCallback(() => {
-    switch (inputType) {
-      case InputValidationType.password:
-        return /^[a-zA-Z0-9]{12}/;
-      default:
-        return /^[a-zA-Z0-9]{12}/;
-    }
-  }, []);
-
-  const regexMatched = (val) => !!val && getRegexByInputType().test(val);
-
-  const modalStyle = {
-    overlay: {
-      backgroundColor: theme.styleguideColors.backgroundOverlay,
-      zIndex: 15,
-    },
-    content:
-      position === ModalPosition.TopRight
-        ? {
-            ...topModalStyles,
-            ...{
-              backgroundColor: theme.styleguideColors.backgroundPrimary,
-              borderColor: theme.styleguideColors.backgroundPrimary,
-            },
-          }
-        : {
-            ...centerModalStyles,
-            ...{
-              backgroundColor: theme.styleguideColors.backgroundPrimary,
-              borderColor: theme.styleguideColors.backgroundPrimary,
-            },
-          },
-  };
-
-  const handleEnterKeyDown = (e) => {
-    let val = e.target.value;
-
-    if (val && !formError) {
-      if (e.key === 'Enter') {
-        onConfirm(val);
-      }
-    } else return;
-  };
 
   const { ref } = useClickAway({
     callback: () => {
@@ -198,14 +195,35 @@ export const UserInputWindow = ({
     },
   });
 
+  const regexMatched = (val) => !!val && validationSetting?.regexpPattern.test(val);
+
+  const handleEnterKeyDown = (e) => {
+    let val = e.target.value;
+
+    if (val && !formError) {
+      if (e.key === 'Enter') {
+        onConfirm(val, isChecked)
+      }
+    } else return;
+  };
+
+  const handleOnSubmit = () => {
+    onConfirm(value, isChecked);
+  };
+
   const handleInputChange = (e) => {
     let passVal = e.target.value;
 
-    !!passVal && regexMatched(passVal)
-      ? setFormError(null)
-      : setFormError(`${validationMessage}`);
-
+    if(validationSetting?.regexpPattern && validationSetting?.validationMessage) {
+      !!passVal && regexMatched(passVal)
+          ? setFormError(null)
+          : setFormError(`${validationSetting?.validationMessage}`);
+    }
     setValue(passVal);
+  };
+
+  const handleCheckBox = () => {
+    setIsChecked(!isChecked);
   };
 
   return (
@@ -213,7 +231,7 @@ export const UserInputWindow = ({
       {showModal && (
         <ReactModal
           isOpen={showModal}
-          style={modalStyle}
+          style={handleTheme(theme, position)}
           onRequestClose={onDismiss}
           shouldCloseOnEsc
           shouldCloseOnOverlayClick
@@ -251,6 +269,16 @@ export const UserInputWindow = ({
                 validationText={formError}
               />
             </FlexRow>
+            {checkboxLabel && (
+              <CheckBoxContainer>
+                <Checkbox
+                  checked={isChecked}
+                  label={checkboxLabel}
+                  onChange={handleCheckBox}
+                  checkboxFontSize={CheckboxFontSize.small}
+                />
+              </CheckBoxContainer>
+            )}
             <ButtonsContainer
               position={position}
               gap={'16px'}
@@ -263,7 +291,7 @@ export const UserInputWindow = ({
               )}
               <Button
                 color={confirmColor === 'red' ? 'primaryRed' : 'primaryBlue'}
-                onClick={() => onConfirm(value)}
+                onClick={handleOnSubmit}
                 disabled={value ? !!formError : true}
               >
                 {confirmLabel}
