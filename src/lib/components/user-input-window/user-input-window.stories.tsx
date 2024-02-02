@@ -6,14 +6,8 @@ import FlexColumn from '../flex-column/flex-column';
 import BodyText from '../body-text/body-text';
 import { ModalPosition } from '../confirmation-window/confirmation-window';
 import { InputValidationType } from '../input/input';
-import styled from 'styled-components';
-
-const StyledLabelText = styled.span(({ theme }) =>
-  theme.withMedia({
-    lineHeight: '20px',
-    fontSize:'14px',
-  })
-);
+import SvgIcon from "../svg-icon/svg-icon";
+import { LockImage } from "../../index";
 
 export default {
   component: UserInputWindow,
@@ -25,6 +19,7 @@ export default {
     information:
       'To perform this action you need to set up first your account and password.',
     withHeader: true,
+    bodyImg: <SvgIcon src={LockImage} width={296} height={120}/>,
     confirmLabel: 'Yes',
     shouldCloseOnEsc: true,
     shouldCloseOnOverlayClick: false,

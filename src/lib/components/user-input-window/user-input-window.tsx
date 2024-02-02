@@ -81,13 +81,13 @@ const ModalContainer = styled(FlexColumn)<ModalPositionProps>(
 
 const ImageWrapper = styled(FlexRow)(({ theme }) =>
   theme.withMedia({
-    margin: '15px 0 35px 0',
+    margin: '15px 0 24px 0',
   })
 );
 
 const StyledCaption = styled.div<ModalPositionProps>(({ theme, position }) =>
   theme.withMedia({
-    textAlign: position === ModalPosition.TopRight ? 'left' : 'center',
+    textAlign: 'left',
     marginBottom: '16px',
   })
 );
@@ -103,7 +103,7 @@ const StyledCaptionText = styled(SubtitleText)(({ theme }) =>
 const StyledInformationText = styled(BodyText)<ModalPositionProps>(
   ({ theme, position }) =>
     theme.withMedia({
-      textAlign: position === ModalPosition.TopRight ? 'left' : 'center',
+      textAlign: 'left',
       color: theme.styleguideColors.contentSecondary,
     })
 );
@@ -120,12 +120,15 @@ const ButtonsContainer = styled(FlexRow)<ModalPositionProps>(
 const StyledInput = styled(Input)(({ theme }) =>
   theme.withMedia({
     width: '100%',
+    ':focus': {
+      outline: 'none',
+    },
   })
 );
 
-const CheckBoxContainer = styled.div(({ theme }) =>
+const CheckBoxContainer = styled.div<ModalPositionProps>(({ theme, position }) =>
   theme.withMedia({
-    margin: '40px 0 -20px 0',
+    margin:  position === ModalPosition.TopRight ? '40px 0 -20px 0' : ['40px 0 -20px 0','40px 0 -20px 0','72px 0 -40px 0']
   })
 );
 
@@ -245,7 +248,7 @@ export const UserInputWindow = ({
                 onDismiss={onDismiss}
               />
             )}
-            {bodyImg && <ImageWrapper justify="center">{bodyImg}</ImageWrapper>}
+            {bodyImg && <ImageWrapper>{bodyImg}</ImageWrapper>}
             <StyledCaption position={position}>
               <StyledCaptionText size={1} scale="lg">
                 {title}
@@ -270,7 +273,7 @@ export const UserInputWindow = ({
               />
             </FlexRow>
             {checkboxLabel && (
-              <CheckBoxContainer>
+              <CheckBoxContainer position={position}>
                 <Checkbox
                   checked={isChecked}
                   label={checkboxLabel}
