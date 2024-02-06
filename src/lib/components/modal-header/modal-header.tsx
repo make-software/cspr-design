@@ -23,21 +23,23 @@ const StyledSvgIcon = styled(SvgIcon)(({ theme }) => ({
 }));
 
 export interface ModalHeaderProps {
-  onDismiss: () => void;
+  onClose?: () => void;
   headerLogo?: React.ReactElement;
   themeMode?: ThemeModeType;
 }
 
-export const ModalHeader = ({ onDismiss, headerLogo }: ModalHeaderProps) => {
+export const ModalHeader = ({ onClose, headerLogo }: ModalHeaderProps) => {
   return (
     <ModalHeaderContainer
       justify={headerLogo ? 'space-between' : 'end'}
       align="center"
     >
       {headerLogo && headerLogo}
-      <CloseButton onClick={onDismiss}>
-        <StyledSvgIcon src={CloseIcon} size={20} />
-      </CloseButton>
+      {onClose && (
+        <CloseButton onClick={onClose}>
+          <StyledSvgIcon src={CloseIcon} size={20} />
+        </CloseButton>
+      )}
     </ModalHeaderContainer>
   );
 };

@@ -126,10 +126,14 @@ const StyledInput = styled(Input)(({ theme }) =>
   })
 );
 
-const CheckBoxContainer = styled.div<ModalPositionProps>(({ theme, position }) =>
-  theme.withMedia({
-    margin:  position === ModalPosition.TopRight ? '40px 0 -20px 0' : ['40px 0 -20px 0','40px 0 -20px 0','72px 0 -40px 0']
-  })
+const CheckBoxContainer = styled.div<ModalPositionProps>(
+  ({ theme, position }) =>
+    theme.withMedia({
+      margin:
+        position === ModalPosition.TopRight
+          ? '40px 0 -20px 0'
+          : ['40px 0 -20px 0', '40px 0 -20px 0', '72px 0 -40px 0'],
+    })
 );
 
 const handleTheme = (theme, position) => {
@@ -139,26 +143,25 @@ const handleTheme = (theme, position) => {
       zIndex: 15,
     },
     content:
-        position === ModalPosition.TopRight
-            ? {
-              ...topModalStyles,
-              ...{
-                backgroundColor: theme.styleguideColors.backgroundPrimary,
-                borderColor: theme.styleguideColors.backgroundPrimary,
-              },
-            }
-            : {
-              ...centerModalStyles,
-              ...{
-                backgroundColor: theme.styleguideColors.backgroundPrimary,
-                borderColor: theme.styleguideColors.backgroundPrimary,
-              },
+      position === ModalPosition.TopRight
+        ? {
+            ...topModalStyles,
+            ...{
+              backgroundColor: theme.styleguideColors.backgroundPrimary,
+              borderColor: theme.styleguideColors.backgroundPrimary,
             },
+          }
+        : {
+            ...centerModalStyles,
+            ...{
+              backgroundColor: theme.styleguideColors.backgroundPrimary,
+              borderColor: theme.styleguideColors.backgroundPrimary,
+            },
+          },
   };
 
   return modalStyle;
 };
-
 
 export const UserInputWindow = ({
   isOpen,
@@ -198,14 +201,15 @@ export const UserInputWindow = ({
     },
   });
 
-  const regexMatched = (val) => !!val && validationSetting?.regexpPattern.test(val);
+  const regexMatched = (val) =>
+    !!val && validationSetting?.regexpPattern.test(val);
 
   const handleEnterKeyDown = (e) => {
     let val = e.target.value;
 
     if (val && !formError) {
       if (e.key === 'Enter') {
-        onConfirm(val, isChecked)
+        onConfirm(val, isChecked);
       }
     } else return;
   };
@@ -217,10 +221,13 @@ export const UserInputWindow = ({
   const handleInputChange = (e) => {
     let passVal = e.target.value;
 
-    if(validationSetting?.regexpPattern && validationSetting?.validationMessage) {
+    if (
+      validationSetting?.regexpPattern &&
+      validationSetting?.validationMessage
+    ) {
       !!passVal && regexMatched(passVal)
-          ? setFormError(null)
-          : setFormError(`${validationSetting?.validationMessage}`);
+        ? setFormError(null)
+        : setFormError(`${validationSetting?.validationMessage}`);
     }
     setValue(passVal);
   };
@@ -245,7 +252,7 @@ export const UserInputWindow = ({
               <ModalHeader
                 themeMode={themeMode}
                 headerLogo={headerLogo}
-                onDismiss={onDismiss}
+                onClose={onDismiss}
               />
             )}
             {bodyImg && <ImageWrapper>{bodyImg}</ImageWrapper>}

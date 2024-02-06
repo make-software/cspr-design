@@ -195,7 +195,7 @@ export const ConfirmationWindow = ({
               <ModalHeader
                 themeMode={themeMode}
                 headerLogo={headerLogo}
-                onDismiss={onDismiss}
+                onClose={onDismiss}
               />
             )}
             {bodyImg && <ImageWrapper justify="center">{bodyImg}</ImageWrapper>}
