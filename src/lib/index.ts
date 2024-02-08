@@ -39,6 +39,7 @@ export * from './components/table-body/table-body';
 export * from './components/table-data/table-data';
 export * from './components/table-head/table-head';
 export * from './components/table-row/table-row';
+export * from './components/textarea/textarea';
 export * from './components/truncate-box/truncate-box';
 export * from './components/text/text';
 export * from './components/accordion/accordion';
