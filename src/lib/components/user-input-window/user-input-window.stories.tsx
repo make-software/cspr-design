@@ -6,8 +6,10 @@ import FlexColumn from '../flex-column/flex-column';
 import BodyText from '../body-text/body-text';
 import { ModalPosition } from '../confirmation-window/confirmation-window';
 import { InputValidationType } from '../input/input';
-import SvgIcon from "../svg-icon/svg-icon";
-import { LockImage } from "../../index";
+import SvgIcon from '../svg-icon/svg-icon';
+import { LockImage } from '../../index';
+import WarnIcon from '../../assets/icons/ic-warning.svg';
+import HeaderIcon from '../../assets/icons/logos/cspr-click.svg';
 
 export default {
   component: UserInputWindow,
@@ -16,15 +18,17 @@ export default {
     isOpen: true,
     position: ModalPosition.TopRight,
     title: 'Please, set your recovery password first',
-    information:
-      'To perform this action you need to set up first your account and password.',
+    information: 'Your password length is 12 characters',
     withHeader: true,
-    bodyImg: <SvgIcon src={LockImage} width={296} height={120}/>,
+    headerLogo: <SvgIcon src={HeaderIcon} height={40} width={110} />,
+    bodyImg: <SvgIcon src={LockImage} width={296} height={120} />,
     confirmLabel: 'Yes',
     shouldCloseOnEsc: true,
     shouldCloseOnOverlayClick: false,
     dismissLabel: 'No',
-    checkboxLabel: 'Trust this device and do not ask for the Unlock PIN to approve transactions.',
+    informationOnlyMode: false,
+    checkboxLabel:
+      'Trust this device and do not ask for the Unlock PIN to approve transactions.',
     onConfirm: (value, isChecked) => {
       console.log('value ', value);
       console.log('isChecked ', isChecked);
@@ -34,10 +38,24 @@ export default {
       regexpPattern: /^[a-zA-Z0-9]{12}/,
     },
     onDismiss: () => {},
+    hideXButton: false,
     inputLabel: 'Password',
     inputType: InputValidationType.password,
     validationMessage: 'Password should have at least 12 alphanumeric charts!',
     placeholder: 'Set up password',
+    repeatInput: {
+      validationMessage: 'Passwords should match',
+      // label: 'Confirm pass',
+      placeholder: 'Confirm password',
+    },
+    warningMessage: {
+      title: 'Please remember about safety',
+      message:
+        'You will need to enter Unlock PIN before approving a transaction. If you share code with anyone or forger it you might lose access to the your account.',
+      margin: '16px 0',
+      iconSrc: WarnIcon,
+    },
+    isMandatoryCheckBox: true,
   },
 } as ComponentMeta<typeof UserInputWindow>;
 

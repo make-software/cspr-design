@@ -7,7 +7,7 @@ import BodyText from '../body-text/body-text';
 
 export default {
   component: ConfirmationWindow,
-  title: 'Modal Window',
+  title: 'ConfirmationWindow',
   args: {
     isOpen: true,
     position: ModalPosition.TopRight,

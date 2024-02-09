@@ -2,9 +2,15 @@ import React from 'react';
 import { InputValidationType } from '../input/input';
 import { ThemeModeType } from '../navigation/cspr-products-menu/products-menu-item';
 import { ModalPosition } from '../confirmation-window/confirmation-window';
+import { WarningMessageProps } from '../warning-message/warning-message';
 export interface ValidationProps {
     validationMessage: string;
     regexpPattern: any;
+}
+export interface RepeatInputProps {
+    validationMessage: string;
+    label?: string;
+    placeholder?: string;
 }
 export interface UserInputWindowSceneProps {
     isOpen: boolean;
@@ -14,13 +20,18 @@ export interface UserInputWindowSceneProps {
     withHeader?: boolean;
     headerLogo?: React.ReactElement;
     information?: React.ReactElement | string;
+    repeatInput?: RepeatInputProps;
+    warningMessage?: WarningMessageProps;
+    informationOnlyMode?: boolean;
+    hideXButton?: boolean;
     confirmLabel: string;
     onConfirm: (value: string, isChecked?: boolean) => void;
     confirmColor?: string;
     dismissLabel?: string;
-    onDismiss: () => void;
+    onDismiss?: () => void;
+    isMandatoryCheckBox?: boolean;
     inputLabel?: string;
-    inputType: InputValidationType;
+    inputType?: InputValidationType;
     placeholder?: string;
     required?: boolean;
     shouldCloseOnEsc?: boolean;
@@ -30,6 +41,6 @@ export interface UserInputWindowSceneProps {
     validationSetting?: ValidationProps;
     portalClass?: string;
 }
-export declare const UserInputWindow: ({ isOpen, position, title, withHeader, headerLogo, bodyImg, information, confirmLabel, confirmColor, onConfirm, dismissLabel, shouldCloseOnEsc, shouldCloseOnOverlayClick, onDismiss, themeMode, inputType, placeholder, required, inputLabel, checkboxLabel, validationSetting, portalClass, }: UserInputWindowSceneProps) => JSX.Element;
+export declare const UserInputWindow: ({ isOpen, position, title, withHeader, headerLogo, bodyImg, information, confirmLabel, confirmColor, onConfirm, dismissLabel, shouldCloseOnEsc, shouldCloseOnOverlayClick, onDismiss, themeMode, inputType, placeholder, required, inputLabel, checkboxLabel, validationSetting, repeatInput, warningMessage, informationOnlyMode, isMandatoryCheckBox, hideXButton, portalClass, }: UserInputWindowSceneProps) => JSX.Element;
 export default UserInputWindow;
 //# sourceMappingURL=user-input-window.d.ts.map
