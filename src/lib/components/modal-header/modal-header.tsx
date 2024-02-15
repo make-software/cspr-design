@@ -5,10 +5,11 @@ import SvgIcon from '../svg-icon/svg-icon';
 import { ThemeModeType } from '../navigation/cspr-products-menu/products-menu-item';
 import CloseIcon from '../../assets/icons/ic-close.svg';
 
-const ModalHeaderContainer = styled(FlexRow)(({ theme }) =>
-  theme.withMedia({
-    marginBottom: '40px',
-  })
+const ModalHeaderContainer = styled(FlexRow)<{ marginBottom?: string }>(
+  ({ theme, marginBottom }) =>
+    theme.withMedia({
+      marginBottom: marginBottom ? marginBottom : '40px',
+    })
 );
 
 const CloseButton = styled.div(() => ({
