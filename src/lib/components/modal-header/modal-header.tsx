@@ -27,13 +27,19 @@ export interface ModalHeaderProps {
   onClose?: () => void;
   headerLogo?: React.ReactElement;
   themeMode?: ThemeModeType;
+  marginBottom?: string;
 }
 
-export const ModalHeader = ({ onClose, headerLogo }: ModalHeaderProps) => {
+export const ModalHeader = ({
+  onClose,
+  headerLogo,
+  marginBottom,
+}: ModalHeaderProps) => {
   return (
     <ModalHeaderContainer
       justify={headerLogo ? 'space-between' : 'end'}
       align="center"
+      marginBottom={marginBottom}
     >
       {headerLogo && headerLogo}
       {onClose && (

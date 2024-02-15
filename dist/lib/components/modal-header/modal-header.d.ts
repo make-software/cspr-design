@@ -4,7 +4,8 @@ export interface ModalHeaderProps {
     onClose?: () => void;
     headerLogo?: React.ReactElement;
     themeMode?: ThemeModeType;
+    marginBottom?: string;
 }
-export declare const ModalHeader: ({ onClose, headerLogo }: ModalHeaderProps) => JSX.Element;
+export declare const ModalHeader: ({ onClose, headerLogo, marginBottom, }: ModalHeaderProps) => JSX.Element;
 export default ModalHeader;
 //# sourceMappingURL=modal-header.d.ts.map
