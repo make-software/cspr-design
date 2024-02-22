@@ -44,9 +44,11 @@ export interface UserInputWindowSceneProps {
   informationOnlyMode?: boolean;
   hideXButton?: boolean;
   confirmLabel: string;
+  confirmDisabled?: boolean;
   onConfirm: (value: string, isChecked?: boolean) => void;
   confirmColor?: string;
   dismissLabel?: string;
+  dismissDisabled?: boolean;
   onDismiss?: () => void;
   isMandatoryCheckBox?: boolean;
   inputLabel?: string;
@@ -187,9 +189,11 @@ export const UserInputWindow = ({
   bodyImg,
   information,
   confirmLabel,
+  confirmDisabled,
   confirmColor,
   onConfirm,
   dismissLabel,
+  dismissDisabled,
   shouldCloseOnEsc,
   shouldCloseOnOverlayClick,
   onDismiss,
@@ -271,6 +275,8 @@ export const UserInputWindow = ({
   };
 
   const handleDisableButton = () => {
+    if (confirmDisabled) return true;
+    
     if (isMandatoryCheckBox && !isChecked) return true;
 
     if (informationOnlyMode) return false;
@@ -371,7 +377,7 @@ export const UserInputWindow = ({
               justify={'space-between'}
             >
               {dismissLabel && (
-                <Button color={'secondaryBlue'} onClick={onDismiss}>
+                <Button color={'secondaryBlue'} onClick={onDismiss} disabled={!!dismissDisabled}>
                   {dismissLabel}
                 </Button>
               )}

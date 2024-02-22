@@ -25,9 +25,11 @@ export interface UserInputWindowSceneProps {
     informationOnlyMode?: boolean;
     hideXButton?: boolean;
     confirmLabel: string;
+    confirmDisabled?: boolean;
     onConfirm: (value: string, isChecked?: boolean) => void;
     confirmColor?: string;
     dismissLabel?: string;
+    dismissDisabled?: boolean;
     onDismiss?: () => void;
     isMandatoryCheckBox?: boolean;
     inputLabel?: string;
@@ -41,6 +43,6 @@ export interface UserInputWindowSceneProps {
     validationSetting?: ValidationProps;
     portalClass?: string;
 }
-export declare const UserInputWindow: ({ isOpen, position, title, withHeader, headerLogo, bodyImg, information, confirmLabel, confirmColor, onConfirm, dismissLabel, shouldCloseOnEsc, shouldCloseOnOverlayClick, onDismiss, themeMode, inputType, placeholder, required, inputLabel, checkboxLabel, validationSetting, repeatInput, warningMessage, informationOnlyMode, isMandatoryCheckBox, hideXButton, portalClass, }: UserInputWindowSceneProps) => JSX.Element;
+export declare const UserInputWindow: ({ isOpen, position, title, withHeader, headerLogo, bodyImg, information, confirmLabel, confirmDisabled, confirmColor, onConfirm, dismissLabel, dismissDisabled, shouldCloseOnEsc, shouldCloseOnOverlayClick, onDismiss, themeMode, inputType, placeholder, required, inputLabel, checkboxLabel, validationSetting, repeatInput, warningMessage, informationOnlyMode, isMandatoryCheckBox, hideXButton, portalClass, }: UserInputWindowSceneProps) => JSX.Element;
 export default UserInputWindow;
 //# sourceMappingURL=user-input-window.d.ts.map
