@@ -1,6 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
-
+import CheckedInactiveIcon from '../../assets/icons/ic-checkbox-checked-inactive.svg';
+import CheckBoxChecked from '../../assets/icons/ic-checkbox-checked.svg';
+import CheckboxIcon from '../../assets/icons/ic-checkbox.svg';
 import { BaseProps } from '../../types';
 
 import FlexRow from '../flex-row/flex-row';
@@ -85,9 +87,9 @@ export function Checkbox({
 
   const iconSrc = checked
     ? disabled
-      ? 'assets/icons/ic-checkbox-checked-inactive.svg'
-      : 'assets/icons/ic-checkbox-checked.svg'
-    : 'assets/icons/ic-checkbox.svg';
+          ? CheckedInactiveIcon
+          : CheckBoxChecked
+      : CheckboxIcon
 
   return (
       <StyledFlexRow
