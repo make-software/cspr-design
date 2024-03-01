@@ -3,6 +3,33 @@ import styled from 'styled-components';
 import { BaseProps } from '../../types';
 import Link from '../link/link';
 import SvgIcon from './svg-icon';
+import KeybaseIcon from '../../assets/icons/ic-keybase.svg';
+import TelegramIcon from '../../assets/icons/ic-telegram.svg';
+import TwitterIcon from '../../assets/icons/ic-twitter.svg';
+import GitHubIcon from '../../assets/icons/ic-github.svg';
+import YoutubeIcon from '../../assets/icons/ic-youtube.svg';
+import FacebookIcon from '../../assets/icons/ic-facebook.svg';
+import MediumIcon from '../../assets/icons/ic-medium.svg';
+import RedditIcon from '../../assets/icons/ic-reddit.svg';
+import WechatIcon from '../../assets/icons/ic-wechat.svg';
+import TwitterXIcon from '../../assets/icons/ic-twitter_x.svg';
+import LinkedinIcon from '../../assets/icons/ic-linkedin.svg';
+import WebsiteIcon from '../../assets/icons/ic-website.svg';
+
+const getMediaLogo = {
+  keybase: KeybaseIcon,
+  telegram: TelegramIcon,
+  twitter: TwitterIcon,
+  github: GitHubIcon,
+  youtube: YoutubeIcon,
+  facebook: FacebookIcon,
+  medium: MediumIcon,
+  reddit: RedditIcon,
+  wechat: WechatIcon,
+  twitter_x: TwitterXIcon,
+  linkedin: LinkedinIcon,
+  website: WebsiteIcon,
+};
 
 const getSocialMediaColor = (type: SocialMediaType) => {
   return {
@@ -17,7 +44,7 @@ const getSocialMediaColor = (type: SocialMediaType) => {
     wechat: '#7BB32E',
     twitter_x: '#0f1419',
     linkedin: '#0a66c2',
-    website: '#BABBBF'
+    website: '#BABBBF',
   }[type];
 };
 
@@ -34,7 +61,7 @@ const getSocialMediaUrl = (type: SocialMediaType, userId: string) => {
     reddit: 'https://reddit.com/' + userId,
     wechat: `weixin://dl/chat?${userId}/`,
     linkedin: 'https://www.linkedin.com/company/' + userId,
-    website: userId
+    website: userId,
   }[type];
 };
 
@@ -74,6 +101,7 @@ export const SvgIconSocial = React.forwardRef<
   HTMLAnchorElement,
   SvgIconSocialProps
 >(({ socialMediaType: type, userId, ...props }: SvgIconSocialProps, ref) => {
+  const mapIcon = () => {};
   return (
     <Container
       ref={ref}
@@ -82,7 +110,7 @@ export const SvgIconSocial = React.forwardRef<
       href={getSocialMediaUrl(type, userId)}
       {...props}
     >
-      <SvgIcon src={`assets/icons/ic-${type}.svg`} />
+      <SvgIcon src={getMediaLogo[type]} />
     </Container>
   );
 });
