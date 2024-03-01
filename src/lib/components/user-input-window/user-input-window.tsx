@@ -49,7 +49,7 @@ export interface UserInputWindowSceneProps {
   confirmColor?: string;
   dismissLabel?: string;
   dismissDisabled?: boolean;
-  onDismiss?: () => void;
+  onDismiss?: (origin: DismissOrigin) => void;
   isMandatoryCheckBox?: boolean;
   inputLabel?: string;
   inputType?: InputValidationType;
@@ -61,6 +61,13 @@ export interface UserInputWindowSceneProps {
   checkboxLabel?: string | React.ReactElement;
   validationSetting?: ValidationProps;
   portalClass?: string;
+}
+
+export enum DismissOrigin {
+  HeaderCloseButton,
+  DismissButton,
+  Overlay,
+  ESC,
 }
 
 const centerModalStyles = {
@@ -219,11 +226,19 @@ export const UserInputWindow = ({
   const [repeatInputError, setRepeatInputError] = useState<string | null>(null);
   const [showModal, setShowModal] = useState<boolean>(isOpen);
 
-  useEscapeKey(() => shouldCloseOnEsc && setShowModal(false));
+  useEscapeKey(() => {
+    if(shouldCloseOnEsc) {
+      setShowModal(false)
+      onDismiss && onDismiss(DismissOrigin.ESC);
+    }
+  });
 
   const { ref } = useClickAway({
     callback: () => {
-      shouldCloseOnOverlayClick && setShowModal(false);
+      if(shouldCloseOnOverlayClick) {
+        setShowModal(false)
+        onDismiss && onDismiss(DismissOrigin.Overlay);
+      }
     },
   });
 
@@ -298,7 +313,6 @@ export const UserInputWindow = ({
         <ReactModal
           isOpen={showModal}
           style={handleTheme(theme, position)}
-          onRequestClose={onDismiss}
           shouldCloseOnEsc
           shouldCloseOnOverlayClick
           portalClassName={portalClass}
@@ -308,7 +322,7 @@ export const UserInputWindow = ({
               <ModalHeader
                 themeMode={themeMode}
                 headerLogo={headerLogo}
-                onClose={hideXButton ? undefined : onDismiss}
+                onClose={hideXButton ? undefined : () => onDismiss && onDismiss(DismissOrigin.HeaderCloseButton)}
               />
             )}
             {bodyImg && <ImageWrapper>{bodyImg}</ImageWrapper>}
@@ -377,7 +391,7 @@ export const UserInputWindow = ({
               justify={'space-between'}
             >
               {dismissLabel && (
-                <Button color={'secondaryBlue'} onClick={onDismiss} disabled={!!dismissDisabled}>
+                <Button color={'secondaryBlue'} onClick={() => onDismiss && onDismiss(DismissOrigin.DismissButton)} disabled={!!dismissDisabled}>
                   {dismissLabel}
                 </Button>
               )}

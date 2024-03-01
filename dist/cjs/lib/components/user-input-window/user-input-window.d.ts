@@ -30,7 +30,7 @@ export interface UserInputWindowSceneProps {
     confirmColor?: string;
     dismissLabel?: string;
     dismissDisabled?: boolean;
-    onDismiss?: () => void;
+    onDismiss?: (origin: DismissOrigin) => void;
     isMandatoryCheckBox?: boolean;
     inputLabel?: string;
     inputType?: InputValidationType;
@@ -42,6 +42,12 @@ export interface UserInputWindowSceneProps {
     checkboxLabel?: string | React.ReactElement;
     validationSetting?: ValidationProps;
     portalClass?: string;
+}
+export declare enum DismissOrigin {
+    HeaderCloseButton = 0,
+    DismissButton = 1,
+    Overlay = 2,
+    ESC = 3
 }
 export declare const UserInputWindow: ({ isOpen, position, title, withHeader, headerLogo, bodyImg, information, confirmLabel, confirmDisabled, confirmColor, onConfirm, dismissLabel, dismissDisabled, shouldCloseOnEsc, shouldCloseOnOverlayClick, onDismiss, themeMode, inputType, placeholder, required, inputLabel, checkboxLabel, validationSetting, repeatInput, warningMessage, informationOnlyMode, isMandatoryCheckBox, hideXButton, portalClass, }: UserInputWindowSceneProps) => JSX.Element;
 export default UserInputWindow;
