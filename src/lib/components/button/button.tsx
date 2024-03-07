@@ -37,7 +37,7 @@ const BaseButton = styled.button<ButtonProps>(
       height
     ),
     width: matchSize(
-      { '100': '100px', '120': '120px', '176': '176px', '100%': '100%' },
+      { '100': '100px', '120': '120px', '140': '140px', '176': '176px', '100%': '100%' },
       width
     ),
 
@@ -169,7 +169,7 @@ export interface ButtonProps extends BaseProps {
     | 'utility';
   disabled?: boolean;
   height?: '24' | '36' | '40';
-  width?: '100' | '120' | '176' | '100%';
+  width?: '100' | '120' | '140' | '176' | '100%';
   lineHeight?: 'xs' | 'sm';
 }
 
