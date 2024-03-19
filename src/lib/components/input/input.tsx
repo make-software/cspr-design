@@ -2,12 +2,12 @@ import React, { ReactNode } from 'react';
 import styled from 'styled-components';
 import { BaseProps } from '../../types';
 import { matchSize } from '../../utils/match-size';
-import FormField, {FormFieldStatus} from '../form-field/form-field';
+import FormField, { FormFieldStatus } from '../form-field/form-field';
 import SvgIcon from '../svg-icon/svg-icon';
 
 export enum LabelFontSize {
-    'default' = 'default',
-    'small' = 'small',
+  'default' = 'default',
+  'small' = 'small',
 }
 
 const getThemeColorByError = (error?: boolean) => {
@@ -60,18 +60,18 @@ const StyledInput = styled('input')<InputProps>(({ theme }) => ({
   width: '100%',
   padding: 0,
   '&[type=number]:focus, &[type=number]:blur': {
-     '-moz-appearance': 'number-input',
+    '-moz-appearance': 'number-input',
   },
   '&[type=number]': {
-      '-moz-appearance': 'textfield',
-     '&::-webkit-inner-spin-button, &::-webkit-outer-spin-button': {
-        margin: 0,
-         '-webkit-appearance': 'none',
-          'pointer-events': 'none',
-     },
+    '-moz-appearance': 'textfield',
+    '&::-webkit-inner-spin-button, &::-webkit-outer-spin-button': {
+      margin: 0,
+      '-webkit-appearance': 'none',
+      'pointer-events': 'none',
+    },
   },
   '&::placeholder': {
-      color: theme.styleguideColors.contentSecondary,
+    color: theme.styleguideColors.contentSecondary,
   },
 }));
 
@@ -117,7 +117,7 @@ export interface InputProps extends BaseProps {
   prefixIcon?: ReactNode | null;
   suffixIcon?: ReactNode | null;
   suffixText?: string | null;
-
+  name?: string;
   required?: boolean;
   error?: boolean;
   validationType?: InputValidationType;
@@ -141,7 +141,8 @@ export function Input({
   validationType,
   validationText,
   onFocus,
-                          labelFontSize = LabelFontSize.default,
+  name,
+  labelFontSize = LabelFontSize.default,
   ...restProps
 }: InputProps) {
   const validationProps =
@@ -196,6 +197,7 @@ export function Input({
           title=""
           disabled={disabled}
           onFocus={handleFocus}
+          name={name}
           {...validationProps}
           {...restProps}
         />

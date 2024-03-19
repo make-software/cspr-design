@@ -29,11 +29,12 @@ export interface InputProps extends BaseProps {
     prefixIcon?: ReactNode | null;
     suffixIcon?: ReactNode | null;
     suffixText?: string | null;
+    name?: string;
     required?: boolean;
     error?: boolean;
     validationType?: InputValidationType;
     validationText?: string | null;
 }
-export declare function Input({ id, className, style, disabled, monotype, height, label, rightLabel, prefixIcon, suffixIcon, suffixText, required, error, validationType, validationText, onFocus, labelFontSize, ...restProps }: InputProps): JSX.Element;
+export declare function Input({ id, className, style, disabled, monotype, height, label, rightLabel, prefixIcon, suffixIcon, suffixText, required, error, validationType, validationText, onFocus, name, labelFontSize, ...restProps }: InputProps): JSX.Element;
 export default Input;
 //# sourceMappingURL=input.d.ts.map
