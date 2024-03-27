@@ -29,6 +29,14 @@ const StyledDropdown = styled.div<{ disabled?: boolean }>(
   })
 );
 
+const StyledContentRow = styled(FlexRow)<{ error?: boolean }>(
+  ({ theme, error }) =>
+    theme.withMedia({
+      width: '100%',
+      border: error ? `1px solid ${theme.styleguideColors.contentRed}` : 'none',
+    })
+);
+
 const StyledInput = styled.input<{ fontSize?: string; icon?: boolean }>(
   ({ theme, fontSize, icon }) => ({
     lineHeight: '1.5',
@@ -109,12 +117,14 @@ export interface SearchableDropdownProps {
   maxHeight?: string;
   fontSize?: string;
   placeholder?: string;
+  isError?: boolean;
 }
 
 export const SearchableDropdown = ({
   items,
   value,
   height,
+  isError,
   fontSize,
   maxHeight,
   onSelect,
@@ -179,19 +189,25 @@ export const SearchableDropdown = ({
         justify="space-between"
         onClick={handleOpenDropdown}
       >
-        {icon && <CustomIcon>{icon}</CustomIcon>}
-        <StyledInput
-          ref={inputRef}
-          placeholder={placeholder}
-          value={getDisplayValue()}
-          onChange={(e) => {
-            setSearchedValue(e.target.value);
-            onSelect({});
-          }}
-          fontSize={fontSize}
-          icon={Boolean(icon)}
-        />
-        <ArrowSvg src={rotate ? UpIcon : DownIcon} />
+        <StyledContentRow
+          justify={'space-around'}
+          align={'center'}
+          error={isError}
+        >
+          {icon && <CustomIcon>{icon}</CustomIcon>}
+          <StyledInput
+            ref={inputRef}
+            placeholder={placeholder}
+            value={getDisplayValue()}
+            onChange={(e) => {
+              setSearchedValue(e.target.value);
+              onSelect({});
+            }}
+            fontSize={fontSize}
+            icon={Boolean(icon)}
+          />
+          <ArrowSvg src={rotate ? UpIcon : DownIcon} />
+        </StyledContentRow>
       </FlexRow>
 
       <ItemContainer

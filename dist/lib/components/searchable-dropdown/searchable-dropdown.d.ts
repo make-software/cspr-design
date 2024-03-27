@@ -15,7 +15,8 @@ export interface SearchableDropdownProps {
     maxHeight?: string;
     fontSize?: string;
     placeholder?: string;
+    isError?: boolean;
 }
-export declare const SearchableDropdown: ({ items, value, height, fontSize, maxHeight, onSelect, placeholder, }: SearchableDropdownProps) => JSX.Element;
+export declare const SearchableDropdown: ({ items, value, height, isError, fontSize, maxHeight, onSelect, placeholder, }: SearchableDropdownProps) => JSX.Element;
 export default SearchableDropdown;
 //# sourceMappingURL=searchable-dropdown.d.ts.map
