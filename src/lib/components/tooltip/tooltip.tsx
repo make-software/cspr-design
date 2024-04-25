@@ -24,7 +24,7 @@ export interface TooltipProps extends BaseProps {
   caption?: string | null;
   children?: React.ReactElement<any> & any;
   monotype?: boolean;
-  limitWidth?: boolean;
+  limitWidth?: boolean | string;
 }
 const StyledReactTooltip = styled(ReakitTooltip)<StyledReactTooltipProps>(({ theme, lineHeight = 'sm', scale = 'sm', paddingScale = 2 }) => ({
   zIndex: theme.zIndex.tooltip,
@@ -58,6 +58,9 @@ const StyledReactTooltip = styled(ReakitTooltip)<StyledReactTooltipProps>(({ the
 export const Tooltip = React.forwardRef<Ref, TooltipProps & StyledReactTooltipProps>(
   ({ children, limitWidth, title, caption, monotype, lineHeight = 'sm', scale = 'sm', paddingScale = 2, ...props }, ref) => {
     const tooltip = useTooltipState({ animated: 250 });
+    const maxWidth = limitWidth 
+      ? (typeof limitWidth === 'string' ? limitWidth : '500px')
+      : undefined;
 
     if (children == null) {
       return null;
@@ -73,7 +76,7 @@ export const Tooltip = React.forwardRef<Ref, TooltipProps & StyledReactTooltipPr
           {(referenceProps) => React.cloneElement(children, referenceProps)}
         </TooltipReference>
         <StyledReactTooltip paddingScale={paddingScale} {...tooltip} {...props}>
-          <div style={{ maxWidth: limitWidth ? '500px' : undefined }}>
+          <div style={{ maxWidth }}>
             <FlexColumn>
               <CaptionText size={2} variation="gray">
                 {caption}

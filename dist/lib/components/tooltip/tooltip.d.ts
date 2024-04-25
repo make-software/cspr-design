@@ -10,7 +10,7 @@ export interface TooltipProps extends BaseProps {
     caption?: string | null;
     children?: React.ReactElement<any> & any;
     monotype?: boolean;
-    limitWidth?: boolean;
+    limitWidth?: boolean | string;
 }
 export declare const Tooltip: React.ForwardRefExoticComponent<TooltipProps & StyledReactTooltipProps & React.RefAttributes<HTMLDivElement>>;
 export default Tooltip;
