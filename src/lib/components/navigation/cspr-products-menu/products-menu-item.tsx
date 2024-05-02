@@ -1,5 +1,5 @@
 import React from 'react';
-import { Badge } from '../../badge/badge';
+import {Badge, BadgeProps} from '../../badge/badge';
 import CaptionText from '../../caption-text/caption-text';
 import FlexRow from '../../flex-row/flex-row';
 import NavLink from '../../nav-link/nav-link';
@@ -17,6 +17,7 @@ export interface ProductsMenuItemProps {
   nameLabel: string;
   link: string;
   icon: string;
+  badge?: BadgeProps;
 }
 
 export enum ThemeModeType {
@@ -87,16 +88,19 @@ export const ProductsMenuItem = ({
   selected = false,
   newBadgeLabel,
   comingSoonBadgeLabel,
+  badge,
 }: ProductsMenuItemProps) => {
   const theme = useTheme();
 
-  let badge;
-  if (comingSoonBadgeLabel) {
-    badge = <Badge label={comingSoonBadgeLabel} variation={'violet'} lineHeight={'xxs'} />;
+  let itemBadge;
+  if (badge) {
+      itemBadge = <Badge {...badge} lineHeight={'xxs'} />
+  } else if (comingSoonBadgeLabel) {
+    itemBadge = <Badge label={comingSoonBadgeLabel} variation={'violet'} lineHeight={'xxs'} />;
   } else if (newBadgeLabel) {
-    badge = <Badge label={newBadgeLabel} variation={'green'} lineHeight={'xxs'} />;
+    itemBadge = <Badge label={newBadgeLabel} variation={'green'} lineHeight={'xxs'} />;
   } else {
-    badge = (
+    itemBadge = (
       <CaptionText size={2} variation={'lightGray'}>
         {descriptionText}
       </CaptionText>
@@ -109,7 +113,7 @@ export const ProductsMenuItem = ({
         <FlexRow itemsSpacing={8} grow={1}>
           <SvgIcon src={icon || defaultIcon[theme.themeName]} size={32} />
           <FlexColumn itemsSpacing={4}>
-            {badge}
+            {itemBadge}
             <StyledBodyText size={1}>{nameLabel}</StyledBodyText>
           </FlexColumn>
         </FlexRow>
@@ -127,7 +131,7 @@ export const ProductsMenuItem = ({
       >
         <SvgIcon src={icon || defaultIcon[theme.themeName]} size={48} />
         <FlexColumn itemsSpacing={4} align={'center'}>
-          {badge}
+          {itemBadge}
           <StyledBodyText size={1}>{nameLabel}</StyledBodyText>
         </FlexColumn>
       </FlexColumn>
