@@ -77,37 +77,37 @@ const BIG_NUMBERS_NOTATION_SYMBOL = [
   'M', //Million
   'B', //Billion
   'T', //Trillion
-  'Qa', //Quadrillion
-  'Qi', //Quintillion
-  'Sx', //Sextillion
-  'Sp', //Septillion
-  'O', //Octillion
-  'N', //Nonillion
-  'D', //Decillion
-  'Ud', //Undecillion
-  'Dd', //Duodecillion
-  'Td', //Tredecillion
-  'Qad', //Quattuordecillion
-  'Qid', //Quindecillion
-  'Sxd', //Sexdecillion
-  'Spd', //Septendecillion
-  'Od', //Octodecillion
-  'Nd', //Novemdecillion
-  'V', //Vigintillion
-  'Uv', //Unvigintillion
-  'Dv', //Duovigintillion
-  'Tv', //Trevigintillion
-  'Qav', //Quattuorvigintillion
-  'Qiv', //Quinvigintillion
-  'Sxv', //Sexvigintillion
-  'Spv', //Septenvigintillion
-  'Ov', //Octovigintillion
-  'Nv', //Novemvigintillion
-  'Tr', //Trigintillion
-  'Ut', //Untrigintillion
-  'Dt', //Duotrigintillion
-  'G', //Googol
-  'Tt', //Tretrigintillion
+  'e15', //Quadrillion
+  'e18', //Quintillion
+  'e21', //Sextillion
+  'e24', //Septillion
+  'e27', //Octillion
+  'e30', //Nonillion
+  'e33', //Decillion
+  'e36', //Undecillion
+  'e39', //Duodecillion
+  'e42', //Tredecillion
+  'e45', //Quattuordecillion
+  'e48', //Quindecillion
+  'e51', //Sexdecillion
+  'e54', //Septendecillion
+  'e57', //Octodecillion
+  'e60', //Novemdecillion
+  'e63', //Vigintillion
+  'e66', //Unvigintillion
+  'e69', //Duovigintillion
+  'e72', //Trevigintillion
+  'e75', //Quattuorvigintillion
+  'e78', //Quinvigintillion
+  'e81', //Sexvigintillion
+  'e84', //Septenvigintillion
+  'e87', //Octovigintillion
+  'e90', //Novemvigintillion
+  'e93', //Trigintillion
+  'e96', //Untrigintillion
+  'e99', //Duotrigintillion
+  'e101', //Googol
+  'e104', //Tretrigintillion
 ];
 
 export const formatBigNumbers = (value) => {
