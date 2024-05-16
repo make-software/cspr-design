@@ -16,50 +16,52 @@ const StyledFlexRow = styled(FlexRow)<{
   customCheckedColor?: string;
   customUncheckedColor?: string;
 }>(
-    ({ theme, checked, disabled, customCheckedColor, customUncheckedColor }) => ({
-      cursor: disabled ? 'default' : 'pointer',
-      width: 'fit-content',
-      pointerEvents: disabled ? 'none' : 'auto',
-      svg: {
+  ({ theme, checked, disabled, customCheckedColor, customUncheckedColor }) => ({
+    cursor: disabled ? 'default' : 'pointer',
+    width: 'fit-content',
+    pointerEvents: disabled ? 'none' : 'auto',
+    svg: {
+      fill:
+        checked && !disabled && customCheckedColor
+          ? customCheckedColor
+          : checked && !disabled
+          ? theme.styleguideColors.contentBlue
+          : 'none',
+      path: {
         fill:
-            checked && !disabled && customCheckedColor
-                ? customCheckedColor
-                : checked && !disabled
-                    ? theme.styleguideColors.contentBlue
-                    : 'none',
-        path: {
-          fill:
-              checked && !disabled
-                  ? theme.styleguideColors.backgroundPrimary
-                  : 'none',
-        },
-        rect: {
-          stroke: disabled
-              ? theme.styleguideColors.contentQuaternary
-              : customUncheckedColor
-                  ? customUncheckedColor
-                  : theme.styleguideColors.contentBlue,
-        },
-      },
-      span: {
-        color: disabled
+          checked && !disabled
+            ? theme.styleguideColors.backgroundPrimary
+            : checked && disabled
             ? theme.styleguideColors.contentQuaternary
-            : theme.styleguideColors.contentPrimary,
+            : 'none',
       },
-    })
+      rect: {
+        stroke: disabled
+          ? theme.styleguideColors.contentQuaternary
+          : customUncheckedColor
+          ? customUncheckedColor
+          : theme.styleguideColors.contentBlue,
+      },
+    },
+    span: {
+      color: disabled
+        ? theme.styleguideColors.contentQuaternary
+        : theme.styleguideColors.contentPrimary,
+    },
+  })
 );
 
 export enum CheckboxFontSize {
-    'default' = 'default',
-    'small' = 'small',
+  'default' = 'default',
+  'small' = 'small',
 }
 
 const StyledCheckboxWrapper = ({ checkboxFontSize, ...props }) => {
-    return checkboxFontSize === CheckboxFontSize.small ? (
-        <BodyText size={3} lineHeight={'xs'} {...props} />
-    ) : (
-        <SubtitleText size={2} {...props} />
-    );
+  return checkboxFontSize === CheckboxFontSize.small ? (
+    <BodyText size={3} lineHeight={'xs'} {...props} />
+  ) : (
+    <SubtitleText size={2} {...props} />
+  );
 };
 
 export interface CheckboxProps extends BaseProps {
@@ -73,37 +75,39 @@ export interface CheckboxProps extends BaseProps {
 }
 
 export function Checkbox({
-                           checked,
-                           onChange,
-                           label,
-                           disabled,
-                           customCheckedColor,
-                           customUncheckedColor,
-                           checkboxFontSize = CheckboxFontSize.default
-                         }: CheckboxProps) {
+  checked,
+  onChange,
+  label,
+  disabled,
+  customCheckedColor,
+  customUncheckedColor,
+  checkboxFontSize = CheckboxFontSize.default,
+}: CheckboxProps) {
   const handleClick = (ev) => {
     onChange && onChange(!checked);
   };
 
   const iconSrc = checked
     ? disabled
-          ? CheckedInactiveIcon
-          : CheckBoxChecked
-      : CheckboxIcon
+      ? CheckedInactiveIcon
+      : CheckBoxChecked
+    : CheckboxIcon;
 
   return (
-      <StyledFlexRow
-          itemsSpacing={8}
-          align="center"
-          checked={checked}
-          disabled={disabled}
-          onClick={handleClick}
-          customCheckedColor={customCheckedColor}
-          customUncheckedColor={customUncheckedColor}
-      >
-        <SvgIcon src={iconSrc} />
-        <StyledCheckboxWrapper checkboxFontSize={checkboxFontSize}>{label}</StyledCheckboxWrapper>
-      </StyledFlexRow>
+    <StyledFlexRow
+      itemsSpacing={8}
+      align="center"
+      checked={checked}
+      disabled={disabled}
+      onClick={handleClick}
+      customCheckedColor={customCheckedColor}
+      customUncheckedColor={customUncheckedColor}
+    >
+      <SvgIcon src={iconSrc} />
+      <StyledCheckboxWrapper checkboxFontSize={checkboxFontSize}>
+        {label}
+      </StyledCheckboxWrapper>
+    </StyledFlexRow>
   );
 }
 
