@@ -7,7 +7,7 @@ import SvgIcon from '../svg-icon/svg-icon';
 export interface WarningMessageProps {
   iconSrc?: string;
   title: string;
-  message: string;
+  message: string | React.ReactElement;
   margin?: string;
 }
 

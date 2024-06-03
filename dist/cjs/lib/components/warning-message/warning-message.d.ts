@@ -1,8 +1,8 @@
-/// <reference types="react" />
+import React from 'react';
 export interface WarningMessageProps {
     iconSrc?: string;
     title: string;
-    message: string;
+    message: string | React.ReactElement;
     margin?: string;
 }
 export declare const WarningMessage: ({ iconSrc, title, message, margin, }: WarningMessageProps) => JSX.Element;
