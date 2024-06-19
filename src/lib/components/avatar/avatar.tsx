@@ -1,9 +1,9 @@
-import React from "react";
-import Identicon from "react-identicons";
-// import Skeleton from 'react-loading-skeleton';
-import styled from "styled-components";
-import SvgIcon from "../svg-icon/svg-icon";
-import {getImageProxyUrl} from "../../utils/cache-asset";
+import React from 'react';
+import Identicon from 'react-identicons';
+// import Skeleton from "react-loading-skeleton";
+import styled from 'styled-components';
+import SvgIcon from '../svg-icon/svg-icon';
+import { getImageProxyUrl } from '../../utils/cache-asset';
 
 export const isValidAccountHash = (
   accountHash?: string | null
@@ -12,7 +12,7 @@ export const isValidAccountHash = (
     return false;
   }
 
-  const validHashRegExp = new RegExp("^([0-9A-Fa-f]){64}$");
+  const validHashRegExp = new RegExp('^([0-9A-Fa-f]){64}$');
   return validHashRegExp.test(accountHash.trim());
 };
 
@@ -20,12 +20,12 @@ export const isValidAccountHash = (
 export interface AvatarProps {
   hash?: string | null;
   src?: string | null;
-  size?: "default" | "big" | "average" | "medium" | "small";
+  size?: 'default' | 'big' | 'average' | 'medium' | 'small';
   loading?: boolean;
   isErc20?: boolean;
 }
 
-const getCornerRadius = (size: AvatarProps["size"] = "default") =>
+const getCornerRadius = (size: AvatarProps['size'] = 'default') =>
   ({
     small: 2,
     default: 2,
@@ -34,7 +34,7 @@ const getCornerRadius = (size: AvatarProps["size"] = "default") =>
     big: 12,
   }[size]);
 
-const getSize = (size: AvatarProps["size"] = "default") =>
+const getSize = (size: AvatarProps['size'] = 'default') =>
   ({
     small: 20,
     default: 32,
@@ -43,16 +43,16 @@ const getSize = (size: AvatarProps["size"] = "default") =>
     big: 124,
   }[size]);
 
-const getBgColor = (size: AvatarProps["size"] = "default") =>
+const getBgColor = (size: AvatarProps['size'] = 'default') =>
   ({
-    small: "contentTertiary",
-    default: "contentQuaternary",
-    average: "contentQuaternary",
-    medium: "contentQuaternary",
-    big: "contentQuaternary",
+    small: 'contentTertiary',
+    default: 'contentQuaternary',
+    average: 'contentQuaternary',
+    medium: 'contentQuaternary',
+    big: 'contentQuaternary',
   }[size]);
 
-const getPadding = (size: AvatarProps["size"] = "default") =>
+const getPadding = (size: AvatarProps['size'] = 'default') =>
   ({
     small: 0,
     default: 0,
@@ -61,7 +61,7 @@ const getPadding = (size: AvatarProps["size"] = "default") =>
     big: 0,
   }[size]);
 
-const getMargin = (size: AvatarProps["size"] = "default") =>
+const getMargin = (size: AvatarProps['size'] = 'default') =>
   ({
     small: 0,
     default: 4,
@@ -71,7 +71,7 @@ const getMargin = (size: AvatarProps["size"] = "default") =>
   }[size]);
 
 export const BackgroundWrapper = styled.div<{
-  size: AvatarProps["size"];
+  size: AvatarProps['size'];
   withBgColor?: boolean;
 }>(({ theme, size, withBgColor = false }) => ({
   borderRadius: getCornerRadius(size),
@@ -81,28 +81,28 @@ export const BackgroundWrapper = styled.div<{
   margin: getMargin(size),
   backgroundColor: withBgColor
     ? theme.styleguideColors[getBgColor(size)]
-    : "transparent",
-  "& > canvas": {
+    : 'transparent',
+  '& > canvas': {
     borderRadius: getCornerRadius(size),
   },
 }));
 
 const IconHashWrapper = styled.div(({ theme }) => ({
   color: theme.styleguideColors.contentOnFill,
-  height: "100%",
-  display: "flex",
-  justifyContent: "center",
-  alignItems: "center",
+  height: '100%',
+  display: 'flex',
+  justifyContent: 'center',
+  alignItems: 'center',
 }));
 
 type Ref = HTMLSpanElement;
 
 export const Avatar = React.forwardRef<Ref, AvatarProps>(function Avatar(
-  { hash, src, size = "default", loading, isErc20, ...props }: AvatarProps,
+  { hash, src, size = 'default', loading, isErc20, ...props }: AvatarProps,
   ref
 ) {
   const RETINA_SCALE = 2;
-  const CACHE_TTL = "86400";
+  const CACHE_TTL = '86400';
 
   // if (loading || (!hash && !src && !isErc20)) {
   //   return (
@@ -129,8 +129,7 @@ export const Avatar = React.forwardRef<Ref, AvatarProps>(function Avatar(
         <BackgroundWrapper
           size={size}
           style={{
-            background: `url("${cachedUrl}") center no-repeat`,
-            backgroundSize: `contain`,
+            background: `url("${cachedUrl}") center / contain no-repeat`,
           }}
         >
           <div style={{ width: getSize(size), height: getSize(size) }} />
