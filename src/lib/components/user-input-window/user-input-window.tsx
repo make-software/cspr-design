@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import styled, { useTheme } from 'styled-components';
 import FlexRow from '../flex-row/flex-row';
 import FlexColumn from '../flex-column/flex-column';
@@ -37,6 +37,7 @@ export interface UserInputWindowSceneProps {
   position: ModalPosition;
   title: string;
   withHeader?: boolean;
+  resetForm?: boolean;
   headerLogo?: React.ReactElement;
   information?: React.ReactElement | string;
   repeatInput?: RepeatInputProps;
@@ -216,6 +217,7 @@ export const UserInputWindow = ({
   informationOnlyMode,
   isMandatoryCheckBox,
   hideXButton,
+  resetForm,
   portalClass = 'portal',
 }: UserInputWindowSceneProps) => {
   const theme = useTheme();
@@ -227,16 +229,20 @@ export const UserInputWindow = ({
   const [showModal, setShowModal] = useState<boolean>(isOpen);
 
   useEscapeKey(() => {
-    if(shouldCloseOnEsc) {
-      setShowModal(false)
+    if (shouldCloseOnEsc) {
+      setShowModal(false);
       onDismiss && onDismiss(DismissOrigin.ESC);
     }
   });
 
+  useEffect(() => {
+    resetForm && setValue('');
+  }, [resetForm]);
+
   const { ref } = useClickAway({
     callback: () => {
-      if(shouldCloseOnOverlayClick) {
-        setShowModal(false)
+      if (shouldCloseOnOverlayClick) {
+        setShowModal(false);
         onDismiss && onDismiss(DismissOrigin.Overlay);
       }
     },
@@ -291,7 +297,7 @@ export const UserInputWindow = ({
 
   const handleDisableButton = () => {
     if (confirmDisabled) return true;
-    
+
     if (isMandatoryCheckBox && !isChecked) return true;
 
     if (informationOnlyMode) return false;
@@ -322,7 +328,12 @@ export const UserInputWindow = ({
               <ModalHeader
                 themeMode={themeMode}
                 headerLogo={headerLogo}
-                onClose={hideXButton ? undefined : () => onDismiss && onDismiss(DismissOrigin.HeaderCloseButton)}
+                onClose={
+                  hideXButton
+                    ? undefined
+                    : () =>
+                        onDismiss && onDismiss(DismissOrigin.HeaderCloseButton)
+                }
               />
             )}
             {bodyImg && <ImageWrapper>{bodyImg}</ImageWrapper>}
@@ -391,7 +402,13 @@ export const UserInputWindow = ({
               justify={'space-between'}
             >
               {dismissLabel && (
-                <Button color={'secondaryBlue'} onClick={() => onDismiss && onDismiss(DismissOrigin.DismissButton)} disabled={!!dismissDisabled}>
+                <Button
+                  color={'secondaryBlue'}
+                  onClick={() =>
+                    onDismiss && onDismiss(DismissOrigin.DismissButton)
+                  }
+                  disabled={!!dismissDisabled}
+                >
                   {dismissLabel}
                 </Button>
               )}

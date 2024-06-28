@@ -18,6 +18,7 @@ export interface UserInputWindowSceneProps {
     position: ModalPosition;
     title: string;
     withHeader?: boolean;
+    resetForm?: boolean;
     headerLogo?: React.ReactElement;
     information?: React.ReactElement | string;
     repeatInput?: RepeatInputProps;
@@ -49,6 +50,6 @@ export declare enum DismissOrigin {
     Overlay = 2,
     ESC = 3
 }
-export declare const UserInputWindow: ({ isOpen, position, title, withHeader, headerLogo, bodyImg, information, confirmLabel, confirmDisabled, confirmColor, onConfirm, dismissLabel, dismissDisabled, shouldCloseOnEsc, shouldCloseOnOverlayClick, onDismiss, themeMode, inputType, placeholder, required, inputLabel, checkboxLabel, validationSetting, repeatInput, warningMessage, informationOnlyMode, isMandatoryCheckBox, hideXButton, portalClass, }: UserInputWindowSceneProps) => JSX.Element;
+export declare const UserInputWindow: ({ isOpen, position, title, withHeader, headerLogo, bodyImg, information, confirmLabel, confirmDisabled, confirmColor, onConfirm, dismissLabel, dismissDisabled, shouldCloseOnEsc, shouldCloseOnOverlayClick, onDismiss, themeMode, inputType, placeholder, required, inputLabel, checkboxLabel, validationSetting, repeatInput, warningMessage, informationOnlyMode, isMandatoryCheckBox, hideXButton, resetForm, portalClass, }: UserInputWindowSceneProps) => JSX.Element;
 export default UserInputWindow;
 //# sourceMappingURL=user-input-window.d.ts.map
