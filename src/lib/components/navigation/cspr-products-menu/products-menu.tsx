@@ -7,6 +7,7 @@ import FlexColumn from '../../flex-column/flex-column';
 
 export interface ProductsMenuProps {
   opened?: boolean;
+  className?: string;
 }
 
 const ProductsMenuWrapper = styled.ul<{
@@ -20,12 +21,13 @@ const ProductsMenuWrapper = styled.ul<{
 export const ProductsMenu = ({
   opened = false,
   children,
+  className,
 }: PropsWithChildren<ProductsMenuProps>) => {
   const ProductContainer = useMatchMedia([FlexColumn, FlexColumn, FlexRow], []);
 
   return (
     <BaseDropdownMenu opened={opened}>
-      <ProductsMenuWrapper>
+      <ProductsMenuWrapper className={className}>
         <ProductContainer wrap={'wrap'}>{children}</ProductContainer>
       </ProductsMenuWrapper>
     </BaseDropdownMenu>

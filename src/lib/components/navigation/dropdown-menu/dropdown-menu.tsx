@@ -4,25 +4,24 @@ import FlexColumn from '../../flex-column/flex-column';
 import styled from 'styled-components';
 
 const StyledFlexColumn = styled(FlexColumn)<{
-    multiColumn?: boolean,
-    padding?: string
-}>(
-  ({ theme, multiColumn, padding }) => ({
-    padding: padding ?? '8px',
-    ...(multiColumn && {
-      padding: '8px',
-      '& li:hover > *': {
-        borderRadius: theme.borderRadius.base,
-      },
-    }),
-  })
-);
+  multiColumn?: boolean;
+  padding?: string;
+}>(({ theme, multiColumn, padding }) => ({
+  padding: padding ?? '8px',
+  ...(multiColumn && {
+    padding: '8px',
+    '& li:hover > *': {
+      borderRadius: theme.borderRadius.base,
+    },
+  }),
+}));
 
 export interface MenuProps {
   opened?: boolean;
   onClose?: () => void;
   multiColumn?: boolean;
-    padding?: string;
+  padding?: string;
+  className?: string;
 }
 
 export const DropdownMenu = ({
@@ -33,7 +32,9 @@ export const DropdownMenu = ({
 }: React.PropsWithChildren<MenuProps>) => {
   return (
     <BaseDropdownMenu {...rest}>
-      <StyledFlexColumn multiColumn={multiColumn} padding={padding}>{children}</StyledFlexColumn>
+      <StyledFlexColumn multiColumn={multiColumn} padding={padding}>
+        {children}
+      </StyledFlexColumn>
     </BaseDropdownMenu>
   );
 };

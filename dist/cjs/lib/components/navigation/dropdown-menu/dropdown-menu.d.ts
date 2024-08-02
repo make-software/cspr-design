@@ -4,6 +4,7 @@ export interface MenuProps {
     onClose?: () => void;
     multiColumn?: boolean;
     padding?: string;
+    className?: string;
 }
 export declare const DropdownMenu: ({ children, multiColumn, padding, ...rest }: React.PropsWithChildren<MenuProps>) => JSX.Element;
 //# sourceMappingURL=dropdown-menu.d.ts.map

@@ -24,6 +24,7 @@ export const BaseDropdownMenu = ({
   opened = false,
   onClose,
   children,
+  className,
 }: PropsWithChildren<MenuProps>) => {
   const [isOpen, setIsOpen] = useState(opened);
 
@@ -39,7 +40,7 @@ export const BaseDropdownMenu = ({
   });
 
   return (
-    <Container isOpen={isOpen} ref={ref}>
+    <Container isOpen={isOpen} ref={ref} className={className}>
       <BaseMenuWrapper>{children}</BaseMenuWrapper>
     </Container>
   );
