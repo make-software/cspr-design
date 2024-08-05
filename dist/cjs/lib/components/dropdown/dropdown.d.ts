@@ -38,6 +38,7 @@ export interface MultiSelectDropdownProps extends BaseProps {
     onChange?: (ev: DropdownEventValue) => void;
     onSelect?: (ev: DropdownEventValue) => void;
     onRemove?: (ev: DropdownEventValue) => void;
+    onClearAllItems?: (ev: DropdownEventValue) => void;
 }
 export declare function MultiSelectDropdown(props: MultiSelectDropdownProps): JSX.Element;
 export default Dropdown;

@@ -16,6 +16,8 @@ import FlexColumn from '../flex-column/flex-column';
 
 import UpIcon from '../../assets/icons/ic-arrow-up.svg';
 import DownIcon from '../../assets/icons/ic-arrow-down.svg';
+import CheckmarkIcon from '../../assets/icons/ic-checkmark.svg';
+import DeleteIcon from '../../assets/icons/ic-delete.svg';
 
 const StyledDropdown = styled.div<{ disabled?: boolean }>(
   ({ theme, disabled }) => ({
@@ -59,7 +61,7 @@ const ItemContainer = styled(FlexRow)(({ theme }) => ({
   },
 }));
 
-const DeleteIcon = styled(SvgIcon)(({ theme }) => ({
+const DeleteSvgIcon = styled(SvgIcon)(({ theme }) => ({
   path: {
     stroke: theme.styleguideColors.contentSecondary,
   },
@@ -68,6 +70,12 @@ const DeleteIcon = styled(SvgIcon)(({ theme }) => ({
       stroke: theme.styleguideColors.fillPrimaryRed,
     },
   },
+}));
+
+const ClearSvgIcon = styled(SvgIcon)(({ theme }) => ({
+  path: {
+    stroke: theme.styleguideColors.contentPrimary
+  }
 }));
 
 const MultiSelectContainer = styled(FlexRow)<{ isOpen: boolean }>(
@@ -293,8 +301,8 @@ export function Dropdown(props: DropdownProps) {
                           {itemNameGetter(item)}
                         </BodyText>
                         {areItemsRemovable && (
-                          <DeleteIcon
-                            src="assets/icons/ic-delete.svg"
+                          <DeleteSvgIcon
+                            src={DeleteIcon}
                             onClick={(ev) =>
                               handleRemoveItem(item, ev, downshift)
                             }
@@ -327,6 +335,7 @@ export interface MultiSelectDropdownProps extends BaseProps {
   onChange?: (ev: DropdownEventValue) => void;
   onSelect?: (ev: DropdownEventValue) => void;
   onRemove?: (ev: DropdownEventValue) => void;
+  onClearAllItems?: (ev: DropdownEventValue) => void;
 }
 
 export function MultiSelectDropdown(props: MultiSelectDropdownProps) {
@@ -339,6 +348,7 @@ export function MultiSelectDropdown(props: MultiSelectDropdownProps) {
     onSelect,
     onChange,
     onRemove,
+    onClearAllItems
   } = props;
 
   const {
@@ -347,6 +357,7 @@ export function MultiSelectDropdown(props: MultiSelectDropdownProps) {
     addSelectedItem,
     removeSelectedItem,
     selectedItems,
+    setSelectedItems,
   } = useMultipleSelection<MultiDropdownValue>({
     initialSelectedItems: value,
     onSelectedItemsChange: (changes) => {
@@ -406,6 +417,11 @@ export function MultiSelectDropdown(props: MultiSelectDropdownProps) {
     },
   });
 
+  const handleClearAll = () => {
+    onClearAllItems && onClearAllItems(getChangeEvent(null));
+    setSelectedItems([]);
+  };
+
   return (
     <StyledDropdown disabled={disabled}>
       <FlexColumn itemsSpacing={4}>
@@ -448,7 +464,7 @@ export function MultiSelectDropdown(props: MultiSelectDropdownProps) {
                                 removeSelectedItem(selectedItem);
                               }}
                               size={14}
-                              src={'assets/icons/ic-delete.svg'}
+                              src={DeleteIcon}
                             />
                           </FlexRow>
                         </ChipItemContainer>
@@ -459,6 +475,7 @@ export function MultiSelectDropdown(props: MultiSelectDropdownProps) {
               </BodyText>
             </span>
             <DropdownIconWrapper>
+              {onClearAllItems && (<ClearSvgIcon src={DeleteIcon} onClick={handleClearAll} marginRight/>)}
               <SvgIcon size={16} src={isOpen ? UpIcon : DownIcon} />
             </DropdownIconWrapper>
           </MultiSelectContainer>
@@ -486,7 +503,7 @@ export function MultiSelectDropdown(props: MultiSelectDropdownProps) {
                     {isSelected && (
                       <CheckIcon
                         size={14}
-                        src={'assets/icons/ic-checkmark.svg'}
+                        src={CheckmarkIcon}
                       />
                     )}
                   </ItemContainer>
