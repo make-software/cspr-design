@@ -27,6 +27,7 @@ export declare function Dropdown(props: DropdownProps): JSX.Element;
 export type MultiDropdownValue = {
     label: string;
     chipLabel?: string;
+    chipName?: string;
     value: any;
 };
 export interface MultiSelectDropdownProps extends BaseProps {

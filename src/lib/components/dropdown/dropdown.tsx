@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Downshift, {
   ControllerStateAndHelpers,
   useMultipleSelection,
@@ -109,7 +109,7 @@ const OverflowWrapper = styled.span(({ theme }) => ({
   textOverflow: 'ellipsis',
 }));
 
-const DropdownIconWrapper = styled.div(({ theme }) => ({
+const DropdownIconWrapper = styled(FlexRow)(({ theme }) => ({
   paddingRight: '8px',
   marginLeft: '8px',
 }));
@@ -323,6 +323,7 @@ export function Dropdown(props: DropdownProps) {
 export type MultiDropdownValue = {
   label: string;
   chipLabel?: string;
+  chipName?: string;
   value: any;
 };
 
@@ -348,7 +349,7 @@ export function MultiSelectDropdown(props: MultiSelectDropdownProps) {
     onSelect,
     onChange,
     onRemove,
-    onClearAllItems
+    onClearAllItems,
   } = props;
 
   const {
@@ -358,6 +359,7 @@ export function MultiSelectDropdown(props: MultiSelectDropdownProps) {
     removeSelectedItem,
     selectedItems,
     setSelectedItems,
+    reset,
   } = useMultipleSelection<MultiDropdownValue>({
     initialSelectedItems: value,
     onSelectedItemsChange: (changes) => {
@@ -402,7 +404,9 @@ export function MultiSelectDropdown(props: MultiSelectDropdownProps) {
 
             if (newSelectedItem) {
               if (isAlreadySelected) {
-                removeSelectedItem(newSelectedItem);
+                setSelectedItems(
+                  selectedItems.filter((i) => i.value !== newSelectedItem.value)
+                );
                 onRemove && onRemove(getChangeEvent(newSelectedItem));
               } else {
                 addSelectedItem(newSelectedItem);
@@ -417,27 +421,35 @@ export function MultiSelectDropdown(props: MultiSelectDropdownProps) {
     },
   });
 
+  //Align resetting selected values if they were reset in parent
+  useEffect(() => {
+    if (!value || value.length < 1) {
+      reset();
+    }
+  }, [value]);
+
   const handleClearAll = () => {
     onClearAllItems && onClearAllItems(getChangeEvent(null));
-    setSelectedItems([]);
+    reset();
   };
 
   return (
     <StyledDropdown disabled={disabled}>
       <FlexColumn itemsSpacing={4}>
         {label && (
-          <BodyText lineHeight={'xs'} size={1} {...getLabelProps()}>
+          <BodyText lineHeight={'xs'} {...getLabelProps()} size={1}>
             {label}
           </BodyText>
         )}
         <div>
           <MultiSelectContainer
-            isOpen={isOpen}
             align="center"
             justify="space-between"
-            {...getToggleButtonProps(
-              getDropdownProps({ preventKeyAction: isOpen })
-            )}
+            {...getToggleButtonProps({
+              ...getDropdownProps({ preventKeyAction: isOpen }),
+              onClick: (e) => e.stopPropagation(),
+              isOpen,
+            })}
           >
             <span>
               <BodyText
@@ -456,12 +468,23 @@ export function MultiSelectDropdown(props: MultiSelectDropdownProps) {
                           {...getSelectedItemProps({ selectedItem, index })}
                         >
                           <FlexRow align={'center'} gap={4}>
+                            {selectedItem?.chipName && (
+                              <BodyText
+                                lineHeight={'xs'}
+                                size={1}
+                                variation={'black'}
+                              >
+                                {selectedItem.chipName}
+                              </BodyText>
+                            )}
                             {selectedItem?.chipLabel || selectedItem?.label}
                             <MultiSelectDeleteIcon
                               onClick={(event) => {
                                 event.preventDefault();
                                 event.stopPropagation();
                                 removeSelectedItem(selectedItem);
+                                onRemove &&
+                                  onRemove(getChangeEvent(selectedItem));
                               }}
                               size={14}
                               src={DeleteIcon}
@@ -475,7 +498,13 @@ export function MultiSelectDropdown(props: MultiSelectDropdownProps) {
               </BodyText>
             </span>
             <DropdownIconWrapper>
-              {onClearAllItems && (<ClearSvgIcon src={DeleteIcon} onClick={handleClearAll} marginRight/>)}
+              {onClearAllItems && !!selectedItems.length && (
+                <ClearSvgIcon
+                  src={DeleteIcon}
+                  onClick={handleClearAll}
+                  marginRight
+                />
+              )}
               <SvgIcon size={16} src={isOpen ? UpIcon : DownIcon} />
             </DropdownIconWrapper>
           </MultiSelectContainer>
@@ -500,12 +529,7 @@ export function MultiSelectDropdown(props: MultiSelectDropdownProps) {
                     >
                       {item.label}
                     </BodyText>
-                    {isSelected && (
-                      <CheckIcon
-                        size={14}
-                        src={CheckmarkIcon}
-                      />
-                    )}
+                    {isSelected && <CheckIcon size={14} src={CheckmarkIcon} />}
                   </ItemContainer>
                 );
               })}
