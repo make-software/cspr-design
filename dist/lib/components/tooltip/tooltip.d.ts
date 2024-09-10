@@ -8,6 +8,7 @@ type StyledReactTooltipProps = {
 export interface TooltipProps extends BaseProps {
     title?: JSX.Element | string | null;
     caption?: string | null;
+    additionalBlock?: React.ReactElement<any> & any;
     children?: React.ReactElement<any> & any;
     monotype?: boolean;
     limitWidth?: boolean | string;
