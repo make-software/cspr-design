@@ -22,7 +22,7 @@
     "big.js": "^6.2.1",
     "copy-to-clipboard": "^3.3.3",
     "date-fns": "^2.30.0",
-    "downshift": "^7.6.0",
+    "downshift": "^9.0.4",
     "facepaint": "^1.2.1",
     "i18next": "^23.4.5",
     "react-identicons": "^1.2.5",

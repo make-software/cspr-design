@@ -234,7 +234,7 @@ export function Dropdown(props: DropdownProps) {
           <StyledDropdown
             {...getRootProps({ refKey: 'innerRef' })}
             style={style}
-            tabIndex="0"
+            tabIndex={0}
           >
             {label && (
               <BodyText lineHeight={'xs'} size={1}>
@@ -242,10 +242,10 @@ export function Dropdown(props: DropdownProps) {
               </BodyText>
             )}
             <Container
-              isOpen={isOpen}
               align="center"
               justify="space-between"
               {...getToggleButtonProps()}
+              isOpen={isOpen}
               itemsSpacing={10}
             >
               <BodyText
@@ -285,7 +285,6 @@ export function Dropdown(props: DropdownProps) {
                         align="center"
                         justify="space-between"
                         itemsSpacing={10}
-                        isSelected={isSelected}
                         {...getItemProps({ item, index: idx })}
                       >
                         <BodyText
