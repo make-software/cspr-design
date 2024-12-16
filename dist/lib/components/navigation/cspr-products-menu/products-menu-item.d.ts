@@ -1,4 +1,3 @@
-import React from 'react';
 import { BadgeProps } from '../../badge/badge';
 export interface ProductsMenuItemProps {
     comingSoonBadgeLabel?: string;
@@ -17,7 +16,7 @@ export declare enum ThemeModeType {
 export declare const ProductItemWrapper: import("styled-components").StyledComponent<"span", import("styled-components").DefaultTheme, {
     isOpen?: boolean | undefined;
     selected?: boolean | undefined;
+    disabled: boolean;
 }, never>;
-export declare const ProductItemLink: import("styled-components").StyledComponent<React.ForwardRefExoticComponent<Omit<import("../../nav-link/nav-link").NavLinkProps, "ref"> & React.RefAttributes<HTMLAnchorElement>>, import("styled-components").DefaultTheme, {}, never>;
-export declare const ProductsMenuItem: ({ nameLabel, link, icon, descriptionText, selected, newBadgeLabel, comingSoonBadgeLabel, badge, }: ProductsMenuItemProps) => JSX.Element;
+export declare const ProductsMenuItem: ({ nameLabel, link, icon, descriptionText, selected, newBadgeLabel, comingSoonBadgeLabel, badge, }: ProductsMenuItemProps) => import("react/jsx-runtime").JSX.Element;
 //# sourceMappingURL=products-menu-item.d.ts.map

@@ -5,6 +5,6 @@ export interface WarningMessageProps {
     message: string | React.ReactElement;
     margin?: string;
 }
-export declare const WarningMessage: ({ iconSrc, title, message, margin, }: WarningMessageProps) => JSX.Element;
+export declare const WarningMessage: ({ iconSrc, title, message, margin, }: WarningMessageProps) => import("react/jsx-runtime").JSX.Element;
 export default WarningMessage;
 //# sourceMappingURL=warning-message.d.ts.map

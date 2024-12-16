@@ -31,6 +31,7 @@ const StyledSvgIcon = styled(SvgIcon)<{ variation?: CopyHashColor }>(
 
 export interface CopyHashProps {
   value: string;
+  styles?: React.CSSProperties;
   label?: string;
   copiedLabel?: string;
   minified?: boolean;
@@ -42,11 +43,13 @@ export const CopyHash = ({
   label = 'Copy Public Key',
   copiedLabel = 'Copied!',
   variation,
+  styles,
   minified = false,
 }: CopyHashProps) => {
   const [isCopiedHash, setIsCopiedHash] = useState(false);
   return (
     <FlexRow
+      style={styles}
       align="center"
       onClick={() => {
         copy(value);

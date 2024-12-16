@@ -16,6 +16,6 @@ export interface AccountInfoRowProps {
     ticker?: string;
     cep18Config?: CEP18Config;
 }
-export declare function AccountInfoRow(props: AccountInfoRowProps): JSX.Element;
+export declare function AccountInfoRow(props: AccountInfoRowProps): import("react/jsx-runtime").JSX.Element;
 export default AccountInfoRow;
 //# sourceMappingURL=account-info-row.d.ts.map

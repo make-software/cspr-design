@@ -1,3 +1,2 @@
-/// <reference types="react" />
-export declare const LanguageSelector: () => JSX.Element;
+export declare const LanguageSelector: () => import("react/jsx-runtime").JSX.Element;
 //# sourceMappingURL=language-selector.d.ts.map

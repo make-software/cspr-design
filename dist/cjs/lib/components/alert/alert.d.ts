@@ -13,6 +13,6 @@ export interface StatusMessageProps {
     scale?: 'xs' | 'sm' | 'md' | 'lg' | 'xl';
     lineHeight?: 'xs' | 'sm';
 }
-export declare const Alert: (props: StatusMessageProps) => JSX.Element;
+export declare const Alert: (props: StatusMessageProps) => import("react/jsx-runtime").JSX.Element;
 export default Alert;
 //# sourceMappingURL=alert.d.ts.map

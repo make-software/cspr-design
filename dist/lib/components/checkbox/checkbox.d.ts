@@ -13,6 +13,6 @@ export interface CheckboxProps extends BaseProps {
     customUncheckedColor?: string;
     checkboxFontSize?: CheckboxFontSize;
 }
-export declare function Checkbox({ checked, onChange, label, disabled, customCheckedColor, customUncheckedColor, checkboxFontSize, }: CheckboxProps): JSX.Element;
+export declare function Checkbox({ checked, onChange, label, disabled, customCheckedColor, customUncheckedColor, checkboxFontSize, }: CheckboxProps): import("react/jsx-runtime").JSX.Element;
 export default Checkbox;
 //# sourceMappingURL=checkbox.d.ts.map

@@ -17,6 +17,6 @@ export interface TextareaProps extends BaseProps {
     error?: boolean;
     validationText?: string | null;
 }
-export declare function Textarea({ id, className, style, disabled, label, rightLabel, suffixIcon, error, validationText, onFocus, labelFontSize, ...restProps }: TextareaProps): JSX.Element;
+export declare function Textarea({ id, className, style, disabled, label, rightLabel, suffixIcon, error, validationText, onFocus, labelFontSize, ...restProps }: TextareaProps): import("react/jsx-runtime").JSX.Element;
 export default Textarea;
 //# sourceMappingURL=textarea.d.ts.map

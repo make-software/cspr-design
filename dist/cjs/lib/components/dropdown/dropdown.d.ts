@@ -23,7 +23,7 @@ export interface DropdownProps extends BaseProps {
     onRemove?: (ev: DropdownEventValue) => void;
     noItemsMessage?: string;
 }
-export declare function Dropdown(props: DropdownProps): JSX.Element;
+export declare function Dropdown(props: DropdownProps): import("react/jsx-runtime").JSX.Element;
 export type MultiDropdownValue = {
     label: string;
     chipLabel?: string;
@@ -41,6 +41,6 @@ export interface MultiSelectDropdownProps extends BaseProps {
     onRemove?: (ev: DropdownEventValue) => void;
     onClearAllItems?: (ev: DropdownEventValue) => void;
 }
-export declare function MultiSelectDropdown(props: MultiSelectDropdownProps): JSX.Element;
+export declare function MultiSelectDropdown(props: MultiSelectDropdownProps): import("react/jsx-runtime").JSX.Element;
 export default Dropdown;
 //# sourceMappingURL=dropdown.d.ts.map

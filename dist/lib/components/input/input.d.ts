@@ -35,6 +35,6 @@ export interface InputProps extends BaseProps {
     validationType?: InputValidationType;
     validationText?: string | null;
 }
-export declare function Input({ id, className, style, disabled, monotype, height, label, rightLabel, prefixIcon, suffixIcon, suffixText, required, error, validationType, validationText, onFocus, name, labelFontSize, ...restProps }: InputProps): JSX.Element;
+export declare function Input({ id, className, style, disabled, monotype, height, label, rightLabel, prefixIcon, suffixIcon, suffixText, required, error, validationType, validationText, onFocus, name, labelFontSize, ...restProps }: InputProps): import("react/jsx-runtime").JSX.Element;
 export default Input;
 //# sourceMappingURL=input.d.ts.map

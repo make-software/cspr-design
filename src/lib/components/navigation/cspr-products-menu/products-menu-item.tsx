@@ -1,5 +1,5 @@
 import React from 'react';
-import {Badge, BadgeProps} from '../../badge/badge';
+import { Badge, BadgeProps } from '../../badge/badge';
 import CaptionText from '../../caption-text/caption-text';
 import FlexRow from '../../flex-row/flex-row';
 import NavLink from '../../nav-link/nav-link';
@@ -28,7 +28,8 @@ export enum ThemeModeType {
 export const ProductItemWrapper = styled.span<{
   isOpen?: boolean;
   selected?: boolean;
-}>(({ theme, isOpen, selected }) =>
+  disabled: boolean;
+}>(({ theme, isOpen, selected, disabled }) =>
   theme.withMedia({
     display: 'flex',
     flex: '1 1 auto',
@@ -47,33 +48,20 @@ export const ProductItemWrapper = styled.span<{
       background: theme.styleguideColors.backgroundSecondary,
       pointerEvents: 'none',
     }),
-  })
-);
-
-export const ProductItemLink = styled(NavLink)(({ theme, disabled }) =>
-  theme.withMedia({
-    color: theme.styleguideColors.contentPrimary,
-    textDecoration: 'none',
-
-    '&:hover': {
-      color: theme.styleguideColors.contentBlue,
-    },
-    '&:active': {
-      color: theme.styleguideColors.contentLightBlue,
-    },
 
     ...(disabled && {
       color: theme.styleguideColors.contentSecondary,
       '&:hover > *': {
+        pointerEvents: 'none',
         color: theme.styleguideColors.contentSecondary,
       },
     }),
   })
 );
 
-const StyledBodyText =  styled(BodyText)`
-    white-space: nowrap;
-`
+const StyledBodyText = styled(BodyText)`
+  white-space: nowrap;
+`;
 
 const defaultIcon = {
   [ThemeModeType.light]: 'assets/icons/ic-sand-clock-light.svg',
@@ -94,11 +82,19 @@ export const ProductsMenuItem = ({
 
   let itemBadge;
   if (badge) {
-      itemBadge = <Badge {...badge} lineHeight={'xxs'} />
+    itemBadge = <Badge {...badge} lineHeight={'xxs'} />;
   } else if (comingSoonBadgeLabel) {
-    itemBadge = <Badge label={comingSoonBadgeLabel} variation={'violet'} lineHeight={'xxs'} />;
+    itemBadge = (
+      <Badge
+        label={comingSoonBadgeLabel}
+        variation={'violet'}
+        lineHeight={'xxs'}
+      />
+    );
   } else if (newBadgeLabel) {
-    itemBadge = <Badge label={newBadgeLabel} variation={'green'} lineHeight={'xxs'} />;
+    itemBadge = (
+      <Badge label={newBadgeLabel} variation={'green'} lineHeight={'xxs'} />
+    );
   } else {
     itemBadge = (
       <CaptionText size={2} variation={'lightGray'}>
@@ -109,38 +105,35 @@ export const ProductsMenuItem = ({
 
   const mobile = (
     <FlexRow itemsSpacing={8} justify={'flex-start'} grow={1}>
-      <ProductItemLink href={link} target={'_blank'} disabled={!!comingSoonBadgeLabel}>
-        <FlexRow itemsSpacing={8} grow={1}>
-          <SvgIcon src={icon || defaultIcon[theme.themeName]} size={32} />
-          <FlexColumn itemsSpacing={4}>
-            {itemBadge}
-            <StyledBodyText size={1}>{nameLabel}</StyledBodyText>
-          </FlexColumn>
-        </FlexRow>
-      </ProductItemLink>
+      <FlexRow itemsSpacing={8} grow={1}>
+        <SvgIcon src={icon || defaultIcon[theme.themeName]} size={32} />
+        <FlexColumn itemsSpacing={4}>
+          {itemBadge}
+          <StyledBodyText size={1}>{nameLabel}</StyledBodyText>
+        </FlexColumn>
+      </FlexRow>
     </FlexRow>
   );
 
   const desktop = (
-    <ProductItemLink href={link} target={'_blank'} disabled={!!comingSoonBadgeLabel}>
-      <FlexColumn
-        itemsSpacing={16}
-        align={'center'}
-        justify={'center'}
-        grow={1}
-      >
-        <SvgIcon src={icon || defaultIcon[theme.themeName]} size={48} />
-        <FlexColumn itemsSpacing={4} align={'center'}>
-          {itemBadge}
-          <StyledBodyText size={1}>{nameLabel}</StyledBodyText>
-        </FlexColumn>
+    <FlexColumn itemsSpacing={16} align={'center'} justify={'center'} grow={1}>
+      <SvgIcon src={icon || defaultIcon[theme.themeName]} size={48} />
+      <FlexColumn itemsSpacing={4} align={'center'}>
+        {itemBadge}
+        <StyledBodyText size={1}>{nameLabel}</StyledBodyText>
       </FlexColumn>
-    </ProductItemLink>
+    </FlexColumn>
   );
 
   const productMedia = useMatchMedia([mobile, mobile, desktop], []);
 
   return (
-    <ProductItemWrapper selected={selected}>{productMedia}</ProductItemWrapper>
+    <ProductItemWrapper
+      onClick={() => !comingSoonBadgeLabel && window.open(link, '_blank')}
+      selected={selected}
+      disabled={!!comingSoonBadgeLabel}
+    >
+      {productMedia}
+    </ProductItemWrapper>
   );
 };
