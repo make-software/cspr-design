@@ -15,6 +15,6 @@ export interface TextRowProps {
     labelIcon?: ReactNode;
     labelTooltipText?: string | undefined;
 }
-export declare function TextRow(props: TextRowProps): import("react/jsx-runtime").JSX.Element;
+export declare function TextRow(props: TextRowProps): JSX.Element;
 export default TextRow;
 //# sourceMappingURL=text-row.d.ts.map

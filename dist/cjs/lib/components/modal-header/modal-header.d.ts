@@ -6,6 +6,6 @@ export interface ModalHeaderProps {
     themeMode?: ThemeModeType;
     marginBottom?: string;
 }
-export declare const ModalHeader: ({ onClose, headerLogo, marginBottom, }: ModalHeaderProps) => import("react/jsx-runtime").JSX.Element;
+export declare const ModalHeader: ({ onClose, headerLogo, marginBottom, }: ModalHeaderProps) => JSX.Element;
 export default ModalHeader;
 //# sourceMappingURL=modal-header.d.ts.map

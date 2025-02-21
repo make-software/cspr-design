@@ -1,3 +1,4 @@
+/// <reference types="react" />
 import { TextProps } from '../text/text';
 type Transform = 'uppercase' | 'capitalize' | 'unset';
 export interface LabelProps extends TextProps {
@@ -5,6 +6,6 @@ export interface LabelProps extends TextProps {
     transform?: Transform;
     lineHeight?: 'xxs' | 'xs' | 'sm';
 }
-export declare function Label(props: LabelProps): import("react/jsx-runtime").JSX.Element;
+export declare function Label(props: LabelProps): JSX.Element;
 export default Label;
 //# sourceMappingURL=label.d.ts.map

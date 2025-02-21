@@ -64,8 +64,13 @@ const StyledCheckboxWrapper = ({ checkboxFontSize, ...props }) => {
   );
 };
 
-export interface CheckboxProps extends BaseProps {
+export interface CheckboxProps
+  extends React.InputHTMLAttributes<HTMLInputElement> {
   label?: string | React.ReactElement;
+  /**
+   * Callback function that is triggered when the checkbox is clicked
+   * @param value - [NOTE] contains HTML event instead of boolean value
+   */
   onChange?: (value?: any) => void;
   checked: boolean;
   disabled?: boolean;
@@ -83,8 +88,8 @@ export function Checkbox({
   customUncheckedColor,
   checkboxFontSize = CheckboxFontSize.default,
 }: CheckboxProps) {
-  const handleClick = (ev) => {
-    onChange && onChange(!checked);
+  const handleClick = (event) => {
+    onChange && onChange(event);
   };
 
   const iconSrc = checked

@@ -6,5 +6,5 @@ export interface MenuProps {
     padding?: string;
     className?: string;
 }
-export declare const DropdownMenu: ({ children, multiColumn, padding, ...rest }: React.PropsWithChildren<MenuProps>) => import("react/jsx-runtime").JSX.Element;
+export declare const DropdownMenu: ({ children, multiColumn, padding, ...rest }: React.PropsWithChildren<MenuProps>) => JSX.Element;
 //# sourceMappingURL=dropdown-menu.d.ts.map

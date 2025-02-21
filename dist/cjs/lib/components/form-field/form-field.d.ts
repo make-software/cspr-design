@@ -16,6 +16,6 @@ export interface FormFieldProps extends BaseProps {
     disabled?: boolean;
     labelFontSize?: LabelFontSize;
 }
-export declare function FormField({ label, rightLabel, status, statusText, children, labelFontSize, ...restProps }: FormFieldProps): import("react/jsx-runtime").JSX.Element;
+export declare function FormField({ label, rightLabel, status, statusText, children, labelFontSize, ...restProps }: FormFieldProps): JSX.Element;
 export default FormField;
 //# sourceMappingURL=form-field.d.ts.map

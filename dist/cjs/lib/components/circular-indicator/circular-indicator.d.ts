@@ -1,3 +1,4 @@
+/// <reference types="react" />
 import { BaseProps } from '../../types';
 import { TextVariation } from '../text/text';
 export interface CircularIndicatorProps extends BaseProps {
@@ -22,6 +23,6 @@ export declare const ProgressColorsRange: {
  * @example
  * <CircularIndicator size="medium" progress={0 - 100} />
  */
-export declare function CircularIndicator({ size, progress, textSize, }: CircularIndicatorProps): import("react/jsx-runtime").JSX.Element;
+export declare function CircularIndicator({ size, progress, textSize, }: CircularIndicatorProps): JSX.Element;
 export default CircularIndicator;
 //# sourceMappingURL=circular-indicator.d.ts.map

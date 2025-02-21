@@ -1,6 +1,5 @@
 import React, { ReactNode } from 'react';
 import styled from 'styled-components';
-import { BaseProps } from '../../types';
 import { matchSize } from '../../utils/match-size';
 import FormField, { FormFieldStatus } from '../form-field/form-field';
 import SvgIcon from '../svg-icon/svg-icon';
@@ -51,7 +50,7 @@ const InputContainer = styled('div')<InputProps>(
   })
 );
 
-const StyledInput = styled('input')<InputProps>(({ theme }) => ({
+const StyledInput = styled.input<InputProps>(({ theme }) => ({
   color: 'inherit',
   background: 'inherit',
   fontFamily: 'inherit',
@@ -98,7 +97,9 @@ export enum InputValidationType {
   password = 'password',
 }
 
-export interface InputProps extends BaseProps {
+export interface InputProps
+  extends React.InputHTMLAttributes<HTMLInputElement> {
+  ref?: React.ForwardedRef<HTMLInputElement>;
   disabled?: boolean;
   monotype?: boolean;
   placeholder?: string;
@@ -108,8 +109,6 @@ export interface InputProps extends BaseProps {
   onBlur?: (ev: any) => void;
   onKeyDown?: (ev: any) => void;
   height?: '36' | '40';
-  min?: string;
-  max?: string;
   step?: string;
   label?: ReactNode | string;
   labelFontSize?: LabelFontSize;
@@ -123,6 +122,15 @@ export interface InputProps extends BaseProps {
   validationType?: InputValidationType;
   validationText?: string | null;
 }
+
+type Ref = HTMLInputElement;
+
+export const InputRef = React.forwardRef<Ref, InputProps>(function InputRef(
+  props: InputProps,
+  ref
+) {
+  return <StyledInput {...props} ref={ref} />;
+});
 
 export function Input({
   id,
@@ -193,7 +201,7 @@ export function Input({
       <InputContainer monotype={monotype} error={error} height={height}>
         {prefixIcon && <PrefixContainer>{prefixIcon}</PrefixContainer>}
 
-        <StyledInput
+        <InputRef
           title=""
           disabled={disabled}
           onFocus={handleFocus}

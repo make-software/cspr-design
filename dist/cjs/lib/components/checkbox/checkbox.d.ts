@@ -1,11 +1,14 @@
 import React from 'react';
-import { BaseProps } from '../../types';
 export declare enum CheckboxFontSize {
     'default' = "default",
     'small' = "small"
 }
-export interface CheckboxProps extends BaseProps {
+export interface CheckboxProps extends React.InputHTMLAttributes<HTMLInputElement> {
     label?: string | React.ReactElement;
+    /**
+     * Callback function that is triggered when the checkbox is clicked
+     * @param value - [NOTE] contains HTML event instead of boolean value
+     */
     onChange?: (value?: any) => void;
     checked: boolean;
     disabled?: boolean;
@@ -13,6 +16,6 @@ export interface CheckboxProps extends BaseProps {
     customUncheckedColor?: string;
     checkboxFontSize?: CheckboxFontSize;
 }
-export declare function Checkbox({ checked, onChange, label, disabled, customCheckedColor, customUncheckedColor, checkboxFontSize, }: CheckboxProps): import("react/jsx-runtime").JSX.Element;
+export declare function Checkbox({ checked, onChange, label, disabled, customCheckedColor, customUncheckedColor, checkboxFontSize, }: CheckboxProps): JSX.Element;
 export default Checkbox;
 //# sourceMappingURL=checkbox.d.ts.map

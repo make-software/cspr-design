@@ -1,5 +1,4 @@
-import { ReactNode } from 'react';
-import { BaseProps } from '../../types';
+import React, { ReactNode } from 'react';
 export declare enum LabelFontSize {
     'default' = "default",
     'small' = "small"
@@ -10,7 +9,8 @@ export declare enum InputValidationType {
     email = "email",
     password = "password"
 }
-export interface InputProps extends BaseProps {
+export interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
+    ref?: React.ForwardedRef<HTMLInputElement>;
     disabled?: boolean;
     monotype?: boolean;
     placeholder?: string;
@@ -20,8 +20,6 @@ export interface InputProps extends BaseProps {
     onBlur?: (ev: any) => void;
     onKeyDown?: (ev: any) => void;
     height?: '36' | '40';
-    min?: string;
-    max?: string;
     step?: string;
     label?: ReactNode | string;
     labelFontSize?: LabelFontSize;
@@ -35,6 +33,7 @@ export interface InputProps extends BaseProps {
     validationType?: InputValidationType;
     validationText?: string | null;
 }
-export declare function Input({ id, className, style, disabled, monotype, height, label, rightLabel, prefixIcon, suffixIcon, suffixText, required, error, validationType, validationText, onFocus, name, labelFontSize, ...restProps }: InputProps): import("react/jsx-runtime").JSX.Element;
+export declare const InputRef: React.ForwardRefExoticComponent<Omit<InputProps, "ref"> & React.RefAttributes<HTMLInputElement>>;
+export declare function Input({ id, className, style, disabled, monotype, height, label, rightLabel, prefixIcon, suffixIcon, suffixText, required, error, validationType, validationText, onFocus, name, labelFontSize, ...restProps }: InputProps): JSX.Element;
 export default Input;
 //# sourceMappingURL=input.d.ts.map

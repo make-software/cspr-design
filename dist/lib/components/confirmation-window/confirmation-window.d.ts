@@ -23,6 +23,6 @@ export interface ConfirmationWindowSceneProps {
     themeMode?: ThemeModeType;
     portalClass?: string;
 }
-export declare const ConfirmationWindow: ({ isOpen, position, title, withHeader, headerLogo, bodyImg, information, confirmLabel, confirmColor, onConfirm, dismissLabel, onDismiss, themeMode, portalClass, }: ConfirmationWindowSceneProps) => import("react/jsx-runtime").JSX.Element;
+export declare const ConfirmationWindow: ({ isOpen, position, title, withHeader, headerLogo, bodyImg, information, confirmLabel, confirmColor, onConfirm, dismissLabel, onDismiss, themeMode, portalClass, }: ConfirmationWindowSceneProps) => JSX.Element;
 export default ConfirmationWindow;
 //# sourceMappingURL=confirmation-window.d.ts.map

@@ -7,6 +7,6 @@ export interface BadgeProps {
     capitalize?: boolean;
     lineHeight?: 'xxs' | 'xs' | 'sm';
 }
-export declare const Badge: ({ label, variation, textColor, capitalize, lineHeight }: BadgeProps) => import("react/jsx-runtime").JSX.Element;
+export declare const Badge: ({ label, variation, textColor, capitalize, lineHeight }: BadgeProps) => JSX.Element;
 export {};
 //# sourceMappingURL=badge.d.ts.map

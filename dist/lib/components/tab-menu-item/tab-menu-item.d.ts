@@ -1,3 +1,4 @@
+/// <reference types="react" />
 import { ActivableProps } from '../../types';
 import { ButtonProps } from '../button/button';
 export interface TabMenuItemProps extends ButtonProps, ActivableProps {
@@ -7,6 +8,6 @@ export interface TabMenuItemProps extends ButtonProps, ActivableProps {
     scale?: 'xs' | 'sm';
     tooltipPaddingScale?: 1 | 2;
 }
-export declare function TabMenuItem(props: TabMenuItemProps): import("react/jsx-runtime").JSX.Element;
+export declare function TabMenuItem(props: TabMenuItemProps): JSX.Element;
 export default TabMenuItem;
 //# sourceMappingURL=tab-menu-item.d.ts.map

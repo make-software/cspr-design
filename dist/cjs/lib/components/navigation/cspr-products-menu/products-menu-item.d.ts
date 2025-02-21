@@ -1,3 +1,4 @@
+/// <reference types="react" />
 import { BadgeProps } from '../../badge/badge';
 export interface ProductsMenuItemProps {
     comingSoonBadgeLabel?: string;
@@ -18,5 +19,5 @@ export declare const ProductItemWrapper: import("styled-components").StyledCompo
     selected?: boolean | undefined;
     disabled: boolean;
 }, never>;
-export declare const ProductsMenuItem: ({ nameLabel, link, icon, descriptionText, selected, newBadgeLabel, comingSoonBadgeLabel, badge, }: ProductsMenuItemProps) => import("react/jsx-runtime").JSX.Element;
+export declare const ProductsMenuItem: ({ nameLabel, link, icon, descriptionText, selected, newBadgeLabel, comingSoonBadgeLabel, badge, }: ProductsMenuItemProps) => JSX.Element;
 //# sourceMappingURL=products-menu-item.d.ts.map

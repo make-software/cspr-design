@@ -11,6 +11,6 @@ export interface MultilineTextRowProps {
     labelIcon?: ReactNode;
     labelTooltipText?: string | undefined;
 }
-export declare function MultilineTextRow(props: MultilineTextRowProps): import("react/jsx-runtime").JSX.Element;
+export declare function MultilineTextRow(props: MultilineTextRowProps): JSX.Element;
 export default MultilineTextRow;
 //# sourceMappingURL=multiline-text-row.d.ts.map
