@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import { BaseProps } from '../../types';
 import { matchSize } from '../../utils/match-size';
 
 const BaseButton = styled.button<ButtonProps>(
@@ -26,18 +25,24 @@ const BaseButton = styled.button<ButtonProps>(
     ),
     minHeight: matchSize({ '24': 24, '36': 36, '40': 40 }, height),
     lineHeight: matchSize(
-        {
-            sm: '1.5rem',
-            xs: '1.25rem',
-        },
-        lineHeight
+      {
+        sm: '1.5rem',
+        xs: '1.25rem',
+      },
+      lineHeight
     ),
     padding: matchSize(
       { '24': '2px 10px', '36': '8px 25px', '40': '10px 30px' },
       height
     ),
     width: matchSize(
-      { '100': '100px', '120': '120px', '140': '140px', '176': '176px', '100%': '100%' },
+      {
+        '100': '100px',
+        '120': '120px',
+        '140': '140px',
+        '176': '176px',
+        '100%': '100%',
+      },
       width
     ),
 
@@ -159,7 +164,8 @@ const COMPONENT_MAP_BY_COLOR = {
 export type ButtonSize = 'small' | 'normal' | 'big';
 
 /* eslint-disable-next-line */
-export interface ButtonProps extends BaseProps {
+export interface ButtonProps
+  extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   onClick?: (ev) => void;
   color?:
     | 'primaryBlue'
