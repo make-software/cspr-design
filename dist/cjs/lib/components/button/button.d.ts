@@ -1,7 +1,6 @@
 import React from 'react';
-import { BaseProps } from '../../types';
 export type ButtonSize = 'small' | 'normal' | 'big';
-export interface ButtonProps extends BaseProps {
+export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
     onClick?: (ev: any) => void;
     color?: 'primaryBlue' | 'primaryRed' | 'secondaryBlue' | 'secondaryRed' | 'utility';
     disabled?: boolean;

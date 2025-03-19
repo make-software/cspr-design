@@ -69,7 +69,11 @@ export const CopyHash = ({
       ) : (
         <FlexRow align={'center'}>
           <StyledSvgIcon src={CopyIcon} marginRight variation={variation} />
-          {!minified && <BodyText size={3}>{label}</BodyText>}
+          {!minified && (
+            <BodyText size={3} variation={'black'}>
+              {label}
+            </BodyText>
+          )}
         </FlexRow>
       )}
     </FlexRow>
