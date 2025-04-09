@@ -22,6 +22,7 @@ export interface DropdownProps extends BaseProps {
     onSelect?: (ev: DropdownEventValue) => void;
     onRemove?: (ev: DropdownEventValue) => void;
     noItemsMessage?: string;
+    isFixedDropdown?: boolean;
 }
 export declare function Dropdown(props: DropdownProps): JSX.Element;
 export type MultiDropdownValue = {
@@ -40,6 +41,7 @@ export interface MultiSelectDropdownProps extends BaseProps {
     onSelect?: (ev: DropdownEventValue) => void;
     onRemove?: (ev: DropdownEventValue) => void;
     onClearAllItems?: (ev: DropdownEventValue) => void;
+    isFixedDropdown?: boolean;
 }
 export declare function MultiSelectDropdown(props: MultiSelectDropdownProps): JSX.Element;
 export default Dropdown;

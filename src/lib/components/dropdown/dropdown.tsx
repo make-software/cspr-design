@@ -19,15 +19,15 @@ import DownIcon from '../../assets/icons/ic-arrow-down.svg';
 import CheckmarkIcon from '../../assets/icons/ic-checkmark.svg';
 import DeleteIcon from '../../assets/icons/ic-delete.svg';
 
-const StyledDropdown = styled.div<{ disabled?: boolean }>(
-  ({ theme, disabled }) => ({
-    outline: 'none',
-
-    ...(disabled && {
-      opacity: '0.5',
-      pointerEvents: 'none',
-    }),
-  })
+const StyledDropdown = styled.div<{ isFixedDropdown?: boolean; disabled?: boolean }>(
+    ({ theme, disabled, isFixedDropdown }) => ({
+      outline: 'none',
+      position: isFixedDropdown ? 'relative' : 'unset',
+      ...(disabled && {
+        opacity: '0.5',
+        pointerEvents: 'none',
+      }),
+    })
 );
 
 const Container = styled(FlexRow)<{ isOpen: boolean }>(({ theme, isOpen }) => ({
@@ -44,11 +44,17 @@ const Container = styled(FlexRow)<{ isOpen: boolean }>(({ theme, isOpen }) => ({
   },
 }));
 
-const ItemsContainer = styled.div<{ isOpen: boolean }>(({ theme, isOpen }) => ({
+const ItemsContainer = styled.div<{ isOpen: boolean; isFixedDropdown?: boolean; }>(({ theme, isOpen, isFixedDropdown }) => ({
   display: isOpen ? 'inherit' : 'none',
   marginTop: 4,
   borderRadius: theme.borderRadius.base,
   background: theme.styleguideColors.fillSecondary,
+  ...(isFixedDropdown && {
+    position: 'absolute',
+    top: '60px',
+    width: '100%',
+    zIndex: 1
+  }),
 }));
 
 const ItemContainer = styled(FlexRow)(({ theme }) => ({
@@ -154,6 +160,7 @@ export interface DropdownProps extends BaseProps {
   onRemove?: (ev: DropdownEventValue) => void;
 
   noItemsMessage?: string;
+  isFixedDropdown?: boolean;
 }
 
 const getChangeEvent = (value: any): DropdownEventValue => {
@@ -176,6 +183,7 @@ export function Dropdown(props: DropdownProps) {
     onSelect,
     onRemove,
     noItemsMessage = 'No Options!',
+    isFixedDropdown = false
   } = props;
 
   const getChangeEvent = (value: DropdownValue | null): DropdownEventValue => {
@@ -235,6 +243,7 @@ export function Dropdown(props: DropdownProps) {
             {...getRootProps({ refKey: 'innerRef' })}
             style={style}
             tabIndex={0}
+            isFixedDropdown={isFixedDropdown}
           >
             {label && (
               <BodyText lineHeight={'xs'} size={1}>
@@ -262,7 +271,7 @@ export function Dropdown(props: DropdownProps) {
               </BodyText>
               <SvgIcon src={isOpen ? UpIcon : DownIcon} />
             </Container>
-            <ItemsContainer {...getMenuProps()} isOpen={isOpen}>
+            <ItemsContainer {...getMenuProps()} isOpen={isOpen} isFixedDropdown={isFixedDropdown}>
               {isOpen &&
                 (noItems ? (
                   <div style={{ padding: '8px 16px', pointerEvents: 'none' }}>
@@ -336,6 +345,7 @@ export interface MultiSelectDropdownProps extends BaseProps {
   onSelect?: (ev: DropdownEventValue) => void;
   onRemove?: (ev: DropdownEventValue) => void;
   onClearAllItems?: (ev: DropdownEventValue) => void;
+  isFixedDropdown?: boolean;
 }
 
 export function MultiSelectDropdown(props: MultiSelectDropdownProps) {
@@ -349,6 +359,7 @@ export function MultiSelectDropdown(props: MultiSelectDropdownProps) {
     onChange,
     onRemove,
     onClearAllItems,
+    isFixedDropdown = false
   } = props;
 
   const {
@@ -433,7 +444,7 @@ export function MultiSelectDropdown(props: MultiSelectDropdownProps) {
   };
 
   return (
-    <StyledDropdown disabled={disabled}>
+    <StyledDropdown disabled={disabled} isFixedDropdown={isFixedDropdown}>
       <FlexColumn itemsSpacing={4}>
         {label && (
           <BodyText lineHeight={'xs'} {...getLabelProps()} size={1}>
@@ -507,7 +518,7 @@ export function MultiSelectDropdown(props: MultiSelectDropdownProps) {
               <SvgIcon size={16} src={isOpen ? UpIcon : DownIcon} />
             </DropdownIconWrapper>
           </MultiSelectContainer>
-          <ItemsContainer {...getMenuProps()} isOpen={isOpen}>
+          <ItemsContainer {...getMenuProps()} isOpen={isOpen} isFixedDropdown={isFixedDropdown}>
             {isOpen &&
               items.map((item, index) => {
                 const isSelected = selectedItems?.some(
