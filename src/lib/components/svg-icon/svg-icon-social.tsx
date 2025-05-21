@@ -88,11 +88,20 @@ export interface SvgIconSocialProps extends BaseProps {
 const Container = styled(Link)<Omit<SvgIconSocialProps, 'userId'>>(
   ({ theme, socialMediaType: type }) => ({
     color: theme.styleguideColors.contentSecondary,
+    'svg path': {
+      fill: theme.styleguideColors.contentSecondary,
+    },
     '&:hover': {
       color: getSocialMediaColor(type),
+      'svg path': {
+        fill: getSocialMediaColor(type),
+      },
     },
     '&:active': {
       color: getSocialMediaColor(type),
+      'svg path': {
+        fill: getSocialMediaColor(type),
+      },
     },
   })
 );
