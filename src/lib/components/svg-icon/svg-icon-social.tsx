@@ -117,6 +117,7 @@ export const SvgIconSocial = React.forwardRef<
       socialMediaType={type}
       href={getSocialMediaUrl(type, userId)}
       {...props}
+      aria-label={`Go to ${type}`}
     >
       <SvgIcon src={getMediaLogo[type]} alt={type} />
     </Container>

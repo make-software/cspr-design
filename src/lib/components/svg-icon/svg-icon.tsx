@@ -93,14 +93,14 @@ export const SvgIcon = React.forwardRef<Ref, SvgIconProps>(
     return (
       <Container
         ref={ref}
-        title={alt}
+        aria-label={alt}
         size={size}
         color={color}
         rotate={rotate}
         onClick={handleClick}
         {...props}
       >
-        <StyledReactSVG src={src} preProcessor={preProcessor} title={alt} cacheRequests />
+        <StyledReactSVG src={src} preProcessor={preProcessor} title={alt} aria-hidden="true" cacheRequests />
       </Container>
     );
   }
