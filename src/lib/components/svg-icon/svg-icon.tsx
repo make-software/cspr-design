@@ -100,7 +100,7 @@ export const SvgIcon = React.forwardRef<Ref, SvgIconProps>(
         onClick={handleClick}
         {...props}
       >
-        <StyledReactSVG src={src} preProcessor={preProcessor} cacheRequests />
+        <StyledReactSVG src={src} preProcessor={preProcessor} title={alt} cacheRequests />
       </Container>
     );
   }

@@ -110,7 +110,6 @@ export const SvgIconSocial = React.forwardRef<
   HTMLAnchorElement,
   SvgIconSocialProps
 >(({ socialMediaType: type, userId, ...props }: SvgIconSocialProps, ref) => {
-  const mapIcon = () => {};
   return (
     <Container
       ref={ref}
@@ -119,7 +118,7 @@ export const SvgIconSocial = React.forwardRef<
       href={getSocialMediaUrl(type, userId)}
       {...props}
     >
-      <SvgIcon src={getMediaLogo[type]} />
+      <SvgIcon src={getMediaLogo[type]} alt={type} />
     </Container>
   );
 });

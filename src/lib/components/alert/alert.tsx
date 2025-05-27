@@ -70,7 +70,7 @@ export const Alert = (props: StatusMessageProps) => {
             <Container status={status} itemsSpacing={8}>
                 <FlexColumn itemsSpacing={8}>
                     <FlexRow align={'center'} itemsSpacing={8}>
-                        <SvgIcon src={iconPath} />
+                        <SvgIcon src={iconPath} alt={`Alert icon with ${status} status`}/>
                         <BodyText
                             size={1}
                             lineHeight={lineHeight} scale={scale}

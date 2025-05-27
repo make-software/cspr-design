@@ -10,6 +10,7 @@ export interface CircularIndicatorProps extends BaseProps {
   size: 'medium';
   progress: number;
   textSize: 1 | 2;
+  title?: string;
 }
 
 export enum CircularIndicatorTextSize {
@@ -114,6 +115,7 @@ export function CircularIndicator({
   size,
   progress,
   textSize,
+  title
 }: CircularIndicatorProps) {
   const { stroke, radius } = matchSize(
     {
@@ -138,6 +140,7 @@ export function CircularIndicator({
   return (
     <FlexRow align="center">
       <svg height={radius * 2} width={radius * 2}>
+          <title>{title}</title>
         <circle
           stroke={color}
           fill="transparent"
