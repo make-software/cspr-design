@@ -44,6 +44,9 @@ const StyledFlexBox = styled('div')<FlexBoxProps>(
       '> * + *': {
         [flexDirection === 'row' ? 'marginLeft' : 'marginTop']: itemsSpacing,
       },
+      '> * + *:where(h1, h2, h3, h4, h5, h6)': {
+        [flexDirection === 'row' ? 'marginLeft' : 'marginTop']: `${itemsSpacing}px !important`,
+      },
     }),
     ...(onClick && {
       cursor: 'pointer',

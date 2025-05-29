@@ -28,6 +28,7 @@ export interface TextProps extends BaseProps {
   noWrap?: boolean;
   loading?: boolean;
   wordBreak?: boolean;
+  tag?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'span';
 }
 
 const StyledText = styled('span').withConfig({
@@ -89,18 +90,19 @@ const StyledText = styled('span').withConfig({
 );
 
 export const Text = React.forwardRef<Ref, TextProps>(function Text(
-  { ...props }: TextProps,
+  { tag = 'span', ...props }: TextProps,
   ref
 ) {
+  const validTag = ['h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'span'].includes(tag) ? tag : 'span';
   if (props.loading) {
     return (
-      <StyledText ref={ref} {...props}>
+      <StyledText ref={ref} {...props} as={validTag}>
         <Skeleton />
       </StyledText>
     );
   }
 
-  return <StyledText ref={ref} {...props} />;
+  return <StyledText ref={ref} {...props} as={validTag}/>;
 });
 
 export default Text;

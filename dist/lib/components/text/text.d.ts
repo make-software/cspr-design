@@ -10,6 +10,7 @@ export interface TextProps extends BaseProps {
     noWrap?: boolean;
     loading?: boolean;
     wordBreak?: boolean;
+    tag?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'span';
 }
 export declare const Text: React.ForwardRefExoticComponent<TextProps & React.RefAttributes<HTMLSpanElement>>;
 export default Text;
