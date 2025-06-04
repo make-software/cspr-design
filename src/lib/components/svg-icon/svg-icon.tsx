@@ -93,6 +93,7 @@ export const SvgIcon = React.forwardRef<Ref, SvgIconProps>(
     return (
       <Container
         ref={ref}
+        role={"img"}
         aria-label={alt}
         size={size}
         color={color}
