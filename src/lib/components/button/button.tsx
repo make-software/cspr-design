@@ -186,7 +186,7 @@ export const Button = React.forwardRef<Ref, ButtonProps>(function Button(
   ref
 ) {
   const ButtonComponent = COMPONENT_MAP_BY_COLOR[color] || PrimaryBlueButton;
-  return <ButtonComponent ref={ref} color={color} {...props} />;
+  return <ButtonComponent ref={ref} color={color} aria-disabled={!!props.disabled}  tabIndex={0} {...props} />;
 });
 
 export default Button;

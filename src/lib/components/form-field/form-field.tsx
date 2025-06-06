@@ -73,6 +73,7 @@ export interface FormFieldProps extends BaseProps {
 }
 
 export function FormField({
+  id,
   label,
   rightLabel,
   status,
@@ -84,13 +85,13 @@ export function FormField({
   return (
     <StyledContainer {...restProps}>
       <LabelContainer>
-        {label && <StyledLabelText labelFontSize={labelFontSize}>{label}</StyledLabelText>}
+        {label && <StyledLabelText labelFontSize={labelFontSize} id={id}>{label}</StyledLabelText>}
         {rightLabel && <StyledLabelText labelFontSize={labelFontSize}>{rightLabel}</StyledLabelText>}
       </LabelContainer>
 
       {children}
 
-      <StatusTextContainer status={status}>
+      <StatusTextContainer status={status} role="alert" aria-live="assertive">
         <StatusCaptionText size={2}>{statusText}</StatusCaptionText>
       </StatusTextContainer>
     </StyledContainer>

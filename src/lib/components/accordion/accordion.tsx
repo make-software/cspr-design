@@ -44,7 +44,7 @@ export function Accordion({
   const renderProps: RenderProps = { isOpen };
 
   return (
-    <AccordionContainer isOpen={isOpen} {...props}>
+    <AccordionContainer isOpen={isOpen} aria-expanded={!!isOpen} {...props}>
       <StyledContainer
         ref={ref}
         onClick={() => {

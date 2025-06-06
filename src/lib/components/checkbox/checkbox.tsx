@@ -3,7 +3,6 @@ import styled from 'styled-components';
 import CheckedInactiveIcon from '../../assets/icons/ic-checkbox-checked-inactive.svg';
 import CheckBoxChecked from '../../assets/icons/ic-checkbox-checked.svg';
 import CheckboxIcon from '../../assets/icons/ic-checkbox.svg';
-import { BaseProps } from '../../types';
 
 import FlexRow from '../flex-row/flex-row';
 import SvgIcon from '../svg-icon/svg-icon';
@@ -11,6 +10,8 @@ import SubtitleText from '../subtitle-text/subtitle-text';
 import BodyText from '../body-text/body-text';
 
 const StyledFlexRow = styled(FlexRow)<{
+  role?: string;
+  tabIndex?: number;
   checked?: boolean;
   disabled?: boolean;
   customCheckedColor?: string;
@@ -107,6 +108,11 @@ export function Checkbox({
       onClick={handleClick}
       customCheckedColor={customCheckedColor}
       customUncheckedColor={customUncheckedColor}
+      role="checkbox"
+      aria-checked={checked}
+      aria-disabled={disabled}
+      aria-label={checked ? "Checked" : "Not checked"}
+      tabIndex={0}
     >
       <SvgIcon src={iconSrc} />
       <StyledCheckboxWrapper checkboxFontSize={checkboxFontSize}>

@@ -206,6 +206,8 @@ export function Input({
           disabled={disabled}
           onFocus={handleFocus}
           name={name}
+          aria-required={!!required}
+          aria-labelledby={id}
           {...validationProps}
           {...restProps}
         />
