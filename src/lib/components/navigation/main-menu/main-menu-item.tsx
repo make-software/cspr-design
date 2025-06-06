@@ -26,5 +26,5 @@ export const MainMenuItem = ({
   selected = false,
   children,
 }: PropsWithChildren<MainMenuItemProps>) => {
-  return <NavItem selected={selected} tabIndex={0}>{children}</NavItem>;
+  return <NavItem selected={selected}>{children}</NavItem>;
 };

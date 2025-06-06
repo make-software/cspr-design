@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import { matchSize } from '../../utils/match-size';
 
 const BaseButton = styled.button<ButtonProps>(
-  ({ theme, disabled, height = '36', width = '100%', lineHeight = 'sm' }) => ({
+  ({ theme, disabled, height = '36', width = '100%', lineHeight = 'sm', hasOutline = false }) => ({
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
@@ -46,9 +46,11 @@ const BaseButton = styled.button<ButtonProps>(
       width
     ),
 
-    ':focus': {
-      outline: 'none',
-    },
+    ...(hasOutline && {
+        ':focus': {
+            outline: 'none',
+        }
+    }),
 
     ...(disabled && {
       pointerEvents: 'none',
@@ -177,6 +179,7 @@ export interface ButtonProps
   height?: '24' | '36' | '40';
   width?: '100' | '120' | '140' | '176' | '100%';
   lineHeight?: 'xs' | 'sm';
+  hasOutline?: boolean;
 }
 
 type Ref = HTMLButtonElement;
