@@ -46,7 +46,7 @@ const BaseButton = styled.button<ButtonProps>(
       width
     ),
 
-    ...(hasOutline && {
+    ...(!hasOutline && {
         ':focus': {
             outline: 'none',
         }
