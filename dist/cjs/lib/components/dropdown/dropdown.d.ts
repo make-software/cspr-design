@@ -12,6 +12,7 @@ export type DropdownEventValue = {
     };
 };
 export interface DropdownProps extends BaseProps {
+    id?: string;
     items: DropdownValue[];
     value?: DropdownValue | null;
     label?: string;
@@ -32,6 +33,7 @@ export type MultiDropdownValue = {
     value: any;
 };
 export interface MultiSelectDropdownProps extends BaseProps {
+    id?: string;
     value?: MultiDropdownValue[];
     items: MultiDropdownValue[];
     label?: string | JSX.Element;

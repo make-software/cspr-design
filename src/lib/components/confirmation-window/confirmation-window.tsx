@@ -189,6 +189,8 @@ export const ConfirmationWindow = ({
           shouldCloseOnEsc
           shouldCloseOnOverlayClick
           portalClassName={portalClass}
+          role="dialog"
+          aria-modal="true"
         >
           <ModalContainer position={position}>
             {withHeader && (

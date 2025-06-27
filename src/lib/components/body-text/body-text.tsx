@@ -11,6 +11,7 @@ export interface BodyTextProps extends TextProps {
   size: 1 | 2 | 3 | 4;
   scale?: 'xs' | 'sm' | 'md' | 'lg' | 'xl';
   lineHeight?: 'xs' | 'sm';
+  tabIndex?: number;
 }
 
 const StyledText = styled(Text)<BodyTextProps>(

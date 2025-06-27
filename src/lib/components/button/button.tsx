@@ -61,7 +61,7 @@ const BaseButton = styled.button<ButtonProps>(
 const PrimaryBlueButton = styled(BaseButton)<ButtonProps>(
   ({ theme, disabled }) => ({
     color: theme.styleguideColors.contentOnFill,
-    background: theme.styleguideColors.contentBlue,
+    background: theme.styleguideColors.fillPrimaryBlue,
 
     ': hover': {
       background: theme.styleguideColors.fillPrimaryBlueHover,

@@ -74,6 +74,7 @@ export * from './utils/match-size';
 export * from './utils/named-key-prefix';
 export * from './utils/detect-browser';
 export * from './utils/formatters';
+export * from './utils/input-interaction-type';
 export * from './theme-config';
 export * from './types';
 export { ErrorIcon };

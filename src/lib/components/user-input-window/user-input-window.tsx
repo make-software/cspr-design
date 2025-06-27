@@ -322,6 +322,8 @@ export const UserInputWindow = ({
           shouldCloseOnEsc
           shouldCloseOnOverlayClick
           portalClassName={portalClass}
+          role="dialog"
+          aria-modal="true"
         >
           <ModalContainer position={position} ref={ref}>
             {withHeader && (
