@@ -109,7 +109,7 @@ export const ProductsMenuItem = ({
         <SvgIcon src={icon || defaultIcon[theme.themeName]} size={32} />
         <FlexColumn itemsSpacing={4}>
           {itemBadge}
-          <StyledBodyText size={1}>{nameLabel}</StyledBodyText>
+          <StyledBodyText variation={"black"} size={1}>{nameLabel}</StyledBodyText>
         </FlexColumn>
       </FlexRow>
     </FlexRow>
@@ -120,7 +120,7 @@ export const ProductsMenuItem = ({
       <SvgIcon src={icon || defaultIcon[theme.themeName]} size={48} />
       <FlexColumn itemsSpacing={4} align={'center'}>
         {itemBadge}
-        <StyledBodyText size={1}>{nameLabel}</StyledBodyText>
+        <StyledBodyText size={1} variation={"black"}>{nameLabel}</StyledBodyText>
       </FlexColumn>
     </FlexColumn>
   );
