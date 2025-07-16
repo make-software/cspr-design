@@ -1,4 +1,4 @@
-/// <reference types="react" />
+import React from 'react';
 import { BadgeProps } from '../../badge/badge';
 export interface ProductsMenuItemProps {
     comingSoonBadgeLabel?: string;
@@ -19,5 +19,6 @@ export declare const ProductItemWrapper: import("styled-components").StyledCompo
     selected?: boolean | undefined;
     disabled: boolean;
 }, never>;
+export declare const StyledBodyText: import("styled-components").StyledComponent<React.ForwardRefExoticComponent<import("../../body-text/body-text").BodyTextProps & React.RefAttributes<HTMLSpanElement>>, import("styled-components").DefaultTheme, {}, never>;
 export declare const ProductsMenuItem: ({ nameLabel, link, icon, descriptionText, selected, newBadgeLabel, comingSoonBadgeLabel, badge, }: ProductsMenuItemProps) => JSX.Element;
 //# sourceMappingURL=products-menu-item.d.ts.map
