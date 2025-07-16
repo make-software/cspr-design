@@ -256,6 +256,17 @@ export enum HashLength {
   LARGE = 25,
 }
 
+export const shortenString = (
+  valueToShort: string,
+  visibleHashLength: HashLength = HashLength.TINY
+) => {
+  const hashLength = valueToShort.length;
+  const firstPart = valueToShort.substring(0, visibleHashLength);
+  const secondPart = valueToShort.substring(hashLength - visibleHashLength);
+
+  return `${firstPart}...${secondPart}`;
+};
+
 export const formatHash = (
   hash: string,
   visibleHashLength: HashLength = HashLength.TINY
@@ -273,12 +284,7 @@ export const formatHash = (
     return hash;
   }
 
-  const firstPart = hashWithoutSuffix.substring(0, visibleHashLength);
-  const secondPart = hashWithoutSuffix.substring(
-    hashLength - visibleHashLength
-  );
-
-  const truncatedHash = `${firstPart}...${secondPart}`;
+  const truncatedHash = shortenString(hashWithoutSuffix, visibleHashLength);
 
   return lastDigits ? `${truncatedHash}-${lastDigits}` : `${truncatedHash}`;
 };
