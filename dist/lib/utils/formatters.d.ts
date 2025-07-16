@@ -31,6 +31,7 @@ export declare enum HashLength {
     MEDIUM = 20,
     LARGE = 25
 }
+export declare const shortenString: (valueToShort: string, visibleHashLength?: HashLength) => string;
 export declare const formatHash: (hash: string, visibleHashLength?: HashLength) => string;
 export declare const formatISODateOnly: (date: Date) => string;
 export declare const formatDeploysCount: (value: any) => string;
