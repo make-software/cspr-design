@@ -261,6 +261,10 @@ export const shortenString = (
   visibleHashLength: HashLength = HashLength.TINY
 ) => {
   const hashLength = valueToShort.length;
+  if (hashLength <= visibleHashLength) {
+    return valueToShort;
+  }
+
   const firstPart = valueToShort.substring(0, visibleHashLength);
   const secondPart = valueToShort.substring(hashLength - visibleHashLength);
 
