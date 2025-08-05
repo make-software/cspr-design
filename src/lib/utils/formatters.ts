@@ -1,17 +1,9 @@
-import { createIntl, createIntlCache, MessageDescriptor } from '@formatjs/intl';
+import { createIntl, createIntlCache } from '@formatjs/intl';
 import { formatDistanceToNowStrict, formatISO } from 'date-fns';
 import i18next from 'i18next';
 
-import en from 'date-fns/locale/en-US';
-import uk from 'date-fns/locale/uk';
-import es from 'date-fns/locale/es';
-import tr from 'date-fns/locale/tr';
-import nl from 'date-fns/locale/nl';
-import ru from 'date-fns/locale/ru';
-import pl from 'date-fns/locale/pl';
-import vi from 'date-fns/locale/vi';
-import fr from 'date-fns/locale/fr';
-import az from 'date-fns/locale/az';
+import { az, enUS, es, fr, nl, pl, ru, tr, uk, vi } from 'date-fns/locale';
+
 import { isBrowserSupportRelativeDateFormat } from './detect-browser';
 
 export const MINIMUM_SHOWING_BALANCE = 0.00001;
@@ -21,7 +13,7 @@ export const DEFAULT_PRECISION = 5;
 export const FULL_PRECISION = 9;
 
 const Locale = {
-  en: en,
+  en: enUS,
   es: es,
   uk: uk,
   tr: tr,
@@ -41,15 +33,8 @@ const intl = createIntl(
       'components.transaction_status': 'Success',
     },
   },
-  cache
+  cache,
 );
-
-export const formatMessage = (
-  descriptor: MessageDescriptor,
-  values?: Record<string, any>
-): string => {
-  return intl.formatMessage(descriptor, values);
-};
 
 export const formatNumber = (
   value: number | string,
@@ -61,7 +46,7 @@ export const formatNumber = (
     precision?: number;
     notation?: 'compact' | 'standard';
     compactDisplay?: 'short' | 'long';
-  } = {}
+  } = {},
 ): string => {
   return intl.formatNumber(value as number, {
     minimumFractionDigits: precision || 0,
@@ -137,7 +122,7 @@ export const formatCurrency = (
     precision,
   }: {
     precision?: number;
-  } = {}
+  } = {},
 ): string => {
   return intl.formatNumber(value as number, {
     style: 'currency',
@@ -149,7 +134,7 @@ export const formatCurrency = (
 
 export const formatPercentage = (
   value: number,
-  { precision }: { precision?: number } = {}
+  { precision }: { precision?: number } = {},
 ) => {
   return value.toFixed(precision || 2);
 };
@@ -258,7 +243,7 @@ export enum HashLength {
 
 export const shortenString = (
   valueToShort: string,
-  visibleHashLength: HashLength = HashLength.TINY
+  visibleHashLength: HashLength = HashLength.TINY,
 ) => {
   const hashLength = valueToShort.length;
   if (hashLength <= visibleHashLength) {
@@ -273,7 +258,7 @@ export const shortenString = (
 
 export const formatHash = (
   hash: string,
-  visibleHashLength: HashLength = HashLength.TINY
+  visibleHashLength: HashLength = HashLength.TINY,
 ) => {
   const MIN_TRUNCATE_HASH_LENGTH = HashLength.TINY * 2 + 3;
 

@@ -1,4 +1,4 @@
-import React from 'react';
+import { default as React } from 'react';
 import { BaseProps, Size } from '../../types';
 export interface TruncateBoxProps extends BaseProps {
     size?: Size;

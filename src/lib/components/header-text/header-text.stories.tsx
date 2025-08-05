@@ -1,5 +1,5 @@
 import React from 'react';
-import { ComponentMeta, ComponentStory } from '@storybook/react';
+import { Meta, StoryFn } from '@storybook/react';
 import HeaderText from './header-text';
 import FlexRow from '../flex-row/flex-row';
 import FlexColumn from '../flex-column/flex-column';
@@ -18,9 +18,9 @@ export default {
     capitalize: false,
     loading: false,
   },
-} as ComponentMeta<typeof HeaderText>;
+} as Meta<typeof HeaderText>;
 
-const Template: ComponentStory<typeof HeaderText> = (args) => (
+const Template: StoryFn<typeof HeaderText> = (args) => (
   <FlexRow itemsSpacing={30}>
     <FlexColumn itemsSpacing={20}>
       <BodyText size={1}>Simple Text</BodyText>

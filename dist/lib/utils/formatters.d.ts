@@ -1,21 +1,19 @@
-import { MessageDescriptor } from '@formatjs/intl';
 export declare const MINIMUM_SHOWING_BALANCE = 0.00001;
 export declare const DEFAULT_AMOUNT_PRECISION = 4;
 export declare const SMALL_PRECISION = 2;
 export declare const DEFAULT_PRECISION = 5;
 export declare const FULL_PRECISION = 9;
-export declare const formatMessage: (descriptor: MessageDescriptor, values?: Record<string, any>) => string;
 export declare const formatNumber: (value: number | string, { precision, notation, compactDisplay, }?: {
-    precision?: number | undefined;
-    notation?: "compact" | "standard" | undefined;
-    compactDisplay?: "short" | "long" | undefined;
+    precision?: number;
+    notation?: "compact" | "standard";
+    compactDisplay?: "short" | "long";
 }) => string;
 export declare const formatBigNumbers: (value: any) => string;
 export declare const formatCurrency: (value: number | string, code: string, { precision, }?: {
-    precision?: number | undefined;
+    precision?: number;
 }) => string;
 export declare const formatPercentage: (value: number, { precision }?: {
-    precision?: number | undefined;
+    precision?: number;
 }) => string;
 export declare const formatTimestamp: (value: string) => string;
 export declare const formatTimestampAge: (value: string) => string;

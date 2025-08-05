@@ -1,12 +1,17 @@
 {
   "compilerOptions": {
-    "baseUrl": ".",
-    "target": "es5",
+    "target": "ESNext",
     "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
+      "DOM",
+      "DOM.Iterable",
+      "ESNext"
     ],
+    "paths": {
+      "@make-software/cspr.design": ["src/lib/index.ts"]
+    },
+    "declarationDir": "dist/types",
+    "types": ["vite-plugin-svgr/client", "vite/client"],
+    "baseUrl": ".",
     "rootDir": "./src",
     "outDir": "./dist",
     "declaration": true,
@@ -26,13 +31,16 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "module": "esnext",
-    "moduleResolution": "node",
+    "moduleResolution": "bundler",
+    "allowImportingTsExtensions": true,
     "jsx": "react-jsx"
   },
   "assets": [
     "src/lib/assets/**/*"
   ],
-  "files": ["globals.d.ts"],
+  "files": [
+    "globals.d.ts"
+  ],
   "include": [
     "src/lib/**/*"
   ],

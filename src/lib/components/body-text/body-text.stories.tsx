@@ -1,5 +1,5 @@
 import React from 'react';
-import { ComponentMeta, ComponentStory } from '@storybook/react';
+import { Meta, StoryFn } from '@storybook/react';
 import BodyText from './body-text';
 import FlexRow from '../flex-row/flex-row';
 import FlexColumn from '../flex-column/flex-column';
@@ -16,9 +16,9 @@ export default {
     loading: false,
     scale: 'md',
   },
-} as ComponentMeta<typeof BodyText>;
+} as Meta<typeof BodyText>;
 
-const Template: ComponentStory<typeof BodyText> = (args) => (
+const Template: StoryFn<typeof BodyText> = (args) => (
   <FlexRow itemsSpacing={30}>
     <FlexColumn itemsSpacing={20}>
       <CaptionText size={1}>Simple Text</CaptionText>

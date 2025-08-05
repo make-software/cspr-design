@@ -1,4 +1,4 @@
-import React from 'react';
+import { default as React } from 'react';
 import { BadgeProps } from '../../badge/badge';
 export interface ProductsMenuItemProps {
     comingSoonBadgeLabel?: string;
@@ -14,11 +14,11 @@ export declare enum ThemeModeType {
     light = "light",
     dark = "dark"
 }
-export declare const ProductItemWrapper: import("styled-components").StyledComponent<"span", import("styled-components").DefaultTheme, {
-    isOpen?: boolean | undefined;
-    selected?: boolean | undefined;
+export declare const ProductItemWrapper: import('styled-components').StyledComponent<"span", import('styled-components').DefaultTheme, {
+    isOpen?: boolean;
+    selected?: boolean;
     disabled: boolean;
 }, never>;
-export declare const StyledBodyText: import("styled-components").StyledComponent<React.ForwardRefExoticComponent<import("../../body-text/body-text").BodyTextProps & React.RefAttributes<HTMLSpanElement>>, import("styled-components").DefaultTheme, {}, never>;
-export declare const ProductsMenuItem: ({ nameLabel, link, icon, descriptionText, selected, newBadgeLabel, comingSoonBadgeLabel, badge, }: ProductsMenuItemProps) => JSX.Element;
+export declare const StyledBodyText: import('styled-components').StyledComponent<React.ForwardRefExoticComponent<import('../../..').BodyTextProps & React.RefAttributes<HTMLSpanElement>>, import('styled-components').DefaultTheme, {}, never>;
+export declare const ProductsMenuItem: ({ nameLabel, link, icon, descriptionText, selected, newBadgeLabel, comingSoonBadgeLabel, badge, }: ProductsMenuItemProps) => import("react/jsx-runtime").JSX.Element;
 //# sourceMappingURL=products-menu-item.d.ts.map

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Meta, StoryFn } from '@storybook/react';
+import { Meta, StoryFn } from '@storybook/react-vite';
 import FlexRow from '../components/flex-row/flex-row';
 import FlexColumn from '../components/flex-column/flex-column';
 import BodyText from '../components/body-text/body-text';
@@ -15,6 +15,7 @@ import {
 export default {
   title: 'Utils/Formatters',
   args: {},
+  argTypes: {},
 } as Meta;
 
 const Template: StoryFn = (args) => (

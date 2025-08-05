@@ -4,7 +4,14 @@ import styled from 'styled-components';
 import { matchSize } from '../../utils/match-size';
 
 const BaseButton = styled.button<ButtonProps>(
-  ({ theme, disabled, height = '36', width = '100%', lineHeight = 'sm', hasOutline = false }) => ({
+  ({
+    theme,
+    disabled,
+    height = '36',
+    width = '100%',
+    lineHeight = 'sm',
+    hasOutline = false,
+  }) => ({
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
@@ -17,11 +24,11 @@ const BaseButton = styled.button<ButtonProps>(
         '36': theme.typography.fontWeight.medium,
         '40': theme.typography.fontWeight.semiBold,
       },
-      height
+      height,
     ),
     fontSize: matchSize(
       { '24': '0.688rem', '36': '0.875rem', '40': '0.875rem' },
-      height
+      height,
     ),
     minHeight: matchSize({ '24': 24, '36': 36, '40': 40 }, height),
     lineHeight: matchSize(
@@ -29,11 +36,11 @@ const BaseButton = styled.button<ButtonProps>(
         sm: '1.5rem',
         xs: '1.25rem',
       },
-      lineHeight
+      lineHeight,
     ),
     padding: matchSize(
       { '24': '2px 10px', '36': '8px 25px', '40': '10px 30px' },
-      height
+      height,
     ),
     width: matchSize(
       {
@@ -43,19 +50,19 @@ const BaseButton = styled.button<ButtonProps>(
         '176': '176px',
         '100%': '100%',
       },
-      width
+      width,
     ),
 
     ...(!hasOutline && {
-        ':focus': {
-            outline: 'none',
-        }
+      ':focus': {
+        outline: 'none',
+      },
     }),
 
     ...(disabled && {
       pointerEvents: 'none',
     }),
-  })
+  }),
 );
 
 const PrimaryBlueButton = styled(BaseButton)<ButtonProps>(
@@ -74,7 +81,7 @@ const PrimaryBlueButton = styled(BaseButton)<ButtonProps>(
       color: theme.styleguideColors.contentTertiary,
       background: theme.styleguideColors.backgroundSecondary,
     }),
-  })
+  }),
 );
 
 const PrimaryRedButton = styled(BaseButton)<ButtonProps>(
@@ -93,13 +100,13 @@ const PrimaryRedButton = styled(BaseButton)<ButtonProps>(
       color: theme.styleguideColors.contentTertiary,
       background: theme.styleguideColors.fillSecondary,
     }),
-  })
+  }),
 );
 
 const SecondaryBlueButton = styled(BaseButton)<ButtonProps>(
   ({ theme, disabled }) => ({
     color: theme.styleguideColors.contentBlue,
-    background: theme.styleguideColors.backgroundSecondary,
+    background: theme.styleguideColors.fillSecondary,
 
     ': hover': {
       background: theme.styleguideColors.fillSecondaryBlueHover,
@@ -114,7 +121,7 @@ const SecondaryBlueButton = styled(BaseButton)<ButtonProps>(
       color: theme.styleguideColors.contentTertiary,
       background: theme.styleguideColors.backgroundPrimary,
     }),
-  })
+  }),
 );
 
 const SecondaryRedButton = styled(BaseButton)<ButtonProps>(
@@ -133,7 +140,7 @@ const SecondaryRedButton = styled(BaseButton)<ButtonProps>(
       color: theme.styleguideColors.contentTertiary,
       background: theme.styleguideColors.fillSecondary,
     }),
-  })
+  }),
 );
 
 const UtilityButton = styled(BaseButton)<ButtonProps>(
@@ -152,7 +159,7 @@ const UtilityButton = styled(BaseButton)<ButtonProps>(
       color: theme.styleguideColors.contentTertiary,
       background: theme.styleguideColors.backgroundPrimary,
     }),
-  })
+  }),
 );
 
 const COMPONENT_MAP_BY_COLOR = {
@@ -186,10 +193,18 @@ type Ref = HTMLButtonElement;
 
 export const Button = React.forwardRef<Ref, ButtonProps>(function Button(
   { color = 'primaryBlue', ...props }: ButtonProps,
-  ref
+  ref,
 ) {
   const ButtonComponent = COMPONENT_MAP_BY_COLOR[color] || PrimaryBlueButton;
-  return <ButtonComponent ref={ref} color={color} aria-disabled={!!props.disabled}  tabIndex={0} {...props} />;
+  return (
+    <ButtonComponent
+      ref={ref}
+      color={color}
+      aria-disabled={!!props.disabled}
+      tabIndex={0}
+      {...props}
+    />
+  );
 });
 
 export default Button;

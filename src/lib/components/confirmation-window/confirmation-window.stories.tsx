@@ -1,13 +1,16 @@
 import React from 'react';
-import { ComponentMeta, ComponentStory } from '@storybook/react';
+import { Meta, StoryFn } from '@storybook/react-vite';
 import ConfirmationWindow, { ModalPosition } from './confirmation-window';
 import FlexRow from '../flex-row/flex-row';
 import FlexColumn from '../flex-column/flex-column';
 import BodyText from '../body-text/body-text';
 
+import { fn } from 'storybook/test';
+
 export default {
   component: ConfirmationWindow,
   title: 'ConfirmationWindow',
+  tags: ['autodocs'],
   args: {
     isOpen: true,
     position: ModalPosition.TopRight,
@@ -17,12 +20,12 @@ export default {
     withHeader: true,
     confirmLabel: 'Yes',
     dismissLabel: 'No',
-    onConfirm: () => {},
-    onDismiss: () => {},
+    onConfirm: fn,
+    onDismiss: fn,
   },
-} as ComponentMeta<typeof ConfirmationWindow>;
+} as Meta<typeof ConfirmationWindow>;
 
-const Template: ComponentStory<typeof ConfirmationWindow> = (args) => (
+const Template: StoryFn<typeof ConfirmationWindow> = (args) => (
   <FlexRow itemsSpacing={30}>
     <FlexColumn itemsSpacing={20}>
       <BodyText size={2}>Confirm Modal</BodyText>

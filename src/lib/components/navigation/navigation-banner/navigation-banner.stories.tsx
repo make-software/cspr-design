@@ -1,5 +1,5 @@
 import React from 'react';
-import { ComponentMeta, ComponentStory } from '@storybook/react';
+import { Meta, StoryFn } from '@storybook/react';
 import NavigationBanner from './navigation-banner';
 import FlexRow from '../../flex-row/flex-row';
 import TruncateBox from '../../truncate-box/truncate-box';
@@ -19,9 +19,9 @@ export default {
     message: 'Call me maybe!',
     link: '',
   },
-} as ComponentMeta<typeof NavigationBanner>;
+} as Meta<typeof NavigationBanner>;
 
-const Template: ComponentStory<typeof NavigationBanner> = (args) => (
+const Template: StoryFn<typeof NavigationBanner> = (args) => (
   <NavigationBanner {...args} />
 );
 

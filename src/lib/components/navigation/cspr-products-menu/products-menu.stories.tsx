@@ -1,4 +1,4 @@
-import { ComponentMeta, ComponentStory } from '@storybook/react';
+import { Meta, StoryFn } from '@storybook/react';
 import React, { useState } from 'react';
 import { ProductsMenu } from './products-menu';
 import { ProductsMenuItem } from './products-menu-item';
@@ -12,7 +12,7 @@ export default {
   args: {
     opened: true,
   },
-} as ComponentMeta<typeof ProductsMenu>;
+} as Meta<typeof ProductsMenu>;
 
 // @ts-ignore
 const MenuContainer = styled.div(() => ({
@@ -21,12 +21,13 @@ const MenuContainer = styled.div(() => ({
   position: 'absolute',
 }));
 
-const Template: ComponentStory<typeof ProductsMenu> = (args) => {
+const Template: StoryFn<typeof ProductsMenu> = (args) => {
   const [opened, setOpened] = useState(false);
 
   return (
     <NavigationSettingsContainer>
-      <div style={{ display: 'flex', flexDirection: 'column'}}
+      <div
+        style={{ display: 'flex', flexDirection: 'column' }}
         onMouseOver={() => {
           setOpened(true);
         }}

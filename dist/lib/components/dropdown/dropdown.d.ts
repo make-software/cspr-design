@@ -1,4 +1,3 @@
-/// <reference types="react" />
 import { BaseProps } from '../../types';
 export type DropdownValue = {
     value: string;
@@ -25,7 +24,7 @@ export interface DropdownProps extends BaseProps {
     noItemsMessage?: string;
     isFixedDropdown?: boolean;
 }
-export declare function Dropdown(props: DropdownProps): JSX.Element;
+export declare function Dropdown(props: DropdownProps): import("react/jsx-runtime").JSX.Element;
 export type MultiDropdownValue = {
     label: string;
     chipLabel?: string;
@@ -45,6 +44,6 @@ export interface MultiSelectDropdownProps extends BaseProps {
     onClearAllItems?: (ev: DropdownEventValue) => void;
     isFixedDropdown?: boolean;
 }
-export declare function MultiSelectDropdown(props: MultiSelectDropdownProps): JSX.Element;
+export declare function MultiSelectDropdown(props: MultiSelectDropdownProps): import("react/jsx-runtime").JSX.Element;
 export default Dropdown;
 //# sourceMappingURL=dropdown.d.ts.map

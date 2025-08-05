@@ -1,5 +1,5 @@
 import React from 'react';
-import { ComponentMeta, ComponentStory } from '@storybook/react';
+import { Meta, StoryFn } from '@storybook/react';
 import { MultilineTextRow } from './multiline-text-row';
 import FlexRow from '../flex-row/flex-row';
 import FlexColumn from '../flex-column/flex-column';
@@ -13,7 +13,7 @@ export default {
     label: 'Message',
     text: 'Lorem ipsum dolor sit amet. Est illo perspiciatis vel excepturi debitis quo dolores galisum ad soluta maxime eum ipsa omnis in blanditiis tenetur. Qui Quis natus qui explicabo atque qui similique molestiae in corrupti delectus in neque blanditiis ex atque quod quo quia quasi!',
   },
-} as ComponentMeta<typeof MultilineTextRow>;
+} as Meta<typeof MultilineTextRow>;
 
 const SmallContainer = styled('div')(({}) => ({
   width: '300px',
@@ -23,7 +23,7 @@ const MiddleContainer = styled('div')(({}) => ({
   width: '600px',
 }));
 
-const Template: ComponentStory<typeof MultilineTextRow> = (args) => (
+const Template: StoryFn<typeof MultilineTextRow> = (args) => (
   <>
     <FlexRow itemsSpacing={30}>
       <FlexColumn itemsSpacing={20}>

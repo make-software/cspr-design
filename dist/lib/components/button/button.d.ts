@@ -1,4 +1,4 @@
-import React from 'react';
+import { default as React } from 'react';
 export type ButtonSize = 'small' | 'normal' | 'big';
 export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
     onClick?: (ev: any) => void;

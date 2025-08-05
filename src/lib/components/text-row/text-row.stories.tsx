@@ -1,5 +1,5 @@
 import React from 'react';
-import { ComponentMeta, ComponentStory } from '@storybook/react';
+import { Meta, StoryFn } from '@storybook/react';
 import TextRow, { TextRowType } from './text-row';
 import FlexRow from '../flex-row/flex-row';
 import FlexColumn from '../flex-column/flex-column';
@@ -20,9 +20,9 @@ export default {
     labelIcon: <SvgIcon src="assets/icons/ic-info.svg" />,
     labelTooltipText: 'The Deploy Hash for your transaction',
   },
-} as ComponentMeta<typeof TextRow>;
+} as Meta<typeof TextRow>;
 
-const Template: ComponentStory<typeof TextRow> = (args) => (
+const Template: StoryFn<typeof TextRow> = (args) => (
   <FlexRow itemsSpacing={30}>
     <FlexColumn itemsSpacing={20}>
       <BodyText size={2}>Text Row</BodyText>

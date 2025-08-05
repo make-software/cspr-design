@@ -1,5 +1,5 @@
 import React from 'react';
-import { ComponentMeta, ComponentStory } from '@storybook/react';
+import { Meta, StoryFn } from '@storybook/react';
 import FlexRow from '../flex-row/flex-row';
 import FlexColumn from '../flex-column/flex-column';
 import BodyText from '../body-text/body-text';
@@ -18,15 +18,13 @@ export default {
     capitalize: false,
     loading: false,
   },
-} as ComponentMeta<typeof SubtitleText>;
+} as Meta<typeof SubtitleText>;
 
-const Template: ComponentStory<typeof SubtitleText> = (args) => (
+const Template: StoryFn<typeof SubtitleText> = (args) => (
   <FlexRow itemsSpacing={30}>
     <FlexColumn itemsSpacing={20}>
       <BodyText size={1}>Simple Text</BodyText>
-      <SubtitleText {...args}>
-        Inter, {args.scale} - SubtitleText
-      </SubtitleText>
+      <SubtitleText {...args}>Inter, {args.scale} - SubtitleText</SubtitleText>
     </FlexColumn>
     <FlexColumn itemsSpacing={20}>
       <BodyText size={1}>Long Text</BodyText>

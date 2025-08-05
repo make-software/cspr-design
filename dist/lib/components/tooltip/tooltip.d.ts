@@ -1,4 +1,4 @@
-import React from 'react';
+import { default as React } from 'react';
 import { BaseProps } from '../../types';
 type StyledReactTooltipProps = {
     lineHeight?: 'xs' | 'sm';

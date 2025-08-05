@@ -1,0 +1,10 @@
+<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="ic-info-important" clip-path="url(#clip0_2276_37408)">
+<path id="Exclude" fill-rule="evenodd" clip-rule="evenodd" d="M0 8C0 12.4183 3.58172 16 8 16C12.4183 16 16 12.4183 16 8C16 3.58172 12.4183 0 8 0C3.58172 0 0 3.58172 0 8ZM8.72455 3.91047L7.26956 3.91047V9.00128H8.72455L8.72455 3.91047ZM7.99925 12C7.59746 12 7.27175 11.6744 7.27175 11.2727C7.27175 10.8711 7.59746 10.5455 7.99925 10.5455C8.40103 10.5455 8.72675 10.8711 8.72675 11.2727C8.72675 11.6744 8.40103 12 7.99925 12Z" fill="#84868C"/>
+</g>
+<defs>
+<clipPath id="clip0_2276_37408">
+<rect width="16" height="16" fill="white"/>
+</clipPath>
+</defs>
+</svg>

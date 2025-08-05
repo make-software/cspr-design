@@ -1,4 +1,4 @@
-import React from 'react';
+import { default as React } from 'react';
 import { TextProps } from '../text/text';
 export interface SubtitleTextProps extends TextProps {
     size: 1 | 2 | 3;

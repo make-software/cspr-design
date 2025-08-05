@@ -1,7 +1,0 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-require("./assets/fonts/inter/inter.css");
-require("./assets/fonts/jetbrains-mono/jetbrains-mono.css");
-var GlobalStyles = "";
-exports.default = GlobalStyles;
-//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiZ2xvYmFsLXN0eWxlcy5qcyIsInNvdXJjZVJvb3QiOiIiLCJzb3VyY2VzIjpbIi4uLy4uLy4uL3NyYy9saWIvZ2xvYmFsLXN0eWxlcy50c3giXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6Ijs7QUFBQSwwQ0FBd0M7QUFDeEMsNERBQTBEO0FBRTFELElBQU0sWUFBWSxHQUFHLEVBQUUsQ0FBQztBQUV4QixrQkFBZSxZQUFZLENBQUMiLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgJy4vYXNzZXRzL2ZvbnRzL2ludGVyL2ludGVyLmNzcyc7XG5pbXBvcnQgJy4vYXNzZXRzL2ZvbnRzL2pldGJyYWlucy1tb25vL2pldGJyYWlucy1tb25vLmNzcyc7XG5cbmNvbnN0IEdsb2JhbFN0eWxlcyA9IGBgO1xuXG5leHBvcnQgZGVmYXVsdCBHbG9iYWxTdHlsZXM7XG4iXX0=

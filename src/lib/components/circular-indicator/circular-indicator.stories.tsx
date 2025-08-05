@@ -1,5 +1,5 @@
 import React from 'react';
-import { ComponentMeta, ComponentStory } from '@storybook/react';
+import { Meta, StoryFn } from '@storybook/react';
 import CircularIndicator from './circular-indicator';
 import FlexRow from '../flex-row/flex-row';
 import FlexColumn from '../flex-column/flex-column';
@@ -13,9 +13,9 @@ export default {
     textSize: 1,
     progress: 25,
   },
-} as ComponentMeta<typeof CircularIndicator>;
+} as Meta<typeof CircularIndicator>;
 
-const Template: ComponentStory<typeof CircularIndicator> = (args) => (
+const Template: StoryFn<typeof CircularIndicator> = (args) => (
   <FlexRow itemsSpacing={20}>
     <FlexColumn itemsSpacing={10}>
       <BodyText size={1}>Dynamic</BodyText>

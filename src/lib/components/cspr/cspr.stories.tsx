@@ -1,5 +1,5 @@
 import React from 'react';
-import { ComponentMeta, ComponentStory } from '@storybook/react';
+import { Meta, StoryFn } from '@storybook/react';
 import Cspr from './cspr';
 import FlexRow from '../flex-row/flex-row';
 import FlexColumn from '../flex-column/flex-column';
@@ -13,9 +13,9 @@ export default {
     motes: '3000',
     precisionCase: PrecisionCase.deployCost,
   },
-} as ComponentMeta<typeof Cspr>;
+} as Meta<typeof Cspr>;
 
-const Template: ComponentStory<typeof Cspr> = (args) => (
+const Template: StoryFn<typeof Cspr> = (args) => (
   <FlexRow itemsSpacing={30}>
     <FlexColumn itemsSpacing={20}>
       <BodyText size={2}>PrecisionCase DeployCost</BodyText>

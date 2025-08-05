@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { DropdownMenu } from './dropdown-menu';
 import { DropdownMenuItem } from './dropdown-menu-item';
-import { ComponentMeta, ComponentStory } from '@storybook/react';
+import { Meta, StoryFn } from '@storybook/react';
 import BodyText from '../../body-text/body-text';
 import FlexRow from '../../flex-row/flex-row';
 import SvgIcon from '../../svg-icon/svg-icon';
@@ -10,6 +10,7 @@ import SvgIcon from '../../svg-icon/svg-icon';
 // @ts-ignore
 import ActivityIcon from '../../../assets/icons/ic-file.svg';
 import FlexColumn from '../../flex-column/flex-column';
+import { UserIcon } from '../../../icons-index';
 
 export default {
   component: DropdownMenu,
@@ -17,9 +18,9 @@ export default {
   args: {
     opened: true,
     multiColumn: false,
-    padding: undefined
+    padding: undefined,
   },
-} as ComponentMeta<typeof DropdownMenu>;
+} as Meta<typeof DropdownMenu>;
 
 const StyledSvgIcon = styled(SvgIcon)(({ theme }) => ({
   color: theme.styleguideColors.fillPrimaryBlue,
@@ -35,7 +36,7 @@ const StyledFlexColumn = styled(FlexColumn)(({ theme }) => ({
   width: '325px',
 }));
 
-const Template: ComponentStory<typeof DropdownMenu> = (args) => (
+const Template: StoryFn<typeof DropdownMenu> = (args) => (
   <DropdownMenu {...args} />
 );
 
@@ -57,12 +58,13 @@ Primary.args = {
   ),
 };
 
-
-const TemplateWithCustomItemPadding: ComponentStory<typeof DropdownMenu> = (args) => (
-    <DropdownMenu {...args} />
+const TemplateWithCustomItemPadding: StoryFn<typeof DropdownMenu> = (args) => (
+  <DropdownMenu {...args} />
 );
 
-export const PrimaryWithCustomItemPadding = TemplateWithCustomItemPadding.bind({});
+export const PrimaryWithCustomItemPadding = TemplateWithCustomItemPadding.bind(
+  {},
+);
 // More on args: https://storybook.js.org/docs/react/writing-stories/args
 PrimaryWithCustomItemPadding.args = {
   children: (
@@ -80,11 +82,11 @@ PrimaryWithCustomItemPadding.args = {
   ),
 };
 
-const TemplateMulti: ComponentStory<typeof DropdownMenu> = (args) => (
+const TemplateMulti: StoryFn<typeof DropdownMenu> = (args) => (
   <DropdownMenu {...args} />
 );
 export const MultiColumn = TemplateMulti.bind({
-    multiColumn: true
+  multiColumn: true,
 });
 // More on args: https://storybook.js.org/docs/react/writing-stories/args
 MultiColumn.args = {
@@ -119,7 +121,7 @@ WithIcons.args = {
       <DropdownMenuItem>
         <BodyText size={2}>
           <FlexRow align="center" gap={6}>
-            <StyledSvgIcon src={'./assets/icons/ic-user.svg'} />
+            <StyledSvgIcon src={UserIcon} />
             <BodyText size={2}>View Account</BodyText>
           </FlexRow>
         </BodyText>

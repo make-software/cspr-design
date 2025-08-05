@@ -1,5 +1,5 @@
 import React from 'react';
-import { ComponentMeta, ComponentStory } from '@storybook/react';
+import { Meta, StoryFn } from '@storybook/react';
 
 import { MainMenuItem } from './main-menu-item';
 import { MainMenu } from './main-menu';
@@ -12,16 +12,16 @@ const Container = styled.div(({ theme }) =>
     background: theme.styleguideColors.backgroundTertiary,
     // maxWidth: theme.maxWidth,
     height: [undefined, undefined, 72],
-  })
+  }),
 );
 
 export default {
   component: MainMenuItem,
   title: 'Common/Navigation/Main Menu',
   args: {},
-} as ComponentMeta<typeof MainMenuItem>;
+} as Meta<typeof MainMenuItem>;
 
-const Template: ComponentStory<typeof MainMenu> = (args) => (
+const Template: StoryFn<typeof MainMenu> = (args) => (
   <Container>
     <MainMenu {...args} />
   </Container>

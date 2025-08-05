@@ -1,5 +1,5 @@
-import * as CSS from 'csstype';
 import { CSSObject } from 'styled-components';
+import * as CSS from 'csstype';
 export declare const Breakpoints: {
     tablet: number;
     laptop: number;
@@ -35,6 +35,6 @@ export declare const withMedia: (styled: CSSObjectMulti) => CSSObject;
  * <div>{responsiveType}</div>
  * ```
  */
-export declare const useMatchMedia: <T extends unknown>([onMobile, onTablet, onLaptop, onDesktop]: [T, (T | undefined)?, (T | undefined)?, (T | undefined)?], dependencies: any[]) => T;
+export declare const useMatchMedia: <T extends any>([onMobile, onTablet, onLaptop, onDesktop]: [T, T?, T?, T?], dependencies: any[]) => T;
 export {};
 //# sourceMappingURL=match-media.d.ts.map

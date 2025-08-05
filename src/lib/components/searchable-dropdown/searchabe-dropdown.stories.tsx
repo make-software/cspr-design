@@ -1,5 +1,5 @@
 import React from 'react';
-import { ComponentMeta, ComponentStory } from '@storybook/react';
+import { Meta, StoryFn } from '@storybook/react';
 import SearchableDropdown from './searchable-dropdown';
 
 export default {
@@ -22,9 +22,9 @@ export default {
       console.log('selected item -> ', data);
     },
   },
-} as ComponentMeta<typeof SearchableDropdown>;
+} as Meta<typeof SearchableDropdown>;
 
-const Template: ComponentStory<typeof SearchableDropdown> = (args) => (
+const Template: StoryFn<typeof SearchableDropdown> = (args) => (
   <SearchableDropdown {...args} />
 );
 

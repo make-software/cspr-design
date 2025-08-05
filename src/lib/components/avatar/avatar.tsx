@@ -1,12 +1,13 @@
 import React from 'react';
-import Identicon from 'react-identicons';
-// import Skeleton from "react-loading-skeleton";
 import styled from 'styled-components';
 import SvgIcon from '../svg-icon/svg-icon';
 import { getImageProxyUrl } from '../../utils/cache-asset';
+import Identicon from '../identicon/identicon.tsx';
+import { Erc20AvatarIcon, HashIcon } from '../../icons-index.ts';
+import Skeleton from 'react-loading-skeleton';
 
 export const isValidAccountHash = (
-  accountHash?: string | null
+  accountHash?: string | null,
 ): accountHash is string => {
   if (accountHash == null) {
     return false;
@@ -16,8 +17,7 @@ export const isValidAccountHash = (
   return validHashRegExp.test(accountHash.trim());
 };
 
-/* eslint-disable-next-line */
-export interface AvatarProps {
+export interface AvatarProps<T = any> {
   hash?: string | null;
   src?: string | null;
   size?: 'default' | 'big' | 'average' | 'medium' | 'small';
@@ -25,65 +25,68 @@ export interface AvatarProps {
   isErc20?: boolean;
 }
 
-const getCornerRadius = (size: AvatarProps['size'] = 'default') =>
-  ({
+const getCornerRadius = (size: string = 'default') => {
+  const cornerRadiusMap: Record<string, number> = {
     small: 2,
     default: 2,
     average: 4,
     medium: 12,
     big: 12,
-  }[size]);
+  };
 
-const getSize = (size: AvatarProps['size'] = 'default') =>
-  ({
+  return cornerRadiusMap[size] || cornerRadiusMap.default;
+};
+
+const getSize = (size: string = 'default'): number => {
+  const sizeMap: Record<string, number> = {
     small: 20,
-    default: 32,
-    average: 40,
-    medium: 80,
-    big: 124,
-  }[size]);
+    default: 24,
+    average: 28,
+    medium: 32,
+    big: 40,
+  };
 
-const getBgColor = (size: AvatarProps['size'] = 'default') =>
-  ({
-    small: 'contentTertiary',
-    default: 'contentQuaternary',
-    average: 'contentQuaternary',
-    medium: 'contentQuaternary',
-    big: 'contentQuaternary',
-  }[size]);
+  return sizeMap[size] || sizeMap.default;
+};
 
-const getPadding = (size: AvatarProps['size'] = 'default') =>
-  ({
-    small: 0,
-    default: 0,
-    average: 0,
-    medium: 0,
-    big: 0,
-  }[size]);
+const getBgColor = (size: string = 'default') => {
+  const bgColorMap: Record<string, string> = {
+    small: 'contentOnFill',
+    default: 'contentOnFill',
+    average: 'contentOnFill',
+    medium: 'contentOnFill',
+    big: 'contentOnFill',
+  };
 
-const getMargin = (size: AvatarProps['size'] = 'default') =>
-  ({
+  return bgColorMap[size] || bgColorMap.default;
+};
+
+const getMargin = (size: string = 'default') => {
+  const marginMap: Record<string, number> = {
     small: 0,
     default: 4,
     average: 4,
     medium: 4,
     big: 0,
-  }[size]);
+  };
+
+  return marginMap[size] || marginMap.default;
+};
 
 export const BackgroundWrapper = styled.div<{
-  size: AvatarProps['size'];
+  sizeType: string;
   withBgColor?: boolean;
-}>(({ theme, size, withBgColor = false }) => ({
-  borderRadius: getCornerRadius(size),
-  height: getSize(size),
-  width: getSize(size),
-  padding: getPadding(size),
-  margin: getMargin(size),
+}>(({ theme, sizeType, withBgColor = false }) => ({
+  borderRadius: getCornerRadius(sizeType),
+  height: getSize(sizeType),
+  width: getSize(sizeType),
+  padding: 0,
+  margin: getMargin(sizeType),
   backgroundColor: withBgColor
-    ? theme.styleguideColors[getBgColor(size)]
+    ? theme.styleguideColors[getBgColor(sizeType)]
     : 'transparent',
   '& > canvas': {
-    borderRadius: getCornerRadius(size),
+    borderRadius: getCornerRadius(sizeType),
   },
 }));
 
@@ -98,51 +101,54 @@ const IconHashWrapper = styled.div(({ theme }) => ({
 type Ref = HTMLSpanElement;
 
 export const Avatar = React.forwardRef<Ref, AvatarProps>(function Avatar(
-  { hash, src, size = 'default', loading, isErc20, ...props }: AvatarProps,
-  ref
+  props: AvatarProps,
+  ref,
 ) {
+  const { loading, hash, src, size = 'default', isErc20, ...restProps } = props;
+  const avatarSize = getSize(size);
+
   const RETINA_SCALE = 2;
   const CACHE_TTL = '86400';
 
-  // if (loading || (!hash && !src && !isErc20)) {
-  //   return (
-  //     <span ref={ref} {...props}>
-  //       <Skeleton
-  //         style={{
-  //           borderRadius: 2,
-  //           width: getSize(size),
-  //           fontSize: `${getSize(size)}px`,
-  //           margin: getMargin(size),
-  //         }}
-  //       />
-  //     </span>
-  //   );
-  // }
+  if (loading || (!hash && !src && !isErc20)) {
+    return (
+      <div {...restProps}>
+        <Skeleton
+          style={{
+            borderRadius: 2,
+            width: avatarSize,
+            fontSize: `${avatarSize}px`,
+            margin: getMargin(size),
+          }}
+        />
+      </div>
+    );
+  }
 
   if (src) {
     const cachedUrl = getImageProxyUrl(src, {
       ttl: CACHE_TTL,
-      width: getSize(size) * RETINA_SCALE,
+      width: avatarSize * RETINA_SCALE,
     });
     return (
-      <span ref={ref} {...props}>
+      <span ref={ref} {...restProps}>
         <BackgroundWrapper
-          size={size}
+          sizeType={size}
           style={{
             background: `url("${cachedUrl}") center / contain no-repeat`,
           }}
         >
-          <div style={{ width: getSize(size), height: getSize(size) }} />
+          <div style={{ width: avatarSize, height: avatarSize }} />
         </BackgroundWrapper>
       </span>
     );
   }
   if (hash && isValidAccountHash(hash)) {
     return (
-      <span ref={ref} {...props}>
-        <BackgroundWrapper size={size} withBgColor>
+      <span ref={ref} {...restProps}>
+        <BackgroundWrapper sizeType={size} withBgColor>
           <IconHashWrapper>
-            <SvgIcon src="assets/icons/ic-hash.svg" size={getSize(size) - 8} />
+            <SvgIcon src={HashIcon} size={avatarSize - 8} />
           </IconHashWrapper>
         </BackgroundWrapper>
       </span>
@@ -151,13 +157,10 @@ export const Avatar = React.forwardRef<Ref, AvatarProps>(function Avatar(
 
   if (isErc20 && !src) {
     return (
-      <span ref={ref} {...props}>
-        <BackgroundWrapper size={size} withBgColor>
+      <span ref={ref} {...restProps}>
+        <BackgroundWrapper sizeType={size} withBgColor>
           <IconHashWrapper>
-            <SvgIcon
-              src="assets/icons/ic-erc20-avatar.svg"
-              size={getSize(size)}
-            />
+            <SvgIcon src={Erc20AvatarIcon} size={avatarSize} />
           </IconHashWrapper>
         </BackgroundWrapper>
       </span>
@@ -165,14 +168,11 @@ export const Avatar = React.forwardRef<Ref, AvatarProps>(function Avatar(
   }
 
   return (
-    <span ref={ref} {...props}>
-      <BackgroundWrapper size={size}>
-        <Identicon
-          string={hash?.toLowerCase()}
-          size={getSize(size) - getPadding(size)}
-          bg="#fff"
-          {...props}
-        />
+    <span ref={ref} {...restProps}>
+      <BackgroundWrapper sizeType={size}>
+        {hash && (
+          <Identicon hexString={hash} size={avatarSize} {...restProps} />
+        )}
       </BackgroundWrapper>
     </span>
   );

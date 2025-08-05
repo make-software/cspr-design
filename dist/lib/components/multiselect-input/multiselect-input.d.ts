@@ -1,4 +1,3 @@
-/// <reference types="react" />
 import { BaseProps } from '../../types';
 export type MultiSelectDropdownValue = {
     label: string;
@@ -22,5 +21,5 @@ export interface MultiSelectInputProps extends BaseProps {
     onRemoveItem?: (ev: MultiSelectDropdownEventValue) => void;
     onChangeInput?: (value: string) => void;
 }
-export declare function MultiSelectInput(props: MultiSelectInputProps): JSX.Element;
+export declare function MultiSelectInput(props: MultiSelectInputProps): import("react/jsx-runtime").JSX.Element;
 //# sourceMappingURL=multiselect-input.d.ts.map

@@ -1,4 +1,3 @@
-/// <reference types="react" />
 export type BaseProps = {
     id?: string;
     className?: string;

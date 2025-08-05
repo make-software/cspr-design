@@ -1,4 +1,4 @@
-import React from 'react';
+import { default as React } from 'react';
 type Ref = HTMLDivElement;
 export interface SvgIconProps extends React.HTMLAttributes<Ref> {
     className?: string;

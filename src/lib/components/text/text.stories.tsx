@@ -8,13 +8,23 @@ import SubtitleText from '../subtitle-text/subtitle-text';
 import HeaderText from '../header-text/header-text';
 import FlexColumn from '../flex-column/flex-column';
 import FlexRow from '../flex-row/flex-row';
+import { StoryFn } from '@storybook/react';
 
 export default {
   component: Text,
   title: 'Core/Typography/Text',
+  args: {
+    loading: false,
+  },
+  argTypes: {
+    loading: {
+      options: [true, false],
+      control: { type: 'radio' },
+    },
+  },
 };
 
-export const allTexts = () => (
+const Template: StoryFn<typeof Text> = (args) => (
   <FlexColumn itemsSpacing={10}>
     <FlexRow>
       <Label size={2}>Inter, Medium, 10 pt - Label 2</Label>
@@ -81,3 +91,5 @@ export const allTexts = () => (
     </FlexRow>
   </FlexColumn>
 );
+
+export const Primary = Template.bind({});

@@ -1,4 +1,4 @@
-import React from 'react';
+import { default as React } from 'react';
 import { ActivableProps, BaseProps } from '../../types';
 type Ref = HTMLAnchorElement;
 export interface NavLinkProps extends BaseProps, ActivableProps {

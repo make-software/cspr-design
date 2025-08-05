@@ -3,30 +3,32 @@ import styled from 'styled-components';
 import { BaseProps } from '../../types';
 import Link from '../link/link';
 import SvgIcon from './svg-icon';
-import KeybaseIcon from '../../assets/icons/ic-keybase.svg';
-import TelegramIcon from '../../assets/icons/ic-telegram.svg';
-import TwitterIcon from '../../assets/icons/ic-twitter.svg';
-import GitHubIcon from '../../assets/icons/ic-github.svg';
-import YoutubeIcon from '../../assets/icons/ic-youtube.svg';
-import FacebookIcon from '../../assets/icons/ic-facebook.svg';
-import MediumIcon from '../../assets/icons/ic-medium.svg';
-import RedditIcon from '../../assets/icons/ic-reddit.svg';
-import WechatIcon from '../../assets/icons/ic-wechat.svg';
-import TwitterXIcon from '../../assets/icons/ic-twitter_x.svg';
-import LinkedinIcon from '../../assets/icons/ic-linkedin.svg';
-import WebsiteIcon from '../../assets/icons/ic-website.svg';
+import {
+  FacebookIcon,
+  GithubIcon,
+  KeybaseIcon,
+  LinkedinIcon,
+  MediumIcon,
+  RedditIcon,
+  TelegramIcon,
+  Twitter_xIcon,
+  TwitterIcon,
+  WebsiteIcon,
+  WechatIcon,
+  YoutubeIcon,
+} from '../../icons-index';
 
 const getMediaLogo = {
   keybase: KeybaseIcon,
   telegram: TelegramIcon,
   twitter: TwitterIcon,
-  github: GitHubIcon,
+  github: GithubIcon,
   youtube: YoutubeIcon,
   facebook: FacebookIcon,
   medium: MediumIcon,
   reddit: RedditIcon,
   wechat: WechatIcon,
-  twitter_x: TwitterXIcon,
+  twitter_x: Twitter_xIcon,
   linkedin: LinkedinIcon,
   website: WebsiteIcon,
 };
@@ -103,7 +105,7 @@ const Container = styled(Link)<Omit<SvgIconSocialProps, 'userId'>>(
         fill: getSocialMediaColor(type),
       },
     },
-  })
+  }),
 );
 
 export const SvgIconSocial = React.forwardRef<

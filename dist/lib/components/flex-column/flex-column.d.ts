@@ -1,4 +1,4 @@
-import React from 'react';
+import { default as React } from 'react';
 import { FlexBoxProps } from '../flex-box/flex-box';
 export interface FlexColumnProps extends FlexBoxProps {
 }

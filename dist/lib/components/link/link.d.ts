@@ -1,4 +1,4 @@
-import React from 'react';
+import { default as React } from 'react';
 type Color = 'primaryBlue' | 'primaryRed' | 'hash' | 'inherit';
 export interface LinkProps extends React.HTMLAttributes<Ref> {
     href?: string;

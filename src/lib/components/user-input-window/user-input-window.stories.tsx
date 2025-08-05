@@ -1,5 +1,5 @@
 import React from 'react';
-import { ComponentMeta, ComponentStory } from '@storybook/react';
+import { Meta, StoryFn } from '@storybook/react';
 import UserInputWindow from './user-input-window';
 import FlexRow from '../flex-row/flex-row';
 import FlexColumn from '../flex-column/flex-column';
@@ -7,9 +7,7 @@ import BodyText from '../body-text/body-text';
 import { ModalPosition } from '../confirmation-window/confirmation-window';
 import { InputValidationType } from '../input/input';
 import SvgIcon from '../svg-icon/svg-icon';
-import { LockImage } from '../../index';
-import WarnIcon from '../../assets/icons/ic-warning.svg';
-import HeaderIcon from '../../assets/icons/logos/cspr-click.svg';
+import { HeaderMenuIcon, LockImageIcon, WarningIcon } from '../../icons-index';
 
 export default {
   component: UserInputWindow,
@@ -20,8 +18,8 @@ export default {
     title: 'Please, set your recovery password first',
     information: 'Your password length is 12 characters',
     withHeader: true,
-    headerLogo: <SvgIcon src={HeaderIcon} height={40} width={110} />,
-    bodyImg: <SvgIcon src={LockImage} width={296} height={120} />,
+    headerLogo: <SvgIcon src={HeaderMenuIcon} height={40} width={110} />,
+    bodyImg: <SvgIcon src={LockImageIcon} width={296} height={120} />,
     confirmLabel: 'Yes',
     shouldCloseOnEsc: true,
     shouldCloseOnOverlayClick: false,
@@ -53,13 +51,13 @@ export default {
       message:
         'You will need to enter Unlock PIN before approving a transaction. If you share code with anyone or forger it you might lose access to the your account.',
       margin: '16px 0',
-      iconSrc: WarnIcon,
+      iconSrc: WarningIcon,
     },
     isMandatoryCheckBox: true,
   },
-} as ComponentMeta<typeof UserInputWindow>;
+} as Meta<typeof UserInputWindow>;
 
-const Template: ComponentStory<typeof UserInputWindow> = (args) => (
+const Template: StoryFn<typeof UserInputWindow> = (args) => (
   <FlexRow itemsSpacing={30}>
     <FlexColumn itemsSpacing={20}>
       <BodyText size={2}>Confirm Modal</BodyText>

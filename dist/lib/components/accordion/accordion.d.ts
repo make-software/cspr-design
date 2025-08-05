@@ -1,4 +1,4 @@
-import React from 'react';
+import { default as React } from 'react';
 import { BaseProps } from '../../types';
 export interface AccordionProps extends BaseProps {
     backgroundColor?: string;
@@ -9,6 +9,6 @@ export interface AccordionProps extends BaseProps {
 interface RenderProps {
     isOpen: boolean;
 }
-export declare function Accordion({ children, renderContent, disableClickAway, ...props }: AccordionProps): JSX.Element;
+export declare function Accordion({ children, renderContent, disableClickAway, ...props }: AccordionProps): import("react/jsx-runtime").JSX.Element;
 export default Accordion;
 //# sourceMappingURL=accordion.d.ts.map

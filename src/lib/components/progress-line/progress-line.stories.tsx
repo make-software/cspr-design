@@ -1,5 +1,5 @@
 import React from 'react';
-import { ComponentMeta, ComponentStory } from '@storybook/react';
+import { Meta, StoryFn } from '@storybook/react';
 import ProgressLine from './progress-line';
 import styled from 'styled-components';
 import FlexRow from '../flex-row/flex-row';
@@ -13,13 +13,13 @@ export default {
     steps: ['one', 'two', 'three', 'four'],
     currentIdx: 1,
   },
-} as ComponentMeta<typeof ProgressLine>;
+} as Meta<typeof ProgressLine>;
 
 const StyledColumn = styled(FlexColumn)(({ theme }) => ({
   width: '400px',
 }));
 
-const Template: ComponentStory<typeof ProgressLine> = (args) => (
+const Template: StoryFn<typeof ProgressLine> = (args) => (
   <StyledColumn itemsSpacing={20}>
     <BodyText size={2}>ProgressLine</BodyText>
     <ProgressLine {...args} />

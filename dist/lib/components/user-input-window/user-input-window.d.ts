@@ -1,4 +1,4 @@
-import React from 'react';
+import { default as React } from 'react';
 import { InputValidationType } from '../input/input';
 import { ThemeModeType } from '../navigation/cspr-products-menu/products-menu-item';
 import { ModalPosition } from '../confirmation-window/confirmation-window';
@@ -50,6 +50,6 @@ export declare enum DismissOrigin {
     Overlay = 2,
     ESC = 3
 }
-export declare const UserInputWindow: ({ isOpen, position, title, withHeader, headerLogo, bodyImg, information, confirmLabel, confirmDisabled, confirmColor, onConfirm, dismissLabel, dismissDisabled, shouldCloseOnEsc, shouldCloseOnOverlayClick, onDismiss, themeMode, inputType, placeholder, required, inputLabel, checkboxLabel, validationSetting, repeatInput, warningMessage, informationOnlyMode, isMandatoryCheckBox, hideXButton, resetForm, portalClass, }: UserInputWindowSceneProps) => JSX.Element;
+export declare const UserInputWindow: ({ isOpen, position, title, withHeader, headerLogo, bodyImg, information, confirmLabel, confirmDisabled, confirmColor, onConfirm, dismissLabel, dismissDisabled, shouldCloseOnEsc, shouldCloseOnOverlayClick, onDismiss, themeMode, inputType, placeholder, required, inputLabel, checkboxLabel, validationSetting, repeatInput, warningMessage, informationOnlyMode, isMandatoryCheckBox, hideXButton, resetForm, portalClass, }: UserInputWindowSceneProps) => import("react/jsx-runtime").JSX.Element;
 export default UserInputWindow;
 //# sourceMappingURL=user-input-window.d.ts.map

@@ -10,10 +10,10 @@ export declare enum TableRowType {
     TextWithIcon = "TextWithIcon",
     TextWithAvatar = "TextWithAvatar"
 }
-export declare const StyledTableRow: import("styled-components").StyledComponent<"tr", import("styled-components").DefaultTheme, {
-    $loading?: boolean | undefined;
-    isClickable?: boolean | undefined;
+export declare const StyledTableRow: import('styled-components').StyledComponent<"tr", import('styled-components').DefaultTheme, {
+    $loading?: boolean;
+    isClickable?: boolean;
 }, never>;
-export declare function TableRow({ loading, ...props }: TableRowProps): JSX.Element;
+export declare function TableRow({ loading, ...props }: TableRowProps): import("react/jsx-runtime").JSX.Element;
 export default TableRow;
 //# sourceMappingURL=table-row.d.ts.map

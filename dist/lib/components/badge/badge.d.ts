@@ -1,4 +1,4 @@
-import React from 'react';
+import { default as React } from 'react';
 import { BaseProps } from '../../types';
 type BadgeBackgroundColor = 'green' | 'violet' | 'blue' | 'gray' | 'fillBlueGradient' | string;
 export interface BadgeProps extends BaseProps {

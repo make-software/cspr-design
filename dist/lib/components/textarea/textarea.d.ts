@@ -1,6 +1,6 @@
 import { ReactNode } from 'react';
 import { BaseProps } from '../../types';
-import { LabelFontSize } from "../input/input";
+import { LabelFontSize } from '../input/input';
 export interface TextareaProps extends BaseProps {
     disabled?: boolean;
     placeholder?: string;
@@ -17,6 +17,6 @@ export interface TextareaProps extends BaseProps {
     error?: boolean;
     validationText?: string | null;
 }
-export declare function Textarea({ id, className, style, disabled, label, rightLabel, suffixIcon, error, validationText, onFocus, labelFontSize, ...restProps }: TextareaProps): JSX.Element;
+export declare function Textarea({ id, className, style, disabled, label, rightLabel, suffixIcon, error, validationText, onFocus, labelFontSize, ...restProps }: TextareaProps): import("react/jsx-runtime").JSX.Element;
 export default Textarea;
 //# sourceMappingURL=textarea.d.ts.map
