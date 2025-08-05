@@ -18,7 +18,7 @@
   "scripts": {
     "build:dist": "npm run reexport-icons && vite build && npm run copy-assets-vite",
     "copy-assets-vite": "shx cp -r src/lib/assets/ dist/",
-    "reexport-icons": "node src/generate-icons.js",
+    "reexport-icons": "node src/generate-icons.cjs",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
     "format": "prettier --write \"./**/*.{js,jsx,ts,tsx,css,md,json}\" --config ./.prettierrc"
