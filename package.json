@@ -4,6 +4,7 @@
   "main": "dist/cspr-design.umd.js",
   "module": "dist/cspr-design.es.js",
   "types": "dist/lib/index.d.ts",
+  "type": "module",
   "repository": "git://github.com/make-software/cspr-ui-library",
   "exports": {
     ".": {
