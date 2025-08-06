@@ -20,42 +20,38 @@ const iconsPath = [];
 const flagsIconsPath = [];
 const logoIconsPath = [];
 
-icons.forEach((file) => {
-  const name = path.basename(file, '.svg');
-  const componentName =
-    name.replace('ic', '').replace(/(^\w|-\w)/g, (match) => {
-      return match.replace('-', '').toUpperCase();
+const iconPrefix = /(ic-)/;
+
+const deriveIconName = (file) => {
+    const name = path.basename(file, '.svg');
+    return name.replace(iconPrefix, '').replace(/(^\w|-\w)/g, (match) => {
+        return match.replace('-', '').toUpperCase();
     }) + 'Icon';
-  iconsPath.push(`import ${componentName} from './assets/icons/${file}';`);
-  iconsPath.push(`export { ${componentName} };`);
+}
+
+icons.forEach((file) => {
+    const componentName = deriveIconName(file);
+    iconsPath.push(`import ${componentName} from './assets/icons/${file}';`);
+    iconsPath.push(`export { ${componentName} };`);
 });
 
 flags.forEach((file) => {
-  const name = path.basename(file, '.svg');
-
-  const componentName =
-    name.replace('ic', '').replace(/(^\w|-\w)/g, (match) => {
-      return match.replace('-', '').toUpperCase();
-    }) + 'Icon';
-  flagsIconsPath.push(
-    `import ${componentName} from './assets/icons/flags/${file}';`,
-  );
-  flagsIconsPath.push(`export { ${componentName} };`);
+    const componentName = deriveIconName(file);
+    flagsIconsPath.push(
+        `import ${componentName} from './assets/icons/flags/${file}';`,
+    );
+    flagsIconsPath.push(`export { ${componentName} };`);
 });
 
 logos.forEach((file) => {
-  const name = path.basename(file, '.svg');
-  const componentName =
-    name.replace('ic', '').replace(/(^\w|-\w)/g, (match) => {
-      return match.replace('-', '').toUpperCase();
-    }) + 'Icon';
-  logoIconsPath.push(
-    `import ${componentName} from './assets/icons/logos/${file}';`,
-  );
-  logoIconsPath.push(`export { ${componentName} };`);
+    const componentName = deriveIconName(file);
+    logoIconsPath.push(
+        `import ${componentName} from './assets/icons/logos/${file}';`,
+    );
+    logoIconsPath.push(`export { ${componentName} };`);
 });
 
 fs.writeFileSync(
-  path.join(libDir, 'icons-index.ts'),
-  [...iconsPath, ...flagsIconsPath, ...logoIconsPath].join('\n'),
+    path.join(libDir, 'icons-index.ts'),
+    [...iconsPath, ...flagsIconsPath, ...logoIconsPath].join('\n'),
 );
