@@ -3,6 +3,7 @@ name: Deploy Storybook
 on:
   push:
     branches: [main]
+  workflow_dispatch: # Allow manual triggering
 
 jobs:
   build:
