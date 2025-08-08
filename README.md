@@ -2,11 +2,11 @@
 
 To install:
 
-`npm i github:make-software/cspr-ui-library`
+`npm i github:make-software/cspr-design`
 
 In the project directory, you can run:
 
-### `npm run storybook`
+### `npm run build-storybook && npm run storybook`
 
 Runs the storybook to check all UI components.
 
