@@ -65,20 +65,20 @@ const ModalContainer = styled(FlexColumn)<ModalPositionProps>(
           : ['300px', '400px', '446px'],
       background: theme.styleguideColors.backgroundPrimary,
       borderColor: theme.styleguideColors.backgroundPrimary,
-    })
+    }),
 );
 
 const ImageWrapper = styled(FlexRow)(({ theme }) =>
   theme.withMedia({
     margin: '15px 0 35px 0',
-  })
+  }),
 );
 
 const StyledCaption = styled.div<ModalPositionProps>(({ theme, position }) =>
   theme.withMedia({
     textAlign: position === ModalPosition.TopRight ? 'left' : 'center',
     marginBottom: '16px',
-  })
+  }),
 );
 
 const StyledCaptionText = styled(SubtitleText)(({ theme }) =>
@@ -86,7 +86,7 @@ const StyledCaptionText = styled(SubtitleText)(({ theme }) =>
     fontWeight: [600, 600, 700],
     fontSize: ['20px', '24px', '24px'],
     color: theme.styleguideColors.contentPrimary,
-  })
+  }),
 );
 
 const InformationText = styled(BodyText)<ModalPositionProps>(
@@ -94,7 +94,7 @@ const InformationText = styled(BodyText)<ModalPositionProps>(
     theme.withMedia({
       textAlign: position === ModalPosition.TopRight ? 'left' : 'center',
       color: theme.styleguideColors.contentSecondary,
-    })
+    }),
 );
 
 const ButtonsContainer = styled(FlexRow)<ModalPositionProps>(
@@ -103,7 +103,7 @@ const ButtonsContainer = styled(FlexRow)<ModalPositionProps>(
       marginTop:
         position === ModalPosition.TopRight ? '40px' : ['32px', '32px', '56px'],
       flexDirection: ['column', 'row', 'row'],
-    })
+    }),
 );
 
 const StyledConfirmButton = styled(Button)(({ theme }) =>
@@ -115,7 +115,7 @@ const StyledConfirmButton = styled(Button)(({ theme }) =>
     ':active': {
       background: theme.styleguideColors.fillPrimaryBlueClick,
     },
-  })
+  }),
 );
 
 const StyledDismissButton = styled(Button)(({ theme }) =>
@@ -127,7 +127,7 @@ const StyledDismissButton = styled(Button)(({ theme }) =>
     ':active': {
       background: theme.styleguideColors.fillSecondaryBlueClick,
     },
-  })
+  }),
 );
 
 export const ConfirmationWindow = ({

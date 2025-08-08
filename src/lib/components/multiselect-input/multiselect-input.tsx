@@ -20,7 +20,7 @@ const DropdownContainer = styled.div<{ disabled?: boolean }>(
       opacity: '0.5',
       pointerEvents: 'none',
     }),
-  })
+  }),
 );
 
 const MultiSelectContainer = styled(FlexRow)<{ isOpen: boolean }>(
@@ -33,7 +33,7 @@ const MultiSelectContainer = styled(FlexRow)<{ isOpen: boolean }>(
         color: theme.styleguideColors.fillPrimaryRed,
       },
     },
-  })
+  }),
 );
 
 const InputContainer = styled(FlexRow)(({ theme }) => ({
@@ -70,7 +70,7 @@ const ChipItemContainer = styled.span(({ theme }) => ({
   borderRadius: theme.borderRadius.base,
   cursor: 'pointer',
   padding: '2px 8px',
-  background: theme.styleguideColors.fillTertriary,
+  background: theme.styleguideColors.fillTertiary,
   color: theme.styleguideColors.contentPrimary,
   wordBreak: 'break-word',
 }));
@@ -211,13 +211,13 @@ export function MultiSelectInput(props: MultiSelectInputProps) {
         case useCombobox.stateChangeTypes.ItemClick:
         case useCombobox.stateChangeTypes.InputBlur:
           const isAlreadySelected = selectedItems.some(
-            (i) => i.value === newSelectedItem?.value
+            (i) => i.value === newSelectedItem?.value,
           );
 
           if (newSelectedItem) {
             if (isAlreadySelected) {
               setSelectedItems(
-                selectedItems.filter((i) => i.value !== newSelectedItem.value)
+                selectedItems.filter((i) => i.value !== newSelectedItem.value),
               );
               onRemoveItem && onRemoveItem(getChangeEvent(newSelectedItem));
             } else {
@@ -290,7 +290,7 @@ export function MultiSelectInput(props: MultiSelectInputProps) {
             align="center"
             justify="space-between"
             {...getToggleButtonProps(
-              getDropdownProps({ preventKeyAction: isOpen })
+              getDropdownProps({ preventKeyAction: isOpen }),
             )}
           >
             <InputContainer gap={8} wrap={'wrap'}>
@@ -330,7 +330,7 @@ export function MultiSelectInput(props: MultiSelectInputProps) {
                         openMenu();
                       },
                     },
-                    { suppressRefError: true }
+                    { suppressRefError: true },
                   )}
                   prefixIcon={<SvgIcon src={SearchIcon} />}
                 />
@@ -375,7 +375,7 @@ export function MultiSelectInput(props: MultiSelectInputProps) {
                         {item.label}
                       </BodyText>
                     </ItemContainer>
-                  )
+                  ),
                 )
               ))}
           </ItemsContainer>

@@ -29,6 +29,7 @@ export default defineConfig({
         'styled-components',
       ],
       output: {
+        interop: 'compat',
         minifyInternalExports: true,
         globals: {
           react: 'React',

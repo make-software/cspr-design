@@ -1,6 +1,5 @@
 import { ReactNode } from 'react';
-import { BaseProps } from '../../types';
-import { LabelFontSize } from '../input/input';
+import { BaseProps, LabelFontSize } from '../../types';
 export interface TextareaProps extends BaseProps {
     disabled?: boolean;
     placeholder?: string;

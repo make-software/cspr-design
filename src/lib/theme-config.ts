@@ -1,10 +1,109 @@
-import { keyframes } from 'styled-components';
+import { Keyframes, keyframes } from 'styled-components';
 import { withMedia } from './utils/match-media';
 
 const PAGE_MIN_WIDTH = 320;
 const PAGE_MAX_WIDTH = 1176;
 
-const themeCommon = {
+export interface ThemeCommonType {
+  minWidth: number;
+  maxWidth: number;
+  withMedia: (styled: any) => ReturnType<typeof withMedia>;
+  zIndex: {
+    dropdown: number;
+    modal: number;
+    tooltip: number;
+  };
+  typography: {
+    fontFamily: {
+      primary: string;
+      mono: string;
+    };
+    fontWeight: {
+      // thin: 100,
+      // extraLight: 200,
+      light: number;
+      regular: number;
+      medium: number;
+      semiBold: number;
+      bold: number;
+      extraBold: number;
+      // black: 900,
+    };
+  };
+  borderRadius: {
+    base: number;
+  };
+  padding: {
+    1: string;
+    2: string;
+  };
+  animations: {
+    fadeIn: Keyframes;
+  };
+}
+
+export interface ThemeVariationType {
+  colorSpecialCase: {
+    blueBanner: string;
+    blueBanner2: string;
+  };
+  styleguideColors: {
+    backgroundPrimary: string;
+    backgroundSecondary: string;
+    backgroundTertiary: string;
+    backgroundQuaternary: string;
+    borderPrimary: string;
+    borderSecondary: string;
+    backgroundOverlay: string;
+    borderRed: string;
+    fillPrimaryRed: string;
+    fillPrimaryRedHover: string;
+    fillPrimaryRedClick: string;
+    fillPrimaryBlue: string;
+    fillPrimaryBlueHover: string;
+    fillPrimaryBlueClick: string;
+    fillSecondary: string;
+    fillSecondaryRedHover: string;
+    fillSecondaryRedClick: string;
+    fillSecondaryBlueHover: string;
+    fillSecondaryBlueClick: string;
+    fillTertiary: string;
+    fillGreen: string;
+    fillVioletGradient: string;
+    fillBlueGradient: string;
+    fillLoadingInTable: string;
+    contentPrimary: string;
+    contentSecondary: string;
+    contentTertiary: string;
+    contentQuaternary: string;
+    contentOnFill: string;
+    contentBlue: string;
+    contentRed: string;
+    contentGreen: string;
+    contentViolet: string;
+    contentYellow: string;
+    contentWarmGreen: string;
+    contentLightBlue: string;
+  };
+  boxShadow: {
+    unset: string;
+    block: string;
+    dropdown: string;
+    tooltip: string;
+  };
+  border: {
+    base: string;
+    separator: string;
+    tableRowSeparator: string;
+  };
+  themeName: string;
+}
+export interface ThemeConfigType {
+  dark: ThemeVariationType & ThemeCommonType;
+  light: ThemeVariationType & ThemeCommonType;
+}
+
+const themeCommon: ThemeCommonType = {
   minWidth: PAGE_MIN_WIDTH,
   maxWidth: PAGE_MAX_WIDTH,
   withMedia: withMedia,
@@ -49,7 +148,7 @@ const themeCommon = {
   },
 };
 
-export const themeConfig: any = {
+export const themeConfig: ThemeConfigType = {
   dark: {
     ...themeCommon,
     colorSpecialCase: {
@@ -76,7 +175,7 @@ export const themeConfig: any = {
       fillSecondaryRedClick: '#FF868014',
       fillSecondaryBlueHover: '#7490FF29',
       fillSecondaryBlueClick: '#7490FF14',
-      fillTertriary: '#293667',
+      fillTertiary: '#293667',
       fillGreen: '#2DCC85',
       fillVioletGradient:
         'linear-gradient(266.5deg, #A880FF 9.3%, #8B5BF1 94.39%)',
@@ -135,7 +234,7 @@ export const themeConfig: any = {
       fillSecondaryRedClick: '#E6332A1F',
       fillSecondaryBlueHover: '#0021A514',
       fillSecondaryBlueClick: '#0021A51F',
-      fillTertriary: '#FEFEFF',
+      fillTertiary: '#FEFEFF',
       fillGreen: '#2DCC85',
       fillVioletGradient:
         'linear-gradient(266.5deg, #A880FF 9.3%, #8B5BF1 94.39%)',
@@ -170,8 +269,8 @@ export const themeConfig: any = {
   },
 };
 
-type ThemeConfig = typeof themeConfig.light;
+type DefaultThemeConfig = typeof themeConfig.light;
 
 declare module 'styled-components' {
-  export interface DefaultTheme extends ThemeConfig {}
+  export interface DefaultTheme extends DefaultThemeConfig {}
 }

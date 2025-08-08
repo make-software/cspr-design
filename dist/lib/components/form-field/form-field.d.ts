@@ -1,9 +1,5 @@
 import { ReactNode } from 'react';
-import { BaseProps } from '../../types';
-export declare enum LabelFontSize {
-    'default' = "default",
-    'small' = "small"
-}
+import { BaseProps, LabelFontSize } from '../../types';
 export declare enum FormFieldStatus {
     Error = "error",
     Success = "success"

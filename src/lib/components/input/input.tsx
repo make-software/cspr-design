@@ -1,13 +1,9 @@
 import React, { ReactNode } from 'react';
 import styled from 'styled-components';
 import { matchSize } from '../../utils/match-size';
-import FormField, { FormFieldStatus } from '../form-field/form-field';
+import { FormField, FormFieldStatus } from '../form-field/form-field';
 import SvgIcon from '../svg-icon/svg-icon';
-
-export enum LabelFontSize {
-  'default' = 'default',
-  'small' = 'small',
-}
+import { LabelFontSize } from '../../types';
 
 const getThemeColorByError = (error?: boolean) => {
   if (error == null || !error) {
@@ -47,7 +43,7 @@ const InputContainer = styled('div')<InputProps>(
       opacity: 0.5,
       color: theme.styleguideColors.contentTertiary,
     }),
-  })
+  }),
 );
 
 const StyledInput = styled.input<InputProps>(({ theme }) => ({
@@ -127,7 +123,7 @@ type Ref = HTMLInputElement;
 
 export const InputRef = React.forwardRef<Ref, InputProps>(function InputRef(
   props: InputProps,
-  ref
+  ref,
 ) {
   return <StyledInput {...props} ref={ref} />;
 });

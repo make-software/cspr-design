@@ -1,9 +1,9 @@
 import React, { ReactNode } from 'react';
 import styled from 'styled-components';
-import { BaseProps } from '../../types';
+import { BaseProps, LabelFontSize } from '../../types';
 import { SubtitleText } from '../subtitle-text/subtitle-text';
 import CaptionText from '../caption-text/caption-text';
-import BodyText from "../body-text/body-text";
+import BodyText from '../body-text/body-text';
 
 const getThemeColor = (status?: FormFieldStatus | null) => {
   if (status == null) {
@@ -23,7 +23,7 @@ const StyledContainer = styled.div<{ disabled?: boolean }>(
     ...(disabled && {
       opacity: 0.5,
     }),
-  })
+  }),
 );
 
 const LabelContainer = styled('div')(({ theme }) => ({
@@ -38,24 +38,19 @@ const StatusTextContainer = styled('div')<FormFieldProps>(
   ({ theme, status: status }) => ({
     position: 'relative',
     color: theme.styleguideColors[getThemeColor(status)],
-  })
+  }),
 );
 
 const StatusCaptionText = styled(CaptionText)`
   position: absolute;
 `;
 
-export enum LabelFontSize {
-    'default' = 'default',
-    'small' = 'small',
-}
-
 const StyledLabelText = ({ labelFontSize, ...props }) => {
-    return labelFontSize === LabelFontSize.small ? (
-        <BodyText size={1} lineHeight={'xs'} {...props} />
-    ) : (
-        <SubtitleText size={1} {...props} />
-    );
+  return labelFontSize === LabelFontSize.small ? (
+    <BodyText size={1} lineHeight={'xs'} {...props} />
+  ) : (
+    <SubtitleText size={1} {...props} />
+  );
 };
 
 export enum FormFieldStatus {
@@ -85,8 +80,16 @@ export function FormField({
   return (
     <StyledContainer {...restProps}>
       <LabelContainer>
-        {label && <StyledLabelText labelFontSize={labelFontSize} id={id}>{label}</StyledLabelText>}
-        {rightLabel && <StyledLabelText labelFontSize={labelFontSize}>{rightLabel}</StyledLabelText>}
+        {label && (
+          <StyledLabelText labelFontSize={labelFontSize} id={id}>
+            {label}
+          </StyledLabelText>
+        )}
+        {rightLabel && (
+          <StyledLabelText labelFontSize={labelFontSize}>
+            {rightLabel}
+          </StyledLabelText>
+        )}
       </LabelContainer>
 
       {children}

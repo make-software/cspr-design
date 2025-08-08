@@ -11,6 +11,7 @@ export * from './components/dropdown/dropdown';
 export * from './components/flex-box/flex-box';
 export * from './components/flex-column/flex-column';
 export * from './components/flex-row/flex-row';
+export * from './components/form-field/form-field';
 export * from './components/header-tab-menu-item/header-tab-menu-item';
 export * from './components/header-text/header-text';
 export * from './components/input/input';

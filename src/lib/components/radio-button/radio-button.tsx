@@ -31,7 +31,7 @@ const OuterCircle = styled.div<{ disabled?: boolean; color?: string }>(
     justifyContent: 'center',
     alignItems: 'center',
     marginRight: 12,
-  })
+  }),
 );
 
 const InnerCircle = styled.div<{
@@ -47,14 +47,14 @@ const InnerCircle = styled.div<{
     : theme.styleguideColors[color],
 }));
 
-export function RadioButton({
+export const RadioButton = ({
   selected,
   onChange,
   label,
   value,
   disabled,
   color,
-}: RadioButtonProps) {
+}: RadioButtonProps) => {
   return (
     <Container
       onClick={() => {
@@ -71,6 +71,6 @@ export function RadioButton({
       {label}
     </Container>
   );
-}
+};
 
 export default RadioButton;
