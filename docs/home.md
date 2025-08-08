@@ -1,5 +1,3 @@
-## Overview
-
 CSPR.design is a UI library designed to provide a set of reusable components and styles for building user interfaces in the Casper ecosystem. It is built with React and styled-components, leveraging modern web technologies to create a consistent and visually appealing design system.
 Adapted for use in Casper ecosystem projects, this library provides a consistent design language and functionality across applications.
 
