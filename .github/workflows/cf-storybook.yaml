@@ -28,6 +28,10 @@ jobs:
       - name: Build Storybook
         run: npm run build-storybook
 
+      - name: Patch CRA placeholders in Storybook HTML
+        run: |
+          sed -i 's|%PUBLIC_URL%/|/|g' storybook-static/index.html
+
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v4
         with:
