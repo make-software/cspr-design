@@ -12,7 +12,6 @@ jobs:
     name: Build and deploy storybook
     runs-on: ubuntu-latest
     steps:
-
       - name: Checkout
         uses: actions/checkout@v4
 
@@ -23,14 +22,10 @@ jobs:
           cache: npm
 
       - name: Install dependencies
-        run: npm install
+        run: npm ci
 
       - name: Build Storybook
         run: npm run build-storybook
-
-      - name: Patch CRA placeholders in Storybook HTML
-        run: |
-          sed -i 's|%PUBLIC_URL%/|/|g' storybook-static/index.html
 
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v4
