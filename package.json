@@ -20,7 +20,7 @@
     "copy-assets-vite": "shx cp -r src/lib/assets/ dist/",
     "reexport-icons": "node src/generate-icons.cjs",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "PUBLIC_URL=https://cspr.design storybook build",
+    "build-storybook": "storybook build",
     "format": "prettier --write \"./**/*.{js,jsx,ts,tsx,css,md,json}\" --config ./.prettierrc"
   },
   "dependencies": {
