@@ -8,7 +8,7 @@ import SvgIcon from '../svg-icon/svg-icon';
 
 export default {
   component: TextRow,
-  title: 'Common/Components/TextRow',
+  title: 'Forms and inputs/Text Row',
   args: {
     label: 'text row',
     rightLabel: 'right label',

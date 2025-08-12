@@ -14,7 +14,7 @@ const StyledSvgIcon = styled(SvgIcon)(() => ({
 
 export default {
   component: NavigationBanner,
-  title: 'Components/Navigation/NavigationBanner',
+  title: 'Navigation/NavigationBanner',
   args: {
     message: 'Call me maybe!',
     link: '',

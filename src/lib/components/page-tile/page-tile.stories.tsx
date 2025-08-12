@@ -7,7 +7,7 @@ import BodyText from '../body-text/body-text';
 
 export default {
   component: PageTile,
-  title: 'Components/PageTile',
+  title: 'Layout and structure/Page Tile',
   args: {
     withPadding: true,
   },
@@ -15,11 +15,16 @@ export default {
 
 const Template: StoryFn<typeof PageTile> = (args) => (
   <FlexRow itemsSpacing={30}>
-    <FlexColumn itemsSpacing={20}>
-      <PageTile {...args}>
-        <BodyText size={2}>Page Tile Content</BodyText>
-      </PageTile>
-    </FlexColumn>
+    <PageTile {...args}>
+      <FlexColumn
+        itemsSpacing={20}
+        style={{ width: '600px', height: '200px', padding: '20px' }}
+      >
+        <FlexRow itemsSpacing={20}>
+          <BodyText size={2}>Page Tile Content</BodyText>
+        </FlexRow>
+      </FlexColumn>
+    </PageTile>
   </FlexRow>
 );
 

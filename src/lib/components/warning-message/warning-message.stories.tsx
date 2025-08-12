@@ -8,7 +8,7 @@ import { InfoIcon } from '../../icons-index';
 
 export default {
   component: WarningMessage,
-  title: 'Common/Components/WarningMessage',
+  title: 'Messaging/Warning Message',
   args: {
     title: 'The amount of received CSPR may vary',
     message:

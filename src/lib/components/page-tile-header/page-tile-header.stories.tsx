@@ -8,18 +8,17 @@ import PageTile from '../page-tile/page-tile';
 
 export default {
   component: PageTileHeader,
-  title: 'Components/PageTileHeader',
+  title: 'Layout and structure/PageTile Header',
 } as Meta<typeof PageTileHeader>;
 
 const Template: StoryFn<typeof PageTileHeader> = () => (
   <FlexRow itemsSpacing={30}>
-    <FlexColumn itemsSpacing={20}>
+    <FlexColumn
+      itemsSpacing={20}
+      style={{ width: '600px', height: '200px', padding: '20px' }}
+    >
       <PageTile>
-        <PageTileHeader>Validator</PageTileHeader>
-        <BodyText size={2}>Content</BodyText>
-        <PageTileHeader>Owner</PageTileHeader>
-        <BodyText size={2}>Content</BodyText>
-        <PageTileHeader>Contract</PageTileHeader>
+        <PageTileHeader size={2}>Page Tile Header</PageTileHeader>
         <BodyText size={2}>Content</BodyText>
       </PageTile>
     </FlexColumn>

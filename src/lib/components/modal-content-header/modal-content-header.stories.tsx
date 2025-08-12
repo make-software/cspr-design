@@ -6,12 +6,46 @@ import FlexColumn from '../flex-column/flex-column';
 
 export default {
   component: ModalContentHeader,
-  title: 'Common/Components/ModalContentHeader',
+  title: 'Tooling/ModalContentHeader',
   args: {
     title: 'Choose a provider',
     subtitle: 'connect to',
     appName: 'cspr-click',
     margin: '20px',
+  },
+  argTypes: {
+    title: {
+      control: 'text',
+      description: 'Title of the modal header',
+      table: {
+        type: { summary: 'string' },
+        defaultValue: { summary: 'Choose a provider' },
+      },
+    },
+    subtitle: {
+      control: 'text',
+      description: 'Subtitle of the modal header',
+      table: {
+        type: { summary: 'string' },
+        defaultValue: { summary: 'connect to' },
+      },
+    },
+    appName: {
+      control: 'text',
+      description: 'Name of the application',
+      table: {
+        type: { summary: 'string' },
+        defaultValue: { summary: 'cspr-click' },
+      },
+    },
+    margin: {
+      control: 'text',
+      description: 'Margin around the modal header',
+      table: {
+        type: { summary: 'string' },
+        defaultValue: { summary: '20px' },
+      },
+    },
   },
 } as Meta<typeof ModalContentHeader>;
 

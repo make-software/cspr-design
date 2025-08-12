@@ -12,7 +12,7 @@ import { StoryFn } from '@storybook/react';
 
 export default {
   component: Text,
-  title: 'Core/Typography/Text',
+  title: 'Primitives/Text',
   args: {
     loading: false,
   },

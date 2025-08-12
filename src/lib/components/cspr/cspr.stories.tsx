@@ -8,26 +8,35 @@ import { PrecisionCase } from '../../utils/currency';
 
 export default {
   component: Cspr,
-  title: 'Common/Components/Cspr',
+  title: 'Primitives/Cspr',
   args: {
     motes: '3000',
     precisionCase: PrecisionCase.deployCost,
+    hideCsprCurrency: false,
+  },
+  argTypes: {
+    motes: {
+      control: 'text',
+      description: 'Amount in motes to be displayed',
+      table: {
+        type: { summary: 'string' },
+        defaultValue: { summary: '3000' },
+      },
+    },
+    precisionCase: {
+      control: 'select',
+      options: Object.values(PrecisionCase),
+    },
+    hideCsprCurrency: {
+      control: 'boolean',
+    },
   },
 } as Meta<typeof Cspr>;
 
 const Template: StoryFn<typeof Cspr> = (args) => (
   <FlexRow itemsSpacing={30}>
     <FlexColumn itemsSpacing={20}>
-      <BodyText size={2}>PrecisionCase DeployCost</BodyText>
       <Cspr {...args} />
-    </FlexColumn>
-    <FlexColumn itemsSpacing={20}>
-      <BodyText size={2}>PrecisionCase Full</BodyText>
-      <Cspr motes="5000000" precisionCase={PrecisionCase.full} />
-    </FlexColumn>
-    <FlexColumn itemsSpacing={20}>
-      <BodyText size={2}>Motes 0</BodyText>
-      <Cspr motes="0" precisionCase={PrecisionCase.full} />
     </FlexColumn>
   </FlexRow>
 );

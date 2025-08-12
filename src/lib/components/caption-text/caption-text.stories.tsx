@@ -8,7 +8,7 @@ import TruncateBox from '../truncate-box/truncate-box';
 
 export default {
   component: CaptionText,
-  title: 'Core/Typography/CaptionText',
+  title: 'Primitives/Caption Text',
   args: {
     size: 1,
     variation: 'contentViolet',

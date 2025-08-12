@@ -1,58 +1,62 @@
 import React from 'react';
 import { Meta, StoryFn } from '@storybook/react';
 import AccountInfoRow from './account-info-row';
-import FlexRow from '../flex-row/flex-row';
 import FlexColumn from '../flex-column/flex-column';
-import BodyText from '../body-text/body-text';
-import styled from 'styled-components';
-
-const AccountInfoContainer = styled(FlexRow)(() => ({
-  width: '100%',
-  marginBottom: '32px',
-}));
 
 export default {
   component: AccountInfoRow,
-  title: 'Common/Components/AccountInfoRow',
+  title: 'Forms and inputs/Account Info Row',
+  parameters: {
+    controls: {
+      sort: 'requiredFirst',
+      include: ['publicKey', 'ticker', 'accountBalance', 'disabled', 'label'],
+    },
+  },
   args: {
     publicKey:
       '0202fa4d6ff148562fe18cdb5aca0bb6c3b96592cdacad8587eb906c3e4b1ac7258a',
     label: 'Account',
-    accountBalance: '3000000',
+    accountBalance: '3987654321',
     loading: false,
     error: null,
     accountEmpty: false,
     disabled: false,
   },
+  argTypes: {
+    publicKey: {
+      control: 'text',
+      description: 'Public key of the account',
+      table: {
+        type: { summary: 'string' },
+        defaultValue: { summary: '' },
+      },
+    },
+    ticker: {
+      control: 'select',
+      options: ['CSPR', 'BOIN'],
+    },
+    label: {
+      control: 'text',
+      description: 'Label for the account info row',
+      table: {
+        type: { summary: 'string' },
+        defaultValue: { summary: '' },
+      },
+    },
+    accountBalance: {
+      control: 'text',
+      description: 'Balance of the account',
+      table: {
+        type: { summary: 'string' },
+        defaultValue: { summary: '' },
+      },
+    },
+  },
 } as Meta<typeof AccountInfoRow>;
 
-const boinInfoRow = {
-  publicKey:
-    '0202fa4d6ff148562fe18cdb5aca0bb6c3b96592cdacad8587eb906c3e4b1ac7258a',
-  label: 'Account',
-  accountBalance: '3987654321',
-  ticker: 'BOIN',
-  loading: false,
-  error: null,
-  accountEmpty: false,
-  disabled: false,
-  cep18Config: { decimals: 9, precision: 5 },
-};
-
 const Template: StoryFn<typeof AccountInfoRow> = (args) => (
-  <FlexColumn>
-    <AccountInfoContainer itemsSpacing={30}>
-      <FlexColumn itemsSpacing={20}>
-        <BodyText size={2}>CSPR Account Info Row</BodyText>
-        <AccountInfoRow {...args} />
-      </FlexColumn>
-    </AccountInfoContainer>
-    <AccountInfoContainer itemsSpacing={30}>
-      <FlexColumn itemsSpacing={20}>
-        <BodyText size={2}>BOIN Account Info Row</BodyText>
-        <AccountInfoRow {...boinInfoRow} />
-      </FlexColumn>
-    </AccountInfoContainer>
+  <FlexColumn itemsSpacing={20}>
+    <AccountInfoRow {...args} />
   </FlexColumn>
 );
 

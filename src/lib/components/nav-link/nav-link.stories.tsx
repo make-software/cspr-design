@@ -7,7 +7,7 @@ import SubtitleText from '../subtitle-text/subtitle-text';
 
 export default {
   component: NavLink,
-  title: 'Components/NavLink',
+  title: 'Navigation/NavLink',
   args: {
     href: './',
     disabled: false,

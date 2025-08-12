@@ -9,7 +9,7 @@ import { fn } from 'storybook/test';
 
 export default {
   component: ConfirmationWindow,
-  title: 'Components/ConfirmationWindow',
+  title: 'Overlays and layering/Confirmation Window',
   tags: ['autodocs'],
   args: {
     isOpen: true,
