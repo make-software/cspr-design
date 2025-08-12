@@ -4,7 +4,7 @@ import SearchableDropdown from './searchable-dropdown';
 
 export default {
   component: SearchableDropdown,
-  title: 'SearchableDropdown',
+  title: 'Components/SearchableDropdown',
   args: {
     height: 'auto',
     fontSize: '14px',

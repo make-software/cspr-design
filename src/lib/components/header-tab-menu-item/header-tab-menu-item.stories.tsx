@@ -7,7 +7,7 @@ import TabMenu from '../tab-menu/tab-menu';
 
 export default {
   component: HeaderTabMenuItem,
-  title: 'HeaderTabMenuItem',
+  title: 'Components/HeaderTabMenuItem',
   args: {
     active: false,
     monotype: false,

@@ -5,7 +5,7 @@ import { NavigationSettingsContainer } from '../container';
 
 export default {
   component: Account,
-  title: 'Common/Navigation/Account',
+  title: 'Components/Navigation/Account',
   args: {},
   argTypes: {
     hash: {

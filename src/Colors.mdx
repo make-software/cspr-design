@@ -1,0 +1,138 @@
+import {ColorItem, ColorPalette, Meta} from '@storybook/addon-docs/blocks';
+import {themeConfig} from "./lib/index.js";
+
+<Meta title="3. Color palette"/>
+
+# Color palette
+
+<br/>
+___
+<br/>
+
+# Light
+
+<ColorPalette>
+    <ColorItem
+        title="Backgrounds"
+        subtitle={'These colors are used for backgrounds and containers.'}
+        colors={{
+            backgroundPrimary: themeConfig.light.styleguideColors.backgroundPrimary,
+            backgroundSecondary: themeConfig.light.styleguideColors.backgroundSecondary,
+            backgroundTertiary: themeConfig.light.styleguideColors.backgroundTertiary,
+            backgroundQuaternary: themeConfig.light.styleguideColors.backgroundQuaternary
+        }}
+    />
+    <ColorItem
+        title="Borders (lines, borders)"
+        subtitle={'These colors are used for borders and lines.'}
+        colors={{
+            borderPrimary: themeConfig.light.styleguideColors.borderPrimary,
+            borderSecondary: themeConfig.light.styleguideColors.borderPrimary,
+            borderRed: themeConfig.light.styleguideColors.borderRed
+        }}
+    />
+    <ColorItem
+        title="Fills (buttons, dropdowns, inputs)"
+        subtitle={'These colors are used for buttons, dropdowns, and inputs.'}
+        colors={{
+            fillPrimaryRed: themeConfig.light.styleguideColors.fillPrimaryRed,
+            fillPrimaryRedHover: themeConfig.light.styleguideColors.fillPrimaryRedHover,
+            fillPrimaryRedClick: themeConfig.light.styleguideColors.fillPrimaryRedClick,
+            fillPrimaryBlue: themeConfig.light.styleguideColors.fillPrimaryBlue,
+            fillPrimaryBlueHover: themeConfig.light.styleguideColors.fillPrimaryBlueHover,
+            fillPrimaryBlueClick: themeConfig.light.styleguideColors.fillPrimaryBlueClick,
+            fillSecondary: themeConfig.light.styleguideColors.fillSecondary,
+            fillSecondaryRedHover: themeConfig.light.styleguideColors.fillSecondaryRedHover,
+            fillSecondaryRedClick: themeConfig.light.styleguideColors.fillSecondaryRedClick,
+            fillSecondaryBlueHover: themeConfig.light.styleguideColors.fillSecondaryBlueHover,
+            fillSecondaryBlueClick: themeConfig.light.styleguideColors.fillSecondaryBlueClick,
+            fillTertiary: themeConfig.light.styleguideColors.fillTertiary,
+            fillGreen: themeConfig.light.styleguideColors.fillGreen,
+            fillVioletGradient: themeConfig.light.styleguideColors.fillVioletGradient,
+            fillBlueGradient: themeConfig.light.styleguideColors.fillBlueGradient,
+            fillLoadingInTable: themeConfig.light.styleguideColors.fillLoadingInTable
+        }}
+    />
+    <ColorItem
+        title="Content (text, icons)"
+        subtitle={'These colors are used for text and icons.'}
+        colors={{
+            fillPrimaryRed: themeConfig.light.styleguideColors.contentPrimary,
+            fillPrimaryRedHover: themeConfig.light.styleguideColors.contentSecondary,
+            fillPrimaryRedClick: themeConfig.light.styleguideColors.contentTertiary,
+            fillPrimaryBlue: themeConfig.light.styleguideColors.contentQuaternary,
+            fillPrimaryBlueHover: themeConfig.light.styleguideColors.contentOnFill,
+            fillPrimaryBlueClick: themeConfig.light.styleguideColors.contentBlue,
+            fillSecondary: themeConfig.light.styleguideColors.contentRed,
+            fillSecondaryRedHover: themeConfig.light.styleguideColors.contentGreen,
+            fillSecondaryRedClick: themeConfig.light.styleguideColors.contentViolet,
+            fillSecondaryBlueHover: themeConfig.light.styleguideColors.contentYellow,
+            fillSecondaryBlueClick: themeConfig.light.styleguideColors.contentWarmGreen,
+            fillTertiary: themeConfig.light.styleguideColors.contentLightBlue,
+        }}
+    />
+</ColorPalette>
+
+# Dark
+
+<ColorPalette>
+    <ColorItem
+        title="Backgrounds"
+        subtitle={'These colors are used for backgrounds and containers.'}
+        colors={{
+            backgroundPrimary: themeConfig.dark.styleguideColors.backgroundPrimary,
+            backgroundSecondary: themeConfig.dark.styleguideColors.backgroundSecondary,
+            backgroundTertiary: themeConfig.dark.styleguideColors.backgroundTertiary,
+            backgroundQuaternary: themeConfig.dark.styleguideColors.backgroundQuaternary
+        }}
+    />
+    <ColorItem
+        title="Borders (lines, borders)"
+        subtitle={'These colors are used for borders and lines.'}
+        colors={{
+            borderPrimary: themeConfig.dark.styleguideColors.borderPrimary,
+            borderSecondary: themeConfig.dark.styleguideColors.borderPrimary,
+            borderRed: themeConfig.dark.styleguideColors.borderRed
+        }}
+    />
+    <ColorItem
+        title="Fills (buttons, dropdowns, inputs)"
+        subtitle={'These colors are used for buttons, dropdowns, and inputs.'}
+        colors={{
+            fillPrimaryRed: themeConfig.dark.styleguideColors.fillPrimaryRed,
+            fillPrimaryRedHover: themeConfig.dark.styleguideColors.fillPrimaryRedHover,
+            fillPrimaryRedClick: themeConfig.dark.styleguideColors.fillPrimaryRedClick,
+            fillPrimaryBlue: themeConfig.dark.styleguideColors.fillPrimaryBlue,
+            fillPrimaryBlueHover: themeConfig.dark.styleguideColors.fillPrimaryBlueHover,
+            fillPrimaryBlueClick: themeConfig.dark.styleguideColors.fillPrimaryBlueClick,
+            fillSecondary: themeConfig.dark.styleguideColors.fillSecondary,
+            fillSecondaryRedHover: themeConfig.dark.styleguideColors.fillSecondaryRedHover,
+            fillSecondaryRedClick: themeConfig.dark.styleguideColors.fillSecondaryRedClick,
+            fillSecondaryBlueHover: themeConfig.dark.styleguideColors.fillSecondaryBlueHover,
+            fillSecondaryBlueClick: themeConfig.dark.styleguideColors.fillSecondaryBlueClick,
+            fillTertiary: themeConfig.dark.styleguideColors.fillTertiary,
+            fillGreen: themeConfig.dark.styleguideColors.fillGreen,
+            fillVioletGradient: themeConfig.dark.styleguideColors.fillVioletGradient,
+            fillBlueGradient: themeConfig.dark.styleguideColors.fillBlueGradient,
+            fillLoadingInTable: themeConfig.dark.styleguideColors.fillLoadingInTable
+        }}
+    />
+    <ColorItem
+        title="Content (text, icons)"
+        subtitle={'These colors are used for text and icons.'}
+        colors={{
+            fillPrimaryRed: themeConfig.dark.styleguideColors.contentPrimary,
+            fillPrimaryRedHover: themeConfig.dark.styleguideColors.contentSecondary,
+            fillPrimaryRedClick: themeConfig.dark.styleguideColors.contentTertiary,
+            fillPrimaryBlue: themeConfig.dark.styleguideColors.contentQuaternary,
+            fillPrimaryBlueHover: themeConfig.dark.styleguideColors.contentOnFill,
+            fillPrimaryBlueClick: themeConfig.dark.styleguideColors.contentBlue,
+            fillSecondary: themeConfig.dark.styleguideColors.contentRed,
+            fillSecondaryRedHover: themeConfig.dark.styleguideColors.contentGreen,
+            fillSecondaryRedClick: themeConfig.dark.styleguideColors.contentViolet,
+            fillSecondaryBlueHover: themeConfig.dark.styleguideColors.contentYellow,
+            fillSecondaryBlueClick: themeConfig.dark.styleguideColors.contentWarmGreen,
+            fillTertiary: themeConfig.dark.styleguideColors.contentLightBlue,
+        }}
+    />
+</ColorPalette>

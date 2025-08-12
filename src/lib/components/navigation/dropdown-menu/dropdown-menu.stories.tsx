@@ -14,7 +14,7 @@ import { UserIcon } from '../../../icons-index';
 
 export default {
   component: DropdownMenu,
-  title: 'Common/Navigation/Dropdown Menu',
+  title: 'Components/Navigation/Dropdown Menu',
   args: {
     opened: true,
     multiColumn: false,

@@ -7,7 +7,7 @@ import BodyText from '../body-text/body-text';
 
 export default {
   component: PageTile,
-  title: 'PageTile',
+  title: 'Components/PageTile',
   args: {
     withPadding: true,
   },

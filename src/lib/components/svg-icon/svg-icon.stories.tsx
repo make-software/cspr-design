@@ -7,7 +7,7 @@ import FlexRow from '../flex-row/flex-row';
 
 export default {
   component: SvgIcon,
-  title: 'SvgIcon',
+  title: 'Components/SvgIcon',
 } as Meta<typeof SvgIcon>;
 
 const Template: StoryFn<typeof SvgIcon> = (args) => (

@@ -8,7 +8,7 @@ import PageTile from '../page-tile/page-tile';
 
 export default {
   component: PageTileHeader,
-  title: 'PageTileHeader',
+  title: 'Components/PageTileHeader',
 } as Meta<typeof PageTileHeader>;
 
 const Template: StoryFn<typeof PageTileHeader> = () => (

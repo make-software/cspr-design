@@ -7,7 +7,7 @@ import TabMenuItem from '../tab-menu-item/tab-menu-item';
 
 export default {
   component: TabMenu,
-  title: 'TabMenu',
+  title: 'Components/TabMenu',
 } as Meta<typeof TabMenu>;
 
 const Template: StoryFn<typeof TabMenu> = () => (

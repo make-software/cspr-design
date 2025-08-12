@@ -11,7 +11,7 @@ import TabMenuItem from '../tab-menu-item/tab-menu-item';
 
 export default {
   component: TabContent,
-  title: 'TabContent',
+  title: 'Components/TabContent',
 } as Meta<typeof PageTile>;
 
 const Template: StoryFn<typeof PageTile> = () => (

@@ -11,7 +11,7 @@ import { HeaderMenuIcon, LockImageIcon, WarningIcon } from '../../icons-index';
 
 export default {
   component: UserInputWindow,
-  title: 'User Input Window Window',
+  title: 'Components/UserInputWindow',
   args: {
     isOpen: true,
     position: ModalPosition.TopRight,
