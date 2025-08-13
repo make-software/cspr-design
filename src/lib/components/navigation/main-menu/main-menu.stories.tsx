@@ -17,7 +17,7 @@ const Container = styled.div(({ theme }) =>
 
 export default {
   component: MainMenuItem,
-  title: 'Common/Navigation/Main Menu',
+  title: 'Navigation/Main Menu',
   args: {},
 } as Meta<typeof MainMenuItem>;
 

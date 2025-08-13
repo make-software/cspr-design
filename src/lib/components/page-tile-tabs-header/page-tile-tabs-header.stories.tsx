@@ -9,7 +9,7 @@ import TabMenuItem from '../tab-menu-item/tab-menu-item';
 
 export default {
   component: PageTileTabsHeader,
-  title: 'PageTileTabsHeader',
+  title: 'Layout and structure/PageTileTabsHeader',
 } as Meta<typeof PageTileTabsHeader>;
 
 const Template: StoryFn<typeof PageTileTabsHeader> = () => (

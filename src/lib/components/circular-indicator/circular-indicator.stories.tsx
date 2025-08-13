@@ -7,7 +7,7 @@ import BodyText from '../body-text/body-text';
 
 export default {
   component: CircularIndicator,
-  title: 'Common/Components/CircularIndicator',
+  title: 'Status indicators/Circular Indicator',
   args: {
     size: 'medium',
     textSize: 1,

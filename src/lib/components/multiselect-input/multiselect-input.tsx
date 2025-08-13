@@ -1,9 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import { useMultipleSelection, useCombobox } from 'downshift';
-import DownIcon from 'assets/icons/ic-arrow-down.svg';
-import SearchIcon from 'assets/icons/ic-search.svg';
-import DeleteIcon from 'assets/icons/ic-delete.svg';
 import { useClickAndTouchAway } from '../../hooks/use-click-and-touch-away';
 import FlexRow from '../flex-row/flex-row';
 import FlexColumn from '../flex-column/flex-column';
@@ -11,6 +8,7 @@ import BodyText from '../body-text/body-text';
 import { BaseProps } from '../../types';
 import SvgIcon from '../svg-icon/svg-icon';
 import Input from '../input/input';
+import { ArrowDownIcon, DeleteIcon, SearchIcon } from '../../icons-index';
 
 const DropdownContainer = styled.div<{ disabled?: boolean }>(
   ({ theme, disabled }) => ({
@@ -344,7 +342,7 @@ export function MultiSelectInput(props: MultiSelectInputProps) {
                   marginRight
                 />
               )}
-              <ArrowSvgIcon src={DownIcon} rotate={isOpen} />
+              <ArrowSvgIcon src={ArrowDownIcon} rotate={isOpen} />
             </DropdownIconWrapper>
           </MultiSelectContainer>
           <ItemsContainer {...getMenuProps()} isOpen={isOpen}>
@@ -384,3 +382,5 @@ export function MultiSelectInput(props: MultiSelectInputProps) {
     </DropdownContainer>
   );
 }
+
+export default MultiSelectInput;

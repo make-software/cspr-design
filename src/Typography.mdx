@@ -1,0 +1,161 @@
+import {Meta, Typeset} from '@storybook/addon-docs/blocks';
+import {themeConfig} from "./lib/index.js";
+
+<Meta title="Typography"/>
+
+export const typography = {
+    type: {
+        primary: themeConfig.light.typography.fontFamily.primary,
+        mono: themeConfig.light.typography.fontFamily.mono,
+    },
+    weight: {
+        light: 300,
+        regular: 400,
+        medium: 500,
+        semiBold: 600,
+        bold: 700,
+        extraBold: 800,
+    },
+    size: {
+        label: {
+            sm: 10,
+        },
+        caption: {
+            sm: 11,
+        },
+        body: {
+            xs: 13,
+            sm: 14,
+            md: 16,
+        },
+        subtitle: {
+            md: 18,
+            lg: 20,
+        },
+        header: {
+            sm: 24,
+            md: 28,
+            lg: 32,
+            xl: 40,
+            xxl: 46,
+        }
+    },
+};
+
+export const SampleText = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.';
+
+# Typography
+
+<br/>
+___
+<br/>
+
+### **Font:** Inter
+
+**Weights:** light: 300, regular: 400, medium: 500, semiBold: 600, bold: 700, extraBold: 800
+
+### **Header:**
+
+<Typeset
+    fontSizes={[
+        Number(typography.size.header.sm),
+        Number(typography.size.header.md),
+        Number(typography.size.header.lg),
+        Number(typography.size.header.xl),
+        Number(typography.size.header.xxl),
+    ]}
+    fontWeight={typography.weight.medium}
+    sampleText={SampleText}
+    fontFamily={typography.type.primary}
+/>
+
+### **Subtitle:**
+
+<Typeset
+    fontSizes={[
+        Number(typography.size.subtitle.md),
+        Number(typography.size.subtitle.lg),
+    ]}
+    fontWeight={typography.weight.medium}
+    sampleText={SampleText}
+    fontFamily={typography.type.primary}
+/>
+
+### **Body:**
+
+<Typeset
+    fontSizes={[
+        Number(typography.size.body.xs),
+        Number(typography.size.body.sm),
+        Number(typography.size.body.md),
+    ]}
+    fontWeight={typography.weight.medium}
+    sampleText={SampleText}
+    fontFamily={typography.type.primary}
+/>
+
+### **Caption:**
+
+<Typeset
+    fontSizes={[
+        Number(typography.size.caption.sm),
+    ]}
+    fontWeight={typography.weight.medium}
+    sampleText={SampleText}
+    fontFamily={typography.type.primary}
+/>
+
+
+### **Label:**
+
+<Typeset
+    fontSizes={[
+        Number(typography.size.label.sm),
+    ]}
+    fontWeight={typography.weight.medium}
+    sampleText={SampleText}
+    fontFamily={typography.type.primary}
+/>
+
+
+<br/>
+___
+<br/>
+
+### **Font:** JetBrains Mono
+
+**Weights:** regular: 400, medium: 500, bold: 700,
+
+### **Header:**
+
+<Typeset
+    fontSizes={[
+        Number(typography.size.header.sm),
+    ]}
+    fontWeight={typography.weight.medium}
+    sampleText={SampleText}
+    fontFamily={typography.type.mono}
+/>
+
+### **Subtitle:**
+
+<Typeset
+    fontSizes={[
+        Number(typography.size.subtitle.lg),
+    ]}
+    fontWeight={typography.weight.medium}
+    sampleText={SampleText}
+    fontFamily={typography.type.mono}
+/>
+
+### **Body:**
+
+<Typeset
+    fontSizes={[
+        Number(typography.size.body.xs),
+        Number(typography.size.body.sm),
+    ]}
+    fontWeight={typography.weight.medium}
+    sampleText={SampleText}
+    fontFamily={typography.type.mono}
+/>

@@ -3,10 +3,11 @@ import styled from 'styled-components';
 import { BaseProps, LabelFontSize } from '../../types';
 import FormField, { FormFieldStatus } from '../form-field/form-field';
 import SvgIcon from '../svg-icon/svg-icon';
+import { ErrorIcon } from '../../icons-index.ts';
 
 const getThemeColorByError = (error?: boolean) => {
   if (!error) {
-    return 'fillSecondary';
+    return ''; // return empty string to not override icon color if any
   }
 
   return 'contentRed';
@@ -71,6 +72,7 @@ export interface TextareaProps extends BaseProps {
   label?: ReactNode | string;
   labelFontSize?: LabelFontSize;
   rightLabel?: ReactNode | string;
+  /** @deprecated */
   prefixIcon?: ReactNode | null;
   suffixIcon?: ReactNode | null;
   error?: boolean;
@@ -85,6 +87,7 @@ export function Textarea({
   label,
   rightLabel,
   suffixIcon,
+  prefixIcon,
   error,
   validationText,
   onFocus,
@@ -97,7 +100,7 @@ export function Textarea({
   };
 
   if (error) {
-    suffixIcon = <SvgIcon src="assets/icons/ic-error.svg" />;
+    suffixIcon = <SvgIcon src={ErrorIcon} />;
   }
 
   return (

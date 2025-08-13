@@ -8,7 +8,7 @@ import TruncateBox from '../truncate-box/truncate-box';
 
 export default {
   component: HeaderText,
-  title: 'Core/Typography/HeaderText',
+  title: 'Primitives/Header Text',
   args: {
     size: 1,
     scale: 'md',

@@ -8,7 +8,7 @@ import TruncateBox from '../truncate-box/truncate-box';
 
 export default {
   component: BodyText,
-  title: 'Core/Typography/BodyText',
+  title: 'Primitives/Body Text',
   args: {
     size: 1,
     monotype: true,

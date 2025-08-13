@@ -8,7 +8,7 @@ import SubtitleText from './subtitle-text';
 
 export default {
   component: SubtitleText,
-  title: 'Core/Typography/SubtitleText',
+  title: 'Primitives/Subtitle Text',
   args: {
     size: 1,
     scale: 'md',

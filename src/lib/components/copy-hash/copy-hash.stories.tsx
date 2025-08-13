@@ -6,12 +6,15 @@ import FlexColumn from '../flex-column/flex-column';
 
 export default {
   component: CopyHash,
-  title: 'Common/Components/CopyHash',
+  title: 'Forms and inputs/Copy To Clipboard',
   args: {
     value: 'some value',
     label: 'Copy Public Key',
     copiedLabel: 'Copied!',
     minified: false,
+  },
+  argTypes: {
+    value: { control: 'text', description: 'Value to copy' },
   },
 } as Meta<typeof CopyHash>;
 

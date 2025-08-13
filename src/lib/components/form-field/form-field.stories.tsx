@@ -7,7 +7,7 @@ import Input from '../input/input';
 
 export default {
   component: FormField,
-  title: 'FormField',
+  title: 'Forms and inputs/FormField',
   args: {
     id: 'form',
     label: 'label',

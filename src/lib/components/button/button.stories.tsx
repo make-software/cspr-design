@@ -19,10 +19,10 @@ const Container = styled.div(({ theme }) => ({
 
 export default {
   component: Button,
-  title: 'Core/Components/Button',
+  title: 'Forms and inputs/Button',
   argTypes: {
     height: '36',
-    disabled: false,
+    disabled: { control: { type: 'boolean' } },
     color: 'primaryRed',
     children: 'Button',
   },

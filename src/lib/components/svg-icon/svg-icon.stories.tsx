@@ -7,7 +7,9 @@ import FlexRow from '../flex-row/flex-row';
 
 export default {
   component: SvgIcon,
-  title: 'SvgIcon',
+  title: 'Image and icons/Icon aka SvgIcon',
+  args: { src: FacebookIcon },
+  argTypes: { src: { control: { type: 'ReactElement' } } },
 } as Meta<typeof SvgIcon>;
 
 const Template: StoryFn<typeof SvgIcon> = (args) => (
@@ -16,9 +18,6 @@ const Template: StoryFn<typeof SvgIcon> = (args) => (
 
 export const Primary = Template.bind({});
 // More on args: https://storybook.js.org/docs/react/writing-stories/args
-Primary.args = {
-  src: FacebookIcon,
-};
 
 export const SocialMediaIcons = () => (
   <FlexRow itemsSpacing={10}>

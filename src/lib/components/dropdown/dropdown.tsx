@@ -171,7 +171,6 @@ export interface DropdownProps extends BaseProps {
   label?: string;
   placeholder?: string;
   areItemsRemovable?: boolean;
-  isSearchable?: boolean;
   onChange?: (ev: DropdownEventValue) => void;
   onSelect?: (ev: DropdownEventValue) => void;
   onRemove?: (ev: DropdownEventValue) => void;
