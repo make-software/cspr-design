@@ -63,19 +63,27 @@ export interface StatusMessageProps {
   status: AlertStatus;
   scale?: 'xs' | 'sm' | 'md' | 'lg' | 'xl';
   lineHeight?: 'xs' | 'sm';
+  /** Able to provide any existing icon or a path to it.
+   *
+   * NOTE: default status icons will not work in that case */
+  iconSrc?: string;
 }
 
 export const Alert = (props: StatusMessageProps) => {
   const { message, title, status, scale = 'sm', lineHeight = 'sm' } = props;
 
-  const iconPath = Icons[status];
+  const iconPath = props.iconSrc ? props.iconSrc : Icons[status];
+  const statusAlert = props.iconSrc ? '' : status;
 
   if (title) {
     return (
-      <Container status={status} itemsSpacing={8}>
+      <Container status={statusAlert} itemsSpacing={8}>
         <FlexColumn itemsSpacing={8}>
           <FlexRow align={'center'} itemsSpacing={8}>
-            <SvgIcon src={iconPath} alt={`Alert icon with ${status} status`} />
+            <SvgIcon
+              src={iconPath}
+              alt={`Alert icon with ${statusAlert} status`}
+            />
             <BodyText
               size={1}
               lineHeight={lineHeight}
@@ -86,7 +94,12 @@ export const Alert = (props: StatusMessageProps) => {
             </BodyText>
           </FlexRow>
 
-          <BodyText size={3} lineHeight={lineHeight} scale={scale}>
+          <BodyText
+            variation={'black'}
+            size={3}
+            lineHeight={lineHeight}
+            scale={scale}
+          >
             {message}
           </BodyText>
         </FlexColumn>
@@ -95,9 +108,14 @@ export const Alert = (props: StatusMessageProps) => {
   }
 
   return (
-    <Container status={status} align="center" itemsSpacing={8}>
+    <Container status={statusAlert} align="center" itemsSpacing={8}>
       <SvgIcon src={iconPath} />
-      <BodyText size={3} lineHeight={lineHeight} scale={scale}>
+      <BodyText
+        size={3}
+        lineHeight={lineHeight}
+        scale={scale}
+        variation={'black'}
+      >
         {message}
       </BodyText>
     </Container>

@@ -4,7 +4,7 @@ import Big from 'big.js';
 import { BodyText } from '../body-text/body-text';
 import { FlexColumn } from '../flex-column/flex-column';
 import { FlexRow } from '../flex-row/flex-row';
-import {DEFAULT_PRECISION, formatHash} from '../../utils/formatters';
+import { DEFAULT_PRECISION, formatHash } from '../../utils/formatters';
 import { Tooltip } from '../tooltip/tooltip';
 import { useMatchMedia } from '../../utils/match-media';
 import { CopyHash } from '../copy-hash/copy-hash';
@@ -12,7 +12,7 @@ import { Cspr } from '../cspr/cspr';
 
 import { PrecisionCase } from '../../utils/currency';
 import { HashLength } from '../../utils/formatters';
-import CEP18Token from "../cep18-token/cep18-token";
+import CEP18Token from '../cep18-token/cep18-token';
 
 export const ValuesRow = styled(FlexRow)(({ theme }) => ({
   height: 36,
@@ -27,7 +27,7 @@ const StyledFlexColumn = styled(FlexColumn)<{ disabled?: boolean }>(
     ...(disabled && {
       opacity: 0.5,
     }),
-  })
+  }),
 );
 
 const BalanceText = styled(BodyText)(({}) => ({
@@ -51,14 +51,18 @@ interface TickerProps {
   cep18Config?: CEP18Config;
 }
 
-const Ticker = ({ticker, cep18Config, ...props }: TickerProps) => {
-  return ticker === 'CSPR' ?
-      <Cspr {...props}/> :
-      <CEP18Token ticker={ticker}
-                  motes={props.motes}
-                  decimals={cep18Config?.decimals || DEFAULT_PRECISION}
-                  precision={cep18Config?.precision || DEFAULT_PRECISION} />;
-}
+const Ticker = ({ ticker, cep18Config, ...props }: TickerProps) => {
+  return ticker === 'CSPR' ? (
+    <Cspr {...props} />
+  ) : (
+    <CEP18Token
+      ticker={ticker}
+      motes={props.motes}
+      decimals={cep18Config?.decimals || DEFAULT_PRECISION}
+      precision={cep18Config?.precision || DEFAULT_PRECISION}
+    />
+  );
+};
 
 interface AccountInfoBalanceProps {
   accountBalance: string | null;
@@ -69,26 +73,38 @@ interface AccountInfoBalanceProps {
   cep18Config?: CEP18Config;
 }
 
-const AccountInfoBalance = ({accountBalance, emptyBalance, loading, error, cep18Config, ticker = 'CSPR'}: AccountInfoBalanceProps) => {
+const AccountInfoBalance = ({
+  accountBalance,
+  emptyBalance,
+  loading,
+  error,
+  cep18Config,
+  ticker = 'CSPR',
+}: AccountInfoBalanceProps) => {
   return (
-      <BalanceText size={3} monotype>
-        {emptyBalance ? (
-            <Ticker ticker={ticker} motes={'0'} precisionCase={PrecisionCase.deployCost} cep18Config={cep18Config} />
-        ) : loading ? (
-            'Loading...'
-        ) : error != null ? (
-            error
-        ) : (
-              <Ticker
-                  ticker={ticker}
-                  motes={accountBalance}
-                  precisionCase={PrecisionCase.deployCost}
-                  cep18Config={cep18Config}
-              />
-        )}
-      </BalanceText>
-  )
-}
+    <BalanceText size={3} variation={'black'} monotype>
+      {emptyBalance ? (
+        <Ticker
+          ticker={ticker}
+          motes={'0'}
+          precisionCase={PrecisionCase.deployCost}
+          cep18Config={cep18Config}
+        />
+      ) : loading ? (
+        'Loading...'
+      ) : error != null ? (
+        error
+      ) : (
+        <Ticker
+          ticker={ticker}
+          motes={accountBalance}
+          precisionCase={PrecisionCase.deployCost}
+          cep18Config={cep18Config}
+        />
+      )}
+    </BalanceText>
+  );
+};
 
 export interface AccountInfoRowProps {
   publicKey: string;
@@ -99,7 +115,7 @@ export interface AccountInfoRowProps {
   error: string | null;
   accountEmpty: boolean;
   disabled?: boolean;
-  ticker?:string;
+  ticker?: string;
   cep18Config?: CEP18Config;
 }
 
@@ -116,9 +132,9 @@ export function AccountInfoRow(props: AccountInfoRowProps) {
     cep18Config,
   } = props;
 
-  const responsiveHashSize = useMatchMedia(
+  const responsiveHashSize = useMatchMedia<HashLength>(
     [HashLength.TINY, HashLength.SMALL, HashLength.SMALL, HashLength.SMALL],
-    []
+    [],
   );
 
   const emptyBalance =
@@ -128,15 +144,19 @@ export function AccountInfoRow(props: AccountInfoRowProps) {
   return (
     <StyledFlexColumn disabled={props.disabled} gap={4}>
       <FlexRow justify="space-between">
-        <BodyText size={1}>{label}</BodyText>
-        <BodyText size={1}>{rightLabel}</BodyText>
+        <BodyText size={1} variation={'black'}>
+          {label}
+        </BodyText>
+        <BodyText size={1} variation={'black'}>
+          {rightLabel}
+        </BodyText>
       </FlexRow>
       <ValuesRow justify="space-between" align="center">
         {publicKey && (
           <>
             <FlexRow align="center">
               <Tooltip title={publicKey}>
-                <BodyText size={3} monotype>
+                <BodyText size={3} variation={'black'} monotype>
                   {formatHash(publicKey, responsiveHashSize)}
                 </BodyText>
               </Tooltip>
@@ -144,7 +164,14 @@ export function AccountInfoRow(props: AccountInfoRowProps) {
                 <CopyHash value={publicKey} minified variation="gray" />
               </StyledIconContainer>
             </FlexRow>
-            <AccountInfoBalance accountBalance={accountBalance} emptyBalance={emptyBalance} error={error} loading={loading} ticker={ticker} cep18Config={cep18Config}/>
+            <AccountInfoBalance
+              accountBalance={accountBalance}
+              emptyBalance={emptyBalance}
+              error={error}
+              loading={loading}
+              ticker={ticker}
+              cep18Config={cep18Config}
+            />
           </>
         )}
       </ValuesRow>
