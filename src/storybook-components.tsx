@@ -5,7 +5,7 @@ import FlexColumn from './lib/components/flex-column/flex-column';
 const svgImage = (
   <svg
     width="285"
-    height="160"
+    height="100"
     viewBox="0 0 285 160"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
@@ -39,39 +39,68 @@ const svgImage = (
   </svg>
 );
 
-const StyledCard = styled.div(({ theme, disabled }) => ({
-  width: '100%',
+const StyledCard = styled.div(() => ({
+  width: '100px',
+  minWidth: '200px',
+  minHeight: '200px',
   overflow: 'hidden',
   border: '1px solid #0B120E24',
   borderRadius: '12px',
   backgroundColor: '#F5F5F7',
 }));
 
-const StyledContainer = styled.div(({ theme, disabled }) => ({
+const StyledContainer = styled.div(({}) => ({
   display: 'flex',
   flexDirection: 'row',
+  justifyContent: 'space-between',
+  alignItems: 'center',
   padding: '16px',
 }));
 
-export const HomePage = () => {
+const StyledCardText = styled.div(() => ({
+  color: '#0B120E',
+  lineHeight: '24px',
+  fontWeight: 600,
+  fontFamily: 'Inter',
+}));
+
+export const StyledHeaderWrapper = styled.span(({}) => ({
+  '& h1': {
+    color: '#F5F5F7',
+  },
+}));
+
+export const StyledWrapper = styled.div(({}) => ({
+  backgroundColor: '#181D40',
+  width: '100%',
+  height: '300px',
+  display: 'flex',
+  justifyContent: 'center',
+  alignItems: 'center',
+  color: '#fff !important',
+}));
+
+interface MenuBlockProps {
+  items: Array<{ label: string; link: string }>;
+}
+
+export const MenuBlocks = ({ items }: MenuBlockProps) => {
   return (
     <FlexColumn>
-      <FlexRow gap={14}>
-        <StyledCard>
-          <StyledContainer>{svgImage}</StyledContainer>
-          <StyledContainer style={{ backgroundColor: '#fff' }}>
-            Content goes here
-          </StyledContainer>
-        </StyledCard>
-        <StyledCard>
-          <StyledContainer>{svgImage}</StyledContainer>
-          <StyledContainer style={{ backgroundColor: '#fff' }}>
-            Content goes here
-          </StyledContainer>
-        </StyledCard>
+      <FlexRow gap={14} wrap={'wrap'} style={{ flex: 1 }}>
+        {items.map((item) => {
+          return (
+            <StyledCard>
+              <StyledContainer>{svgImage}</StyledContainer>
+              <StyledContainer>
+                <StyledCardText>
+                  <a href={item.link}>{item.label}</a>
+                </StyledCardText>
+              </StyledContainer>
+            </StyledCard>
+          );
+        })}
       </FlexRow>
     </FlexColumn>
   );
 };
-
-export default HomePage;

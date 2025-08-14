@@ -1,0 +1,23 @@
+import {IconGallery, IconItem, Meta} from '@storybook/addon-docs/blocks';
+import * as icons from './lib/icons-index.ts';
+import SvgIcon from "./lib/components/svg-icon/svg-icon.tsx";
+import {StyledHeaderWrapper, StyledWrapper} from "./storybook-components.tsx";
+
+<Meta title="Iconography"/>
+
+<StyledWrapper>
+    <StyledHeaderWrapper>
+        # Iconography
+    </StyledHeaderWrapper>
+</StyledWrapper>
+
+<br/>
+<br/>
+
+<IconGallery>
+    {Object.keys(icons).map((icon) => (
+        <IconItem name={icon}>
+            <SvgIcon src={icons[icon]}/>
+        </IconItem>
+    ))}
+</IconGallery>
