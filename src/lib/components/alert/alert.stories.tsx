@@ -1,10 +1,11 @@
-import React from 'react';
-import { Meta, StoryFn } from '@storybook/react';
+import { Meta } from '@storybook/react';
 
 import Alert, { AlertStatus } from './alert';
+import { LockedIcon } from '../../icons-index';
+import { StoryObj } from '@storybook/react-vite';
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
-export default {
+const meta = {
   title: 'Messaging/Alert',
   component: Alert,
   // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
@@ -28,14 +29,20 @@ export default {
       description: 'The message to display in the alert',
     },
   },
-} as Meta<typeof Alert>;
+} satisfies Meta<typeof Alert>;
+
+export default meta;
+
+type Story = StoryObj<typeof meta>;
 
 // More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
-const Template: StoryFn<typeof Alert> = (args) => <Alert {...args} />;
+// const Template: StoryFn<typeof Alert> = (args) => <Alert {...args} />;
 
-export const AlertMessage = Template.bind({});
-// More on args: https://storybook.js.org/docs/react/writing-stories/args
-AlertMessage.args = {
-  status: AlertStatus.Success,
-  message: 'Success',
+export const Primary = {};
+export const WithCustomIcon = {
+  args: {
+    iconSrc: LockedIcon,
+    title: 'Custom Icon Alert',
+    message: 'This alert has a custom icon.',
+  },
 };

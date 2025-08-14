@@ -21,22 +21,23 @@ const StyledWarningMessage = styled.div<{ margin?: string }>(
       backgroundColor: theme.styleguideColors.fillSecondary,
       borderRadius: '4px',
       margin: margin ? margin : '0 0 24px 0',
-    })
+    }),
 );
 
 const StyledHeaderRow = styled(FlexRow)(({ theme }) =>
   theme.withMedia({
     marginBottom: '8px',
-  })
+  }),
 );
 
 const StyledHeaderText = styled(BodyText)<{ margin: string }>(({ theme }) =>
   theme.withMedia({
     marginLeft: '8px',
     lineHeight: ['18px', '1.5rem', '1.5rem'],
-  })
+  }),
 );
 
+/** @deprecated Please use <Alert /> with `iconSrc` instead of it. */
 export const WarningMessage = ({
   iconSrc,
   title,
