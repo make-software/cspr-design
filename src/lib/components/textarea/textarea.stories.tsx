@@ -7,7 +7,8 @@ import { HeartIcon } from '../../icons-index';
 
 export default {
   component: Textarea,
-  title: 'Forms and inputs/Textarea',
+  title: 'Components/Forms and inputs/Textarea',
+  // tags: ['autodocs', '!dev'],
   args: {
     disabled: false,
     placeholder: 'Type here',

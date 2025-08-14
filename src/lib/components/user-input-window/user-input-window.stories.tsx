@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Meta, StoryFn } from '@storybook/react';
 import UserInputWindow from './user-input-window';
 import FlexRow from '../flex-row/flex-row';
@@ -11,7 +11,13 @@ import { HeaderMenuIcon, LockImageIcon, WarningIcon } from '../../icons-index';
 
 export default {
   component: UserInputWindow,
-  title: 'Overlays and layering/User Input Window',
+  title: 'Components/Overlays and layering/User Input Window',
+  // tags: ['autodocs', '!dev'],
+  parameters: { layout: 'fullscreen' },
+  argTypes: {
+    headerLogo: { table: { disable: true } },
+    bodyImg: { table: { disable: true } },
+  },
   args: {
     isOpen: true,
     position: ModalPosition.TopRight,

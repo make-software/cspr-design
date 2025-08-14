@@ -7,7 +7,8 @@ import styled from 'styled-components';
 
 export default {
   component: FlexRow,
-  title: 'Layout and structure/Flex Row',
+  title: 'Components/Layout and structure/Flex Row',
+  // tags: ['autodocs', '!dev'],
   args: {
     itemsSpacing: 10,
     justify: 'center',

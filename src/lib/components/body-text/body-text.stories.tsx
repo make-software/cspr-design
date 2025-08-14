@@ -8,7 +8,8 @@ import TruncateBox from '../truncate-box/truncate-box';
 
 export default {
   component: BodyText,
-  title: 'Primitives/Body Text',
+  title: 'Components/Primitives/Body Text',
+  // tags: ['autodocs', '!dev'],
   args: {
     size: 1,
     monotype: true,

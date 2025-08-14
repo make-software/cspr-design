@@ -8,7 +8,8 @@ import BodyText from '../body-text/body-text';
 
 export default {
   component: Label,
-  title: 'Primitives/Label',
+  title: 'Components/Primitives/Label',
+  // tags: ['autodocs', '!dev'],
   args: {
     size: 2,
     variation: 'blue',

@@ -12,16 +12,6 @@ import ActivityIcon from '../../../assets/icons/ic-file.svg';
 import FlexColumn from '../../flex-column/flex-column';
 import { UserIcon } from '../../../icons-index';
 
-export default {
-  component: DropdownMenu,
-  title: 'Navigation/Menu List',
-  args: {
-    opened: true,
-    multiColumn: false,
-    padding: undefined,
-  },
-} as Meta<typeof DropdownMenu>;
-
 const StyledSvgIcon = styled(SvgIcon)(({ theme }) => ({
   color: theme.styleguideColors.fillPrimaryBlue,
   path: {
@@ -35,6 +25,17 @@ const StyledFlexColumn = styled(FlexColumn)(({ theme }) => ({
   height: '336px',
   width: '325px',
 }));
+
+export default {
+  component: DropdownMenu,
+  title: 'Components/Navigation/Menu List',
+  // tags: ['autodocs', '!dev'],
+  args: {
+    opened: true,
+    multiColumn: false,
+    padding: undefined,
+  },
+} as Meta<typeof DropdownMenu>;
 
 const Template: StoryFn<typeof DropdownMenu> = (args) => (
   <DropdownMenu {...args} />

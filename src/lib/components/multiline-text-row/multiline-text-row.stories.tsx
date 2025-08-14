@@ -4,7 +4,8 @@ import { MultilineTextRow } from './multiline-text-row';
 
 export default {
   component: MultilineTextRow,
-  title: 'Forms and inputs/Multiline Text Row',
+  title: 'Components/Forms and inputs/Multiline Text Row',
+  // tags: ['autodocs', '!dev'],
   args: {
     label: 'Message',
     labelTooltipText: 'This is a tooltip for the label',

@@ -6,8 +6,9 @@ import { StoryObj } from '@storybook/react-vite';
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 const meta = {
-  title: 'Messaging/Alert',
+  title: 'Components/Messaging/Alert',
   component: Alert,
+  // tags: ['autodocs', '!dev'],
   // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
   args: {
     status: AlertStatus.Success,

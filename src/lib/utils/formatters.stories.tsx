@@ -13,7 +13,8 @@ import {
 } from './formatters';
 
 export default {
-  title: 'Utils/Formatters',
+  title: 'Components/Utils/Formatters',
+  // tags: ['autodocs', '!dev'],
   args: {},
   argTypes: {},
 } as Meta;

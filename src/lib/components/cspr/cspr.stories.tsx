@@ -8,7 +8,8 @@ import { PrecisionCase } from '../../utils/currency';
 
 export default {
   component: Cspr,
-  title: 'Primitives/Cspr',
+  title: 'Components/Primitives/Cspr',
+  // tags: ['autodocs', '!dev'],
   args: {
     motes: '3000',
     precisionCase: PrecisionCase.deployCost,

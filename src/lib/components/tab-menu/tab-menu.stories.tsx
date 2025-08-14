@@ -11,7 +11,8 @@ import PageTileTabsHeader from '../page-tile-tabs-header/page-tile-tabs-header';
 
 export default {
   component: TabMenu,
-  title: 'Layout and structure/Tab Menu',
+  title: 'Components/Layout and structure/Tab Menu',
+  // tags: ['autodocs', '!dev'],
   args: {
     active: true,
   },

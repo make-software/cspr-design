@@ -8,7 +8,8 @@ import SubtitleText from '../subtitle-text/subtitle-text';
 
 export default {
   component: Avatar,
-  title: 'Image and icons/Avatar',
+  title: 'Components/Image and icons/Avatar',
+  // tags: ['autodocs', '!dev'],
   args: {
     size: 'default',
     hash: '01f5f1fa995ab7e966428e5a1aed797526ad5b2454c50a63a7aaa2dfeae6a996c2',

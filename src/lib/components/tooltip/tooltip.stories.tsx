@@ -8,7 +8,8 @@ import CaptionText from '../caption-text/caption-text';
 
 export default {
   component: Tooltip,
-  title: 'Overlays and layering/Tooltip',
+  title: 'Components/Overlays and layering/Tooltip',
+  // tags: ['autodocs', '!dev'],
   args: {
     title:
       '0202fa4d6ff148562fe18cdb5aca0bb6c3b96592cdacad8587eb906c3e4b1ac7258a',

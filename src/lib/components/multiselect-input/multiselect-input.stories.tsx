@@ -6,7 +6,8 @@ import MultiselectInput from './multiselect-input';
 
 export default {
   component: MultiselectInput,
-  title: 'Forms and inputs/Multiselect Input',
+  title: 'Components/Forms and inputs/Multiselect Input',
+  // tags: ['autodocs', '!dev'],
   args: {
     items: [
       { value: '2022', label: 'CSPR 2022', chipLabel: 'CSPR 2022' },

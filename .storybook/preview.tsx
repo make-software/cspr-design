@@ -14,6 +14,7 @@ const GlobalStyles = createGlobalStyle`
 `;
 
 const preview: Preview = {
+  // tags: ['autodocs'], // turn on when fix some components stories
   decorators: [
     (Story) => (
       <ThemeProvider theme={themeConfig}>

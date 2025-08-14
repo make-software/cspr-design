@@ -7,7 +7,8 @@ import styled from 'styled-components';
 
 export default {
   component: FlexColumn,
-  title: 'Layout and structure/Flex Column',
+  title: 'Components/Layout and structure/Flex Column',
+  // tags: ['autodocs', '!dev'],
   args: {
     itemsSpacing: 10,
     direction: 'column',

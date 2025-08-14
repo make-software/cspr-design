@@ -5,7 +5,8 @@ import FlexColumn from '../flex-column/flex-column';
 
 export default {
   component: AccountInfoRow,
-  title: 'Forms and inputs/Account Info Row',
+  // tags: ['autodocs', '!dev'],
+  title: 'Components/Forms and inputs/Account Info Row',
   parameters: {
     controls: {
       sort: 'requiredFirst',

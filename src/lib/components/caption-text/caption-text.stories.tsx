@@ -8,7 +8,8 @@ import TruncateBox from '../truncate-box/truncate-box';
 
 export default {
   component: CaptionText,
-  title: 'Primitives/Caption Text',
+  title: 'Components/Primitives/Caption Text',
+  // tags: ['autodocs', '!dev'],
   args: {
     size: 1,
     variation: 'contentViolet',

@@ -7,7 +7,8 @@ import SubtitleText from '../subtitle-text/subtitle-text';
 
 export default {
   component: NavLink,
-  title: 'Navigation/NavLink',
+  title: 'Components/Navigation/NavLink',
+  // tags: ['autodocs', '!dev'],
   args: {
     href: './',
     disabled: false,

@@ -9,7 +9,8 @@ import TabMenuItem from '../tab-menu-item/tab-menu-item';
 
 export default {
   component: PageTileTabsHeader,
-  title: 'Layout and structure/PageTileTabsHeader',
+  title: 'Components/Layout and structure/PageTileTabsHeader',
+  // tags: ['autodocs', '!dev'],
 } as Meta<typeof PageTileTabsHeader>;
 
 const Template: StoryFn<typeof PageTileTabsHeader> = () => (
