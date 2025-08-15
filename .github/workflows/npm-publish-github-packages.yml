@@ -1,4 +1,4 @@
-name: Publish to GitHub Packages
+name: NPM Publish
 
 on:
   release:
@@ -10,33 +10,19 @@ permissions:
   packages: write
 
 jobs:
-  publish:
+  build:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-
-      - name: Use Node.js 20
-        uses: actions/setup-node@v4
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
         with:
           node-version: 20
-          registry-url: https://npm.pkg.github.com/
-
-      - name: Install dependencies
-        run: npm ci
-
-      - name: Build
+          registry-url: 'https://registry.npmjs.org'
+      - run: npm ci
+      - name: Build distribution
         run: npm run build:dist
 
-      - name: Sync version from tag
-        run: |
-          TAG="${GITHUB_REF_NAME}"          # for example. v1.2.3
-          VERSION="${TAG#v}"                # 1.2.3
-          echo "Version from tag: $VERSION"
-          npm version "$VERSION" --no-git-tag-version
-
-      - name: Publish
+      - name: Publish to npm
+        run: npm publish --access public
         env:
-          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: npm publish
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
