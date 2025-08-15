@@ -1,8 +1,10 @@
 # CSPR.design
 
-> **Build faster with CSPR.design**
+CSPR.design is a React-based UI component library powering the CSPR.suite application family, including [CSPR.live](https://cspr.live) and [Casper Wallet](https://casperwallet.io). It provides a consistent design language, reusable components, and shared styling utilities to ensure a cohesive user experience across products. CSPR.design enables faster development, easier maintenance, and a unified brand presence throughout the Casper Ecosystem.
 
-A production-ready React UI component library for Casper blockchain applications. Part of the **CSPR Products Suite**, used by [cspr.live](https://cspr.live/), CSPR.market, and other major ecosystem projects.
+✅ **Battle-tested** components from production apps \
+✅ **Blockchain-focused** with Casper-specific utilities \
+✅ **Consistent design** across the Casper ecosystem
 
 [![Install](https://img.shields.io/badge/npm-github%3Amake--software%2Fcspr--design-blue)](https://github.com/make-software/cspr-design)
 [![TypeScript](https://img.shields.io/badge/TypeScript-Ready-blue)](https://www.typescriptlang.org/)
@@ -10,25 +12,19 @@ A production-ready React UI component library for Casper blockchain applications
 
 ---
 
-## Get started in 5 minutes
+## Get started
 
-Install from NPM to access ready-to-use components that bring the beloved Casper community UI to your dApp. Save time on design and implementation with clean, consistent look tailored for Web3.
-
-✅ **Battle-tested** components from production apps \
-✅ **Blockchain-focused** with Casper-specific utilities \
-✅ **Consistent design** across the Casper ecosystem
-
-## Installation
+Install from [NPM](https://www.npmjs.com/package/@make-software/cspr-design) to access ready-to-use components that bring the beloved [Casper blockchain](https://casper.network) community UI to your dApp:
 
 ```bash
 npm install @make-software/cspr-design
 ```
 
-## Quick Start
+Save time on design and implementation with a consistent Casper Network look:
 
 ```jsx
 import {
-  Cspr,
+  CSPR,
   BodyText,
   FlexColumn,
   AccountInfo,
@@ -38,49 +34,28 @@ import {
 const MyApp = () => (
   <FlexColumn itemsSpacing={20}>
     <BodyText size={2}>Account Balance:</BodyText>
-    <Cspr
+    <CSPR
       motes="50000000000000"
       precisionCase={PrecisionCase.full}
     />
     <AccountInfo 
-      accountHash="01a2b3c4d5e6f7..."
+      accountHash="200826c53eb84181e749681bc276f1d3a3f7e6dd76c5f260b77bb54a2b4590a9"
       balance="1500000000"
     />
   </FlexColumn>
 );
 ```
 
-## Perfect Match with CSPR Ecosystem
+## Storybook examples
 
-**🌐 [CSPR.cloud](https://docs.cspr.cloud/)** - Get blockchain data  
-**🔐 [CSPR.click](https://docs.cspr.click/)** - Handle wallet connections  
-**🎨 CSPR.design** - Build beautiful UIs
+Explore [CSPR.design Storybook](https://storybook.cspr.design) for live previews of every component, complete with usage guidelines and props. See how each UI element behaves in real-world scenarios. No guesswork, just plug and play.
 
-```jsx
-// Data from CSPR.cloud + UI from CSPR.design = 🚀
-const DeployInfo = ({ deploy }) => (
-  <FlexColumn itemsSpacing={16}>
-    <BodyText>Deploy Cost:</BodyText>
-    <Cspr motes={deploy.payment_amount} />
-  </FlexColumn>
-);
-```
+![CSPR.design Storybook](docs/images/storybook.png)
 
-## Check examples in the storybook
 
-Explore live previews of every component, complete with usage guidelines and props. See how each UI element behaves in real-world scenarios. No guesswork, just plug and play.
+## Troubleshooting
 
-```bash
-# View components in Storybook
-npm run build-storybook && npm run storybook
-
-# Build library
-npm run build:dist
-```
-
-### Troubleshooting
-
-**Vite + styled-components issue?** Add to your `vite.config.js`:
+Please add the following to your `vite.config.js` if you are experiencing issues with `vite` and `styled-components`:
 
 ```js
 resolve: {
@@ -96,17 +71,17 @@ resolve: {
 
 ## Resources
 
-📖 **[Full Documentation](https://cspr.design/)** - Complete guide  
-🎨 **[Storybook](https://storybook.cspr.design/)** - Interactive components  
-🐛 **[Report Issues](https://github.com/make-software/cspr-design/issues)** - Bugs & features  
-💬 **[Community](telegram-url)** - Get help & discuss
+
+📕 **[Storybook](https://storybook.cspr.design)**: Interactive examples  
+🐞 **[Report Issues](https://github.com/make-software/cspr-design/issues)**: Please report issues here  
+💬 **[Casper Telegram Community](https://t.me/CSPRDevelopers)**: Ask developers and fellow builders for help
 
 ---
 
 <div align="center">
 
-**Built by [MAKE](https://make.services) for the Casper ecosystem**
+⭐ **Star this repo if CSPR.design helped you build something cool!**  
 
-⭐ **Star this repo if CSPR.design helped you build something cool!**
 
+Built by [MAKE](https://makegroup.io) for the Casper ecosystem
 </div>
