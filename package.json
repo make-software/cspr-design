@@ -1,19 +1,16 @@
 {
-  "name": "@make-software/cspr.design",
+  "name": "@make-software/cspr-design",
   "version": "2.0.0",
   "main": "dist/cspr-design.umd.js",
   "module": "dist/cspr-design.es.js",
   "types": "dist/lib/index.d.ts",
   "type": "module",
-  "repository": "git://github.com/make-software/cspr-ui-library",
+  "repository": "git://github.com/make-software/cspr-design",
   "exports": {
     ".": {
       "import": "./dist/cspr-design.es.js",
       "require": "./dist/cspr-design.umd.js"
     }
-  },
-  "publishConfig": {
-    "registry": "https://npm.pkg.github.com/make-software"
   },
   "scripts": {
     "build:dist": "npm run reexport-icons && vite build && npm run copy-assets-vite",
