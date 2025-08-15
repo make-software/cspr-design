@@ -15,7 +15,6 @@ const config: StorybookConfig = {
       },
     },
     '@storybook/addon-themes',
-    '@storybook/addon-google-analytics',
   ],
   staticDirs: ['../src/static', '../src/lib/assets/fonts'],
   framework: {
