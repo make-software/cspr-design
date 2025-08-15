@@ -11,7 +11,7 @@ import PageTileTabsHeader from '../page-tile-tabs-header/page-tile-tabs-header';
 
 export default {
   component: TabMenu,
-  title: 'Components/Layout and structure/Tab Menu',
+  title: 'Components/Layout/Tab Menu',
   // tags: ['autodocs', '!dev'],
   args: {
     active: true,
@@ -29,24 +29,13 @@ export default {
 } as Meta<typeof TabMenu>;
 
 const Template: StoryFn<typeof TabMenu> = (args) => (
-  <FlexRow itemsSpacing={30}>
-    <FlexColumn itemsSpacing={20}>
-      <PageTile>
-        <PageTileTabsHeader tabsCount={3}>
-          <TabMenu>
-            <TabMenuItem key={1} {...args}>
-              Tab 1
-            </TabMenuItem>
-            <TabMenuItem key={2}>Tab 2</TabMenuItem>
-            <TabMenuItem key={3}>Tab 3</TabMenuItem>
-          </TabMenu>
-        </PageTileTabsHeader>
-        <TabContent key={1}>
-          <BodyText size={2}>Tab1 Content</BodyText>
-        </TabContent>
-      </PageTile>
-    </FlexColumn>
-  </FlexRow>
+  <TabMenu>
+    <TabMenuItem key={1} {...args}>
+      Tab 1
+    </TabMenuItem>
+    <TabMenuItem key={2}>Tab 2</TabMenuItem>
+    <TabMenuItem key={3}>Tab 3</TabMenuItem>
+  </TabMenu>
 );
 
 export const Primary = Template.bind({});

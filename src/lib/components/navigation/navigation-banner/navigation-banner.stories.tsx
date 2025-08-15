@@ -15,16 +15,13 @@ const StyledSvgIcon = styled(SvgIcon)(() => ({
 export default {
   component: NavigationBanner,
   title: 'Components/Navigation/NavigationBanner',
+  excludeStories: ['Primary', 'BannerWithJSXNode', 'BannerWithLongText'],
   // tags: ['autodocs', '!dev'],
   args: {
     message: 'Call me maybe!',
     link: '',
   },
 } as Meta<typeof NavigationBanner>;
-
-const Template: StoryFn<typeof NavigationBanner> = (args) => (
-  <NavigationBanner {...args} />
-);
 
 export const BannerWithJSXNode = () => (
   <NavigationBanner
@@ -51,6 +48,10 @@ export const BannerWithLongText = () => (
       </TruncateBox>
     }
   />
+);
+
+const Template: StoryFn<typeof NavigationBanner> = (args) => (
+  <NavigationBanner {...args} />
 );
 
 export const Primary = Template.bind({});

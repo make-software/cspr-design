@@ -8,7 +8,7 @@ import { DEFAULT_PRECISION, formatHash } from '../../utils/formatters';
 import { Tooltip } from '../tooltip/tooltip';
 import { useMatchMedia } from '../../utils/match-media';
 import { CopyHash } from '../copy-hash/copy-hash';
-import { Cspr } from '../cspr/cspr';
+import { CSPR } from '../cspr/cspr';
 
 import { PrecisionCase } from '../../utils/currency';
 import { HashLength } from '../../utils/formatters';
@@ -53,7 +53,7 @@ interface TickerProps {
 
 const Ticker = ({ ticker, cep18Config, ...props }: TickerProps) => {
   return ticker === 'CSPR' ? (
-    <Cspr {...props} />
+    <CSPR {...props} />
   ) : (
     <CEP18Token
       ticker={ticker}

@@ -144,8 +144,7 @@ const getChangeEvent = (value: any): MultiSelectDropdownEventValue => {
   };
 };
 
-/** @deprecated use the new MultiselectDropdown component instead. */
-export function MultiSelectInput(props: MultiSelectInputProps) {
+export function MultiselectDropdown(props: MultiSelectInputProps) {
   const {
     items,
     value,
@@ -384,4 +383,4 @@ export function MultiSelectInput(props: MultiSelectInputProps) {
   );
 }
 
-export default MultiSelectInput;
+export default MultiselectDropdown;

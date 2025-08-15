@@ -12,7 +12,7 @@ export interface CsprProps {
   hideCsprCurrency?: boolean;
 }
 
-export function Cspr({ motes, precisionCase, hideCsprCurrency }: CsprProps) {
+export function CSPR({ motes, precisionCase, hideCsprCurrency }: CsprProps) {
   const precision = currencyPrecisionByCase(precisionCase);
 
   if (motes == null) {
@@ -26,4 +26,4 @@ export function Cspr({ motes, precisionCase, hideCsprCurrency }: CsprProps) {
   return <>{hideCsprCurrency ? formattedCsprAmount : formattedText}</>;
 }
 
-export default Cspr;
+export default CSPR;

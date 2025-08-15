@@ -7,7 +7,7 @@ import SearchableDropdown from '../dropdown-with-search/searchable-dropdown';
 
 export default {
   component: Dropdown,
-  title: 'Components/Forms and inputs/Dropdown',
+  title: 'Components/Form/Dropdown',
   // tags: ['autodocs', '!dev'],
   args: {
     value: { value: 'faucet', label: 'Faucet' },

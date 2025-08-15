@@ -6,7 +6,7 @@ import FlexColumn from '../flex-column/flex-column';
 
 export default {
   component: Input,
-  title: 'Components/Forms and inputs/Input',
+  title: 'Components/Form/Input',
   // tags: ['autodocs', '!dev'],
   args: {
     value: 'USA',

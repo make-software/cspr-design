@@ -2,12 +2,11 @@ import React from 'react';
 import { Meta, StoryFn } from '@storybook/react';
 import FlexRow from '../flex-row/flex-row';
 import FlexColumn from '../flex-column/flex-column';
-import MultiselectInput from './multiselect-input';
+import { MultiselectDropdown } from './multiselect-dropdown';
 
 export default {
-  component: MultiselectInput,
-  title: 'Components/Form/Multiselect Input',
-  excludeStories: ['Primary'],
+  component: MultiselectDropdown,
+  title: 'Components/Form/Multiselect Dropdown',
   // tags: ['autodocs', '!dev'],
   args: {
     items: [
@@ -16,13 +15,13 @@ export default {
       { value: '2024', label: 'CSPR 2024', chipLabel: 'CSPR 2024' },
     ],
   },
-} as Meta<typeof MultiselectInput>;
+} as Meta<typeof MultiselectDropdown>;
 
-const Template: StoryFn<typeof MultiselectInput> = (args) => (
+const Template: StoryFn<typeof MultiselectDropdown> = (args) => (
   <>
     <FlexRow itemsSpacing={30}>
       <FlexColumn itemsSpacing={30}>
-        <MultiselectInput {...args} />
+        <MultiselectDropdown {...args} />
       </FlexColumn>
     </FlexRow>
   </>

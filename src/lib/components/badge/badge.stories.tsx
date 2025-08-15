@@ -6,7 +6,7 @@ import TruncateBox from '../truncate-box/truncate-box';
 
 export default {
   component: Badge,
-  title: 'Components/Status indicators/Badge',
+  title: 'Components/Display/Badge',
   // tags: ['autodocs', '!dev'],
   args: {
     variation: 'green',

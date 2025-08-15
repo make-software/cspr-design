@@ -8,9 +8,9 @@ import copy from 'copy-to-clipboard';
 import SuccessIcon from '../../assets/icons/ic-success.svg';
 import CopyIcon from '../../assets/icons/ic-copy.svg';
 
-type CopyHashColor = 'blue' | 'gray';
+type CopyColor = 'blue' | 'gray';
 
-const copyHashColorMapper = {
+const copyColorMapper = {
   blue: 'contentBlue',
   gray: 'contentTertiary',
 };
@@ -19,46 +19,45 @@ const SuccessIconWrapper = styled(SvgIcon)(({ theme }) => ({
   color: theme.styleguideColors.contentGreen,
 }));
 
-const StyledSvgIcon = styled(SvgIcon)<{ variation?: CopyHashColor }>(
+const StyledSvgIcon = styled(SvgIcon)<{ variation?: CopyColor }>(
   ({ theme, variation = 'blue' }) =>
     theme.withMedia({
-      color: theme.styleguideColors[copyHashColorMapper[variation]],
+      color: theme.styleguideColors[copyColorMapper[variation]],
       path: {
-        fill: theme.styleguideColors[copyHashColorMapper[variation]],
+        fill: theme.styleguideColors[copyColorMapper[variation]],
       },
     }),
 );
 
-export interface CopyHashProps {
+export interface CopyProps {
   value: string;
   styles?: React.CSSProperties;
   label?: string;
   copiedLabel?: string;
   minified?: boolean;
-  variation?: CopyHashColor;
+  variation?: CopyColor;
 }
 
-/** @deprecated use Copy component instead */
-export const CopyHash = ({
+export const Copy = ({
   value,
   label = 'Copy Public Key',
   copiedLabel = 'Copied!',
   variation,
   styles,
   minified = false,
-}: CopyHashProps) => {
-  const [isCopiedHash, setIsCopiedHash] = useState(false);
+}: CopyProps) => {
+  const [isCopied, setIsCopied] = useState(false);
   return (
     <FlexRow
       style={styles}
       align="center"
       onClick={() => {
         copy(value);
-        setIsCopiedHash(true);
-        setTimeout(() => setIsCopiedHash(false), 3000);
+        setIsCopied(true);
+        setTimeout(() => setIsCopied(false), 3000);
       }}
     >
-      {isCopiedHash ? (
+      {isCopied ? (
         <FlexRow align={'center'}>
           <SuccessIconWrapper src={SuccessIcon} marginRight />
           {!minified && (
@@ -81,4 +80,4 @@ export const CopyHash = ({
   );
 };
 
-export default CopyHash;
+export default Copy;

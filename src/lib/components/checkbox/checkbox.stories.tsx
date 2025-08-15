@@ -6,7 +6,7 @@ import FlexColumn from '../flex-column/flex-column';
 
 export default {
   component: Checkbox,
-  title: 'Components/Forms and inputs/Checkbox',
+  title: 'Components/Form/Checkbox',
   // tags: ['autodocs', '!dev'],
   args: {
     checked: true,

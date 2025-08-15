@@ -19,7 +19,7 @@ const Container = styled.div(({ theme }) => ({
 
 export default {
   component: Button,
-  title: 'Components/Forms and inputs/Button',
+  title: 'Components/Form/Button',
   // tags: ['autodocs', '!dev'],
   argTypes: {
     height: '36',

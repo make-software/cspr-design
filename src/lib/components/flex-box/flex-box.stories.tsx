@@ -7,7 +7,7 @@ import styled from 'styled-components';
 
 export default {
   component: FlexBox,
-  title: 'Components/Layout and structure/Flex Box',
+  title: 'Components/Layout/Flex Box',
   // tags: ['autodocs', '!dev'],
   args: {
     gap: 10,

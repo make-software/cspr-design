@@ -1,13 +1,12 @@
 import React from 'react';
 import { Meta, StoryFn } from '@storybook/react';
-import { CopyHash } from './copy-hash';
 import BodyText from '../body-text/body-text';
 import FlexColumn from '../flex-column/flex-column';
+import { Copy } from './copy';
 
 export default {
-  component: CopyHash,
-  title: 'Components/Display/Copy To Clipboard',
-  excludeStories: ['Primary'],
+  component: Copy,
+  title: 'Components/Display/Copy',
   // tags: ['autodocs', '!dev'],
   args: {
     value: 'some value',
@@ -18,13 +17,13 @@ export default {
   argTypes: {
     value: { control: 'text', description: 'Value to copy' },
   },
-} as Meta<typeof CopyHash>;
+} as Meta<typeof Copy>;
 
-const Template: StoryFn<typeof CopyHash> = (args) => (
+const Template: StoryFn<typeof Copy> = (args) => (
   <FlexColumn itemsSpacing={16}>
-    <CopyHash {...args} />
+    <Copy {...args} />
     <BodyText size={2} variation={'darkGray'}>
-      NOTE: CopyHash button allow you to copy value, which you can provide in
+      NOTE: Copy button allow you to copy value, which you can provide in
       `value` property to clipboard
     </BodyText>
   </FlexColumn>

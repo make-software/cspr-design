@@ -1,6 +1,6 @@
 import React from 'react';
 import { Meta, StoryFn } from '@storybook/react';
-import PageTileTabsHeader from './page-tile-tabs-header';
+import TabMenuContainer from './tab-menu-container';
 import FlexRow from '../flex-row/flex-row';
 import FlexColumn from '../flex-column/flex-column';
 import PageTile from '../page-tile/page-tile';
@@ -8,17 +8,16 @@ import TabMenu from '../tab-menu/tab-menu';
 import TabMenuItem from '../tab-menu-item/tab-menu-item';
 
 export default {
-  component: PageTileTabsHeader,
-  title: 'Components/Layout/PageTileTabsHeader',
-  excludeStories: ['Primary'],
+  component: TabMenuContainer,
+  title: 'Components/Layout/TabMenuContainer',
   // tags: ['autodocs', '!dev'],
-} as Meta<typeof PageTileTabsHeader>;
+} as Meta<typeof TabMenuContainer>;
 
-const Template: StoryFn<typeof PageTileTabsHeader> = () => (
+const Template: StoryFn<typeof TabMenuContainer> = () => (
   <FlexRow itemsSpacing={30}>
     <FlexColumn itemsSpacing={20}>
       <PageTile>
-        <PageTileTabsHeader tabsCount={3}>
+        <TabMenuContainer tabsCount={3}>
           <TabMenu>
             <TabMenuItem key={1} active={false} onClick={() => {}}>
               Tab 1
@@ -36,7 +35,7 @@ const Template: StoryFn<typeof PageTileTabsHeader> = () => (
               Tab 5
             </TabMenuItem>
           </TabMenu>
-        </PageTileTabsHeader>
+        </TabMenuContainer>
       </PageTile>
     </FlexColumn>
   </FlexRow>

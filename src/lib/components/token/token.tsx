@@ -5,25 +5,30 @@ import {
   motesToCEP18Token,
 } from '../../utils/currency';
 
-export interface CEP18TokenProps {
-  motes?: string | null;
+export interface TokenProps {
+  amount?: string | null;
   precision: number;
   decimals: number;
   ticker: string;
   hideCurrency?: boolean;
 }
 
-/** @deprecated */
-export function CEP18Token({ motes, precision, decimals, ticker, hideCurrency }: CEP18TokenProps) {
-  if (motes == null) {
+export function Token({
+  amount,
+  precision,
+  decimals,
+  ticker,
+  hideCurrency,
+}: TokenProps) {
+  if (amount == null) {
     return <>{'N/A'}</>;
   }
 
-  const tokenAmount = motesToCEP18Token(motes, decimals);
+  const tokenAmount = motesToCEP18Token(amount, decimals);
   const formattedTokenAmount = formatNumber(tokenAmount, { precision });
   const formattedText = formattedTokenAmount + ' ' + ticker;
 
   return <>{hideCurrency ? formattedTokenAmount : formattedText}</>;
 }
 
-export default CEP18Token;
+export default Token;

@@ -6,7 +6,7 @@ import TableRow from '../table-row/table-row';
 import TableData from '../table-data/table-data';
 import BodyText from '../body-text/body-text';
 import { PrecisionCase } from '../../utils/currency';
-import Cspr from '../cspr/cspr';
+import CSPR from '../cspr/cspr';
 import PageTile from '../page-tile/page-tile';
 
 const mockedData = [
@@ -17,7 +17,7 @@ const mockedData = [
 
 export default {
   component: BaseTable,
-  title: 'Components/Table/Base Table',
+  title: 'Components/Display/Base Table',
   args: {
     renderDataHeaders: () => (
       <TableRow>
@@ -35,7 +35,7 @@ export default {
             </TableData>
             <TableData align={'right'}>
               <BodyText size={3}>
-                <Cspr
+                <CSPR
                   motes={data.motes}
                   precisionCase={PrecisionCase.deployCost}
                 />

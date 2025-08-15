@@ -8,7 +8,7 @@ import SubtitleText from '../subtitle-text/subtitle-text';
 
 export default {
   component: Avatar,
-  title: 'Components/Image and icons/Avatar',
+  title: 'Components/Display/Avatar',
   // tags: ['autodocs', '!dev'],
   args: {
     size: 'default',

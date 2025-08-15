@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { BaseProps } from '../../types';
 
-export interface Props extends BaseProps {
+export interface TabMenuContainerProps extends BaseProps {
   tabsCount: number;
 }
 
@@ -17,9 +17,11 @@ const StyledWrapper = styled.div<{ childrenCount: number }>(
     }),
 );
 
-/** @deprecated use TabMenuContainer instead */
-export const PageTileTabsHeader = ({ tabsCount, children }: Props) => {
+export const TabMenuContainer = ({
+  tabsCount,
+  children,
+}: TabMenuContainerProps) => {
   return <StyledWrapper childrenCount={tabsCount}>{children}</StyledWrapper>;
 };
 
-export default PageTileTabsHeader;
+export default TabMenuContainer;

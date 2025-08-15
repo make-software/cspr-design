@@ -1,22 +1,21 @@
 import React from 'react';
 import { Meta, StoryFn } from '@storybook/react';
-import CEP18Token from './cep18-token';
+import Token from './token';
 import FlexRow from '../flex-row/flex-row';
 import FlexColumn from '../flex-column/flex-column';
 
 export default {
-  component: CEP18Token,
+  component: Token,
   title: 'Components/Display/CEP18Token',
-  excludeStories: ['Primary'],
   // tags: ['autodocs', '!dev'],
   args: {
-    motes: '50000123456789',
+    amount: '50000123456789',
     decimals: 9,
     precision: 5,
     ticker: 'BOIN',
   },
   argTypes: {
-    motes: {
+    amount: {
       control: 'text',
       description: 'Amount in motes to be displayed',
       table: {
@@ -35,12 +34,12 @@ export default {
       options: ['BOIN', 'CLICK3', 'CSPR'],
     },
   },
-} as Meta<typeof CEP18Token>;
+} as Meta<typeof Token>;
 
-const Template: StoryFn<typeof CEP18Token> = (args) => (
+const Template: StoryFn<typeof Token> = (args) => (
   <FlexRow itemsSpacing={30}>
     <FlexColumn itemsSpacing={20}>
-      <CEP18Token {...args} />
+      <Token {...args} />
     </FlexColumn>
   </FlexRow>
 );

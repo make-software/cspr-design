@@ -1,13 +1,13 @@
 import React from 'react';
 import { Meta, StoryFn } from '@storybook/react';
 import SvgIcon from '../svg-icon/svg-icon';
-import { FacebookIcon, Twitter_xIcon } from '../../icons-index';
+import { FacebookIcon } from '../../icons-index';
 import SvgIconSocial from './svg-icon-social';
 import FlexRow from '../flex-row/flex-row';
 
 export default {
   component: SvgIcon,
-  title: 'Components/Image and icons/SvgIcon',
+  title: 'Components/Display/SvgIcon',
   // tags: ['autodocs', '!dev'],
   args: { src: FacebookIcon },
   argTypes: { src: {} },
