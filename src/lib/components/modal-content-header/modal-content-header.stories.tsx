@@ -6,7 +6,8 @@ import FlexColumn from '../flex-column/flex-column';
 
 export default {
   component: ModalContentHeader,
-  title: 'Tooling/ModalContentHeader',
+  title: 'Components/Tooling/ModalContentHeader',
+  // tags: ['autodocs', '!dev'],
   args: {
     title: 'Choose a provider',
     subtitle: 'connect to',

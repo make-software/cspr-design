@@ -1,5 +1,6 @@
 import {Meta, Typeset} from '@storybook/addon-docs/blocks';
 import {themeConfig} from "./lib/index.js";
+import {StyledHeaderWrapper, StyledWrapper} from "./storybook-components.tsx";
 
 <Meta title="Typography"/>
 
@@ -44,10 +45,13 @@ export const typography = {
 
 export const SampleText = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.';
 
-# Typography
+<StyledWrapper>
+    <StyledHeaderWrapper>
+        # Typography
+    </StyledHeaderWrapper>
+</StyledWrapper>
 
 <br/>
-___
 <br/>
 
 ### **Font:** Inter

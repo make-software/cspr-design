@@ -8,7 +8,8 @@ import PageTile from '../page-tile/page-tile';
 
 export default {
   component: PageTileHeader,
-  title: 'Layout and structure/PageTile Header',
+  title: 'Components/Layout and structure/PageTile Header',
+  // tags: ['autodocs', '!dev'],
 } as Meta<typeof PageTileHeader>;
 
 const Template: StoryFn<typeof PageTileHeader> = () => (

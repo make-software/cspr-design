@@ -5,10 +5,16 @@ import { ProductsMenuItem } from './products-menu-item';
 import { NavigationSettingsContainer } from '../container';
 import styled from 'styled-components';
 import BodyText from '../../body-text/body-text';
+import {
+  CsprLiveIcon,
+  CsprNftStudioIcon,
+  CsprWalletIcon,
+} from '../../../icons-index';
 
 export default {
   component: ProductsMenu,
-  title: 'Navigation/Products Menu',
+  title: 'Components/Navigation/Products Menu',
+  // tags: ['autodocs', '!dev'],
   args: {
     opened: true,
   },
@@ -54,19 +60,19 @@ Primary.args = {
         nameLabel={'CSPR.live Explorer'}
         descriptionText={'CSPR.live Block explorer'}
         link={''}
-        icon={'./assets/icons/logos/cspr-live.svg'}
+        icon={CsprLiveIcon}
       />
       <ProductsMenuItem
         selected
         nameLabel={'Casper Wallet'}
         link={''}
-        icon={'./assets/icons/logos/cspr-wallet.svg'}
+        icon={CsprWalletIcon}
         newBadgeLabel={'New'}
       />
       <ProductsMenuItem
         nameLabel={'CSPR.studio (Beta)'}
         link={''}
-        icon={'./assets/icons/logos/cspr-nft-studio.svg'}
+        icon={CsprNftStudioIcon}
         comingSoonBadgeLabel={'Coming soom'}
       />
       <ProductsMenuItem nameLabel={'some name3'} link={''} icon={''} />

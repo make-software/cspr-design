@@ -19,7 +19,8 @@ const Container = styled.div(({ theme }) => ({
 
 export default {
   component: Button,
-  title: 'Forms and inputs/Button',
+  title: 'Components/Forms and inputs/Button',
+  // tags: ['autodocs', '!dev'],
   argTypes: {
     height: '36',
     disabled: { control: { type: 'boolean' } },
@@ -33,8 +34,8 @@ const Template: StoryFn<typeof Button> = (args) => (
     <Button {...args} />
   </Container>
 );
-export const ButtonSize = Template.bind({});
-ButtonSize.args = {
+export const Primary = Template.bind({});
+Primary.args = {
   height: '36',
   children: 'Button',
 };

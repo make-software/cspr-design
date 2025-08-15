@@ -7,7 +7,8 @@ import Input from '../input/input';
 
 export default {
   component: FormField,
-  title: 'Forms and inputs/FormField',
+  title: 'Components/Forms and inputs/FormField',
+  // tags: ['autodocs', '!dev'],
   args: {
     id: 'form',
     label: 'label',

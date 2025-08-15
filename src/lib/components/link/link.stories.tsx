@@ -8,7 +8,8 @@ import BodyText from '../body-text/body-text';
 
 export default {
   component: Link,
-  title: 'Navigation/Link',
+  title: 'Components/Navigation/Link',
+  // tags: ['autodocs', '!dev'],
   args: {
     color: 'primaryBlue',
     href: './',

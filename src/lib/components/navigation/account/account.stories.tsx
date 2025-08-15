@@ -5,7 +5,8 @@ import { NavigationSettingsContainer } from '../container';
 
 export default {
   component: Account,
-  title: 'Navigation/Account',
+  title: 'Components/Navigation/Account',
+  // tags: ['autodocs', '!dev'],
   args: {},
   argTypes: {
     hash: {

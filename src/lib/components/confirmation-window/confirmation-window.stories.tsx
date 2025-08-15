@@ -9,8 +9,8 @@ import { fn } from 'storybook/test';
 
 export default {
   component: ConfirmationWindow,
-  title: 'Overlays and layering/Confirmation Window',
-  tags: ['autodocs'],
+  title: 'Components/Overlays and layering/Confirmation Window',
+  // tags: ['autodocs', '!dev'],
   args: {
     isOpen: true,
     position: ModalPosition.TopRight,

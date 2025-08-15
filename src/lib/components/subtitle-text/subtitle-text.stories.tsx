@@ -8,7 +8,8 @@ import SubtitleText from './subtitle-text';
 
 export default {
   component: SubtitleText,
-  title: 'Primitives/Subtitle Text',
+  title: 'Components/Primitives/Subtitle Text',
+  // tags: ['autodocs', '!dev'],
   args: {
     size: 1,
     scale: 'md',

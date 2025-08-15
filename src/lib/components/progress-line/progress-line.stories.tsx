@@ -8,7 +8,8 @@ import BodyText from '../body-text/body-text';
 
 export default {
   component: ProgressLine,
-  title: 'Messaging/Progress Line',
+  title: 'Components/Messaging/Progress Line',
+  // tags: ['autodocs', '!dev'],
   args: {
     steps: ['one', 'two', 'three', 'four'],
     currentIdx: 1,

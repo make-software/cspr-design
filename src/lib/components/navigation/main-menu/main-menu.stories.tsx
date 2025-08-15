@@ -17,8 +17,10 @@ const Container = styled.div(({ theme }) =>
 
 export default {
   component: MainMenuItem,
-  title: 'Navigation/Main Menu',
+  title: 'Components/Navigation/Main Menu',
+  // tags: ['autodocs', '!dev'],
   args: {},
+  argTypes: {},
 } as Meta<typeof MainMenuItem>;
 
 const Template: StoryFn<typeof MainMenu> = (args) => (

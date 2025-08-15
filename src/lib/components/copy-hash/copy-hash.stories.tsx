@@ -6,7 +6,8 @@ import FlexColumn from '../flex-column/flex-column';
 
 export default {
   component: CopyHash,
-  title: 'Forms and inputs/Copy To Clipboard',
+  title: 'Components/Forms and inputs/Copy To Clipboard',
+  // tags: ['autodocs', '!dev'],
   args: {
     value: 'some value',
     label: 'Copy Public Key',

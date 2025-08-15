@@ -7,7 +7,8 @@ import TabMenu from '../tab-menu/tab-menu';
 
 export default {
   component: HeaderTabMenuItem,
-  title: 'Navigation/Header Tab Menu Item',
+  title: 'Components/Navigation/Header Tab Menu Item',
+  // tags: ['autodocs', '!dev'],
   args: {
     active: false,
     monotype: false,
