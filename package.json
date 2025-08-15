@@ -2,17 +2,19 @@
   "name": "@make-software/cspr-design",
   "version": "2.0.0-beta1",
   "description": "React-based UI component library powering Casper Blockchain applications",
-  "main": "dist/cspr-design.umd.js",
-  "module": "dist/cspr-design.es.js",
-  "types": "dist/lib/index.d.ts",
-  "type": "module",
+  "homepage": "https://cspr.design",
   "repository": "git://github.com/make-software/cspr-design",
+  "license": "Apache-2.0",
   "keywords": [
     "casper",
     "blockchain",
     "react",
     "web3"
   ],
+  "main": "dist/cspr-design.umd.js",
+  "module": "dist/cspr-design.es.js",
+  "types": "dist/lib/index.d.ts",
+  "type": "module",
   "exports": {
     ".": {
       "import": "./dist/cspr-design.es.js",
