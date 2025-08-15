@@ -14,16 +14,14 @@ A production-ready React UI component library for Casper blockchain applications
 
 Install from NPM to access ready-to-use components that bring the beloved Casper community UI to your dApp. Save time on design and implementation with clean, consistent look tailored for Web3.
 
-✅ **Battle-tested** components from production apps  
-✅ **Blockchain-focused** with CSPR-specific utilities  
-✅ **Consistent design** across the Casper ecosystem  
-✅ **TypeScript-first** with great developer experience  
-✅ **Zero configuration** - works out of the box
+✅ **Battle-tested** components from production apps \
+✅ **Blockchain-focused** with Casper-specific utilities \
+✅ **Consistent design** across the Casper ecosystem
 
 ## Installation
 
 ```bash
-npm install github:make-software/cspr-design
+npm install @make-software/cspr-design
 ```
 
 ## Quick Start
@@ -98,8 +96,8 @@ resolve: {
 
 ## Resources
 
-📖 **[Full Documentation](https://docs.make.software/cspr.design/)** - Complete guide  
-🎨 **[Storybook Demo](storybook-url)** - Interactive components  
+📖 **[Full Documentation](https://cspr.design/)** - Complete guide  
+🎨 **[Storybook](https://storybook.cspr.design/)** - Interactive components  
 🐛 **[Report Issues](https://github.com/make-software/cspr-design/issues)** - Bugs & features  
 💬 **[Community](telegram-url)** - Get help & discuss
 

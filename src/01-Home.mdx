@@ -1,0 +1,49 @@
+import {Meta} from '@storybook/addon-docs/blocks';
+import {MenuBlocks, StyledHeaderWrapper, StyledWrapper} from "./storybook-components.tsx";
+
+<Meta title="Home"/>
+
+<StyledWrapper>
+    <StyledHeaderWrapper>
+        # Welcome to CSPR.design
+    </StyledHeaderWrapper>
+</StyledWrapper>
+
+<br/>
+<br/>
+
+CSPR.design is a React-based UI component library powering the CSPR.suite application family, including [CSPR.live](https://cspr.live) and [Casper Wallet](https://www.casperwallet.io/).
+It provides a consistent design language, reusable components, and shared styling utilities to ensure a cohesive user experience across products. CSPR.design enables faster development, easier maintenance, and a unified brand presence throughout the Casper Ecosystem.
+
+✅ Battle-tested components from production apps \
+✅ Blockchain-focused with Casper-specific utilities \
+✅ Consistent design across the Casper ecosystem
+<br/>
+
+# Get started
+
+Install from [NPM](https://www.npmjs.com/package/@make-software/cspr-design) to access ready-to-use components that bring the beloved [Casper blockchain](https://casper.networ) community UI to your dApp:
+
+```
+npm install @make-software/cspr-design --save
+```
+
+Save time on design and implementation with a consistent Casper Network look:
+``` tsx
+import {
+  CSPR,
+  BodyText,
+  FlexColumn,
+} from '@make-software/cspr-design';
+
+const balance = () => (
+  <FlexColumn itemsSpacing={20}>
+    <BodyText size={2}>Account balance:</BodyText>
+    <CSPR
+      motes="50000000000000"
+      precisionCase={PrecisionCase.full}
+    />
+  </FlexColumn>
+);
+```
+

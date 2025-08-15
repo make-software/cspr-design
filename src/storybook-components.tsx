@@ -43,7 +43,7 @@ export const StyledHeaderWrapper = styled.span(({}) => ({
 export const StyledWrapper = styled.div(({}) => ({
   backgroundColor: '#181D40',
   width: '100%',
-  height: '300px',
+  height: '150px',
   display: 'flex',
   justifyContent: 'center',
   alignItems: 'center',
