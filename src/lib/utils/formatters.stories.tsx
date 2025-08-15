@@ -13,7 +13,7 @@ import {
 } from './formatters';
 
 export default {
-  title: 'Components/Utils/Formatters',
+  title: 'Components/Format/Formatters',
   // tags: ['autodocs', '!dev'],
   args: {},
   argTypes: {},

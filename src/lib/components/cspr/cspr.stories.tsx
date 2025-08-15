@@ -1,14 +1,14 @@
 import React from 'react';
 import { Meta, StoryFn } from '@storybook/react';
-import Cspr from './cspr';
+import CSPR from './cspr';
 import FlexRow from '../flex-row/flex-row';
 import FlexColumn from '../flex-column/flex-column';
 import BodyText from '../body-text/body-text';
 import { PrecisionCase } from '../../utils/currency';
 
 export default {
-  component: Cspr,
-  title: 'Components/Primitives/Cspr',
+  component: CSPR,
+  title: 'Components/Display/CSPR',
   // tags: ['autodocs', '!dev'],
   args: {
     motes: '3000',
@@ -32,12 +32,12 @@ export default {
       control: 'boolean',
     },
   },
-} as Meta<typeof Cspr>;
+} as Meta<typeof CSPR>;
 
-const Template: StoryFn<typeof Cspr> = (args) => (
+const Template: StoryFn<typeof CSPR> = (args) => (
   <FlexRow itemsSpacing={30}>
     <FlexColumn itemsSpacing={20}>
-      <Cspr {...args} />
+      <CSPR {...args} />
     </FlexColumn>
   </FlexRow>
 );

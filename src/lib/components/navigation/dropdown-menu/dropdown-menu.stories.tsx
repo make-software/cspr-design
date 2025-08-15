@@ -28,7 +28,7 @@ const StyledFlexColumn = styled(FlexColumn)(({ theme }) => ({
 
 export default {
   component: DropdownMenu,
-  title: 'Components/Navigation/Menu List',
+  title: 'Components/Navigation/DropdownMenu',
   // tags: ['autodocs', '!dev'],
   args: {
     opened: true,

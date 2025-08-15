@@ -17,7 +17,7 @@ const Container = styled.div(({ theme }) =>
 
 export default {
   component: MainMenuItem,
-  title: 'Components/Navigation/Main Menu',
+  title: 'Components/Navigation/MainMenu',
   // tags: ['autodocs', '!dev'],
   args: {},
   argTypes: {},

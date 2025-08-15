@@ -13,6 +13,7 @@ export interface CEP18TokenProps {
   hideCurrency?: boolean;
 }
 
+/** @deprecated */
 export function CEP18Token({ motes, precision, decimals, ticker, hideCurrency }: CEP18TokenProps) {
   if (motes == null) {
     return <>{'N/A'}</>;

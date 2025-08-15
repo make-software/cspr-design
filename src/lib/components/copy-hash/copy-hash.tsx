@@ -26,7 +26,7 @@ const StyledSvgIcon = styled(SvgIcon)<{ variation?: CopyHashColor }>(
       path: {
         fill: theme.styleguideColors[copyHashColorMapper[variation]],
       },
-    })
+    }),
 );
 
 export interface CopyHashProps {
@@ -38,6 +38,7 @@ export interface CopyHashProps {
   variation?: CopyHashColor;
 }
 
+/** @deprecated use Copy component instead */
 export const CopyHash = ({
   value,
   label = 'Copy Public Key',

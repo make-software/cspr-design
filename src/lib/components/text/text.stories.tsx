@@ -12,7 +12,7 @@ import { StoryFn } from '@storybook/react';
 
 export default {
   component: Text,
-  title: 'Components/Primitives/Text',
+  title: 'Components/Display/Text',
   // tags: ['autodocs', '!dev'],
   args: {
     loading: false,

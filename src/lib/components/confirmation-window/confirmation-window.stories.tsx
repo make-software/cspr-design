@@ -11,6 +11,7 @@ export default {
   component: ConfirmationWindow,
   title: 'Components/Overlays and layering/Confirmation Window',
   // tags: ['autodocs', '!dev'],
+  excludeStories: ['Primary'],
   args: {
     isOpen: true,
     position: ModalPosition.TopRight,

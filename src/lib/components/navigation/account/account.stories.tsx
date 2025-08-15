@@ -7,6 +7,11 @@ export default {
   component: Account,
   title: 'Components/Navigation/Account',
   // tags: ['autodocs', '!dev'],
+  excludeStories: [
+    'AccountWithPublicKey',
+    'AccountWithHash',
+    'WithCustomAvatar',
+  ],
   args: {},
   argTypes: {
     hash: {

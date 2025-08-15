@@ -6,7 +6,8 @@ import FlexColumn from '../flex-column/flex-column';
 
 export default {
   component: CEP18Token,
-  title: 'Components/Primitives/CEP18Token',
+  title: 'Components/Display/CEP18Token',
+  excludeStories: ['Primary'],
   // tags: ['autodocs', '!dev'],
   args: {
     motes: '50000123456789',

@@ -9,7 +9,8 @@ import TabMenuItem from '../tab-menu-item/tab-menu-item';
 
 export default {
   component: PageTileTabsHeader,
-  title: 'Components/Layout and structure/PageTileTabsHeader',
+  title: 'Components/Layout/PageTileTabsHeader',
+  excludeStories: ['Primary'],
   // tags: ['autodocs', '!dev'],
 } as Meta<typeof PageTileTabsHeader>;
 
@@ -27,6 +28,12 @@ const Template: StoryFn<typeof PageTileTabsHeader> = () => (
             </TabMenuItem>
             <TabMenuItem key={3} active={false} onClick={() => {}}>
               Tab 3
+            </TabMenuItem>
+            <TabMenuItem key={4} active={false} onClick={() => {}}>
+              Tab 4
+            </TabMenuItem>
+            <TabMenuItem key={5} active={false} onClick={() => {}}>
+              Tab 5
             </TabMenuItem>
           </TabMenu>
         </PageTileTabsHeader>

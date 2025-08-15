@@ -12,6 +12,7 @@ import { HeaderMenuIcon, LockImageIcon, WarningIcon } from '../../icons-index';
 export default {
   component: UserInputWindow,
   title: 'Components/Overlays and layering/User Input Window',
+  excludeStories: ['Primary'],
   // tags: ['autodocs', '!dev'],
   parameters: { layout: 'fullscreen' },
   argTypes: {

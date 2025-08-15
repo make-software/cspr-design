@@ -4,6 +4,6 @@ export interface CsprProps {
     precisionCase?: PrecisionCase;
     hideCsprCurrency?: boolean;
 }
-export declare function Cspr({ motes, precisionCase, hideCsprCurrency }: CsprProps): import("react/jsx-runtime").JSX.Element;
-export default Cspr;
+export declare function CSPR({ motes, precisionCase, hideCsprCurrency }: CsprProps): import("react/jsx-runtime").JSX.Element;
+export default CSPR;
 //# sourceMappingURL=cspr.d.ts.map

@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import {BaseProps} from "../../types";
+import { BaseProps } from '../../types';
 
 export interface Props extends BaseProps {
   tabsCount: number;
@@ -14,11 +14,12 @@ const StyledWrapper = styled.div<{ childrenCount: number }>(
       justifyContent: childrenCount > 2 ? ['left', 'center'] : ['center'],
       padding: 16,
       overflowX: 'auto',
-    })
+    }),
 );
 
+/** @deprecated use TabMenuContainer instead */
 export const PageTileTabsHeader = ({ tabsCount, children }: Props) => {
   return <StyledWrapper childrenCount={tabsCount}>{children}</StyledWrapper>;
 };
 
-export default PageTileTabsHeader
+export default PageTileTabsHeader;

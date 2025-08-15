@@ -8,7 +8,7 @@ import BodyText from '../body-text/body-text';
 
 export default {
   component: Label,
-  title: 'Components/Primitives/Label',
+  title: 'Components/Display/Label',
   // tags: ['autodocs', '!dev'],
   args: {
     size: 2,

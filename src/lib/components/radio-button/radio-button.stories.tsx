@@ -7,7 +7,7 @@ import FlexColumn from '../flex-column/flex-column';
 // TODO - check logic of RadioButton
 export default {
   component: RadioButton,
-  title: 'Components/Forms and inputs/RadioButton',
+  title: 'Components/Form/RadioButton',
   // tags: ['autodocs', '!dev'],
   args: {
     value: 'casper',
