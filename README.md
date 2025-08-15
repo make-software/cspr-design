@@ -27,7 +27,6 @@ import {
   CSPR,
   BodyText,
   FlexColumn,
-  AccountInfo,
   PrecisionCase
 } from '@make-software/cspr-design';
 
@@ -37,10 +36,6 @@ const MyApp = () => (
     <CSPR
       motes="50000000000000"
       precisionCase={PrecisionCase.full}
-    />
-    <AccountInfo 
-      accountHash="200826c53eb84181e749681bc276f1d3a3f7e6dd76c5f260b77bb54a2b4590a9"
-      balance="1500000000"
     />
   </FlexColumn>
 );
