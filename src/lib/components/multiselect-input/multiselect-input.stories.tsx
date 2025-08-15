@@ -6,7 +6,7 @@ import MultiselectInput from './multiselect-input';
 
 export default {
   component: MultiselectInput,
-  title: 'Components/Form/Multiselect Input',
+  title: 'Components/Form/MultiselectInput',
   excludeStories: ['Primary'],
   // tags: ['autodocs', '!dev'],
   args: {

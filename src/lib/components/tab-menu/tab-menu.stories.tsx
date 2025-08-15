@@ -4,14 +4,10 @@ import FlexRow from '../flex-row/flex-row';
 import FlexColumn from '../flex-column/flex-column';
 import TabMenu from '../tab-menu/tab-menu';
 import TabMenuItem from '../tab-menu-item/tab-menu-item';
-import BodyText from '../body-text/body-text';
-import TabContent from '../tab-content/tab-content';
-import PageTile from '../page-tile/page-tile';
-import PageTileTabsHeader from '../page-tile-tabs-header/page-tile-tabs-header';
 
 export default {
   component: TabMenu,
-  title: 'Components/Layout/Tab Menu',
+  title: 'Components/Layout/TabMenu',
   // tags: ['autodocs', '!dev'],
   args: {
     active: true,

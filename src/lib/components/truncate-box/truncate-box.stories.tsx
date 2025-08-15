@@ -7,7 +7,7 @@ import BodyText from '../body-text/body-text';
 
 export default {
   component: TruncateBox,
-  title: 'Components/Display/Truncate Box',
+  title: 'Components/Display/TruncateBox',
   // tags: ['autodocs', '!dev'],
   args: {
     size: 1,

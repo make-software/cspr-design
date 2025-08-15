@@ -7,7 +7,7 @@ import BodyText from '../body-text/body-text';
 
 export default {
   component: PageTile,
-  title: 'Components/Layout/Page Tile',
+  title: 'Components/Layout/PageTile',
   // tags: ['autodocs', '!dev'],
   args: {
     withPadding: true,

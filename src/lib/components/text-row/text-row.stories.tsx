@@ -9,7 +9,8 @@ import { InfoIcon } from '../../icons-index';
 
 export default {
   component: TextRow,
-  title: 'Components/Form/Text Row',
+  title: 'Components/Form/TextRow',
+  excludeStories: ['Primary'],
   // tags: ['autodocs', '!dev'],
   args: {
     label: 'text row',

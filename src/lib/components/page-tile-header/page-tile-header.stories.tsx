@@ -8,7 +8,7 @@ import PageTile from '../page-tile/page-tile';
 
 export default {
   component: PageTileHeader,
-  title: 'Components/Layout/PageTile Header',
+  title: 'Components/Layout/PageTileHeader',
   // tags: ['autodocs', '!dev'],
 } as Meta<typeof PageTileHeader>;
 

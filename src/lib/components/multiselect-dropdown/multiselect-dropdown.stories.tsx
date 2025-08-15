@@ -6,7 +6,7 @@ import { MultiselectDropdown } from './multiselect-dropdown';
 
 export default {
   component: MultiselectDropdown,
-  title: 'Components/Form/Multiselect Dropdown',
+  title: 'Components/Form/MultiselectDropdown',
   // tags: ['autodocs', '!dev'],
   args: {
     items: [

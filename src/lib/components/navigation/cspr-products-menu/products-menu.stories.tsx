@@ -13,7 +13,7 @@ import {
 
 export default {
   component: ProductsMenu,
-  title: 'Components/Navigation/Products Menu',
+  title: 'Components/Navigation/ProductsMenu',
   excludeStories: ['Primary'],
   // tags: ['autodocs', '!dev'],
   args: {

@@ -4,7 +4,7 @@ import TableDataHeader, { TableDataHeaderProps } from './table-data-header';
 
 export default {
   component: TableDataHeader,
-  title: 'Components/Display/Table Data Header',
+  title: 'Components/Display/TableDataHeader',
 } as Meta<typeof TableDataHeader>;
 
 const Template: StoryFn<typeof TableDataHeader> = (

@@ -7,7 +7,7 @@ export default {
   component: AccountInfoRow,
   excludeStories: ['Primary'],
   // tags: ['autodocs', '!dev'],
-  title: 'Components/Display/Account Info Row',
+  title: 'Components/Display/AccountInfoRow',
   parameters: {
     controls: {
       sort: 'requiredFirst',

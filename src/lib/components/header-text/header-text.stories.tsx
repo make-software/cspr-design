@@ -8,7 +8,7 @@ import TruncateBox from '../truncate-box/truncate-box';
 
 export default {
   component: HeaderText,
-  title: 'Components/Display/Header Text',
+  title: 'Components/Display/HeaderText',
   // tags: ['autodocs', '!dev'],
   args: {
     size: 1,
