@@ -68,7 +68,7 @@ resolve: {
 
 
 📕 **[Storybook](https://storybook.cspr.design)**: Interactive examples  
-🐞 **[Report Issues](https://github.com/make-software/cspr-design/issues)**: Please report issues here  
+🐞 **[GitHub Issues](https://github.com/make-software/cspr-design/issues)**: Please report issues here  
 💬 **[Casper Telegram Community](https://t.me/CSPRDevelopers)**: Ask developers and fellow builders for help
 
 ---
