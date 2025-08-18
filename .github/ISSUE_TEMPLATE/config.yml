@@ -1,0 +1,12 @@
+blank_issues_enabled: false
+contact_links:
+  - name: ❓ Ask a question or discuss an idea
+    url: https://t.me/CSPRDevelopers
+    about: Ask your questions and discuss your ideas in the CSPR Developers Group
+  - name: 📖 View Storybook Documentation
+    url: https://storybook.cspr.design
+    about: Explore component examples and documentation in our interactive Storybook
+  - name: 📦 NPM Package
+    url: https://www.npmjs.com/package/@make-software/cspr-design
+    about: View the CSPR.design package on NPM
+
