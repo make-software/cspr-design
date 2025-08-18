@@ -10,10 +10,12 @@ import { PrecisionCase } from '../../utils/currency';
 import CSPR from '../cspr/cspr';
 import PageTile from '../page-tile/page-tile';
 import FlexRow from '../flex-row/flex-row';
+import TableHead from '../table-head/table-head';
 
 export default {
   component: PaginatedTable,
-  title: 'Components/Display/PaginatedTable',
+  title: 'Components/Display/Table',
+  subcomponents: { TableDataHeader, TableRow, TableData, TableHead },
   args: {
     renderHeader: () => (
       <HeaderText size={2} tag={'h1'} scale={'xs'}>
@@ -173,4 +175,4 @@ const Template: StoryFn<typeof PaginatedTable> = (
   );
 };
 
-export const Primary = Template.bind({});
+export const WithPagination = Template.bind({});
