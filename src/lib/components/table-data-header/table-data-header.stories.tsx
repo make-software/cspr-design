@@ -5,6 +5,7 @@ import TableDataHeader, { TableDataHeaderProps } from './table-data-header';
 export default {
   component: TableDataHeader,
   title: 'Components/Display/TableDataHeader',
+  excludeStories: ['Primary'],
 } as Meta<typeof TableDataHeader>;
 
 const Template: StoryFn<typeof TableDataHeader> = (
