@@ -155,7 +155,7 @@ export function AccountInfoRow(props: AccountInfoRowProps) {
         {publicKey && (
           <>
             <FlexRow align="center">
-              <Tooltip title={publicKey}>
+              <Tooltip tooltipContent={publicKey}>
                 <BodyText size={3} variation={'black'} monotype>
                   {formatHash(publicKey, responsiveHashSize)}
                 </BodyText>

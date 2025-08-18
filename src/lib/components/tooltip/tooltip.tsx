@@ -20,12 +20,16 @@ type StyledReactTooltipProps = {
 };
 
 export interface TooltipProps extends BaseProps {
-  title?: JSX.Element | string | null;
+  tooltipContent?: JSX.Element | string | null;
   caption?: string | null;
   additionalBlock?: React.ReactElement<any> & any;
   children?: React.ReactElement<any> & any;
   monotype?: boolean;
   limitWidth?: boolean | string;
+  extendedLine?: {
+    content: string | undefined;
+    caption: string;
+  };
 }
 
 const StyledReactTooltip = styled(ReakitTooltip)<StyledReactTooltipProps>(
@@ -44,19 +48,19 @@ const StyledReactTooltip = styled(ReakitTooltip)<StyledReactTooltipProps>(
         sm: '1.3rem',
         xs: '0.8125rem',
       },
-      scale
+      scale,
     ),
     lineHeight: matchSize(
       {
         sm: '1.5rem',
         xs: '1.25rem',
       },
-      lineHeight
+      lineHeight,
     ),
     '&[data-enter]': {
       opacity: 1,
     },
-  })
+  }),
 );
 
 export const Tooltip = React.forwardRef<
@@ -67,16 +71,17 @@ export const Tooltip = React.forwardRef<
     {
       children,
       limitWidth,
-      title,
+      tooltipContent,
       caption,
       additionalBlock,
       monotype,
       lineHeight = 'sm',
       scale = 'sm',
       paddingScale = 2,
+      extendedLine,
       ...props
     },
-    ref
+    ref,
   ) => {
     const tooltip = useTooltipState({ animated: 250 });
     const maxWidth = limitWidth
@@ -89,9 +94,25 @@ export const Tooltip = React.forwardRef<
       return null;
     }
 
-    if (title == null) {
+    if (tooltipContent == null) {
       return <>{children}</>;
     }
+
+    const hasExtendedLine = extendedLine?.content != undefined;
+
+    const __caption = hasExtendedLine ? extendedLine?.caption : caption;
+    const __content = hasExtendedLine ? extendedLine?.content : tooltipContent;
+
+    const __additionalBlock = hasExtendedLine && (
+      <FlexColumn>
+        <CaptionText size={1} variation={'gray'}>
+          {__caption}
+        </CaptionText>
+        <BodyText size={3} monotype>
+          {__content}
+        </BodyText>
+      </FlexColumn>
+    );
 
     return (
       <>
@@ -111,16 +132,16 @@ export const Tooltip = React.forwardRef<
                   lineHeight={lineHeight}
                   scale={scale}
                 >
-                  {title}
+                  {tooltipContent}
                 </BodyText>
               </FlexColumn>
-              {additionalBlock}
+              {__additionalBlock}
             </FlexColumn>
           </div>
         </StyledReactTooltip>
       </>
     );
-  }
+  },
 );
 
 export default Tooltip;

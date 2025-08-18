@@ -47,16 +47,15 @@ export const Copy = ({
   minified = false,
 }: CopyProps) => {
   const [isCopied, setIsCopied] = useState(false);
+
+  const handleCopy = () => {
+    copy(value);
+    setIsCopied(true);
+    setTimeout(() => setIsCopied(false), 3000);
+  };
+
   return (
-    <FlexRow
-      style={styles}
-      align="center"
-      onClick={() => {
-        copy(value);
-        setIsCopied(true);
-        setTimeout(() => setIsCopied(false), 3000);
-      }}
-    >
+    <FlexRow style={styles} align="center" onClick={handleCopy}>
       {isCopied ? (
         <FlexRow align={'center'}>
           <SuccessIconWrapper src={SuccessIcon} marginRight />

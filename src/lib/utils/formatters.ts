@@ -292,3 +292,6 @@ export const formatDeploysCount = (value): string =>
 
 export const formatRatesToCurrency = (value): string =>
   formatNumber(value, { precision: 4 });
+
+export const truncateCSPRName = (name, limit) =>
+  name && name.length > limit ? name.substring(0, limit - 1) + '...' : name;

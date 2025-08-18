@@ -50,7 +50,7 @@ export function TableDataHeader({
   return (
     <StyledTableDataHeader {...restProps}>
       <StyledHeaderGroup>
-        <Tooltip title={tooltipText} limitWidth>
+        <Tooltip tooltipContent={tooltipText} limitWidth>
           <FlexRow gap={3} align={'center'}>
             <BodyText size={1} scale={'xs'}>
               {children}

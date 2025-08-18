@@ -80,7 +80,7 @@ export function TextRow(props: TextRowProps) {
 
   const responsiveHashSize = useMatchMedia(
     [HashLength.SMALL, HashLength.MEDIUM, HashLength.LARGE],
-    []
+    [],
   );
   const responsiveTruncateSize = useMatchMedia<Size>([2, 3, 4, 5], []);
 
@@ -88,7 +88,7 @@ export function TextRow(props: TextRowProps) {
     <StyledWrapper>
       <LabelContainer>
         {label && (
-          <Tooltip title={labelTooltipText} limitWidth>
+          <Tooltip tooltipContent={labelTooltipText} limitWidth>
             <FlexRow gap={3} align={'center'}>
               <BodyText size={1}>{label}</BodyText>
               {labelIcon}
@@ -101,14 +101,14 @@ export function TextRow(props: TextRowProps) {
         {prefixIcon && <PrefixContainer>{prefixIcon}</PrefixContainer>}
         <FlexRow itemsSpacing={4}>
           {type === TextRowType.Hash ? (
-            <Tooltip title={text}>
-              <BodyText size={3} monotype scale={"xs"}>
+            <Tooltip tooltipContent={text}>
+              <BodyText size={3} monotype scale={'xs'}>
                 {formatHash(text || '', responsiveHashSize)}
               </BodyText>
             </Tooltip>
           ) : (
             <TruncateBox size={responsiveTruncateSize}>
-              <Tooltip title={text}>
+              <Tooltip tooltipContent={text}>
                 <BodyText size={3} monotype={type === TextRowType.Number}>
                   {text}
                 </BodyText>
