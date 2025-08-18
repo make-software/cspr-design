@@ -59,6 +59,14 @@ export default meta;
 
 type Story = StoryObj<typeof meta>;
 
+export const Primary: Story = {
+  render: (args) => (
+    <PageTile>
+      <Table {...args} />
+    </PageTile>
+  ),
+};
+
 export const WithHeader: Story = {
   render: (args) => (
     <PageTile>

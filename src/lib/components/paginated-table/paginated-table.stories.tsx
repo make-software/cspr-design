@@ -14,7 +14,7 @@ import TableHead from '../table-head/table-head';
 
 export default {
   component: PaginatedTable,
-  title: 'Components/Display/Table',
+  title: 'Components/Display/PaginatedTable',
   subcomponents: { TableDataHeader, TableRow, TableData, TableHead },
   args: {
     renderHeader: () => (
@@ -175,4 +175,4 @@ const Template: StoryFn<typeof PaginatedTable> = (
   );
 };
 
-export const WithPagination = Template.bind({});
+export const Primary = Template.bind({});
