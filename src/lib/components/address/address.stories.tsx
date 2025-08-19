@@ -27,12 +27,14 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Primary: Story = {};
+
 export const withName: Story = {
   args: {
     name: 'Faucet',
     csprName: 'faucet.cspr',
   },
 };
+
 export const withLogo: Story = {
   args: {
     name: 'Casper Space DJ',

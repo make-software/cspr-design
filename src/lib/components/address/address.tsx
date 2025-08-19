@@ -109,8 +109,6 @@ export const Address = ({
     );
   }
 
-  const path = navigateToPath;
-
   return (
     <FlexRow align="center" itemsSpacing={12}>
       {logo ? (
@@ -138,7 +136,7 @@ export const Address = ({
               >
                 <HashLink
                   minified={minified}
-                  href={path}
+                  href={navigateToPath}
                   hash={publicKey}
                   csprName={
                     csprName && shortenCsprName(csprName, HashLength.TINY)
@@ -159,7 +157,7 @@ export const Address = ({
           ) : (
             <StyledHashWrapper hashFontSize={hashFontSize} monotype={!csprName}>
               <HashLink
-                href={path}
+                href={navigateToPath}
                 hash={publicKey}
                 csprName={
                   csprName && shortenCsprName(csprName, HashLength.TINY)

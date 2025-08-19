@@ -7,17 +7,42 @@ import copy from 'copy-to-clipboard';
 
 import SuccessIcon from '../../assets/icons/ic-success.svg';
 import CopyIcon from '../../assets/icons/ic-copy.svg';
+import { StyledTableRow } from '../table-row/table-row.tsx';
 
-type CopyColor = 'blue' | 'gray';
+type CopyColor = 'blue' | 'gray' | 'green';
 
 const copyColorMapper = {
   blue: 'contentBlue',
   gray: 'contentTertiary',
+  green: 'contentGreen',
 };
 
-const SuccessIconWrapper = styled(SvgIcon)(({ theme }) => ({
-  color: theme.styleguideColors.contentGreen,
-}));
+const StyledContainer = styled.span<{ isCopied: boolean }>`
+  ${({ theme, isCopied }) => ({
+    lineHeight: '20px',
+    cursor: 'pointer',
+    position: 'relative',
+    pointerEvents: isCopied ? 'none' : 'initial',
+    '>:not(:first-child)': {
+      marginLeft: 8,
+    },
+
+    '& > svg': {
+      color: isCopied
+        ? theme.styleguideColors.contentGreen
+        : theme.styleguideColors.contentTertiary,
+      ':hover': {
+        color: theme.styleguideColors.fillPrimaryRed,
+      },
+      ':active': {
+        color: theme.styleguideColors.fillPrimaryRedClick,
+      },
+      ...(isCopied && {
+        animation: 'fadeInOut 3s',
+      }),
+    },
+  })}
+`;
 
 const StyledSvgIcon = styled(SvgIcon)<{ variation?: CopyColor }>(
   ({ theme, variation = 'blue' }) =>
@@ -48,33 +73,47 @@ export const Copy = ({
 }: CopyProps) => {
   const [isCopied, setIsCopied] = useState(false);
 
-  const handleCopy = () => {
-    copy(value);
-    setIsCopied(true);
-    setTimeout(() => setIsCopied(false), 3000);
+  const handleCopy = (event) => {
+    event.stopPropagation();
+
+    if (value) {
+      copy(value);
+      setIsCopied(true);
+      setTimeout(() => setIsCopied(false), 2800);
+    }
   };
 
   return (
-    <FlexRow style={styles} align="center" onClick={handleCopy}>
-      {isCopied ? (
-        <FlexRow align={'center'}>
-          <SuccessIconWrapper src={SuccessIcon} marginRight />
-          {!minified && (
-            <BodyText size={3} variation="green">
-              {copiedLabel}
-            </BodyText>
-          )}
-        </FlexRow>
-      ) : (
-        <FlexRow align={'center'}>
-          <StyledSvgIcon src={CopyIcon} marginRight variation={variation} />
-          {!minified && (
-            <BodyText size={3} variation={'black'}>
-              {label}
-            </BodyText>
-          )}
-        </FlexRow>
-      )}
+    <FlexRow style={styles} align="center" itemsSpacing={8}>
+      <StyledContainer onClick={handleCopy} isCopied={isCopied}>
+        {isCopied ? (
+          <SvgIcon
+            size={16}
+            src={SuccessIcon}
+            marginRight
+            role={'img'}
+            alt={'Copy button'}
+          />
+        ) : (
+          <SvgIcon
+            size={16}
+            src={CopyIcon}
+            marginRight
+            role={'img'}
+            alt={'Copy button'}
+          />
+        )}
+        {/*{!minified && isCopied && (*/}
+        {/*  <BodyText size={3} variation="green">*/}
+        {/*    {copiedLabel}*/}
+        {/*  </BodyText>*/}
+        {/*)}*/}
+        {/*{!minified && !isCopied && (*/}
+        {/*  <BodyText size={3} variation={'black'}>*/}
+        {/*    {label}*/}
+        {/*  </BodyText>*/}
+        {/*)}*/}
+      </StyledContainer>
     </FlexRow>
   );
 };
