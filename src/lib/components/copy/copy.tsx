@@ -73,6 +73,10 @@ export const Copy = ({
 }: CopyProps) => {
   const [isCopied, setIsCopied] = useState(false);
 
+  const copiedIcon = isCopied ? SuccessIcon : CopyIcon;
+  const copiedLabelText = isCopied ? copiedLabel : label;
+  const copiedLabelStyle = isCopied ? 'green' : 'black';
+
   const handleCopy = (event) => {
     event.stopPropagation();
 
@@ -86,33 +90,19 @@ export const Copy = ({
   return (
     <FlexRow style={styles} align="center" itemsSpacing={8}>
       <StyledContainer onClick={handleCopy} isCopied={isCopied}>
-        {isCopied ? (
-          <SvgIcon
-            size={16}
-            src={SuccessIcon}
-            marginRight
-            role={'img'}
-            alt={'Copy button'}
-          />
-        ) : (
-          <SvgIcon
-            size={16}
-            src={CopyIcon}
-            marginRight
-            role={'img'}
-            alt={'Copy button'}
-          />
+        <StyledSvgIcon
+          variation={variation}
+          size={16}
+          src={copiedIcon}
+          role={'img'}
+          alt={'Copy button'}
+          marginRight
+        />
+        {!minified && (
+          <BodyText size={3} variation={copiedLabelStyle}>
+            {copiedLabelText}
+          </BodyText>
         )}
-        {/*{!minified && isCopied && (*/}
-        {/*  <BodyText size={3} variation="green">*/}
-        {/*    {copiedLabel}*/}
-        {/*  </BodyText>*/}
-        {/*)}*/}
-        {/*{!minified && !isCopied && (*/}
-        {/*  <BodyText size={3} variation={'black'}>*/}
-        {/*    {label}*/}
-        {/*  </BodyText>*/}
-        {/*)}*/}
       </StyledContainer>
     </FlexRow>
   );
