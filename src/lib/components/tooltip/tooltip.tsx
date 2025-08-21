@@ -26,10 +26,6 @@ export interface TooltipProps extends BaseProps {
   children?: React.ReactElement<any> & any;
   monotype?: boolean;
   limitWidth?: boolean | string;
-  extendedLine?: {
-    content: string | undefined;
-    caption: string;
-  };
 }
 
 const StyledReactTooltip = styled(ReakitTooltip)<StyledReactTooltipProps>(
@@ -78,7 +74,6 @@ export const Tooltip = React.forwardRef<
       lineHeight = 'sm',
       scale = 'sm',
       paddingScale = 2,
-      extendedLine,
       ...props
     },
     ref,
@@ -97,22 +92,6 @@ export const Tooltip = React.forwardRef<
     if (tooltipContent == null) {
       return <>{children}</>;
     }
-
-    const hasExtendedLine = extendedLine?.content != undefined;
-
-    const __caption = hasExtendedLine ? extendedLine?.caption : caption;
-    const __content = hasExtendedLine ? extendedLine?.content : tooltipContent;
-
-    const __additionalBlock = hasExtendedLine && (
-      <FlexColumn>
-        <CaptionText size={1} variation={'gray'}>
-          {__caption}
-        </CaptionText>
-        <BodyText size={3} monotype>
-          {__content}
-        </BodyText>
-      </FlexColumn>
-    );
 
     return (
       <>
@@ -135,7 +114,7 @@ export const Tooltip = React.forwardRef<
                   {tooltipContent}
                 </BodyText>
               </FlexColumn>
-              {__additionalBlock}
+              {additionalBlock}
             </FlexColumn>
           </div>
         </StyledReactTooltip>

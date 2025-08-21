@@ -6,6 +6,7 @@ import BodyText from '../body-text/body-text';
 import TruncateBox from '../truncate-box/truncate-box';
 import { Meta } from '@storybook/react';
 import { StoryObj } from '@storybook/react-vite';
+import CaptionText from '../caption-text/caption-text';
 
 const meta = {
   component: Tooltip,
@@ -21,7 +22,7 @@ const meta = {
       control: 'text',
       description: 'The tooltip text to display',
     },
-    extendedLine: {
+    additionalBlock: {
       control: 'object',
     },
   },
@@ -52,9 +53,13 @@ export const WithExtendedLine: Story = {
   ...Primary,
   args: {
     ...Primary.args,
-    extendedLine: {
-      content: 'extended tooltip content',
-      caption: 'extended tooltip caption',
-    },
+    additionalBlock: (
+      <FlexColumn>
+        <CaptionText size={1} variation={'gray'}>
+          Tooltip Caption
+        </CaptionText>
+        <BodyText size={3}>Tooltip Content</BodyText>
+      </FlexColumn>
+    ),
   },
 };
