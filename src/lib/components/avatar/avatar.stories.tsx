@@ -1,12 +1,9 @@
-import React from 'react';
-import { Meta, StoryFn } from '@storybook/react';
-import styled from 'styled-components';
+import { Meta } from '@storybook/react';
 import Avatar from './avatar';
+import { StoryObj } from '@storybook/react-vite';
 import FlexRow from '../flex-row/flex-row';
-import FlexColumn from '../flex-column/flex-column';
-import SubtitleText from '../subtitle-text/subtitle-text';
 
-export default {
+const meta = {
   component: Avatar,
   title: 'Components/Display/Avatar',
   // tags: ['autodocs', '!dev'],
@@ -19,7 +16,7 @@ export default {
       control: { type: 'text' },
     },
     size: {
-      options: ['small', 'default', 'average', 'medium', 'big'],
+      options: ['tiny', 'small', 'default', 'average', 'medium', 'big'],
       control: { type: 'radio' },
     },
     loading: {
@@ -30,53 +27,37 @@ export default {
       options: [true, false],
       control: { type: 'radio' },
     },
+    transparentBg: {
+      options: [true, false],
+      control: { type: 'radio' },
+    },
   },
 } as Meta<typeof Avatar>;
 
-const StyledBlock = styled.div`
-  display: flex;
-  align-items: center;
-`;
+export default meta;
 
-const Template: StoryFn<typeof Avatar> = (args) => (
-  <FlexRow itemsSpacing={10}>
-    <FlexColumn itemsSpacing={10}>
+type Story = StoryObj<typeof meta>;
+
+export const Primary: Story = {};
+export const AllOptions: Story = {
+  render: (args) => (
+    <FlexRow
+      itemsSpacing={18}
+      style={{ backgroundColor: 'rgb(2, 156, 253, 0.5)' }}
+    >
       <Avatar {...args} />
-    </FlexColumn>
-  </FlexRow>
-);
-const AvatarTypes = ({ size }) => (
-  <>
-    <SubtitleText size={2}>{size}</SubtitleText>
-    <StyledBlock>
-      <Avatar loading={true} size={size} />
+      <Avatar {...args} loading={true} />
       <Avatar
-        hash="01f5f1fa995ab7e966428e5a1aed797526ad5b2454c50a63a7aaa2dfeae6a996c2"
-        size={size}
+        {...args}
+        hash={
+          '84f97651d9322db4b6b23541528017c64acebf3a6250bdac8ff7481759ff8604'
+        }
       />
+      <Avatar {...args} isErc20 />
       <Avatar
-        hash="84f97651d9322db4b6b23541528017c64acebf3a6250bdac8ff7481759ff8604"
-        size={size}
-      />
-      <Avatar isErc20 size={size} />
-      <Avatar
+        {...args}
         src="https://makegroup.io/wp-content/uploads/2023/09/Logo.png"
-        size={size}
       />
-    </StyledBlock>
-  </>
-);
-
-export const allOptions = () => (
-  <FlexRow itemsSpacing={10}>
-    <FlexColumn itemsSpacing={10}>
-      <AvatarTypes size="small" />
-      <AvatarTypes size="default" />
-      <AvatarTypes size="average" />
-      <AvatarTypes size="medium" />
-      <AvatarTypes size="big" />
-    </FlexColumn>
-  </FlexRow>
-);
-
-export const Primary = Template.bind({});
+    </FlexRow>
+  ),
+};

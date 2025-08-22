@@ -11,8 +11,14 @@ const meta = {
       '01f5f1fa995ab7e966428e5a1aed797526ad5b2454c50a63a7aaa2dfeae6a996c2',
     minified: true,
     tooltipCaption: 'public key',
+    avatarSize: 'default',
   },
   argTypes: {
+    avatarSize: {
+      control: { type: 'select' },
+      options: ['default', 'big', 'average', 'medium', 'small'],
+      description: 'The size of the avatar',
+    },
     publicKey: { control: 'text' },
     csprName: { control: 'text' },
     logo: { control: 'text' },
@@ -32,6 +38,7 @@ export const withName: Story = {
   args: {
     name: 'Faucet',
     csprName: 'faucet.cspr',
+    logo: 'https://cspr-image-proxy-cdn.dev.make.services/64,fit,ttl86400/https://casper-assets.s3.amazonaws.com/accounts/faucet.svg',
   },
 };
 

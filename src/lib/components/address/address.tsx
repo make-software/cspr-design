@@ -18,14 +18,14 @@ interface AddressProps {
   csprName?: string | undefined;
   publicKey: string | null | undefined;
   tooltipCaption?: string;
-  /** @redundunt use navigateToPath instead */
-  navigationPath?: keyof any;
   navigateToPath?: string;
   hashLength?: HashLength;
   nameSize?: Size;
   avatarSize?: AvatarProps['size'];
   hashFontSize?: HashFontSize;
   minified?: boolean;
+  /** @redundunt use navigateToPath instead */
+  navigationPath?: keyof any;
   /** @deprecated use minified instead */
   copyNotifyingStyle?: 'full' | 'tiny';
 }
@@ -40,10 +40,12 @@ export enum HashFontSize {
 }
 
 const StyledHashWrapper = ({ hashFontSize, ...props }) => {
-  return hashFontSize === HashFontSize.big ? (
-    <BodyText size={3} scale="sm" {...props} />
-  ) : (
-    <BodyText size={3} {...props} />
+  return (
+    <BodyText
+      {...props}
+      size={3}
+      scale={hashFontSize === HashFontSize.big ? 'sm' : props.scale}
+    />
   );
 };
 
@@ -122,11 +124,7 @@ export const Address = ({
         <Avatar hash={publicKey} loading={loading} size={avatarSize} />
       )}
 
-      <Tooltip
-        caption={tooltipCaption}
-        tooltipContent={publicKey}
-        extendedLine={{ content: csprName, caption: 'CSPR.name' }}
-      >
+      <Tooltip caption={tooltipCaption} tooltipContent={publicKey}>
         <FlexColumn>
           {name ? (
             <>

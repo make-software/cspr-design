@@ -1,13 +1,12 @@
 import React, { useState } from 'react';
 import FlexRow from '../flex-row/flex-row';
 import BodyText from '../body-text/body-text';
-import styled from 'styled-components';
+import styled, { css, keyframes } from 'styled-components';
 import SvgIcon from '../svg-icon/svg-icon';
-import copy from 'copy-to-clipboard';
+import copyToClipboard from 'copy-to-clipboard';
 
 import SuccessIcon from '../../assets/icons/ic-success.svg';
 import CopyIcon from '../../assets/icons/ic-copy.svg';
-import { StyledTableRow } from '../table-row/table-row.tsx';
 
 type CopyColor = 'blue' | 'gray' | 'green';
 
@@ -17,31 +16,63 @@ const copyColorMapper = {
   green: 'contentGreen',
 };
 
-const StyledContainer = styled.span<{ isCopied: boolean }>`
-  ${({ theme, isCopied }) => ({
-    lineHeight: '20px',
-    cursor: 'pointer',
-    position: 'relative',
-    pointerEvents: isCopied ? 'none' : 'initial',
-    '>:not(:first-child)': {
-      marginLeft: 8,
-    },
+const fadeInOut = keyframes`
+  0% {
+    opacity: 0;
+  }
+  25% {
+    opacity: 1;
+  }
+  75% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+`;
 
-    '& > svg': {
-      color: isCopied
-        ? theme.styleguideColors.contentGreen
-        : theme.styleguideColors.contentTertiary,
-      ':hover': {
-        color: theme.styleguideColors.fillPrimaryRed,
-      },
-      ':active': {
-        color: theme.styleguideColors.fillPrimaryRedClick,
-      },
-      ...(isCopied && {
-        animation: 'fadeInOut 3s',
-      }),
-    },
-  })}
+const StyledContainer = styled.span<{ isCopied: boolean }>`
+  line-height: 20px;
+  cursor: pointer;
+  position: relative;
+
+  > :not(:first-child) {
+    margin-left: 8px;
+  }
+
+  pointer-events: ${(props) => (props.isCopied ? 'none' : 'initial')};
+  animation: ${(props) =>
+    props.isCopied
+      ? css`
+          ${fadeInOut} 3s
+        `
+      : 'none'};
+
+  & svg {
+    color: ${(props) =>
+      props.isCopied
+        ? props.theme.styleguideColors.contentGreen
+        : props.theme.styleguideColors.contentTertiary};
+
+    path {
+      fill: ${(props) =>
+        props.isCopied
+          ? props.theme.styleguideColors.contentGreen
+          : props.theme.styleguideColors.contentTertiary};
+    }
+    :hover {
+      color: ${(props) => props.theme.styleguideColors.fillPrimaryBlue};
+      path {
+        fill: ${(props) => props.theme.styleguideColors.fillPrimaryBlue};
+      }
+    }
+    :active {
+      color: ${(props) => props.theme.styleguideColors.fillPrimaryBlueClick};
+      path {
+        fill: ${(props) => props.theme.styleguideColors.fillPrimaryBlueClick};
+      }
+    }
+  }
 `;
 
 const StyledSvgIcon = styled(SvgIcon)<{ variation?: CopyColor }>(
@@ -81,7 +112,7 @@ export const Copy = ({
     event.stopPropagation();
 
     if (value) {
-      copy(value);
+      copyToClipboard(value);
       setIsCopied(true);
       setTimeout(() => setIsCopied(false), 2800);
     }
@@ -96,7 +127,6 @@ export const Copy = ({
           src={copiedIcon}
           role={'img'}
           alt={'Copy button'}
-          marginRight
         />
         {!minified && (
           <BodyText size={3} variation={copiedLabelStyle}>

@@ -11,7 +11,7 @@ export default {
   title: 'Components/Display/CSPR',
   // tags: ['autodocs', '!dev'],
   args: {
-    motes: '3000',
+    motes: '30000000000',
     precisionCase: PrecisionCase.deployCost,
     hideCsprCurrency: false,
   },
