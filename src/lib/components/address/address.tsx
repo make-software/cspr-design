@@ -13,7 +13,7 @@ import TruncateBox from '../truncate-box/truncate-box.tsx';
 
 /**
  * Address component can be used to display a public key or hash associated with an account.
- * It supports various configurations, including loading states, logos, names, and tooltips.
+ * It supports various configurations, including loading state, logo, name, csprName, and tooltip.
  *
  *
  * Properties:
