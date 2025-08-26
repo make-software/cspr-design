@@ -11,20 +11,42 @@ import { HashLength } from '../../utils/formatters.ts';
 import { Size } from '../../types.ts';
 import TruncateBox from '../truncate-box/truncate-box.tsx';
 
+/**
+ * Address component can be used to display a public key or hash associated with an account.
+ * It supports various configurations, including loading states, logos, names, and tooltips.
+ *
+ *
+ * Properties:
+ * @property {boolean} loading - Specifies whether the address component is in a loading state.
+ * @property {string | null} logo - The logo associated with the address, if available.
+ * @property {string | undefined} name - The display name of the address.
+ * @property {string | undefined} [csprName] - The CSPR.name associated with the address, if applicable.
+ * @property {string | null | undefined} hash - The public key or hash associated with the address.
+ * @property {string} [tooltipCaption] - Text to be displayed in a tooltip for additional context.
+ * @property {string} [navigateToPath] - The path to navigate to when interacting with the address.
+ * @property {HashLength} [hashLength] - Specifies the length of the hash representation.
+ * @property {Size} [nameTruncateSize] - Defines the size of the name text.
+ * @property {AvatarProps['size']} [avatarSize] - The size of the avatar related to the address.
+ * @property {HashFontSize} [hashFontSize] - Specifies the font size to display the hash.
+ * @property {boolean} [minified] - Determines if the address component should be rendered in a minimized style.
+ * @property {keyof any} [navigationPath] - **@redundant** Use `navigateToPath` instead.
+ * @property {'full' | 'tiny'} [copyNotifyingStyle] - **@deprecated** Use `minified` instead.
+ */
 interface AddressProps {
   loading: boolean;
   logo: string | null;
   name: string | undefined;
+  hash: string | null | undefined;
   csprName?: string | undefined;
-  publicKey: string | null | undefined;
   tooltipCaption?: string;
+  additionalTooltipBlock?: React.ReactElement;
   navigateToPath?: string;
   hashLength?: HashLength;
-  nameSize?: Size;
+  nameTruncateSize?: Size;
   avatarSize?: AvatarProps['size'];
   hashFontSize?: HashFontSize;
-  minified?: boolean;
-  /** @redundunt use navigateToPath instead */
+  minifiedCopyNotification?: boolean;
+  /** @redundant use navigateToPath instead */
   navigationPath?: keyof any;
   /** @deprecated use minified instead */
   copyNotifyingStyle?: 'full' | 'tiny';
@@ -34,20 +56,23 @@ const StyledTruncateBox = styled(TruncateBox)(() => ({
   height: '20px',
 }));
 
+const StyledBodyText = styled(BodyText)(({ theme }) => ({
+  color: theme.styleguideColors.contentBlue,
+  '& > *': {
+    color: theme.styleguideColors.contentBlue,
+  },
+  '&:hover > *': {
+    color: theme.styleguideColors.fillPrimaryRed,
+  },
+  '&:active > *': {
+    color: theme.styleguideColors.fillPrimaryRedClick,
+  },
+}));
+
 export enum HashFontSize {
   'default' = 'default',
   'big' = 'big',
 }
-
-const StyledHashWrapper = ({ hashFontSize, ...props }) => {
-  return (
-    <BodyText
-      {...props}
-      size={3}
-      scale={hashFontSize === HashFontSize.big ? 'sm' : props.scale}
-    />
-  );
-};
 
 const shortenCsprName = (
   csprName: string,
@@ -68,40 +93,40 @@ const shortenCsprName = (
   return `${firstPart}...${secondPart}${extension}`;
 };
 
-// Check usage of this component
 export const Address = ({
-  publicKey,
+  hash,
   csprName,
   logo,
   name,
   loading,
   hashLength,
-  minified,
+  minifiedCopyNotification,
   navigateToPath,
   tooltipCaption,
-  nameSize = 5,
+  additionalTooltipBlock,
+  nameTruncateSize = 5,
   avatarSize = 'default',
   hashFontSize = HashFontSize.default,
 }: AddressProps) => {
-  if (loading || !publicKey) {
+  if (loading || !hash) {
     return (
       <FlexRow align="center" itemsSpacing={12}>
-        <Avatar hash={publicKey} loading={loading} size={avatarSize} />
+        <Avatar hash={hash} loading={loading} size={avatarSize} />
       </FlexRow>
     );
   }
 
-  if (publicKey === '00') {
-    // publicKey == '00' means that it is a Immediate Switch Block
+  if (hash === '00') {
+    // hash == '00' means that it is a Immediate Switch Block
     // NOTE: as part of Casper network node v1.5, the node software now creates an "immediate switch block" on upgrades;
     // there are no rewards for this block. it simply captures the information after application of the upgrade,
     // which allows this to be deterministically detected
     return (
       <FlexRow align="center" itemsSpacing={12}>
-        <Avatar hash={publicKey} loading={loading} size={avatarSize} />
+        <Avatar hash={hash} loading={loading} size={avatarSize} />
         <FlexColumn>
           <BodyText size={2} monotype>
-            {publicKey}
+            {hash}
           </BodyText>
           <BodyText size={3} variation="darkGray" noWrap>
             System
@@ -121,49 +146,56 @@ export const Address = ({
           alt={'Account logo'}
         />
       ) : (
-        <Avatar hash={publicKey} loading={loading} size={avatarSize} />
+        <Avatar hash={hash} loading={loading} size={avatarSize} />
       )}
 
-      <Tooltip caption={tooltipCaption} tooltipContent={publicKey}>
+      <Tooltip
+        caption={tooltipCaption}
+        tooltipContent={hash}
+        additionalBlock={additionalTooltipBlock}
+      >
         <FlexColumn>
           {name ? (
             <>
-              <StyledHashWrapper
-                hashFontSize={hashFontSize}
+              <StyledBodyText
+                size={3}
+                scale={hashFontSize === HashFontSize.big ? 'sm' : undefined}
                 monotype={!csprName}
               >
                 <HashLink
-                  minified={minified}
+                  minified={minifiedCopyNotification}
                   href={navigateToPath}
-                  hash={publicKey}
+                  hash={hash}
                   csprName={
                     csprName && shortenCsprName(csprName, HashLength.TINY)
                   }
                   hashLength={hashLength}
                 />
-              </StyledHashWrapper>
+              </StyledBodyText>
               <FlexRow itemsSpacing={6} align={'center'}>
-                <FlexRow>
-                  <StyledTruncateBox size={nameSize}>
-                    <BodyText size={3} variation="darkGray" noWrap>
-                      {name}
-                    </BodyText>
-                  </StyledTruncateBox>
-                </FlexRow>
+                <StyledTruncateBox size={nameTruncateSize}>
+                  <BodyText size={3} variation="darkGray" noWrap>
+                    {name}
+                  </BodyText>
+                </StyledTruncateBox>
               </FlexRow>
             </>
           ) : (
-            <StyledHashWrapper hashFontSize={hashFontSize} monotype={!csprName}>
+            <StyledBodyText
+              size={3}
+              scale={hashFontSize === HashFontSize.big ? 'sm' : undefined}
+              monotype={!csprName}
+            >
               <HashLink
                 href={navigateToPath}
-                hash={publicKey}
+                hash={hash}
                 csprName={
                   csprName && shortenCsprName(csprName, HashLength.TINY)
                 }
                 hashLength={hashLength}
-                minified={minified}
+                minified={minifiedCopyNotification}
               />
-            </StyledHashWrapper>
+            </StyledBodyText>
           )}
         </FlexColumn>
       </Tooltip>

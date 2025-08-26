@@ -15,6 +15,7 @@ export interface NavLinkProps extends BaseProps, ActivableProps {
 
 const StyledA = styled.a<NavLinkProps>(({ theme, disabled, active }) => ({
   color: theme.styleguideColors.contentTertiary,
+  textDecoration: 'none',
 
   ':hover': {
     fontWeight: theme.typography.fontWeight.semiBold,

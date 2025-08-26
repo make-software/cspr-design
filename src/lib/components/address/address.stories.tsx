@@ -7,9 +7,8 @@ const meta = {
   title: 'Components/Display/Address',
   // tags: ['autodocs', '!dev'],
   args: {
-    publicKey:
-      '01f5f1fa995ab7e966428e5a1aed797526ad5b2454c50a63a7aaa2dfeae6a996c2',
-    minified: true,
+    hash: '01f5f1fa995ab7e966428e5a1aed797526ad5b2454c50a63a7aaa2dfeae6a996c2',
+    minifiedCopyNotification: true,
     tooltipCaption: 'public key',
     avatarSize: 'default',
   },
@@ -19,12 +18,12 @@ const meta = {
       options: ['default', 'big', 'average', 'medium', 'small'],
       description: 'The size of the avatar',
     },
-    publicKey: { control: 'text' },
+    hash: { control: 'text' },
     csprName: { control: 'text' },
     logo: { control: 'text' },
     name: { control: 'text' },
     tooltipCaption: { control: 'text' },
-    minified: { control: 'boolean' },
+    minifiedCopyNotification: { control: 'boolean' },
   },
 } as Meta<typeof Address>;
 

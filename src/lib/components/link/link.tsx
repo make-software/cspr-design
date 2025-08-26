@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import {matchSize} from "../../utils/match-size";
+import { matchSize } from '../../utils/match-size';
 
 type Color = 'primaryBlue' | 'primaryRed' | 'hash' | 'inherit';
 
@@ -39,28 +39,35 @@ export interface LinkProps extends React.HTMLAttributes<Ref> {
 }
 
 type Ref = HTMLAnchorElement;
-const StyledLink = styled.a<LinkProps>(({ theme, color, lineHeight = 'sm' }) => {
-  const stateColor = getStateColor(theme, color);
-  return {
-    lineHeight: matchSize(
+const StyledLink = styled.a<LinkProps>(
+  ({ theme, color, lineHeight = 'sm' }) => {
+    const stateColor = getStateColor(theme, color);
+
+    return {
+      textDecoration: 'none',
+      lineHeight: matchSize(
         {
           sm: '1.5rem',
           xs: '1.25rem',
         },
-        lineHeight
-    ),
-    color: stateColor.color,
-    '&:hover > *': {
-      color: stateColor.hover,
-    },
-    '&:active > *': {
-      color: stateColor.active,
-    },
-  };
-});
+        lineHeight,
+      ),
+      color: stateColor.color,
+      '&:hover, &:hover > *': {
+        color: stateColor.hover,
+      },
+      '&:active, &:active > *': {
+        color: stateColor.active,
+      },
+    };
+  },
+);
 
-export const Link = React.forwardRef<Ref, LinkProps>(function Link(props, ref) {
-  return <StyledLink ref={ref} target="_blank" {...props} />;
+export const Link = React.forwardRef<Ref, LinkProps>(function Link(
+  { color = 'primaryRed', ...props },
+  ref,
+) {
+  return <StyledLink ref={ref} target="_blank" color={color} {...props} />;
 });
 
 export default Link;

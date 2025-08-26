@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { BaseProps } from '../../types';
-import Link from '../link/link';
+import { Link } from '../link/link';
 import SvgIcon from './svg-icon';
 import {
   FacebookIcon,

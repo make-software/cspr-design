@@ -1,7 +1,7 @@
 import React from 'react';
 import { Meta, StoryFn } from '@storybook/react';
 import { Badge } from './badge';
-import Link from '../link/link';
+import { Link } from '../link/link';
 import TruncateBox from '../truncate-box/truncate-box';
 
 export default {

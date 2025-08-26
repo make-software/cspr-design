@@ -24,6 +24,7 @@ export interface AvatarProps<T = any> {
   loading?: boolean;
   isErc20?: boolean;
   transparentBg?: boolean;
+  [key: string]: any;
 }
 
 const getCornerRadius = (size: string = 'default') => {
