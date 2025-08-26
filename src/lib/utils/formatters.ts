@@ -292,3 +292,25 @@ export const formatDeploysCount = (value): string =>
 
 export const formatRatesToCurrency = (value): string =>
   formatNumber(value, { precision: 4 });
+
+export const truncateCSPRName = (name: string, limit: number): string =>
+  name && name.length > limit ? name.substring(0, limit - 1) + '...' : name;
+
+export const shortenCsprName = (
+  csprName: string,
+  visibleStringLength: HashLength = HashLength.SMALL,
+) => {
+  const [name, extension] = csprName.split(/(.cspr)$/);
+
+  const MIN_TRUNCATE_LENGTH = HashLength.TINY * 2 + 3;
+  const hashLength = name.length;
+
+  if (hashLength === HashLength.FULL || hashLength <= MIN_TRUNCATE_LENGTH) {
+    return csprName;
+  }
+
+  const firstPart = name.substring(0, visibleStringLength);
+  const secondPart = name.substring(hashLength - visibleStringLength);
+
+  return `${firstPart}...${secondPart}${extension}`;
+};

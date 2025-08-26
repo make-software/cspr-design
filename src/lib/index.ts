@@ -1,5 +1,7 @@
 export * from './components/alert/alert';
 export * from './components/avatar/avatar';
+export * from './components/address/address';
+export * from './components/hash-link/hash-link';
 export * from './components/body-text/body-text';
 export * from './components/button/button';
 export * from './components/badge/badge';

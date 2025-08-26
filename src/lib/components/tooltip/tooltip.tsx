@@ -20,7 +20,7 @@ type StyledReactTooltipProps = {
 };
 
 export interface TooltipProps extends BaseProps {
-  title?: JSX.Element | string | null;
+  tooltipContent?: JSX.Element | string | null;
   caption?: string | null;
   additionalBlock?: React.ReactElement<any> & any;
   children?: React.ReactElement<any> & any;
@@ -44,19 +44,19 @@ const StyledReactTooltip = styled(ReakitTooltip)<StyledReactTooltipProps>(
         sm: '1.3rem',
         xs: '0.8125rem',
       },
-      scale
+      scale,
     ),
     lineHeight: matchSize(
       {
         sm: '1.5rem',
         xs: '1.25rem',
       },
-      lineHeight
+      lineHeight,
     ),
     '&[data-enter]': {
       opacity: 1,
     },
-  })
+  }),
 );
 
 export const Tooltip = React.forwardRef<
@@ -67,7 +67,7 @@ export const Tooltip = React.forwardRef<
     {
       children,
       limitWidth,
-      title,
+      tooltipContent,
       caption,
       additionalBlock,
       monotype,
@@ -76,7 +76,7 @@ export const Tooltip = React.forwardRef<
       paddingScale = 2,
       ...props
     },
-    ref
+    ref,
   ) => {
     const tooltip = useTooltipState({ animated: 250 });
     const maxWidth = limitWidth
@@ -89,7 +89,7 @@ export const Tooltip = React.forwardRef<
       return null;
     }
 
-    if (title == null) {
+    if (tooltipContent == null) {
       return <>{children}</>;
     }
 
@@ -111,7 +111,7 @@ export const Tooltip = React.forwardRef<
                   lineHeight={lineHeight}
                   scale={scale}
                 >
-                  {title}
+                  {tooltipContent}
                 </BodyText>
               </FlexColumn>
               {additionalBlock}
@@ -120,7 +120,7 @@ export const Tooltip = React.forwardRef<
         </StyledReactTooltip>
       </>
     );
-  }
+  },
 );
 
 export default Tooltip;

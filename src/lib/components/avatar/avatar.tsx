@@ -20,13 +20,16 @@ export const isValidAccountHash = (
 export interface AvatarProps<T = any> {
   hash?: string | null;
   src?: string | null;
-  size?: 'default' | 'big' | 'average' | 'medium' | 'small';
+  size?: 'default' | 'big' | 'average' | 'medium' | 'small' | 'tiny';
   loading?: boolean;
   isErc20?: boolean;
+  transparentBg?: boolean;
+  [key: string]: any;
 }
 
 const getCornerRadius = (size: string = 'default') => {
   const cornerRadiusMap: Record<string, number> = {
+    tiny: 2,
     small: 2,
     default: 2,
     average: 4,
@@ -39,11 +42,12 @@ const getCornerRadius = (size: string = 'default') => {
 
 const getSize = (size: string = 'default'): number => {
   const sizeMap: Record<string, number> = {
+    tiny: 16,
     small: 20,
-    default: 24,
     average: 28,
-    medium: 32,
-    big: 40,
+    default: 32,
+    medium: 80,
+    big: 124,
   };
 
   return sizeMap[size] || sizeMap.default;
@@ -51,11 +55,12 @@ const getSize = (size: string = 'default'): number => {
 
 const getBgColor = (size: string = 'default') => {
   const bgColorMap: Record<string, string> = {
-    small: 'contentOnFill',
-    default: 'contentOnFill',
-    average: 'contentOnFill',
-    medium: 'contentOnFill',
-    big: 'contentOnFill',
+    tiny: 'contentTertiary',
+    small: 'contentTertiary',
+    default: 'contentQuaternary',
+    average: 'contentQuaternary',
+    medium: 'contentQuaternary',
+    big: 'contentQuaternary',
   };
 
   return bgColorMap[size] || bgColorMap.default;
@@ -63,6 +68,7 @@ const getBgColor = (size: string = 'default') => {
 
 const getMargin = (size: string = 'default') => {
   const marginMap: Record<string, number> = {
+    tiny: 0,
     small: 0,
     default: 4,
     average: 4,
@@ -104,7 +110,15 @@ export const Avatar = React.forwardRef<Ref, AvatarProps>(function Avatar(
   props: AvatarProps,
   ref,
 ) {
-  const { loading, hash, src, size = 'default', isErc20, ...restProps } = props;
+  const {
+    loading,
+    hash,
+    src,
+    size = 'default',
+    isErc20,
+    transparentBg,
+    ...restProps
+  } = props;
   const avatarSize = getSize(size);
 
   const RETINA_SCALE = 2;
@@ -146,7 +160,7 @@ export const Avatar = React.forwardRef<Ref, AvatarProps>(function Avatar(
   if (hash && isValidAccountHash(hash)) {
     return (
       <span ref={ref} {...restProps}>
-        <BackgroundWrapper sizeType={size} withBgColor>
+        <BackgroundWrapper sizeType={size} withBgColor={transparentBg}>
           <IconHashWrapper>
             <SvgIcon src={HashIcon} size={avatarSize - 8} />
           </IconHashWrapper>
@@ -158,7 +172,7 @@ export const Avatar = React.forwardRef<Ref, AvatarProps>(function Avatar(
   if (isErc20 && !src) {
     return (
       <span ref={ref} {...restProps}>
-        <BackgroundWrapper sizeType={size} withBgColor>
+        <BackgroundWrapper sizeType={size} withBgColor={transparentBg}>
           <IconHashWrapper>
             <SvgIcon src={Erc20AvatarIcon} size={avatarSize} />
           </IconHashWrapper>
