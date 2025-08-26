@@ -7,7 +7,7 @@ import Tooltip from '../tooltip/tooltip.tsx';
 import { HashLink } from '../hash-link/hash-link.tsx';
 import FlexRow from '../flex-row/flex-row.tsx';
 import FlexColumn from '../flex-column/flex-column.tsx';
-import { HashLength } from '../../utils/formatters.ts';
+import { HashLength, shortenCsprName } from '../../utils/formatters.ts';
 import { Size } from '../../types.ts';
 import TruncateBox from '../truncate-box/truncate-box.tsx';
 
@@ -28,9 +28,9 @@ import TruncateBox from '../truncate-box/truncate-box.tsx';
  * @property {Size} [nameTruncateSize] - Defines the size of the name text.
  * @property {AvatarProps['size']} [avatarSize] - The size of the avatar related to the address.
  * @property {HashFontSize} [hashFontSize] - Specifies the font size to display the hash.
- * @property {boolean} [minified] - Determines if the address component should be rendered in a minimized style.
- * @property {keyof any} [navigationPath] - **@redundant** Use `navigateToPath` instead.
- * @property {'full' | 'tiny'} [copyNotifyingStyle] - **@deprecated** Use `minified` instead.
+ * @property {boolean} [minifiedCopyNotification] - Determines if the address component should be rendered in a minimized style.
+ * @property {keyof any} [navigationPath] - **@deprecated** Use `navigateToPath` instead.
+ * @property {'full' | 'tiny'} [copyNotifyingStyle] - **@deprecated** Use `minifiedCopyNotification` instead.
  */
 interface AddressProps {
   loading: boolean;
@@ -46,9 +46,9 @@ interface AddressProps {
   avatarSize?: AvatarProps['size'];
   hashFontSize?: HashFontSize;
   minifiedCopyNotification?: boolean;
-  /** @redundant use navigateToPath instead */
+  /** @deprecated use *navigateToPath* instead */
   navigationPath?: keyof any;
-  /** @deprecated use minified instead */
+  /** @deprecated use *minifiedCopyNotification* instead */
   copyNotifyingStyle?: 'full' | 'tiny';
 }
 
@@ -73,25 +73,6 @@ export enum HashFontSize {
   'default' = 'default',
   'big' = 'big',
 }
-
-const shortenCsprName = (
-  csprName: string,
-  visibleStringLength: HashLength = HashLength.SMALL,
-) => {
-  const [name, extension] = csprName.split(/(.cspr)$/);
-
-  const MIN_TRUNCATE_LENGTH = HashLength.TINY * 2 + 3;
-  const hashLength = name.length;
-
-  if (hashLength === HashLength.FULL || hashLength <= MIN_TRUNCATE_LENGTH) {
-    return csprName;
-  }
-
-  const firstPart = name.substring(0, visibleStringLength);
-  const secondPart = name.substring(hashLength - visibleStringLength);
-
-  return `${firstPart}...${secondPart}${extension}`;
-};
 
 export const Address = ({
   hash,
