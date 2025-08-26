@@ -15,7 +15,6 @@ import TruncateBox from '../truncate-box/truncate-box.tsx';
  * Address component can be used to display a public key or hash associated with an account.
  * It supports various configurations, including loading state, logo, name, csprName, and tooltip.
  *
- *
  * Properties:
  * @property {boolean} loading - Specifies whether the address component is in a loading state.
  * @property {string | null} logo - The logo associated with the address, if available.
