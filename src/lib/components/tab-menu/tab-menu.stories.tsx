@@ -30,7 +30,9 @@ const Template: StoryFn<typeof TabMenu> = (args) => (
       Tab 1
     </TabMenuItem>
     <TabMenuItem key={2}>Tab 2</TabMenuItem>
-    <TabMenuItem key={3}>Tab 3</TabMenuItem>
+    <TabMenuItem key={3} tooltip={'tooltip text'}>
+      Tab 3
+    </TabMenuItem>
   </TabMenu>
 );
 
