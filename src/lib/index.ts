@@ -30,6 +30,7 @@ export * from './components/radio-button/radio-button';
 export * from './components/subtitle-text/subtitle-text';
 export * from './components/svg-icon/svg-icon';
 export * from './components/svg-icon/svg-icon-social';
+export * from './components/tab-menu-container/tab-menu-container';
 export * from './components/tab-content/tab-content';
 export * from './components/tab-menu/tab-menu';
 export * from './components/tab-menu-item/tab-menu-item';
