@@ -114,7 +114,6 @@ export const Avatar = React.forwardRef<Ref, AvatarProps>(function Avatar(
     hash,
     src,
     size = 'default',
-    isErc20,
     transparentBg,
     ...restProps
   } = props;
@@ -123,7 +122,7 @@ export const Avatar = React.forwardRef<Ref, AvatarProps>(function Avatar(
   const RETINA_SCALE = 2;
   const CACHE_TTL = '86400';
 
-  if (loading || (!hash && !src && !isErc20)) {
+  if (loading || (!hash && !src)) {
     return (
       <div {...restProps}>
         <Skeleton

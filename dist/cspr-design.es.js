@@ -1299,30 +1299,29 @@ const h3 = (e, t, n = 20, r = 5) => {
     hash: i,
     src: o,
     size: s = "default",
-    isErc20: a,
-    transparentBg: l,
-    ...c
-  } = t, u = xn(s), d = 2, f = "86400";
-  if (r || !i && !o && !a)
-    return /* @__PURE__ */ h("div", { ...c, children: /* @__PURE__ */ h(Un, { style: {
+    transparentBg: a,
+    ...l
+  } = t, c = xn(s), u = 2, d = "86400";
+  if (r || !i && !o)
+    return /* @__PURE__ */ h("div", { ...l, children: /* @__PURE__ */ h(Un, { style: {
       borderRadius: 2,
-      width: u,
-      fontSize: `${u}px`,
+      width: c,
+      fontSize: `${c}px`,
       margin: Ha(s)
     } }) });
   if (o) {
-    const p = c3(o, {
-      ttl: f,
-      width: u * d
+    const f = c3(o, {
+      ttl: d,
+      width: c * u
     });
-    return /* @__PURE__ */ h("span", { ref: n, ...c, children: /* @__PURE__ */ h(en, { sizeType: s, style: {
-      background: `url("${p}") center / contain no-repeat`
+    return /* @__PURE__ */ h("span", { ref: n, ...l, children: /* @__PURE__ */ h(en, { sizeType: s, style: {
+      background: `url("${f}") center / contain no-repeat`
     }, children: /* @__PURE__ */ h("div", { style: {
-      width: u,
-      height: u
+      width: c,
+      height: c
     } }) }) });
   }
-  return i && v3(i) ? /* @__PURE__ */ h("span", { ref: n, ...c, children: /* @__PURE__ */ h(en, { sizeType: s, withBgColor: l, children: /* @__PURE__ */ h(C3, { children: /* @__PURE__ */ h(me, { src: Ul, size: u - 8 }) }) }) }) : /* @__PURE__ */ h("span", { ref: n, ...c, children: /* @__PURE__ */ h(en, { sizeType: s, children: i && /* @__PURE__ */ h(m3, { hexString: i, size: u, ...c }) }) });
+  return i && v3(i) ? /* @__PURE__ */ h("span", { ref: n, ...l, children: /* @__PURE__ */ h(en, { sizeType: s, withBgColor: a, children: /* @__PURE__ */ h(C3, { children: /* @__PURE__ */ h(me, { src: Ul, size: c - 8 }) }) }) }) : /* @__PURE__ */ h("span", { ref: n, ...l, children: /* @__PURE__ */ h(en, { sizeType: s, children: i && /* @__PURE__ */ h(m3, { hexString: i, size: c, ...l }) }) });
 });
 function w3(e, t, n) {
   return t in e ? Object.defineProperty(e, t, {
