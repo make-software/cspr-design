@@ -21,5 +21,7 @@ export interface MultiSelectInputProps extends BaseProps {
     onRemoveItem?: (ev: MultiSelectDropdownEventValue) => void;
     onChangeInput?: (value: string) => void;
 }
+/** @deprecated use the new MultiselectDropdown component instead. */
 export declare function MultiSelectInput(props: MultiSelectInputProps): import("react/jsx-runtime").JSX.Element;
+export default MultiSelectInput;
 //# sourceMappingURL=multiselect-input.d.ts.map

@@ -6,6 +6,7 @@ export interface TabMenuItemProps extends ButtonProps, ActivableProps {
     lineHeight?: 'xs' | 'sm';
     scale?: 'xs' | 'sm';
     tooltipPaddingScale?: 1 | 2;
+    hasOutline?: boolean;
 }
 export declare function TabMenuItem(props: TabMenuItemProps): import("react/jsx-runtime").JSX.Element;
 export default TabMenuItem;

@@ -22,7 +22,6 @@ export interface AvatarProps<T = any> {
   src?: string | null;
   size?: 'default' | 'big' | 'average' | 'medium' | 'small' | 'tiny';
   loading?: boolean;
-  isErc20?: boolean;
   transparentBg?: boolean;
   [key: string]: any;
 }
@@ -163,18 +162,6 @@ export const Avatar = React.forwardRef<Ref, AvatarProps>(function Avatar(
         <BackgroundWrapper sizeType={size} withBgColor={transparentBg}>
           <IconHashWrapper>
             <SvgIcon src={HashIcon} size={avatarSize - 8} />
-          </IconHashWrapper>
-        </BackgroundWrapper>
-      </span>
-    );
-  }
-
-  if (isErc20 && !src) {
-    return (
-      <span ref={ref} {...restProps}>
-        <BackgroundWrapper sizeType={size} withBgColor={transparentBg}>
-          <IconHashWrapper>
-            <SvgIcon src={Erc20AvatarIcon} size={avatarSize} />
           </IconHashWrapper>
         </BackgroundWrapper>
       </span>

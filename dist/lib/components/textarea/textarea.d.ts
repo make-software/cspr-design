@@ -11,11 +11,12 @@ export interface TextareaProps extends BaseProps {
     label?: ReactNode | string;
     labelFontSize?: LabelFontSize;
     rightLabel?: ReactNode | string;
+    /** @deprecated */
     prefixIcon?: ReactNode | null;
     suffixIcon?: ReactNode | null;
     error?: boolean;
     validationText?: string | null;
 }
-export declare function Textarea({ id, className, style, disabled, label, rightLabel, suffixIcon, error, validationText, onFocus, labelFontSize, ...restProps }: TextareaProps): import("react/jsx-runtime").JSX.Element;
+export declare function Textarea({ id, className, style, disabled, label, rightLabel, suffixIcon, prefixIcon, error, validationText, onFocus, labelFontSize, ...restProps }: TextareaProps): import("react/jsx-runtime").JSX.Element;
 export default Textarea;
 //# sourceMappingURL=textarea.d.ts.map

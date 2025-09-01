@@ -12,6 +12,10 @@ export interface StatusMessageProps {
     status: AlertStatus;
     scale?: 'xs' | 'sm' | 'md' | 'lg' | 'xl';
     lineHeight?: 'xs' | 'sm';
+    /** Able to provide any existing icon or a path to it.
+     *
+     * NOTE: default status icons will not work in that case */
+    iconSrc?: string;
 }
 export declare const Alert: (props: StatusMessageProps) => import("react/jsx-runtime").JSX.Element;
 export default Alert;

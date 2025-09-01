@@ -6,7 +6,7 @@ type StyledReactTooltipProps = {
     paddingScale?: 1 | 2;
 };
 export interface TooltipProps extends BaseProps {
-    title?: JSX.Element | string | null;
+    tooltipContent?: JSX.Element | string | null;
     caption?: string | null;
     additionalBlock?: React.ReactElement<any> & any;
     children?: React.ReactElement<any> & any;
