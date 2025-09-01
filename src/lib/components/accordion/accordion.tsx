@@ -50,6 +50,12 @@ export function Accordion({
         onClick={() => {
           setIsOpen(!isOpen);
         }}
+        tabIndex={0}
+        onKeyDown={(ev) => {
+          if(ev.key === 'Enter'){
+            setIsOpen(!isOpen);
+          }
+        }}
       >
         {children(renderProps)}
       </StyledContainer>

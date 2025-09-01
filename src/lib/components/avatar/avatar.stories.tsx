@@ -23,10 +23,6 @@ const meta = {
       options: [true, false],
       control: { type: 'radio' },
     },
-    isErc20: {
-      options: [true, false],
-      control: { type: 'radio' },
-    },
     transparentBg: {
       options: [true, false],
       control: { type: 'radio' },
@@ -53,7 +49,6 @@ export const AllOptions: Story = {
           '84f97651d9322db4b6b23541528017c64acebf3a6250bdac8ff7481759ff8604'
         }
       />
-      <Avatar {...args} isErc20 />
       <Avatar
         {...args}
         src="https://makegroup.io/wp-content/uploads/2023/09/Logo.png"

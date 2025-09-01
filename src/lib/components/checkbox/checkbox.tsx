@@ -106,6 +106,11 @@ export function Checkbox({
       checked={checked}
       disabled={disabled}
       onClick={handleClick}
+      onKeyDown={(ev) => {
+        if(ev.key === 'Enter'){
+          handleClick(ev)
+        }
+      }}
       customCheckedColor={customCheckedColor}
       customUncheckedColor={customUncheckedColor}
       role="checkbox"

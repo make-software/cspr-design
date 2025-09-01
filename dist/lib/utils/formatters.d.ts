@@ -34,4 +34,6 @@ export declare const formatHash: (hash: string, visibleHashLength?: HashLength) 
 export declare const formatISODateOnly: (date: Date) => string;
 export declare const formatDeploysCount: (value: any) => string;
 export declare const formatRatesToCurrency: (value: any) => string;
+export declare const truncateCSPRName: (name: string, limit: number) => string;
+export declare const shortenCsprName: (csprName: string, visibleStringLength?: HashLength) => string;
 //# sourceMappingURL=formatters.d.ts.map

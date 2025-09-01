@@ -8,6 +8,7 @@ export interface CopyHashProps {
     minified?: boolean;
     variation?: CopyHashColor;
 }
+/** @deprecated use Copy component instead */
 export declare const CopyHash: ({ value, label, copiedLabel, variation, styles, minified, }: CopyHashProps) => import("react/jsx-runtime").JSX.Element;
 export default CopyHash;
 //# sourceMappingURL=copy-hash.d.ts.map
