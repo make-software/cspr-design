@@ -1224,7 +1224,7 @@ const h3 = (e, t, n = 20, r = 5) => {
       l && (l.canvas.height = r * X2, l.canvas.width = r * X2, n.startsWith("01") && n.length === 66 || n.startsWith("02") && n.length === 68 ? a.current = requestAnimationFrame(() => h3(l, n, t, X2)) : a.current = requestAnimationFrame(() => g3(l, t)));
     }
     return () => cancelAnimationFrame(a.current);
-  }, [r]), /* @__PURE__ */ h("canvas", { className: "account-identicon", style: o, ref: s });
+  }, [r, e]), /* @__PURE__ */ h("canvas", { className: "account-identicon", style: o, ref: s });
 }, v3 = (e) => e == null ? !1 : new RegExp("^([0-9A-Fa-f]){64}$").test(e.trim()), si = (e = "default") => {
   const t = {
     tiny: 2,

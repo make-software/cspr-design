@@ -109,7 +109,7 @@ export const Identicon = ({ hexString, size = 20 }: IdenticonProps) => {
       }
     }
     return () => cancelAnimationFrame(frameRef.current);
-  }, [block]);
+  }, [block, hexString]);
 
   return (
     <canvas className={'account-identicon'} style={style} ref={canvasRef} />
