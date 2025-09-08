@@ -1037,7 +1037,7 @@ function Tl(e) {
     });
   }, [n]), n ? /* @__PURE__ */ ge.createElement(Ol, { ...e }) : t;
 }
-const Hl = S("div").withConfig({
+const Hl = S("span").withConfig({
   shouldForwardProp: (e, t) => !["rotate"].includes(e) && t(e),
   displayName: "svg-icon__Container",
   componentId: "sc-kfvmzi-0"

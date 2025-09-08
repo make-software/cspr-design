@@ -23,7 +23,7 @@ export interface SvgIconProps extends React.HTMLAttributes<Ref> {
   marginRight?: boolean;
 }
 
-const Container = styled('div').withConfig({
+const Container = styled('span').withConfig({
   shouldForwardProp: (prop, defaultValidatorFn) =>
     !['rotate'].includes(prop) && defaultValidatorFn(prop),
 })<{
