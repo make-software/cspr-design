@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import BodyText from '../body-text/body-text';
 import SvgIcon from '../svg-icon/svg-icon';
-import { SearchIcon } from '../../icons-index.ts';
+import { SearchIcon } from '../../icons-index';
 
 const FailedToFetchWrapper = styled('div')(({ theme }) => ({
   height: 400,
