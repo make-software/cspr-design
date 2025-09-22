@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import BodyText from '../body-text/body-text';
 import SvgIcon from '../svg-icon/svg-icon';
+import { SearchIcon } from '../../icons-index.ts';
 
 const FailedToFetchWrapper = styled('div')(({ theme }) => ({
   height: 400,
@@ -25,7 +26,7 @@ const StyledSvgIcon = styled(SvgIcon)(({ theme }) => ({
 
 export const FailedToFetch = () => (
   <FailedToFetchWrapper>
-    <StyledSvgIcon src="assets/icons/ic-search.svg" size={60} />
+    <StyledSvgIcon src={SearchIcon} size={60} />
     <BodyText scale={'lg'} lineHeight={'sm'} size={1}>
       Failed to load data
     </BodyText>
