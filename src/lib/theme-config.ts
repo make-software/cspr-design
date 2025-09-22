@@ -22,15 +22,15 @@ export interface ThemeCommonType {
       // thin: 100,
       // extraLight: 200,
       /**
-       * semiBold: 300
+       * 300
        */
       light: number;
       /**
-       * semiBold: 400
+       * 400
        */
       regular: number;
       /**
-       * semiBold: 500
+       * 500
        */
       medium: number;
       /**
@@ -42,7 +42,7 @@ export interface ThemeCommonType {
        */
       bold: number;
       /**
-       * semiBold: 800
+       * 800
        */
       extraBold: number;
       // black: 900,
