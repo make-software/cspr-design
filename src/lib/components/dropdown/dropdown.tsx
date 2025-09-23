@@ -1,5 +1,9 @@
-import React from 'react';
-import Downshift, { ControllerStateAndHelpers } from 'downshift';
+import React, { useEffect } from 'react';
+import Downshift, {
+  ControllerStateAndHelpers,
+  useMultipleSelection,
+  useSelect,
+} from 'downshift';
 import styled from 'styled-components';
 import isEqual from 'fast-deep-equal';
 
@@ -8,6 +12,7 @@ import { BaseProps } from '../../types';
 import BodyText from '../body-text/body-text';
 import FlexRow, { FlexRowProps } from '../flex-row/flex-row';
 import SvgIcon from '../svg-icon/svg-icon';
+import FlexColumn from '../flex-column/flex-column';
 import {
   InputInteractionType,
   useGetInputInteractionType,
@@ -15,6 +20,7 @@ import {
 
 import UpIcon from '../../assets/icons/ic-arrow-up.svg';
 import DownIcon from '../../assets/icons/ic-arrow-down.svg';
+import CheckmarkIcon from '../../assets/icons/ic-checkmark.svg';
 import DeleteIcon from '../../assets/icons/ic-delete.svg';
 
 const StyledDropdown = styled.div<{
@@ -84,6 +90,65 @@ const DeleteSvgIcon = styled(SvgIcon)(({ theme }) => ({
   ':hover, :active': {
     path: {
       stroke: theme.styleguideColors.fillPrimaryRed,
+    },
+  },
+}));
+
+const ClearSvgIcon = styled(SvgIcon)(({ theme }) => ({
+  path: {
+    stroke: theme.styleguideColors.contentPrimary,
+  },
+}));
+
+const MultiSelectContainer = styled(FlexRow)<{ isOpen: boolean }>(
+  ({ theme }) => ({
+    borderRadius: theme.borderRadius.base,
+    padding: '8px',
+    background: theme.styleguideColors.fillSecondary,
+    ':hover, :active': {
+      svg: {
+        color: theme.styleguideColors.fillPrimaryRed,
+      },
+    },
+  }),
+);
+
+const PlaceholderWrapper = styled.span(({ theme }) => ({
+  padding: '0 8px',
+}));
+
+const ChipItemContainer = styled.span(({ theme }) => ({
+  borderRadius: theme.borderRadius.base,
+  cursor: 'pointer',
+  padding: '2px 8px',
+  background: theme.styleguideColors.fillTertiary,
+  color: theme.styleguideColors.contentPrimary,
+}));
+
+const OverflowWrapper = styled.span(({ theme }) => ({
+  overflow: 'hidden',
+  whiteSpace: 'nowrap',
+  textOverflow: 'ellipsis',
+}));
+
+const DropdownIconWrapper = styled(FlexRow)(({ theme }) => ({
+  paddingRight: '8px',
+  marginLeft: '8px',
+}));
+
+const CheckIcon = styled(SvgIcon)(({ theme }) => ({
+  path: {
+    fill: theme.styleguideColors.contentBlue,
+  },
+}));
+
+const MultiSelectDeleteIcon = styled(SvgIcon)(({ theme }) => ({
+  path: {
+    stroke: theme.styleguideColors.contentBlue,
+  },
+  ':hover, :active': {
+    path: {
+      stroke: theme.styleguideColors.contentRed,
     },
   },
 }));
@@ -314,6 +379,273 @@ export function Dropdown(props: DropdownProps) {
         );
       }}
     </Downshift>
+  );
+}
+
+export type MultiDropdownValue = {
+  label: string;
+  chipLabel?: string;
+  chipName?: string;
+  value: any;
+};
+
+export interface MultiSelectDropdownProps extends BaseProps {
+  id?: string;
+  value?: MultiDropdownValue[];
+  items: MultiDropdownValue[];
+  label?: string | JSX.Element;
+  placeholder?: string;
+  disabled?: boolean;
+  onChange?: (ev: DropdownEventValue) => void;
+  onSelect?: (ev: DropdownEventValue) => void;
+  onRemove?: (ev: DropdownEventValue) => void;
+  onClearAllItems?: (ev: DropdownEventValue) => void;
+  isFixedDropdown?: boolean;
+}
+
+export function MultiSelectDropdown(props: MultiSelectDropdownProps) {
+  const {
+    id,
+    items,
+    value,
+    label,
+    placeholder,
+    disabled,
+    onSelect,
+    onChange,
+    onRemove,
+    onClearAllItems,
+    isFixedDropdown = false,
+  } = props;
+
+  const {
+    getSelectedItemProps,
+    getDropdownProps,
+    addSelectedItem,
+    removeSelectedItem,
+    selectedItems,
+    setSelectedItems,
+    reset,
+  } = useMultipleSelection<MultiDropdownValue>({
+    initialSelectedItems: value,
+    onSelectedItemsChange: (changes) => {
+      onSelect && onSelect(getChangeEvent(changes.selectedItems));
+    },
+  });
+
+  const {
+    isOpen,
+    selectedItem,
+    getToggleButtonProps,
+    getLabelProps,
+    getMenuProps,
+    getItemProps,
+    openMenu,
+    highlightedIndex,
+  } = useSelect({
+    selectedItem: null,
+    defaultHighlightedIndex: 0, // after selection, highlight the first item.
+    items,
+    stateReducer: (state, actionAndChanges) => {
+      const { changes, type } = actionAndChanges;
+      switch (type) {
+        case useSelect.stateChangeTypes.ToggleButtonKeyDownEnter:
+        case useSelect.stateChangeTypes.ToggleButtonKeyDownSpaceButton:
+        case useSelect.stateChangeTypes.ItemClick:
+          return {
+            ...changes,
+            isOpen: true, // keep the menu open after selection.
+          };
+        default:
+          return changes;
+      }
+    },
+    onStateChange: ({ type, selectedItem: newSelectedItem }) => {
+      switch (type) {
+        case useSelect.stateChangeTypes.ToggleButtonKeyDownEnter:
+        case useSelect.stateChangeTypes.ToggleButtonKeyDownSpaceButton:
+        case useSelect.stateChangeTypes.ItemClick:
+          {
+            const isAlreadySelected = selectedItems.some(
+              (i) => i.value === newSelectedItem?.value,
+            );
+
+            if (newSelectedItem) {
+              if (isAlreadySelected) {
+                setSelectedItems(
+                  selectedItems.filter(
+                    (i) => i.value !== newSelectedItem.value,
+                  ),
+                );
+                onRemove && onRemove(getChangeEvent(newSelectedItem));
+              } else {
+                addSelectedItem(newSelectedItem);
+                onChange && onChange(getChangeEvent(newSelectedItem));
+              }
+            }
+          }
+          break;
+        default:
+          break;
+      }
+    },
+  });
+
+  //Align resetting selected values if they were reset in parent
+  useEffect(() => {
+    if (!value || value.length < 1) {
+      reset();
+    }
+  }, [value]);
+
+  const handleClearAll = () => {
+    onClearAllItems && onClearAllItems(getChangeEvent(null));
+    reset();
+  };
+
+  const handleFocus = (ev) => {
+    ev.stopPropagation();
+    if (disabled) {
+      return;
+    }
+    !isOpen && openMenu();
+  };
+
+  const inputInteractionTypeRef = useGetInputInteractionType();
+
+  return (
+    <StyledDropdown disabled={disabled} isFixedDropdown={isFixedDropdown}>
+      <FlexColumn itemsSpacing={4}>
+        {label && (
+          <BodyText lineHeight={'xs'} {...getLabelProps()} size={1} id={id}>
+            {label}
+          </BodyText>
+        )}
+        <div>
+          <MultiSelectContainer
+            align="center"
+            justify="space-between"
+            {...getToggleButtonProps({
+              ...getDropdownProps({ preventKeyAction: isOpen }),
+              onClick: (e) => e.stopPropagation(),
+              isOpen,
+            })}
+          >
+            <span>
+              <BodyText
+                lineHeight={'xs'}
+                size={3}
+                variation={selectedItem ? 'inherit' : 'darkGray'}
+              >
+                <OverflowWrapper>
+                  <FlexRow gap={8} wrap={'wrap'}>
+                    {selectedItems.length === 0 ? (
+                      <PlaceholderWrapper>{placeholder}</PlaceholderWrapper>
+                    ) : (
+                      selectedItems.map((selectedItem, index) => (
+                        <ChipItemContainer
+                          key={`selected-item-${index}`}
+                          {...getSelectedItemProps({ selectedItem, index })}
+                        >
+                          <FlexRow align={'center'} gap={4}>
+                            {selectedItem?.chipName && (
+                              <BodyText
+                                lineHeight={'xs'}
+                                size={1}
+                                variation={'black'}
+                              >
+                                {selectedItem.chipName}
+                              </BodyText>
+                            )}
+                            {selectedItem?.chipLabel || selectedItem?.label}
+                            <MultiSelectDeleteIcon
+                              onClick={(event) => {
+                                event.preventDefault();
+                                event.stopPropagation();
+                                removeSelectedItem(selectedItem);
+                                onRemove &&
+                                  onRemove(getChangeEvent(selectedItem));
+                              }}
+                              size={14}
+                              src="assets/icons/ic-cross.svg"
+                              alt={'Cross icon to clear'}
+                              role={'img'}
+                            />
+                          </FlexRow>
+                        </ChipItemContainer>
+                      ))
+                    )}
+                  </FlexRow>
+                </OverflowWrapper>
+              </BodyText>
+            </span>
+            <DropdownIconWrapper>
+              {onClearAllItems && !!selectedItems.length && (
+                <ClearSvgIcon
+                  src={DeleteIcon}
+                  onClick={handleClearAll}
+                  marginRight
+                  role={'img'}
+                  alt={'Cross icon to clear items'}
+                />
+              )}
+              <SvgIcon
+                size={16}
+                src={isOpen ? UpIcon : DownIcon}
+                rotate={isOpen}
+                onKeyDown={(ev) => {
+                  if (ev.key === 'Enter') {
+                    handleFocus(ev);
+                  }
+                }}
+                tabIndex={0}
+                alt={'Arrow icon'}
+                aria-labelledby={id}
+                aria-haspopup="listbox"
+                aria-expanded={isOpen}
+                role={'button'}
+              />
+            </DropdownIconWrapper>
+          </MultiSelectContainer>
+          <ItemsContainer
+            {...getMenuProps()}
+            isOpen={isOpen}
+            isFixedDropdown={isFixedDropdown}
+          >
+            {isOpen &&
+              items.map((item, index) => {
+                const isSelected = selectedItems?.some(
+                  (i) => i.value === item.value,
+                );
+                const isHighlighted =
+                  inputInteractionTypeRef.current ===
+                    InputInteractionType.keyboard &&
+                  highlightedIndex !== null &&
+                  highlightedIndex === index;
+                return (
+                  <ItemContainer
+                    align="center"
+                    justify="space-between"
+                    itemsSpacing={10}
+                    key={`${item.value}${index}`}
+                    {...getItemProps({ item, index })}
+                    isHighlighted={isHighlighted}
+                  >
+                    <BodyText
+                      size={isSelected ? 1 : 3}
+                      lineHeight={'xs'}
+                      scale={'xs'}
+                    >
+                      {item.label}
+                    </BodyText>
+                    {isSelected && <CheckIcon size={14} src={CheckmarkIcon} />}
+                  </ItemContainer>
+                );
+              })}
+          </ItemsContainer>
+        </div>
+      </FlexColumn>
+    </StyledDropdown>
   );
 }
 
