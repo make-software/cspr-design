@@ -52,6 +52,9 @@ export default {
       </>
     ),
   },
+  argTypes: {
+    error: { control: 'boolean' },
+  },
 } as Meta<typeof PaginatedTable>;
 
 const getRandomBalance = () => {
@@ -161,6 +164,7 @@ const Template: StoryFn<typeof PaginatedTable> = (
         </BodyText>
       </FlexRow>
       <PaginatedTable
+        error={args.error}
         data={data?.data}
         renderDataHeaders={args.renderDataHeaders}
         renderPaginatedData={() => args.renderPaginatedData(data?.data)}

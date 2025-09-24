@@ -21,11 +21,29 @@ export interface ThemeCommonType {
     fontWeight: {
       // thin: 100,
       // extraLight: 200,
+      /**
+       * 300
+       */
       light: number;
+      /**
+       * 400
+       */
       regular: number;
+      /**
+       * 500
+       */
       medium: number;
+      /**
+       * 600
+       */
       semiBold: number;
+      /**
+       * 700
+       */
       bold: number;
+      /**
+       * 800
+       */
       extraBold: number;
       // black: 900,
     };

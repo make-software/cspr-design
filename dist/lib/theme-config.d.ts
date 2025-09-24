@@ -15,11 +15,29 @@ export interface ThemeCommonType {
             mono: string;
         };
         fontWeight: {
+            /**
+             * 300
+             */
             light: number;
+            /**
+             * 400
+             */
             regular: number;
+            /**
+             * 500
+             */
             medium: number;
+            /**
+             * 600
+             */
             semiBold: number;
+            /**
+             * 700
+             */
             bold: number;
+            /**
+             * 800
+             */
             extraBold: number;
         };
     };

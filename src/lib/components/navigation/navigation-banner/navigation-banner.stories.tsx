@@ -5,6 +5,7 @@ import FlexRow from '../../flex-row/flex-row';
 import TruncateBox from '../../truncate-box/truncate-box';
 import SvgIcon from '../../svg-icon/svg-icon';
 import styled from 'styled-components';
+import { ArrowWithTailIcon, FlagUaIcon } from '../../../icons-index';
 
 const StyledSvgIcon = styled(SvgIcon)(() => ({
   color: 'inherit',
@@ -27,13 +28,9 @@ export const BannerWithJSXNode = () => (
   <NavigationBanner
     message={
       <FlexRow align="center" justify="center">
-        <SvgIcon
-          src="assets/icons/flags/ic-flag-ua.svg"
-          size={14}
-          marginRight
-        />{' '}
+        <SvgIcon src={FlagUaIcon} size={14} marginRight />{' '}
         <TruncateBox size={2}>Stand with Ukraine</TruncateBox>
-        <StyledSvgIcon src="assets/icons/ic-arrow-with-tail.svg" size={14} />
+        <StyledSvgIcon src={ArrowWithTailIcon} size={14} />
       </FlexRow>
     }
     link={'#'}

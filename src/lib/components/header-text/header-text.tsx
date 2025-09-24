@@ -14,7 +14,17 @@ export interface HeaderTextProps extends TextProps {
 const StyledText = styled(Text)<HeaderTextProps>(
   ({ theme, size = 2, scale = 'sm', monotype = false }) => ({
     fontWeight: monotype
-      ? theme.typography.fontWeight.regular
+      ? matchSize(
+          {
+            0: theme.typography.fontWeight.bold,
+            1: theme.typography.fontWeight.bold,
+            2: theme.typography.fontWeight.bold,
+            3: theme.typography.fontWeight.regular,
+            4: theme.typography.fontWeight.regular,
+            5: theme.typography.fontWeight.regular,
+          },
+          size,
+        )
       : matchSize(
           {
             0: theme.typography.fontWeight.extraBold,
@@ -24,7 +34,7 @@ const StyledText = styled(Text)<HeaderTextProps>(
             4: theme.typography.fontWeight.semiBold,
             5: theme.typography.fontWeight.semiBold,
           },
-          size
+          size,
         ),
     fontSize: matchSize(
       {
@@ -35,7 +45,7 @@ const StyledText = styled(Text)<HeaderTextProps>(
         sm: '1.75rem',
         xs: '1.5rem',
       },
-      scale
+      scale,
     ),
     lineHeight: matchSize(
       {
@@ -46,12 +56,12 @@ const StyledText = styled(Text)<HeaderTextProps>(
         sm: '2.5rem',
         xs: '1.75rem',
       },
-      scale
+      scale,
     ),
     '&:where(h1, h2, h3, h4, h5, h6)': {
       margin: 0,
     },
-  })
+  }),
 );
 
 export function HeaderText(props: HeaderTextProps) {

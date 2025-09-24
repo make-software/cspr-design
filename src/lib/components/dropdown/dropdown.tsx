@@ -567,7 +567,7 @@ export function MultiSelectDropdown(props: MultiSelectDropdownProps) {
                                   onRemove(getChangeEvent(selectedItem));
                               }}
                               size={14}
-                              src="assets/icons/ic-cross.svg"
+                              src={DeleteIcon}
                               alt={'Cross icon to clear'}
                               role={'img'}
                             />

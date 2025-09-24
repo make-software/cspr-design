@@ -4,6 +4,7 @@ import { matchSize } from '../../utils/match-size';
 import { FormField, FormFieldStatus } from '../form-field/form-field';
 import SvgIcon from '../svg-icon/svg-icon';
 import { LabelFontSize } from '../../types';
+import { ErrorIcon } from '../../icons-index';
 
 const getThemeColorByError = (error?: boolean) => {
   if (error == null || !error) {
@@ -179,7 +180,7 @@ export function Input({
   };
 
   if (error) {
-    suffixIcon = <SvgIcon src="assets/icons/ic-error.svg" />;
+    suffixIcon = <SvgIcon src={ErrorIcon} />;
   }
 
   return (
