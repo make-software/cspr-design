@@ -16,6 +16,7 @@ export interface FlexBoxProps extends BaseProps {
   grow?: React.CSSProperties['flexGrow'];
   shrink?: React.CSSProperties['flexShrink'];
   basis?: React.CSSProperties['flexBasis'];
+  tag?: 'div' | 'span';
 }
 
 const StyledFlexBox = styled('div')<FlexBoxProps>(
@@ -55,7 +56,13 @@ const StyledFlexBox = styled('div')<FlexBoxProps>(
 );
 
 export const FlexBox = React.forwardRef<HTMLDivElement, FlexBoxProps>(
-  (props, ref) => <StyledFlexBox ref={ref} {...props} />
+  (props, ref) => {
+      const {tag = 'div'} = props;
+      const validTag = ['div', 'span'].includes(tag) ? tag : 'div';
+      return (
+          <StyledFlexBox ref={ref} {...props} as={validTag}/>
+      )
+  }
 );
 
 export default FlexBox;

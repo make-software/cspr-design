@@ -138,7 +138,7 @@ export function CircularIndicator({
   const color = calculatePerfomanceGradientColor(progress);
 
   return (
-    <FlexRow align="center">
+    <FlexRow align="center" tag={"span"}>
       <svg height={radius * 2} width={radius * 2}>
           <title>{title}</title>
         <circle

@@ -242,7 +242,7 @@ export const themeConfig: ThemeConfigType = {
       fillLoadingInTable:
         'linear-gradient(90deg, #F2F3F5 0%, rgba(255, 255, 255, 0) 100%)',
       contentPrimary: '#1A1919',
-      contentSecondary: '#84868C',
+      contentSecondary: '#72737A',
       contentTertiary: '#BABBBF',
       contentQuaternary: '#D2D3D9',
       contentOnFill: '#FFFFFF',
