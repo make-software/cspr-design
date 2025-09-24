@@ -163,7 +163,12 @@ const ei = S("span").withConfig({
   ...c && {
     cursor: "pointer"
   }
-})), jn = ge.forwardRef((e, t) => /* @__PURE__ */ h(dl, { ref: t, ...e })), J = ge.forwardRef((e, t) => /* @__PURE__ */ h(jn, { ref: t, direction: "row", ...e })), Ee = ge.forwardRef((e, t) => /* @__PURE__ */ h(jn, { ref: t, direction: "column", ...e }));
+})), jn = ge.forwardRef((e, t) => {
+  const {
+    tag: n = "div"
+  } = e, r = ["div", "span"].includes(n) ? n : "div";
+  return /* @__PURE__ */ h(dl, { ref: t, ...e, as: r });
+}), J = ge.forwardRef((e, t) => /* @__PURE__ */ h(jn, { ref: t, direction: "row", ...e })), Ee = ge.forwardRef((e, t) => /* @__PURE__ */ h(jn, { ref: t, direction: "column", ...e }));
 var fl = (e) => typeof e != "string" ? {} : e.split(/ ?; ?/).reduce((t, n) => {
   const [r, i] = n.split(/ ?: ?/).map((o, s) => s === 0 ? o.replace(/\s+/g, "") : o.trim());
   if (r && i) {
@@ -13006,7 +13011,7 @@ function dC({
   }, e);
   (t == null || t < 0 || t > 100) && (t = 0);
   const s = o - i / 2, a = s * 2 * Math.PI, l = a - t / 100 * a, c = t.toPrecision(3), u = qf(t);
-  return /* @__PURE__ */ z(J, { align: "center", children: [
+  return /* @__PURE__ */ z(J, { align: "center", tag: "span", children: [
     /* @__PURE__ */ z("svg", { height: o * 2, width: o * 2, children: [
       /* @__PURE__ */ h("title", { children: r }),
       /* @__PURE__ */ h("circle", { stroke: u, fill: "transparent", strokeWidth: i, strokeDasharray: a + " " + a, style: {
@@ -20612,7 +20617,7 @@ const wa = new RegExp(`(${Object.values(Qr).join("|")})(?=[0-9a-fA-F])`, "i"), I
       fillBlueGradient: "linear-gradient(89.56deg, #0021A5 0%, #2C53EF 75.01%)",
       fillLoadingInTable: "linear-gradient(90deg, #F2F3F5 0%, rgba(255, 255, 255, 0) 100%)",
       contentPrimary: "#1A1919",
-      contentSecondary: "#84868C",
+      contentSecondary: "#72737A",
       contentTertiary: "#BABBBF",
       contentQuaternary: "#D2D3D9",
       contentOnFill: "#FFFFFF",

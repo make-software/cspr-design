@@ -11,6 +11,7 @@ export interface FlexBoxProps extends BaseProps {
     grow?: React.CSSProperties['flexGrow'];
     shrink?: React.CSSProperties['flexShrink'];
     basis?: React.CSSProperties['flexBasis'];
+    tag?: 'div' | 'span';
 }
 export declare const FlexBox: React.ForwardRefExoticComponent<FlexBoxProps & React.RefAttributes<HTMLDivElement>>;
 export default FlexBox;
