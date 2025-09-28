@@ -182,3 +182,5 @@ export const Address = ({
     </FlexRow>
   );
 };
+
+export default Address;
