@@ -5,7 +5,8 @@ interface HashLinkProps {
     minified?: boolean;
     csprName?: string | null;
     hashLength?: HashLength;
+    align?: string;
 }
-export declare const HashLink: ({ hash, href, csprName, hashLength, minified, }: HashLinkProps) => import("react/jsx-runtime").JSX.Element;
+export declare const HashLink: ({ hash, href, csprName, hashLength, minified, align, }: HashLinkProps) => import("react/jsx-runtime").JSX.Element;
 export {};
 //# sourceMappingURL=hash-link.d.ts.map
