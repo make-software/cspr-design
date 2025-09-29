@@ -61,10 +61,11 @@ const AddressContent = ({
   csprName,
   hash,
   hashLength,
+  hashFontSize,
   align,
   minified,
 }) => {
-  if (!navigateToPath) {
+  if (!navigateToPath || navigateToPath === '') {
     const CSPR_NAME_TRUNCATION_LENGTH = 24;
     const copiedValue = csprName || hash || '';
 
@@ -76,7 +77,11 @@ const AddressContent = ({
 
     return (
       <FlexRow itemsSpacing={4} align={align}>
-        <BodyText size={2} variation={'darkGray'}>
+        <BodyText
+          size={3}
+          scale={hashFontSize === HashFontSize.big ? 'sm' : undefined}
+          monotype={!csprName}
+        >
           {truncatedCsprName || formattedHash}
         </BodyText>
         <Copy value={copiedValue} minified={minified} />
@@ -85,14 +90,20 @@ const AddressContent = ({
   }
 
   return (
-    <HashLink
-      href={navigateToPath}
-      hash={hash}
-      csprName={csprName && shortenCsprName(csprName, HashLength.TINY)}
-      hashLength={hashLength}
-      minified={minified}
-      align={align}
-    />
+    <StyledBodyText
+      size={3}
+      scale={hashFontSize === HashFontSize.big ? 'sm' : undefined}
+      monotype={!csprName}
+    >
+      <HashLink
+        href={navigateToPath}
+        hash={hash}
+        csprName={csprName && shortenCsprName(csprName, HashLength.TINY)}
+        hashLength={hashLength}
+        minified={minified}
+        align={align}
+      />
+    </StyledBodyText>
   );
 };
 
@@ -190,37 +201,8 @@ export const Address = ({
         <FlexColumn>
           {name ? (
             <>
-              <StyledBodyText
-                size={3}
-                scale={hashFontSize === HashFontSize.big ? 'sm' : undefined}
-                monotype={!csprName}
-              >
-                <AddressContent
-                  navigateToPath={navigateToPath}
-                  hash={hash}
-                  csprName={
-                    csprName && shortenCsprName(csprName, HashLength.TINY)
-                  }
-                  hashLength={hashLength}
-                  minified={minifiedCopyNotification}
-                  align={align}
-                />
-              </StyledBodyText>
-              <FlexRow itemsSpacing={6} align={align}>
-                <StyledTruncateBox size={nameTruncateSize}>
-                  <BodyText size={3} variation="darkGray" noWrap>
-                    {name}
-                  </BodyText>
-                </StyledTruncateBox>
-              </FlexRow>
-            </>
-          ) : (
-            <StyledBodyText
-              size={3}
-              scale={hashFontSize === HashFontSize.big ? 'sm' : undefined}
-              monotype={!csprName}
-            >
               <AddressContent
+                hashFontSize={hashFontSize}
                 navigateToPath={navigateToPath}
                 hash={hash}
                 csprName={
@@ -230,7 +212,24 @@ export const Address = ({
                 minified={minifiedCopyNotification}
                 align={align}
               />
-            </StyledBodyText>
+              <FlexRow itemsSpacing={6} align={align}>
+                <StyledTruncateBox size={nameTruncateSize}>
+                  <BodyText size={3} variation="darkGray" noWrap>
+                    {name}
+                  </BodyText>
+                </StyledTruncateBox>
+              </FlexRow>
+            </>
+          ) : (
+            <AddressContent
+              hashFontSize={hashFontSize}
+              navigateToPath={navigateToPath}
+              hash={hash}
+              csprName={csprName && shortenCsprName(csprName, HashLength.TINY)}
+              hashLength={hashLength}
+              minified={minifiedCopyNotification}
+              align={align}
+            />
           )}
         </FlexColumn>
       </Tooltip>
