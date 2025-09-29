@@ -12591,21 +12591,26 @@ const uC = ({
   additionalTooltipBlock: c,
   nameTruncateSize: u = 5,
   avatarSize: d = "default",
-  hashFontSize: f = "default"
-  /* default */
-}) => i || !e ? /* @__PURE__ */ h(J, { align: "center", itemsSpacing: 12, children: /* @__PURE__ */ h(Jt, { hash: e, loading: i, size: d }) }) : e === "00" ? /* @__PURE__ */ z(J, { align: "center", itemsSpacing: 12, children: [
-  /* @__PURE__ */ h(Jt, { hash: e, loading: i, size: d }),
-  /* @__PURE__ */ z(Ee, { children: [
-    /* @__PURE__ */ h(ne, { size: 2, monotype: !0, children: e }),
-    /* @__PURE__ */ h(ne, { size: 3, variation: "darkGray", noWrap: !0, children: "System" })
-  ] })
-] }) : /* @__PURE__ */ z(J, { align: "center", itemsSpacing: 12, children: [
-  n ? /* @__PURE__ */ h(Jt, { src: n, loading: i, size: d, alt: "Account logo" }) : /* @__PURE__ */ h(Jt, { hash: e, loading: i, size: d }),
-  /* @__PURE__ */ h(_t, { caption: l, tooltipContent: e, additionalBlock: c, children: /* @__PURE__ */ h(Ee, { children: r ? /* @__PURE__ */ z(We, { children: [
-    /* @__PURE__ */ h(yo, { size: 3, scale: f === "big" ? "sm" : void 0, monotype: !t, children: /* @__PURE__ */ h(vo, { minified: s, href: a, hash: e, csprName: t && mo(t, ot.TINY), hashLength: o }) }),
-    /* @__PURE__ */ h(J, { itemsSpacing: 6, align: "center", children: /* @__PURE__ */ h(Ef, { size: u, children: /* @__PURE__ */ h(ne, { size: 3, variation: "darkGray", noWrap: !0, children: r }) }) })
-  ] }) : /* @__PURE__ */ h(yo, { size: 3, scale: f === "big" ? "sm" : void 0, monotype: !t, children: /* @__PURE__ */ h(vo, { href: a, hash: e, csprName: t && mo(t, ot.TINY), hashLength: o, minified: s }) }) }) })
-] }), W2 = S.button.withConfig({
+  hashFontSize: f = "default",
+  horizonalAlign: p = "center"
+}) => {
+  if (i || !e)
+    return /* @__PURE__ */ h(J, { align: "center", itemsSpacing: 12, children: /* @__PURE__ */ h(Jt, { hash: e, loading: i, size: d }) });
+  const C = p === "center" ? "center" : "flex-start";
+  return e === "00" ? /* @__PURE__ */ z(J, { align: "center", itemsSpacing: 12, children: [
+    /* @__PURE__ */ h(Jt, { hash: e, loading: i, size: d }),
+    /* @__PURE__ */ z(Ee, { children: [
+      /* @__PURE__ */ h(ne, { size: 2, monotype: !0, children: e }),
+      /* @__PURE__ */ h(ne, { size: 3, variation: "darkGray", noWrap: !0, children: "System" })
+    ] })
+  ] }) : /* @__PURE__ */ z(J, { align: C, itemsSpacing: 12, children: [
+    n ? /* @__PURE__ */ h(Jt, { src: n, loading: i, size: d, alt: "Account logo" }) : /* @__PURE__ */ h(Jt, { hash: e, loading: i, size: d }),
+    /* @__PURE__ */ h(_t, { caption: l, tooltipContent: e, additionalBlock: c, children: /* @__PURE__ */ h(Ee, { children: r ? /* @__PURE__ */ z(We, { children: [
+      /* @__PURE__ */ h(yo, { size: 3, scale: f === "big" ? "sm" : void 0, monotype: !t, children: /* @__PURE__ */ h(vo, { minified: s, href: a, hash: e, csprName: t && mo(t, ot.TINY), hashLength: o }) }),
+      /* @__PURE__ */ h(J, { itemsSpacing: 6, align: C, children: /* @__PURE__ */ h(Ef, { size: u, children: /* @__PURE__ */ h(ne, { size: 3, variation: "darkGray", noWrap: !0, children: r }) }) })
+    ] }) : /* @__PURE__ */ h(yo, { size: 3, scale: f === "big" ? "sm" : void 0, monotype: !t, children: /* @__PURE__ */ h(vo, { href: a, hash: e, csprName: t && mo(t, ot.TINY), hashLength: o, minified: s }) }) }) })
+  ] });
+}, W2 = S.button.withConfig({
   displayName: "button__BaseButton",
   componentId: "sc-e3gw2w-0"
 })(({
