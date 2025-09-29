@@ -23,10 +23,10 @@ import { Size } from '../../types.ts';
  * @property {'full' | 'tiny'} [copyNotifyingStyle] - **@deprecated** Use `minifiedCopyNotification` instead.
  */
 interface AddressProps {
-    loading: boolean;
-    logo: string | null;
-    name: string | undefined;
     hash: string | null | undefined;
+    name?: string | undefined;
+    loading?: boolean;
+    logo?: string | null;
     csprName?: string | undefined;
     tooltipCaption?: string;
     additionalTooltipBlock?: React.ReactElement;
@@ -36,6 +36,7 @@ interface AddressProps {
     avatarSize?: AvatarProps['size'];
     hashFontSize?: HashFontSize;
     minifiedCopyNotification?: boolean;
+    horizonalAlign?: 'center' | 'top';
     /** @deprecated use *navigateToPath* instead */
     navigationPath?: keyof any;
     /** @deprecated use *minifiedCopyNotification* instead */
@@ -45,6 +46,6 @@ export declare enum HashFontSize {
     'default' = "default",
     'big' = "big"
 }
-export declare const Address: ({ hash, csprName, logo, name, loading, hashLength, minifiedCopyNotification, navigateToPath, tooltipCaption, additionalTooltipBlock, nameTruncateSize, avatarSize, hashFontSize, }: AddressProps) => import("react/jsx-runtime").JSX.Element;
+export declare const Address: ({ hash, csprName, logo, name, loading, hashLength, minifiedCopyNotification, navigateToPath, tooltipCaption, additionalTooltipBlock, nameTruncateSize, avatarSize, hashFontSize, horizonalAlign, }: AddressProps) => import("react/jsx-runtime").JSX.Element;
 export default Address;
 //# sourceMappingURL=address.d.ts.map
