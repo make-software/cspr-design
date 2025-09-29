@@ -1304,7 +1304,7 @@ const g3 = (e, t, n = 20, r = 5) => {
     hash: i,
     src: o,
     size: s = "default",
-    transparentBg: a,
+    transparentBg: a = !1,
     ...l
   } = t, c = xn(s), u = 2, d = "86400";
   if (r || !i && !o)
@@ -1326,7 +1326,7 @@ const g3 = (e, t, n = 20, r = 5) => {
       height: c
     } }) }) });
   }
-  return i && y3(i) ? /* @__PURE__ */ h("span", { ref: n, ...l, children: /* @__PURE__ */ h(en, { sizeType: s, withBgColor: a, children: /* @__PURE__ */ h(w3, { children: /* @__PURE__ */ h(ve, { src: Gl, size: c - 8 }) }) }) }) : /* @__PURE__ */ h("span", { ref: n, ...l, children: /* @__PURE__ */ h(en, { sizeType: s, children: i && /* @__PURE__ */ h(v3, { hexString: i, size: c, ...l }) }) });
+  return i && y3(i) ? /* @__PURE__ */ h("span", { ref: n, ...l, children: /* @__PURE__ */ h(en, { sizeType: s, withBgColor: !a, children: /* @__PURE__ */ h(w3, { children: /* @__PURE__ */ h(ve, { src: Gl, size: c - 8 }) }) }) }) : /* @__PURE__ */ h("span", { ref: n, ...l, children: /* @__PURE__ */ h(en, { sizeType: s, children: i && /* @__PURE__ */ h(v3, { hexString: i, size: c, ...l }) }) });
 });
 function b3(e, t, n) {
   return t in e ? Object.defineProperty(e, t, {
