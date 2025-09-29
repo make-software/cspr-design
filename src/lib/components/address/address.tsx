@@ -154,6 +154,7 @@ export const Address = ({
                     csprName && shortenCsprName(csprName, HashLength.TINY)
                   }
                   hashLength={hashLength}
+                  align={align}
                 />
               </StyledBodyText>
               <FlexRow itemsSpacing={6} align={align}>
@@ -178,6 +179,7 @@ export const Address = ({
                 }
                 hashLength={hashLength}
                 minified={minifiedCopyNotification}
+                align={align}
               />
             </StyledBodyText>
           )}

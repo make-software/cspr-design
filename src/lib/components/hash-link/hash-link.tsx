@@ -17,6 +17,7 @@ interface HashLinkProps {
   minified?: boolean;
   csprName?: string | null;
   hashLength?: HashLength;
+  align?: string;
 }
 
 export const HashLink = ({
@@ -25,6 +26,7 @@ export const HashLink = ({
   csprName,
   hashLength = undefined,
   minified = true,
+  align = 'center',
 }: HashLinkProps) => {
   const copiedValue = csprName || hash || '';
 
@@ -35,7 +37,7 @@ export const HashLink = ({
   const formattedHash = hash ? formatHash(hash, hashLength) : null;
 
   return (
-    <FlexRow itemsSpacing={4} align="center">
+    <FlexRow itemsSpacing={4} align={align}>
       <Link color={'hash'} href={href}>
         {truncatedCsprName || formattedHash}
       </Link>
