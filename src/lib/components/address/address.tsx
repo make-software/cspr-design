@@ -32,10 +32,10 @@ import TruncateBox from '../truncate-box/truncate-box.tsx';
  * @property {'full' | 'tiny'} [copyNotifyingStyle] - **@deprecated** Use `minifiedCopyNotification` instead.
  */
 interface AddressProps {
-  loading: boolean;
-  logo: string | null;
-  name: string | undefined;
   hash: string | null | undefined;
+  name?: string | undefined;
+  loading?: boolean;
+  logo?: string | null;
   csprName?: string | undefined;
   tooltipCaption?: string;
   additionalTooltipBlock?: React.ReactElement;
@@ -45,6 +45,7 @@ interface AddressProps {
   avatarSize?: AvatarProps['size'];
   hashFontSize?: HashFontSize;
   minifiedCopyNotification?: boolean;
+  horizonalAlign?: 'center' | 'top';
   /** @deprecated use *navigateToPath* instead */
   navigationPath?: keyof any;
   /** @deprecated use *minifiedCopyNotification* instead */
@@ -87,6 +88,7 @@ export const Address = ({
   nameTruncateSize = 5,
   avatarSize = 'default',
   hashFontSize = HashFontSize.default,
+  horizonalAlign = 'center',
 }: AddressProps) => {
   if (loading || !hash) {
     return (
@@ -95,6 +97,8 @@ export const Address = ({
       </FlexRow>
     );
   }
+
+  const align = horizonalAlign === 'center' ? 'center' : 'flex-start';
 
   if (hash === '00') {
     // hash == '00' means that it is a Immediate Switch Block
@@ -117,7 +121,7 @@ export const Address = ({
   }
 
   return (
-    <FlexRow align="center" itemsSpacing={12}>
+    <FlexRow align={align} itemsSpacing={12}>
       {logo ? (
         <Avatar
           src={logo}
@@ -152,7 +156,7 @@ export const Address = ({
                   hashLength={hashLength}
                 />
               </StyledBodyText>
-              <FlexRow itemsSpacing={6} align={'center'}>
+              <FlexRow itemsSpacing={6} align={align}>
                 <StyledTruncateBox size={nameTruncateSize}>
                   <BodyText size={3} variation="darkGray" noWrap>
                     {name}
