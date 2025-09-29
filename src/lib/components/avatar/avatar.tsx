@@ -114,7 +114,7 @@ export const Avatar = React.forwardRef<Ref, AvatarProps>(function Avatar(
     hash,
     src,
     size = 'default',
-    transparentBg,
+    transparentBg = false,
     ...restProps
   } = props;
   const avatarSize = getSize(size);
@@ -158,7 +158,7 @@ export const Avatar = React.forwardRef<Ref, AvatarProps>(function Avatar(
   if (hash && isValidAccountHash(hash)) {
     return (
       <span ref={ref} {...restProps}>
-        <BackgroundWrapper sizeType={size} withBgColor={transparentBg}>
+        <BackgroundWrapper sizeType={size} withBgColor={!transparentBg}>
           <IconHashWrapper>
             <SvgIcon src={HashIcon} size={avatarSize - 8} />
           </IconHashWrapper>
