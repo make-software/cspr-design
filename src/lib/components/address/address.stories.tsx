@@ -24,6 +24,7 @@ const meta = {
     name: { control: 'text' },
     tooltipCaption: { control: 'text' },
     minifiedCopyNotification: { control: 'boolean' },
+    navigateToPath: { control: 'text' },
   },
 } as Meta<typeof Address>;
 
