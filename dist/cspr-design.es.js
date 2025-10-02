@@ -125,7 +125,10 @@ const ni = S("span").withConfig({
   lineHeight: me({
     sm: "1.5rem",
     xs: "1.25rem"
-  }, r)
+  }, r),
+  "&:where(h1, h2, h3, h4, h5, h6)": {
+    margin: 0
+  }
 })), ne = ge.forwardRef(function(t, n) {
   return /* @__PURE__ */ h(fl, { ref: n, ...t });
 }), pl = S("div").withConfig({
@@ -12911,7 +12914,10 @@ const Bf = (e, t) => ({
     lg: "1.5rem",
     md: "1.25rem"
   }, n),
-  lineHeight: "2rem"
+  lineHeight: "2rem",
+  "&:where(h1, h2, h3, h4, h5, h6)": {
+    margin: 0
+  }
 })), j2 = ge.forwardRef((e, t) => /* @__PURE__ */ h(Wf, { ref: t, ...e })), Uf = S(Q).withConfig({
   displayName: "checkbox__StyledFlexRow",
   componentId: "sc-mn33h4-0"
@@ -20654,12 +20660,12 @@ const wa = new RegExp(`(${Object.values(ei).join("|")})(?=[0-9a-fA-F])`, "i"), E
       contentQuaternary: "#D2D3D9",
       contentOnFill: "#FFFFFF",
       contentBlue: "#0021A5",
-      contentRed: "#E6332A",
+      contentRed: "#D8251C",
       contentGreen: "#31DE91",
       contentViolet: "#8B5BF1",
       contentYellow: "#F1BF0B",
       contentWarmGreen: "#BBDE31",
-      contentLightBlue: "#7490FF"
+      contentLightBlue: "#375AE9"
     },
     boxShadow: {
       unset: "unset",
