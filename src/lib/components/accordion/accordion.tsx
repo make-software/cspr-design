@@ -6,7 +6,6 @@ import { useClickAway } from '../../hooks/use-click-away';
 
 export interface AccordionProps extends BaseProps {
   backgroundColor?: string;
-  children: (renderProps: RenderProps) => React.ReactNode | string;
   renderContent: (renderProps: RenderProps) => React.ReactNode | string;
   disableClickAway?: boolean;
 }
@@ -32,7 +31,7 @@ export function Accordion({
   renderContent,
   disableClickAway,
   ...props
-}: AccordionProps) {
+}: React.PropsWithChildren<AccordionProps>) {
   const [isOpen, setIsOpen] = useState(false);
 
   const { ref } = useClickAway({
@@ -44,7 +43,7 @@ export function Accordion({
   const renderProps: RenderProps = { isOpen };
 
   return (
-    <AccordionContainer isOpen={isOpen} aria-expanded={!!isOpen} {...props}>
+    <AccordionContainer isOpen={isOpen} aria-expanded={isOpen} {...props}>
       <StyledContainer
         ref={ref}
         onClick={() => {
@@ -52,7 +51,7 @@ export function Accordion({
         }}
         tabIndex={0}
         onKeyDown={(ev) => {
-          if(ev.key === 'Enter'){
+          if (ev.key === 'Enter') {
             setIsOpen(!isOpen);
           }
         }}
