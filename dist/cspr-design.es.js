@@ -20635,12 +20635,12 @@ const ba = new RegExp(`(${Object.values(Jr).join("|")})(?=[0-9a-fA-F])`, "i"), I
       contentQuaternary: "#D2D3D9",
       contentOnFill: "#FFFFFF",
       contentBlue: "#0021A5",
-      contentRed: "#E6332A",
+      contentRed: "#D8251C",
       contentGreen: "#31DE91",
       contentViolet: "#8B5BF1",
       contentYellow: "#F1BF0B",
       contentWarmGreen: "#BBDE31",
-      contentLightBlue: "#7490FF"
+      contentLightBlue: "#375AE9"
     },
     boxShadow: {
       unset: "unset",
