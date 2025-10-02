@@ -32,6 +32,9 @@ const StyledText = styled(Text)<SubtitleTextProps>(
       scale
     ),
     lineHeight: '2rem',
+      '&:where(h1, h2, h3, h4, h5, h6)': {
+          margin: 0,
+      },
   })
 );
 

@@ -125,7 +125,10 @@ const ti = S("span").withConfig({
   lineHeight: me({
     sm: "1.5rem",
     xs: "1.25rem"
-  }, r)
+  }, r),
+  "&:where(h1, h2, h3, h4, h5, h6)": {
+    margin: 0
+  }
 })), ne = ge.forwardRef(function(t, n) {
   return /* @__PURE__ */ h(dl, { ref: n, ...t });
 }), fl = S("div").withConfig({
@@ -12887,7 +12890,10 @@ const Af = (e, t) => ({
     lg: "1.5rem",
     md: "1.25rem"
   }, n),
-  lineHeight: "2rem"
+  lineHeight: "2rem",
+  "&:where(h1, h2, h3, h4, h5, h6)": {
+    margin: 0
+  }
 })), U2 = ge.forwardRef((e, t) => /* @__PURE__ */ h(Zf, { ref: t, ...e })), Wf = S(J).withConfig({
   displayName: "checkbox__StyledFlexRow",
   componentId: "sc-mn33h4-0"
