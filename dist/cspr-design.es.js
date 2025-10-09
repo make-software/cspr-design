@@ -17137,7 +17137,8 @@ const Kh = S.tr.withConfig({
     position: "absolute",
     left: 20,
     right: 20,
-    borderBottom: e.border.tableRowSeparator
+    borderBottom: e.border.tableRowSeparator,
+    bottom: 0
   },
   position: "relative",
   ...n && {
