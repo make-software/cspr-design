@@ -17132,7 +17132,7 @@ const Kh = S.tr.withConfig({
   ":hover, :active": {
     background: t ? "" : e.styleguideColors.fillSecondary
   },
-  ":not(:first-child):after": {
+  ":after": {
     content: "''",
     position: "absolute",
     left: 20,

@@ -24,7 +24,7 @@ export const StyledTableRow = styled.tr<{
     ':hover, :active': {
       background: !$loading ? theme.styleguideColors.fillSecondary : '',
     },
-    ':not(:first-child):after': {
+    ':after': {
       content: "''",
       position: 'absolute',
       left: 20,
