@@ -7,7 +7,7 @@ const meta = {
   title: 'Components/Display/Address',
   // tags: ['autodocs', '!dev'],
   args: {
-    hash: '01f5f1fa995ab7e966428e5a1aed797526ad5b2454c50a63a7aaa2dfeae6a996c2',
+    hash: '21eaea584903e79365bcb1f7607179cc118807033c8919cff7489a91c3a822d1',
     minifiedCopyNotification: true,
     tooltipCaption: 'public key',
     avatarSize: 'default',
@@ -24,6 +24,15 @@ const meta = {
     name: { control: 'text' },
     tooltipCaption: { control: 'text' },
     minifiedCopyNotification: { control: 'boolean' },
+    navigateToPath: { control: 'text' },
+    hashFontSize: {
+      control: { type: 'select' },
+      options: ['xs', 'sm', 'md', 'lg', 'xl'],
+    },
+    horizonalAlign: {
+      control: { type: 'select' },
+      options: ['flex-start', 'flex-end', 'center'],
+    },
   },
 } as Meta<typeof Address>;
 
