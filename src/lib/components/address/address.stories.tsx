@@ -25,6 +25,14 @@ const meta = {
     tooltipCaption: { control: 'text' },
     minifiedCopyNotification: { control: 'boolean' },
     navigateToPath: { control: 'text' },
+    hashFontSize: {
+      control: { type: 'select' },
+      options: ['xs', 'sm', 'md', 'lg', 'xl'],
+    },
+    horizonalAlign: {
+      control: { type: 'select' },
+      options: ['flex-start', 'flex-end', 'center'],
+    },
   },
 } as Meta<typeof Address>;
 
