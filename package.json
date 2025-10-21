@@ -45,8 +45,8 @@
     "web-vitals": "^4.2.4"
   },
   "peerDependencies": {
-    "react": "^18.3.0",
-    "react-dom": "^18.3.0",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0",
     "styled-components": "^5.3.11"
   },
   "eslintConfig": {
@@ -89,8 +89,8 @@
     "@types/facepaint": "^1.2.2",
     "@types/jest": "^29.5.14",
     "@types/node": "^24.1.0",
-    "@types/react": "^18.3.23",
-    "@types/react-dom": "^18.3.7",
+    "@types/react": "^19.2.2",
+    "@types/react-dom": "^19.2.2",
     "@types/react-modal": "^3.16.3",
     "@types/styled-components": "^5.1.34",
     "@vitejs/plugin-react": "^4.7.0",
