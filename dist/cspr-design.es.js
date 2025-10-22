@@ -17809,7 +17809,7 @@ function OC({
   }), a = {
     isOpen: i
   };
-  return /* @__PURE__ */ z(Eg, { isOpen: i, "aria-expanded": i, ...r, children: [
+  return /* @__PURE__ */ z(Eg, { isOpen: i, ...r, children: [
     /* @__PURE__ */ h(Pg, { ref: s, onClick: () => {
       o(!i);
     }, tabIndex: 0, onKeyDown: (l) => {
