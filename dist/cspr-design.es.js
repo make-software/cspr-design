@@ -16840,7 +16840,8 @@ const Eh = S.ul.withConfig({
   componentId: "sc-2b2p7u-0"
 })(({
   theme: e,
-  withPadding: t
+  withPadding: t,
+  bottomGap: n = 24
 }) => e.withMedia({
   height: "100%",
   display: "flex",
@@ -16849,8 +16850,7 @@ const Eh = S.ul.withConfig({
   background: e.styleguideColors.backgroundPrimary,
   boxShadow: e.boxShadow.block,
   borderRadius: e.borderRadius.base,
-  marginBottom: 24,
-  // make it reponsive
+  marginBottom: n,
   padding: t ? "16px 0" : void 0
 }));
 function CC(e) {
