@@ -232,6 +232,11 @@ export const formatDateWithMonthAndYear = (value: string): string => {
   })}`;
 };
 
+export enum HashFontSize {
+  'default' = 'default',
+  'big' = 'big',
+}
+
 export enum HashLength {
   FULL = 0,
   TINY = 5,

@@ -2,7 +2,6 @@ import React, { ReactNode } from 'react';
 import styled from 'styled-components';
 import { BodyText } from '../body-text/body-text';
 import { FlexRow } from '../flex-row/flex-row';
-import { SubtitleText } from '../subtitle-text/subtitle-text';
 import { TruncateBox } from '../truncate-box/truncate-box';
 import { formatHash } from '../../utils/formatters';
 import { Tooltip } from '../tooltip/tooltip';
