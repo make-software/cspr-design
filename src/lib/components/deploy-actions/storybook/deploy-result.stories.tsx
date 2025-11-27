@@ -14,7 +14,6 @@ import {
   csprMarketDeploy,
   cep18Deploy,
   nftDeploy,
-  mockedCsprMarketContractPackageInfo,
 } from './mockedDeploys';
 import { MapDeploy } from '../utils/deploy-action-helpers';
 import BodyText from '../../body-text/body-text';
