@@ -24,6 +24,17 @@ type DeployActionDataContextType = {
   ) => string | null;
 };
 
+//
+// export interface PathGetters {
+//     getNftPath: (collectionHash: string, nftId: string) => string;
+//     getContractPackagePath: (hash: string) => string;
+//     getAccountPath: (hash: string) => string;
+//     getSearchPath: (hash: string) => string;
+// }
+
+// rewrite to this structure??
+// paths: PathGetters;
+
 export const deployActionDataContext =
   createContext<DeployActionDataContextType>({
     getAccountInfo: () => null,
