@@ -1,6 +1,6 @@
 import React from 'react';
 import { NftActionRow, UpdateMetadataNFTAction } from './NftActionRow';
-import {NftActivityTypeEnum} from "../../../types/NFTToken";
+import { NftActivityTypeEnum } from '../../../types/NFTToken';
 
 const nftResultActionNameMap = {
   [NftActivityTypeEnum.Approve]: 'Granted transfer rights',

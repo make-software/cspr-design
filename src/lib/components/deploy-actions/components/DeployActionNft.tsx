@@ -2,19 +2,20 @@ import React from 'react';
 import { NftCollectionIdentifier } from './NftCollectionIdentifier';
 import { NftActionRow, UpdateMetadataNFTAction } from './NftActionRow';
 import { useDeployActionDataContext } from '../services/deploy-action-context';
-import {prepareNftActionMessageDataForDeployDetails} from "../utils/prepare-action-messages";
-import {Deploy} from "../../../types/types";
-import {guardedDeriveSplitDataFromArguments} from "../../../utils/deploy-args";
-import FlexRow from "../../flex-row/flex-row";
-import BodyText from "../../body-text/body-text";
-import {ContractIdentifier} from "../../contract-identifier/contract-identifier";
-import {HashFontSize} from "../../../utils/formatters";
-import DeployActionDefault from "./DeployActionDefault";
-import {NftTokenEntryPoint} from "../../../types/NFTToken";
+import { prepareNftActionMessageDataForDeployDetails } from '../utils/prepare-action-messages';
+import { Deploy } from '../../../types/types';
+import { guardedDeriveSplitDataFromArguments } from '../../../utils/deploy-args';
+import FlexRow from '../../flex-row/flex-row';
+import BodyText from '../../body-text/body-text';
+import { ContractIdentifier } from '../../contract-identifier/contract-identifier';
+import { HashFontSize } from '../../../utils/formatters';
+import DeployActionDefault from './DeployActionDefault';
+import { NftTokenEntryPoint } from '../../../types/NFTToken';
 
 const SetAllApprovalsNFTAction = ({ deploy }: { deploy: Deploy }) => {
   const { contractPackage, args } = deploy;
-  const { getContractPackagePath, getContractPackageInfoByHash } = useDeployActionDataContext();
+  const { getContractPackagePath, getContractPackageInfoByHash } =
+    useDeployActionDataContext();
   const operatorHash =
     args.operator && guardedDeriveSplitDataFromArguments(args.operator, 'Hash');
 
@@ -61,7 +62,7 @@ export const DeployActionNft = ({ deploy }: DeployNftActionProps) => {
   const message = prepareNftActionMessageDataForDeployDetails(
     deploy,
     getPublicKeyAccountHash,
-    i18n
+    i18n,
   );
 
   if (!message) {

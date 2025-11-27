@@ -3,9 +3,13 @@ import { NftCollectionIdentifier } from './NftCollectionIdentifier';
 import { NftTokenIds } from './NftTokenIds';
 import TransactorInfo from '../../../components/transactor-info/transactor-info';
 import { useDeployActionDataContext } from '../services/deploy-action-context';
-import BodyText from "../../body-text/body-text";
-import FlexRow from "../../flex-row/flex-row";
-import {AccountInfoResult, DeployContractPackageResult, TransactorHashType} from "../../../types/types";
+import BodyText from '../../body-text/body-text';
+import FlexRow from '../../flex-row/flex-row';
+import {
+  AccountInfoResult,
+  DeployContractPackageResult,
+  TransactorHashType,
+} from '../../../types/types';
 
 export const UpdateMetadataNFTAction = ({
   actionName,
@@ -61,13 +65,18 @@ export const NftActionRow = ({
   to_public_key,
   to_type,
 }: NftActionRowProps) => {
-  const { getAccountInfo, getNftPath, getContractPackagePath,getAccountPath, getContractPackageInfoByHash } =
-    useDeployActionDataContext();
+  const {
+    getAccountInfo,
+    getNftPath,
+    getContractPackagePath,
+    getAccountPath,
+    getContractPackageInfoByHash,
+  } = useDeployActionDataContext();
   const fromAccountInfo = getAccountInfo<AccountInfoResult>(
-    from_public_key || from_hash || ''
+    from_public_key || from_hash || '',
   );
   const toAccountInfo = getAccountInfo<AccountInfoResult>(
-    to_public_key || to_hash || ''
+    to_public_key || to_hash || '',
   );
 
   return (
@@ -103,9 +112,7 @@ export const NftActionRow = ({
               fromAccountInfo?.account_info ||
               fromAccountInfo?.centralized_account_info
             }
-            contractPackage={
-                getContractPackageInfoByHash(from_hash)
-            }
+            contractPackage={getContractPackageInfoByHash(from_hash)}
             csprName={fromAccountInfo?.cspr_name}
             loading={!from_hash}
             publicKey={from_public_key}
@@ -128,9 +135,7 @@ export const NftActionRow = ({
               toAccountInfo?.account_info ||
               toAccountInfo?.centralized_account_info
             }
-            contractPackage={
-                getContractPackageInfoByHash(to_hash)
-            }
+            contractPackage={getContractPackageInfoByHash(to_hash)}
             loading={!to_hash}
             csprName={toAccountInfo?.cspr_name}
             publicKey={to_public_key}

@@ -2,10 +2,10 @@ import React from 'react';
 
 import { currencyPrecisionByCase, PrecisionCase } from '../../utils/currency';
 import TokenAmount from '../token-amount/token-amount';
-import {DeployContractPackageResult} from "../../types/types";
-import {deriveFtTokenData} from "../../utils/derive-ft-token-data-service";
-import FlexRow from "../flex-row/flex-row";
-import {DEFAULT_AMOUNT_PRECISION} from '../../utils/formatters';
+import { DeployContractPackageResult } from '../../types/types';
+import { deriveFtTokenData } from '../../utils/derive-ft-token-data-service';
+import FlexRow from '../flex-row/flex-row';
+import { DEFAULT_AMOUNT_PRECISION } from '../../utils/formatters';
 
 export interface Cep18Props {
   symbol?: string;
@@ -29,7 +29,7 @@ export function Cep18FormattedAmount({
       ? {
           contractPackageInfo: contractPackage,
         }
-      : null
+      : null,
   );
 
   return (

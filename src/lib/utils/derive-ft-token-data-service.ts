@@ -1,6 +1,6 @@
 import deriveFtTokenMarketDataService from './derive-ft-token-market-data-service';
-import {FTAmountDataType, FtTokenMarketData} from "../types/FTToken";
-import {DeployContractPackageResult} from "../types/types";
+import { FTAmountDataType, FtTokenMarketData } from '../types/FTToken';
+import { DeployContractPackageResult } from '../types/types';
 
 type Cep18DataTypeNew = Omit<
   FTAmountDataType,
@@ -14,10 +14,10 @@ type GetFtTokenDataProps = {
 };
 
 export const deriveFtTokenData = (
-  props: GetFtTokenDataProps | null
+  props: GetFtTokenDataProps | null,
 ): Cep18DataTypeNew => {
   const ftTokenMarketData: FtTokenMarketData = deriveFtTokenMarketDataService(
-    props?.contractPackageInfo
+    props?.contractPackageInfo,
   );
 
   if (props?.isShiboo) {

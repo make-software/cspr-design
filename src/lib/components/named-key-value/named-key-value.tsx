@@ -1,10 +1,10 @@
 import React from 'react';
-import {formatHash, HashLength} from '../../utils/formatters';
-import {deriveSplitDataFromNamedKeyValue} from "../../utils/named-key";
-import {NamedKeyPrefix} from "../../utils/named-key-prefix";
+import { formatHash, HashLength } from '../../utils/formatters';
+import { deriveSplitDataFromNamedKeyValue } from '../../utils/named-key';
+import { NamedKeyPrefix } from '../../utils/named-key-prefix';
 import { useMatchMedia } from '../../utils/match-media';
-import FlexRow from "../flex-row/flex-row";
-import Link from "../link/link";
+import FlexRow from '../flex-row/flex-row';
+import Link from '../link/link';
 
 interface NamedKeyValueProps {
   namedKey: string;
@@ -17,11 +17,11 @@ export const NamedKeyValue = ({
   namedKey,
   noPrefix,
   hashLength,
-                                getSearchPath
+  getSearchPath,
 }: NamedKeyValueProps) => {
   const responsiveHashLength = useMatchMedia(
     [HashLength.TINY, HashLength.MEDIUM, HashLength.FULL, HashLength.FULL],
-    []
+    [],
   );
   const { prefix, hash } = deriveSplitDataFromNamedKeyValue(namedKey);
 

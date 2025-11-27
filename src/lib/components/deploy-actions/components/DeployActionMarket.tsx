@@ -5,14 +5,14 @@ import DeployFiatAmount from './DeployFiatAmount';
 import { NftCollectionIdentifier } from './NftCollectionIdentifier';
 import { NftTokenIds } from './NftTokenIds';
 import { useDeployActionDataContext } from '../services/deploy-action-context';
-import {CsprMarketEntryPoint} from "../../../types/NFTToken";
-import {isNonNullable} from "../../../utils/guards";
-import {Deploy, DeployContractPackageResult} from "../../../types/types";
-import FlexRow from "../../flex-row/flex-row";
-import BodyText from "../../body-text/body-text";
-import Link from "../../link/link";
-import {guardedDeriveSplitDataFromArguments} from "../../../utils/deploy-args";
-import Address from "../../address/address";
+import { CsprMarketEntryPoint } from '../../../types/NFTToken';
+import { isNonNullable } from '../../../utils/guards';
+import { Deploy, DeployContractPackageResult } from '../../../types/types';
+import FlexRow from '../../flex-row/flex-row';
+import BodyText from '../../body-text/body-text';
+import Link from '../../link/link';
+import { guardedDeriveSplitDataFromArguments } from '../../../utils/deploy-args';
+import Address from '../../address/address';
 
 const marketActionNameMap = {
   [CsprMarketEntryPoint.delist_token]: 'Delist',
@@ -27,7 +27,7 @@ const getNftTokenIdsFromArguments = (args) => {
   if (hasTokens) {
     const tokens = args.tokens?.parsed
       ? args.tokens.parsed.map((token) =>
-          typeof token === 'string' ? token : token.key
+          typeof token === 'string' ? token : token.key,
         )
       : [];
     const ids = [...tokens, args.token_id?.parsed].filter(isNonNullable);
@@ -92,23 +92,23 @@ const OfferMarketAction = ({
 
   const offererHash = guardedDeriveSplitDataFromArguments(
     args.offerer,
-    'Account'
+    'Account',
   );
 
   const {
     getAccountInfo,
     getPublicKeyAccountHash,
     getNftPath,
-      getAccountPath,
+    getAccountPath,
     getContractPackagePath,
     getContractPackageInfoByHash,
-      formatCurrency,
+    formatCurrency,
   } = useDeployActionDataContext();
 
   const accountInfo = offererHash && getAccountInfo(offererHash?.hash);
   const publicKey = offererHash && getPublicKeyAccountHash(offererHash?.hash);
   const accountInfoDetails = deriveAccountInfo(
-    accountInfo?.account_info || accountInfo?.centralized_account_info
+    accountInfo?.account_info || accountInfo?.centralized_account_info,
   );
   const logo = accountInfoDetails && accountInfoDetails.logo;
   const name = accountInfoDetails?.name;
@@ -152,17 +152,17 @@ const OfferMarketAction = ({
           <BodyText size={3} variation={'darkGray'}>
             from
           </BodyText>
-            <Address
-                logo={logo}
-                name={name}
-                hash={publicKey|| offererHash.hash}
-                csprName={csprName}
-                loading={!offererHash}
-                navigateToPath={getAccountPath(publicKey || offererHash.hash)}
-                avatarSize={'small'}
-                hashFontSize={'sm'}
-                minifiedCopyNotification
-            />
+          <Address
+            logo={logo}
+            name={name}
+            hash={publicKey || offererHash.hash}
+            csprName={csprName}
+            loading={!offererHash}
+            navigateToPath={getAccountPath(publicKey || offererHash.hash)}
+            avatarSize={'small'}
+            hashFontSize={'sm'}
+            minifiedCopyNotification
+          />
         </FlexRow>
       )}
       <BodyText size={3} variation={'darkGray'}>
@@ -244,7 +244,7 @@ const DeployActionMarket = ({ deploy }: { deploy: Deploy }) => {
 
   const collectionHash = guardedDeriveSplitDataFromArguments(
     args.collection,
-    'Hash'
+    'Hash',
   );
 
   const isOfferAction =

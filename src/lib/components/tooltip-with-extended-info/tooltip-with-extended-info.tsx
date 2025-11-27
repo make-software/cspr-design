@@ -1,9 +1,9 @@
 import React from 'react';
-import {isValidPublicKey} from "casper-js-sdk";
-import FlexColumn from "../flex-column/flex-column";
-import CaptionText from "../caption-text/caption-text";
-import BodyText from "../body-text/body-text";
-import Tooltip from "../tooltip/tooltip";
+import { isValidPublicKey } from 'casper-js-sdk';
+import FlexColumn from '../flex-column/flex-column';
+import CaptionText from '../caption-text/caption-text';
+import BodyText from '../body-text/body-text';
+import Tooltip from '../tooltip/tooltip';
 
 const TooltipWithExtendedInfo = ({
   extendedLine,
@@ -18,7 +18,6 @@ const TooltipWithExtendedInfo = ({
     caption: string;
   };
 }>) => {
-
   const hasExtendedLine = extendedLine?.title != undefined;
 
   const keyTooltipCaption = tooltipCaption
@@ -47,7 +46,8 @@ const TooltipWithExtendedInfo = ({
       tooltipContent={title}
       caption={caption}
       additionalBlock={additionalBlock}
-      scale={'xs'} lineHeight={'xs'}
+      scale={'xs'}
+      lineHeight={'xs'}
     >
       {children}
     </Tooltip>

@@ -3,10 +3,10 @@ import {
   InfoGetDeployResultV1Compatible,
   InfoGetTransactionResultV1Compatible,
 } from 'casper-js-sdk';
-import {GetDeployResult, NetworkMajorVersion} from "../../../types/types";
+import { GetDeployResult, NetworkMajorVersion } from '../../../types/types';
 
 export const getExecutionResultsFromDeployRawData = (
-  deployRawData?: GetDeployResult
+  deployRawData?: GetDeployResult,
 ): ExecutionResult | null => {
   if (!deployRawData) return null;
   const networkVersionFromRawData =

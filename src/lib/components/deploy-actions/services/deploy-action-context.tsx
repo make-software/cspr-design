@@ -9,18 +9,19 @@ import { TFunction } from 'i18next';
 type DeployActionDataContextType = {
   getAccountInfo: <T>(publicKey: string) => T | null | undefined;
   getContractPackageInfoByHash: <T>(
-    contractPackageHash: string
+    contractPackageHash: string,
   ) => T | null | undefined;
   getContractInfoByHash?: <T>(contractHash: string) => T | null | undefined;
   getPublicKeyAccountHash: (accountHash: string) => string | null | undefined;
   getNftPath: (collectionHash: string, nftId: string) => string;
   getContractPackagePath: (hash: string) => string;
   getAccountPath: (hash: string) => string;
-    getSearchPath: (hash: string) => string;
+  getSearchPath: (hash: string) => string;
   i18n: (word: string) => string;
-    formatCurrency: (
-        value:  number | string | null,
-        precision?: number) => string | null;
+  formatCurrency: (
+    value: number | string | null,
+    precision?: number,
+  ) => string | null;
 };
 
 export const deployActionDataContext =
@@ -32,9 +33,9 @@ export const deployActionDataContext =
     getNftPath: () => '',
     getContractPackagePath: () => '',
     getAccountPath: () => '',
-      getSearchPath: () => '',
+    getSearchPath: () => '',
     i18n: () => '',
-      formatCurrency: () => null,
+    formatCurrency: () => null,
   });
 
 const { Provider: DeployActionDataContextProvider } = deployActionDataContext;
@@ -46,28 +47,29 @@ export const useDeployActionDataContext = () => {
 type DeployActionDataProviderProps = {
   getAccountInfo: <T>(publicKey: string) => T | null | undefined;
   getContractPackageInfoByHash?: <T>(
-    contractPackageHash: string
+    contractPackageHash: string,
   ) => T | null | undefined;
   getContractInfoByHash?: <T>(contractHash: string) => T | null | undefined;
   getNftPath: (collectionHash: string, nftId: string) => string;
   getContractPackagePath: (hash: string) => string;
   getAccountPath: (hash: string) => string;
-    getSearchPath: (hash: string) => string;
+  getSearchPath: (hash: string) => string;
   i18n?: TFunction;
-    formatCurrency?: (
-        value: number | string | null,
-        precision?: number) => string
+  formatCurrency?: (
+    value: number | string | null,
+    precision?: number,
+  ) => string;
 };
 
 export const DeployActionDataProvider = (
-  props: PropsWithChildren<DeployActionDataProviderProps>
+  props: PropsWithChildren<DeployActionDataProviderProps>,
 ) => {
   const {
     getAccountInfo,
     getNftPath,
     getContractPackagePath,
     getAccountPath,
-      getSearchPath,
+    getSearchPath,
     children,
   } = props;
 
@@ -77,7 +79,7 @@ export const DeployActionDataProvider = (
 
       return publicKeyByHash ? publicKeyByHash : null;
     },
-    [getAccountInfo]
+    [getAccountInfo],
   );
   const getContractInfoByHash = (contractHash) =>
     props.getContractInfoByHash
@@ -89,14 +91,8 @@ export const DeployActionDataProvider = (
       ? props.getContractPackageInfoByHash(contractPackageHash)
       : null;
 
-  const formatCurrency = (
-      value,
-      precision) =>
-    props.formatCurrency
-      ? props.formatCurrency(
-        value,
-      precision)
-      : null;
+  const formatCurrency = (value, precision) =>
+    props.formatCurrency ? props.formatCurrency(value, precision) : null;
 
   const i18n = (word) => (props.i18n ? props.i18n(word) : word);
 
@@ -110,9 +106,9 @@ export const DeployActionDataProvider = (
         getNftPath,
         getContractPackagePath,
         getAccountPath,
-          getSearchPath,
+        getSearchPath,
         i18n,
-          formatCurrency
+        formatCurrency,
       }}
     >
       {children}

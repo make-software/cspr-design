@@ -1,7 +1,12 @@
 import React from 'react';
 import Avatar, { AvatarProps } from '../avatar/avatar';
-import {ContractTypeId} from "../../types/types";
-import {DefiContractIcon, GenericContractIcon, NftContractIcon, TokenContractIcon} from "../../icons-index";
+import { ContractTypeId } from '../../types/types';
+import {
+  DefiContractIcon,
+  GenericContractIcon,
+  NftContractIcon,
+  TokenContractIcon,
+} from '../../icons-index';
 
 export interface ContractIconProps {
   src?: string | null;

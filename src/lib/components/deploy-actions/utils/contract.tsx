@@ -27,7 +27,7 @@ export enum DeployEntryPointName {
 export const isTransferDeploy = (
   contractHash: string | null,
   entryPointName: string | null | undefined,
-  native_transfer_contract_hash: string
+  native_transfer_contract_hash: string,
 ) => {
   return (
     contractHash === native_transfer_contract_hash &&
@@ -56,12 +56,12 @@ export const isWASMProxyTransaction = (executionTypeId: number) => {
  * @param transaction
  */
 export const isODRAWasmProxyTransaction = (
-  transaction
-      // : DeployResultWithInfo
+  transaction,
+  // : DeployResultWithInfo
 ): boolean => {
   return Boolean(
     isWASMProxyTransaction(transaction.executionTypeId) &&
       transaction.args?.amount &&
-      transaction.args?.attached_value
+      transaction.args?.attached_value,
   );
 };

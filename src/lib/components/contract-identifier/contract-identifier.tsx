@@ -5,7 +5,7 @@ import {
   UnknownContractInfo,
 } from './default-contract-identifier';
 import { AvatarProps } from '../avatar/avatar';
-import {DeployContractPackageResult} from "../../types/types";
+import { DeployContractPackageResult } from '../../types/types';
 import { HashLength, HashFontSize } from '../../utils/formatters';
 
 interface ContractIdentifierProps {
@@ -24,7 +24,6 @@ export const ContractIdentifier = ({
   withName = false,
   ...props
 }: ContractIdentifierProps) => {
-
   if (!props.contractPackage) {
     return (
       <UnknownContractInfo

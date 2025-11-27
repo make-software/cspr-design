@@ -2,9 +2,10 @@ import {
   AccountCentralizedInfo,
   AccountInfoResult,
   DeployContractPackageResult,
-  DeployResult, PaginatedResponse,
-  TransactorHashType
-} from "./types";
+  DeployResult,
+  PaginatedResponse,
+  TransactorHashType,
+} from './types';
 
 export enum TokenStandardEnum {
   'CEP47' = 1,
@@ -152,7 +153,7 @@ export const MapTokenMetadataAsList = (token): NFTTokenResult => {
 };
 
 export const MapTokensMetadataAsList = (
-  tokens
+  tokens,
 ): PaginatedResponse<NFTTokenResult> => {
   const mappedTokenMetadataAsList = tokens.data.map(MapTokenMetadataAsList);
 
@@ -161,7 +162,6 @@ export const MapTokensMetadataAsList = (
     data: mappedTokenMetadataAsList,
   };
 };
-
 
 export interface NFTTokenOwnerResult {
   owner_type: TransactorHashType;

@@ -1,7 +1,7 @@
 import { Args, CLValueParser, Conversions } from 'casper-js-sdk';
-import {DeployArgsResult} from "../types/types";
-import {isNonNullable} from "./guards";
-import {deriveSplitDataFromNamedKeyValue} from "./named-key";
+import { DeployArgsResult } from '../types/types';
+import { isNonNullable } from './guards';
+import { deriveSplitDataFromNamedKeyValue } from './named-key';
 
 export const getNftTokensQuantityFromArgs = (args: DeployArgsResult) => {
   if (args.token_ids || args.token_metas || args.tokens) {
@@ -25,7 +25,7 @@ export const getNftTokenIdsFromArguments = (args) => {
   const getTokenIdsFromClValue = (clValue) =>
     clValue?.parsed
       ? clValue?.parsed.map((token) =>
-          typeof token === 'string' ? token : token.key
+          typeof token === 'string' ? token : token.key,
         )
       : [];
 
@@ -48,7 +48,7 @@ export const getNftTokenIdsFromArguments = (args) => {
  */
 export const guardedDeriveSplitDataFromArguments = (
   argument: any,
-  parsedKey: string
+  parsedKey: string,
 ) => {
   if (argument && argument.parsed) {
     // parse arguments for v1

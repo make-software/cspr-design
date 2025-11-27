@@ -16,8 +16,8 @@ import {
 import { Size } from '../../types.ts';
 import TruncateBox from '../truncate-box/truncate-box.tsx';
 import Copy from '../copy/copy.tsx';
-import TooltipWithExtendedInfo from "../tooltip-with-extended-info/tooltip-with-extended-info";
-import {isValidPublicKey} from "casper-js-sdk";
+import TooltipWithExtendedInfo from '../tooltip-with-extended-info/tooltip-with-extended-info';
+import { isValidPublicKey } from 'casper-js-sdk';
 
 interface AddressProps {
   hash: string | null | undefined;
@@ -79,7 +79,12 @@ const AddressContent = ({
 
     return (
       <FlexRow itemsSpacing={4} align={align}>
-        <BodyText size={3} scale={hashFontSize} lineHeight={'xs'} monotype={!csprName}>
+        <BodyText
+          size={3}
+          scale={hashFontSize}
+          lineHeight={'xs'}
+          monotype={!csprName}
+        >
           {truncatedCsprName || formattedHash}
         </BodyText>
         <Copy value={copiedValue} minified={minified} />
@@ -180,10 +185,10 @@ export const Address = React.forwardRef<Ref, AddressProps>(function Address(
   }
 
   const keyTooltipCaption = tooltipCaption
-      ? tooltipCaption
-      : isValidPublicKey(hash)
-          ? 'Public Key'
-          : 'Account hash';
+    ? tooltipCaption
+    : isValidPublicKey(hash)
+      ? 'Public Key'
+      : 'Account hash';
 
   return (
     <FlexRow ref={ref} align={horizonalAlign} itemsSpacing={itemsSpacing}>
@@ -199,9 +204,9 @@ export const Address = React.forwardRef<Ref, AddressProps>(function Address(
       )}
 
       <TooltipWithExtendedInfo
-          extendedLine={{ title: csprName, caption: 'CSPR.name' }}
-          tooltipCaption={keyTooltipCaption}
-          hash={hash}
+        extendedLine={{ title: csprName, caption: 'CSPR.name' }}
+        tooltipCaption={keyTooltipCaption}
+        hash={hash}
       >
         <FlexColumn>
           {name ? (
@@ -219,7 +224,13 @@ export const Address = React.forwardRef<Ref, AddressProps>(function Address(
               />
               <FlexRow itemsSpacing={6} align={horizonalAlign}>
                 <StyledTruncateBox size={nameTruncateSize}>
-                  <BodyText scale={'xs'} lineHeight={'xs'} size={3} variation="darkGray" noWrap>
+                  <BodyText
+                    scale={'xs'}
+                    lineHeight={'xs'}
+                    size={3}
+                    variation="darkGray"
+                    noWrap
+                  >
                     {name}
                   </BodyText>
                 </StyledTruncateBox>

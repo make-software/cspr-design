@@ -18,13 +18,13 @@ import {
   DeployTransferResult,
   FTActionsResult,
   GetDeployResult,
-  NftActionsResult
-} from "../../types/types";
-import FlexRow from "../flex-row/flex-row";
-import BodyText from "../body-text/body-text";
-import FlexColumn from "../flex-column/flex-column";
-import ExpandCollapsedButton from "../expand-collapsed/expand-collapsed-button";
-import {getDeployStatus, Status} from "../deploy-status/deploy-status";
+  NftActionsResult,
+} from '../../types/types';
+import FlexRow from '../flex-row/flex-row';
+import BodyText from '../body-text/body-text';
+import FlexColumn from '../flex-column/flex-column';
+import ExpandCollapsedButton from '../expand-collapsed/expand-collapsed-button';
+import { getDeployStatus, Status } from '../deploy-status/deploy-status';
 
 const MAXIMUM_VISIBLE_ROWS = 3;
 
@@ -46,19 +46,19 @@ const sortActionsByTypeAndOrder = (deploy: Deploy) => {
     (action) => ({
       ...action,
       type: DeployResultRowType.NFT,
-    })
+    }),
   );
   const ftActions: FTActionsResult[] = (deploy.ftActions || []).map(
     (action) => ({
       ...action,
       type: DeployResultRowType.FT,
-    })
+    }),
   );
 
   const sortedTransfers: DeployTransferResult[] = (deploy.transfers || [])
     .sort(
       (transferA, transferB) =>
-        transferA.transfer_index - transferB.transfer_index
+        transferA.transfer_index - transferB.transfer_index,
     )
     .map((action) => ({
       ...action,
@@ -66,7 +66,7 @@ const sortActionsByTypeAndOrder = (deploy: Deploy) => {
     }));
 
   const sortedTokenActions = [...nftActions, ...ftActions].sort(
-    (actionA, actionB) => actionA.transform_idx - actionB.transform_idx
+    (actionA, actionB) => actionA.transform_idx - actionB.transform_idx,
   );
 
   return [...sortedTransfers, ...sortedTokenActions];
@@ -121,7 +121,7 @@ interface DeployResultRowComponentProps {
 }
 
 export const DeployResultRowComponent = (
-  props: DeployResultRowComponentProps
+  props: DeployResultRowComponentProps,
 ) => {
   const {
     deploy,
@@ -207,7 +207,7 @@ export const DeployResultRowComponent = (
   };
 
   const sortedActionComponents = sortedActions.map((action) =>
-    getActionElementToRender(action)
+    getActionElementToRender(action),
   );
 
   const combinedActionComponents = [
@@ -220,7 +220,7 @@ export const DeployResultRowComponent = (
       {combinedActionComponents?.length
         ? combinedActionComponents
             .filter((action, i) =>
-              isCollapsed ? i < MAXIMUM_VISIBLE_ROWS : true
+              isCollapsed ? i < MAXIMUM_VISIBLE_ROWS : true,
             )
             .map((action, idx) => (
               <ResultItemWrapper key={`actions-${idx}`} variation={variation}>
@@ -249,7 +249,7 @@ export const DeployResultRowComponent = (
 type DeployResultRowProps = DeployResultRowComponentProps & {
   getAccountInfo: <T>(publicKey: string) => T | null | undefined;
   getContractPackageInfoByHash?: (
-    contractHash: string
+    contractHash: string,
   ) => ContractResult | null | undefined;
   getAccountPath: (publicKey: string) => string;
   getNftPath: (collectionHash: string, nftId: string) => string;
@@ -273,15 +273,15 @@ export const DeployResultRow = (props: DeployResultRowProps) => {
   } = props;
   return (
     <DeployActionDataProvider
-        getAccountInfo={getAccountInfo}
-        getContractPackageInfoByHash={getContractPackageInfoByHash}
-        getContractInfoByHash={getContractInfoByHash}
-        getAccountPath={getAccountPath}
-        getNftPath={getNftPath}
-        getContractPackagePath={getContractPackagePath}
-        getSearchPath={getSearchPath}
-        i18n={i18n}
-        formatCurrency={formatCurrency}
+      getAccountInfo={getAccountInfo}
+      getContractPackageInfoByHash={getContractPackageInfoByHash}
+      getContractInfoByHash={getContractInfoByHash}
+      getAccountPath={getAccountPath}
+      getNftPath={getNftPath}
+      getContractPackagePath={getContractPackagePath}
+      getSearchPath={getSearchPath}
+      i18n={i18n}
+      formatCurrency={formatCurrency}
     >
       <DeployResultRowComponent {...rest} />
     </DeployActionDataProvider>

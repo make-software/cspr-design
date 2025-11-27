@@ -1,4 +1,4 @@
-import {hashPrefixRegEx} from './named-key-prefix'
+import { hashPrefixRegEx } from './named-key-prefix';
 
 export interface SplitDataType {
   prefix: string;
@@ -6,7 +6,7 @@ export interface SplitDataType {
 }
 
 export const deriveSplitDataFromNamedKeyValue = (
-  namedKeyValue: string
+  namedKeyValue: string,
 ): SplitDataType => {
   const [hash, lastDigits] = namedKeyValue
     .replace(hashPrefixRegEx, '')

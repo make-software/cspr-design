@@ -5,18 +5,18 @@ import {
 import React from 'react';
 import { AvatarProps } from '../avatar/avatar';
 import ContractIcon from '../contract-icon/contract-icon';
-import FlexRow from "../flex-row/flex-row";
-import {DeployContractPackageResult} from "../../types/types";
-import TooltipWithExtendedInfo from "../tooltip-with-extended-info/tooltip-with-extended-info";
-import BodyText, {BodyTextProps} from "../body-text/body-text";
-import Tooltip from "../tooltip/tooltip";
-import {SHORTENED_CONTRACT_NAME_LENGTH, truncateName} from "../../utils/truncate-hash";
-import Copy from "../copy/copy";
-import Link from "../link/link";
+import FlexRow from '../flex-row/flex-row';
+import { DeployContractPackageResult } from '../../types/types';
+import TooltipWithExtendedInfo from '../tooltip-with-extended-info/tooltip-with-extended-info';
+import BodyText, { BodyTextProps } from '../body-text/body-text';
+import Tooltip from '../tooltip/tooltip';
 import {
-  formatHash,
-  HashLength,
-} from '../../utils/formatters.ts';
+  SHORTENED_CONTRACT_NAME_LENGTH,
+  truncateName,
+} from '../../utils/truncate-hash';
+import Copy from '../copy/copy';
+import Link from '../link/link';
+import { formatHash, HashLength } from '../../utils/formatters.ts';
 
 export enum HashFontSize {
   'default' = 'default',
@@ -32,7 +32,7 @@ export const UnknownContractInfo = ({
   iconSize = 'small',
   hashFontSize = HashFontSize.big,
   hashLength,
-                                      getContractPackagePath
+  getContractPackagePath,
 }: {
   hash: string | null;
   iconSize?: AvatarProps['size'];
@@ -90,14 +90,14 @@ export const DefaultContractIdentifier = ({
   avatarSize = 'tiny',
   hashFontSize = HashFontSize.default,
   loading,
-                                            getContractPackagePath
+  getContractPackagePath,
 }: DefaultContractIdentifierProps) => {
   const { latest_version_contract_type_id, icon_url, name, contract_name } =
     contractPackage;
 
   const contractName = truncateName(
     name || contract_name,
-    SHORTENED_CONTRACT_NAME_LENGTH
+    SHORTENED_CONTRACT_NAME_LENGTH,
   );
 
   const contractTypeName = latest_version_contract_type_id
@@ -138,9 +138,9 @@ export const DefaultContractIdentifier = ({
             monotype
           >
             <Link
-                href={getContractPackagePath(hash)}
-                ariaDescription={'Link to contract package details'}
-                color={'hash'}
+              href={getContractPackagePath(hash)}
+              ariaDescription={'Link to contract package details'}
+              color={'hash'}
             >
               {contractIdentifier}
             </Link>

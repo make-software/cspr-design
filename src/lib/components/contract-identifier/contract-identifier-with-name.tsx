@@ -3,16 +3,17 @@ import { HashLink } from '../hash-link/hash-link';
 import ContractIcon from '../contract-icon/contract-icon';
 import { AvatarProps } from '../avatar/avatar';
 import TooltipWithExtendedInfo from '../tooltip-with-extended-info/tooltip-with-extended-info';
-import {DeployContractPackageResult} from "../../types/types";
+import { DeployContractPackageResult } from '../../types/types';
+import { HashLength } from '../../utils/formatters.ts';
+import { HashFontSize } from './default-contract-identifier';
 import {
-    HashLength,
-} from '../../utils/formatters.ts';
-import {HashFontSize} from "./default-contract-identifier";
-import {SHORTENED_CONTRACT_NAME_LENGTH, truncateName} from "../../utils/truncate-hash";
-import FlexRow from "../flex-row/flex-row";
-import FlexColumn from "../flex-column/flex-column";
-import BodyText from "../body-text/body-text";
-import TruncateBox from "../truncate-box/truncate-box";
+  SHORTENED_CONTRACT_NAME_LENGTH,
+  truncateName,
+} from '../../utils/truncate-hash';
+import FlexRow from '../flex-row/flex-row';
+import FlexColumn from '../flex-column/flex-column';
+import BodyText from '../body-text/body-text';
+import TruncateBox from '../truncate-box/truncate-box';
 
 interface ContractIdentifierWithNameProps {
   hash: string;
@@ -21,7 +22,7 @@ interface ContractIdentifierWithNameProps {
   avatarSize?: AvatarProps['size'];
   hashFontSize?: HashFontSize;
   loading?: boolean;
-    getContractPackagePath: (hash: string) => string;
+  getContractPackagePath: (hash: string) => string;
 }
 
 export const ContractIdentifierWithName = ({
@@ -30,7 +31,7 @@ export const ContractIdentifierWithName = ({
   avatarSize = 'default',
   hashLength = HashLength.TINY,
   loading,
-                                               getContractPackagePath
+  getContractPackagePath,
 }: ContractIdentifierWithNameProps) => {
   const { latest_version_contract_type_id, icon_url, name, contract_name } =
     contractPackage;
@@ -70,7 +71,13 @@ export const ContractIdentifierWithName = ({
                 />
               </BodyText>
               <TruncateBox size={2}>
-                <BodyText size={3} scale={'xs'} lineHeight={'xs'} variation="darkGray" noWrap>
+                <BodyText
+                  size={3}
+                  scale={'xs'}
+                  lineHeight={'xs'}
+                  variation="darkGray"
+                  noWrap
+                >
                   {truncatedContractName}
                 </BodyText>
               </TruncateBox>

@@ -1,16 +1,16 @@
 import React from 'react';
-import {AuctionManagerEntryPoint} from "casper-js-sdk";
+import { AuctionManagerEntryPoint } from 'casper-js-sdk';
 import { deriveAccountInfo } from '../../../utils/account.tsx';
 import { useMatchMedia } from '../../../utils/match-media';
 import DeployFiatAmount from './DeployFiatAmount';
 import { useDeployActionDataContext } from '../services/deploy-action-context';
-import AuctionContractIcon from "../../../assets/icons/ic-auction-contract.svg";
-import FlexRow from "../../flex-row/flex-row";
-import Avatar from "../../avatar/avatar";
-import BodyText from "../../body-text/body-text";
-import Link from "../../link/link";
-import {AccountInfoResult, Deploy} from "../../../types/types";
-import Address from "../../address/address";
+import AuctionContractIcon from '../../../assets/icons/ic-auction-contract.svg';
+import FlexRow from '../../flex-row/flex-row';
+import Avatar from '../../avatar/avatar';
+import BodyText from '../../body-text/body-text';
+import Link from '../../link/link';
+import { AccountInfoResult, Deploy } from '../../../types/types';
+import Address from '../../address/address';
 
 const auctionActionNameMap = {
   [AuctionManagerEntryPoint.add]: 'Add',
@@ -55,7 +55,7 @@ const ValidatorAccountInfo = ({ publicKey, prefix }) => {
 
   const accountInfo = getAccountInfo<AccountInfoResult>(publicKey);
   const validatorLogo = deriveAccountInfo(
-    accountInfo?.account_info || accountInfo?.centralized_account_info
+    accountInfo?.account_info || accountInfo?.centralized_account_info,
   );
   const validatorName = accountInfo?.account_info?.info?.owner?.name;
 
@@ -64,16 +64,16 @@ const ValidatorAccountInfo = ({ publicKey, prefix }) => {
       <BodyText size={3} variation="darkGray">
         {prefix}
       </BodyText>
-        <Address
-            logo={validatorLogo && validatorLogo?.logo}
-            name={validatorName}
-            hash={publicKey}
-            loading={!publicKey}
-            navigateToPath={getAccountPath(publicKey)}
-            avatarSize={avatarSize}
-            hashFontSize={'sm'}
-            minifiedCopyNotification
-        />
+      <Address
+        logo={validatorLogo && validatorLogo?.logo}
+        name={validatorName}
+        hash={publicKey}
+        loading={!publicKey}
+        navigateToPath={getAccountPath(publicKey)}
+        avatarSize={avatarSize}
+        hashFontSize={'sm'}
+        minifiedCopyNotification
+      />
     </>
   ) : null;
 };
@@ -96,7 +96,7 @@ const DefaultAuctionAction = ({ deploy }: { deploy: Deploy }) => (
 const ManageAuctionBidAction = ({ deploy }: { deploy: Deploy }) => {
   const { args, timeTransactionCurrencyRate, contractPackage, entryPoint } =
     deploy;
-    const { formatCurrency } = useDeployActionDataContext();
+  const { formatCurrency } = useDeployActionDataContext();
   const amount = args.amount?.parsed as string;
 
   return (
@@ -129,7 +129,7 @@ const ManageAuctionBidAction = ({ deploy }: { deploy: Deploy }) => {
 
 const DelegationAuctionAction = ({ deploy }: { deploy: Deploy }) => {
   const { timeTransactionCurrencyRate, entryPoint, args } = deploy;
-    const { formatCurrency } = useDeployActionDataContext();
+  const { formatCurrency } = useDeployActionDataContext();
 
   const amount = args.amount?.parsed as string;
   const initialValidatorPrefix =
@@ -141,8 +141,10 @@ const DelegationAuctionAction = ({ deploy }: { deploy: Deploy }) => {
         {auctionActionNameMap[entryPoint?.name || '']}
       </BodyText>
       {amount && (
-        <DeployFiatAmount amount={amount} rate={timeTransactionCurrencyRate}
-                          formatCurrency={formatCurrency}
+        <DeployFiatAmount
+          amount={amount}
+          rate={timeTransactionCurrencyRate}
+          formatCurrency={formatCurrency}
         />
       )}
       <ValidatorAccountInfo

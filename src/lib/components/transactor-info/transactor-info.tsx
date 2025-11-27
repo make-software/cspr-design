@@ -6,12 +6,12 @@ import {
   AccountCentralizedInfo,
   AccountInfoResult,
   DeployContractPackageResult,
-  TransactorHashType
-} from "../../types/types";
+  TransactorHashType,
+} from '../../types/types';
 import { Size } from '../../types.ts';
 import { HashLength } from '../../utils/formatters';
-import Address from "../address/address";
-import {BodyTextProps} from "@make-software/cspr.design";
+import Address from '../address/address';
+import { BodyTextProps } from '@make-software/cspr.design';
 
 interface TransactorInfoProps {
   type?: TransactorHashType | undefined;
@@ -34,18 +34,18 @@ interface TransactorInfoProps {
 export const TransactorInfo = ({
   type,
   accountInfo,
-    contractPackage,
+  contractPackage,
   publicKey,
   hash,
   csprName,
   loading,
   hashLength,
   hashFontSize = 'xs',
-                                 minifiedCopyNotification = true,
+  minifiedCopyNotification = true,
   avatarSize = 'default',
   withName = false,
-                                 getAccountPath,
-                                 getContractPackagePath
+  getAccountPath,
+  getContractPackagePath,
 }: TransactorInfoProps) => {
   const accountInfoResult = deriveAccountInfo(accountInfo);
 
@@ -62,7 +62,7 @@ export const TransactorInfo = ({
       contractPackage={contractPackage}
     />
   ) : (
-  <Address
+    <Address
       logo={accountInfoResult && accountInfoResult?.logo}
       name={accountInfoResult?.name}
       hash={publicKey || hash}
@@ -73,7 +73,7 @@ export const TransactorInfo = ({
       avatarSize={avatarSize}
       hashFontSize={hashFontSize}
       minifiedCopyNotification={minifiedCopyNotification}
-  />
+    />
   );
 };
 

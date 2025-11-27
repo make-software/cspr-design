@@ -1,9 +1,9 @@
 import styled from 'styled-components';
 import React, { useState } from 'react';
-import BodyText from "../body-text/body-text";
-import SvgIcon from "../svg-icon/svg-icon";
-import ArrowDownIcon from '../../assets/icons/ic-arrow-down.svg'
-import FlexRow from "../flex-row/flex-row";
+import BodyText from '../body-text/body-text';
+import SvgIcon from '../svg-icon/svg-icon';
+import ArrowDownIcon from '../../assets/icons/ic-arrow-down.svg';
+import FlexRow from '../flex-row/flex-row';
 
 const CollapsedRow = styled(FlexRow)(({ theme }) => ({
   marginTop: '8px',

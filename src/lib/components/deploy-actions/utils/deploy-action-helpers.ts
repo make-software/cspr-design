@@ -1,10 +1,16 @@
-import {Args, CLValueParser, Conversions, ExecutionResult, Transform} from 'casper-js-sdk';
-import {getExecutionResultsFromDeployRawData} from "./use-get-execution-results";
-import {Deploy, DeployResult, GetDeployResult} from "../../../types/types";
-import {convertTransactionArgsToObj} from "../../../utils/cltype";
+import {
+  Args,
+  CLValueParser,
+  Conversions,
+  ExecutionResult,
+  Transform,
+} from 'casper-js-sdk';
+import { getExecutionResultsFromDeployRawData } from './use-get-execution-results';
+import { Deploy, DeployResult, GetDeployResult } from '../../../types/types';
+import { convertTransactionArgsToObj } from '../../../utils/cltype';
 
 export const deriveUpdatedAssociatedKey = (
-  deployRawData: GetDeployResult | undefined
+  deployRawData: GetDeployResult | undefined,
 ): string | undefined => {
   const executionResult: ExecutionResult | null =
     getExecutionResultsFromDeployRawData(deployRawData);
@@ -12,7 +18,7 @@ export const deriveUpdatedAssociatedKey = (
   const transforms = executionResult?.effects ?? [];
 
   const writeAccountDeployInfo = transforms.filter((obj: Transform) =>
-    obj.kind.isWriteAccount()
+    obj.kind.isWriteAccount(),
   );
 
   const writeAccountTransform =
@@ -55,51 +61,49 @@ export const deriveUpdatedAssociatedKey = (
 // };
 
 export function getWasmProxyArguments(args) {
-    const clValue = CLValueParser.toJSON(args);
+  const clValue = CLValueParser.toJSON(args);
 
-    return convertTransactionArgsToObj(
-        Args.fromBytes(Conversions.decodeBase16(clValue.bytes.substring(8)))
-    );
+  return convertTransactionArgsToObj(
+    Args.fromBytes(Conversions.decodeBase16(clValue.bytes.substring(8))),
+  );
 }
 
 export function getWasmProxyArgumentsFromRawData(argumentsFromRawData) {
-    const wasmArgs = argumentsFromRawData.args.args.get('args');
+  const wasmArgs = argumentsFromRawData.args.args.get('args');
 
-    if (!wasmArgs) return null;
+  if (!wasmArgs) return null;
 
-    try {
-        return getWasmProxyArguments(wasmArgs);
-    } catch (e) {
-        console.error('getWasmProxyArgumentsFromRawData', e);
-        return null;
-    }
+  try {
+    return getWasmProxyArguments(wasmArgs);
+  } catch (e) {
+    console.error('getWasmProxyArgumentsFromRawData', e);
+    return null;
+  }
 }
 
-
-
 export const MapDeploy = ({
-                            deploy_hash,
-                            block_hash,
-                            caller_public_key,
-                            contract_hash,
-                            contract_package_hash,
-                            error_message,
-                            payment_amount,
-                            contract_entrypoint,
-                            contract_package,
-                            execution_type_id,
-                            nft_token_actions,
-                            ft_token_actions,
-                            account_info,
-                            centralized_account_info,
-                            rate,
-                            caller_cspr_name,
-                            caller_hash,
-                            consumed_gas,
-                            refund_amount,
-                            block_height,
-                            ...rest
-                          }: DeployResult): Deploy => {
+  deploy_hash,
+  block_hash,
+  caller_public_key,
+  contract_hash,
+  contract_package_hash,
+  error_message,
+  payment_amount,
+  contract_entrypoint,
+  contract_package,
+  execution_type_id,
+  nft_token_actions,
+  ft_token_actions,
+  account_info,
+  centralized_account_info,
+  rate,
+  caller_cspr_name,
+  caller_hash,
+  consumed_gas,
+  refund_amount,
+  block_height,
+  ...rest
+}: DeployResult): Deploy => {
   return {
     ...rest,
     accountInfo: account_info,

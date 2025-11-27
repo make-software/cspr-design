@@ -1,8 +1,8 @@
-import {DeployContractPackageResult} from "../types/types";
-import {FtTokenMarketData} from "../types/FTToken";
+import { DeployContractPackageResult } from '../types/types';
+import { FtTokenMarketData } from '../types/FTToken';
 
 export const deriveFtTokenMarketDataService = (
-  contractPackageInfo: DeployContractPackageResult | undefined | null
+  contractPackageInfo: DeployContractPackageResult | undefined | null,
 ): FtTokenMarketData => {
   if (!contractPackageInfo) {
     return {

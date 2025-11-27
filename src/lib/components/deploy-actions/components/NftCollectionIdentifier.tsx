@@ -1,8 +1,8 @@
 import ContractIcon from '../../../components/contract-icon/contract-icon';
 import React from 'react';
-import {DeployContractPackageResult} from "../../../types/types";
-import BodyText from "../../body-text/body-text";
-import Link from "../../link/link";
+import { DeployContractPackageResult } from '../../../types/types';
+import BodyText from '../../body-text/body-text';
+import Link from '../../link/link';
 
 export const NftCollectionIdentifier = ({
   getContractPackagePath,

@@ -3,10 +3,10 @@ import {
   AccountInfoResult,
   DeployContractPackageResult,
   DeployResult,
-  TransactorHashType
-} from "./types";
+  TransactorHashType,
+} from './types';
 
-export type Decimals = string | number | undefined | null
+export type Decimals = string | number | undefined | null;
 /**
  * FungibleTokenResult
  */
@@ -21,11 +21,11 @@ export type FTResult = {
  * FungibleTokenAmountDataType
  */
 export interface FTAmountDataType {
-  symbol: string | undefined| null;
+  symbol: string | undefined | null;
   decimals: number | null;
   totalSupply: string | null;
-  totalSupplyMotes: string|null;
-};
+  totalSupplyMotes: string | null;
+}
 
 export interface FtTokenMarketData {
   price: number | null;
@@ -33,10 +33,9 @@ export interface FtTokenMarketData {
   iconPath: string | null;
   website: string | null;
   change_24h?: number | null;
-};
+}
 
-
-export type Cep18AmountData = FTAmountDataType & FtTokenMarketData
+export type Cep18AmountData = FTAmountDataType & FtTokenMarketData;
 
 /**
  * FungibleTokenBalanceTokenResult

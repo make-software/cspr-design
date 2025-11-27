@@ -2,11 +2,11 @@ import React from 'react';
 import DeployActionDefault from './DeployActionDefault';
 import { Cep18ActionRow } from './Cep18ActionRow';
 import { useDeployActionDataContext } from '../services/deploy-action-context';
-import {Deploy} from "../../../types/types";
+import { Deploy } from '../../../types/types';
 import {
   prepareActionMessageDataForDeployDetails,
-  prepareFtActionMessageDataForDeployDetails
-} from "../utils/prepare-action-messages";
+  prepareFtActionMessageDataForDeployDetails,
+} from '../utils/prepare-action-messages';
 
 interface DeployActionCep18Props {
   deploy: Deploy;
@@ -17,7 +17,7 @@ export const DeployActionCep18 = ({ deploy }: DeployActionCep18Props) => {
   const message = prepareFtActionMessageDataForDeployDetails(
     deploy,
     getPublicKeyAccountHash,
-    i18n
+    i18n,
   );
 
   if (!message) {

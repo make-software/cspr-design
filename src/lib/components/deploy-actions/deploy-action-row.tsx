@@ -15,18 +15,18 @@ import { DeployActionCep18 } from './components/DeployActionCep18';
 import { DeployActionNft } from './components/DeployActionNft';
 import DeployActionDefault from './components/DeployActionDefault';
 import { DeployActionDataProvider } from './services/deploy-action-context';
-import BodyText from "../body-text/body-text";
+import BodyText from '../body-text/body-text';
 import {
   ContractResult,
   ContractTypeId,
   DataResponse,
   Deploy,
   DeployContractPackageResult,
-  GetDeployResult
-} from "../../types/types";
-import {TFunction} from "i18next";
-import {Transaction} from "casper-js-sdk";
-import {getWasmProxyArgumentsFromRawData} from "./utils/deploy-action-helpers";
+  GetDeployResult,
+} from '../../types/types';
+import { TFunction } from 'i18next';
+import { Transaction } from 'casper-js-sdk';
+import { getWasmProxyArgumentsFromRawData } from './utils/deploy-action-helpers';
 
 export type ActionIdentificationHashesType = {
   auction_manager_contract_hash?: string;
@@ -61,7 +61,7 @@ export const DeployActionRowComponent = ({
   const convertedArgs =
     isWASMProxy && deployRawData?.data
       ? getWasmProxyArgumentsFromRawData(
-          Transaction.fromJSON(deployRawData?.data)
+          Transaction.fromJSON(deployRawData?.data),
         )
       : null;
 
@@ -74,7 +74,11 @@ export const DeployActionRowComponent = ({
   };
 
   const deployType = ExecutionTypesMap[executionTypeId];
-  const isTransfer = isTransferDeploy(contractHash, entryPoint?.name, actionIdentificationHashes?.native_transfer_contract_hash);
+  const isTransfer = isTransferDeploy(
+    contractHash,
+    entryPoint?.name,
+    actionIdentificationHashes?.native_transfer_contract_hash,
+  );
   const isWasm = isWASMTransaction(executionTypeId); // deployType !== WASM_DEPLOY;
   const isCSPRFun =
     deployWithConvertedArgs.args?.csprfun_contract_hash_key &&
@@ -144,7 +148,8 @@ export const DeployActionRowComponent = ({
   }
 
   if (
-    contractPackageHash === actionIdentificationHashes.cspr_market_contract_package_hash
+    contractPackageHash ===
+    actionIdentificationHashes.cspr_market_contract_package_hash
   ) {
     return <DeployActionMarket deploy={deployWithConvertedArgs} />;
   }
@@ -172,18 +177,19 @@ export const DeployActionRowComponent = ({
 type DeployActionRowProps = DeployActionRowComponentProps & {
   getAccountInfo: <T>(publicKey: string) => T | null | undefined;
   getContractInfoByHash?: (
-    contractHash: string
+    contractHash: string,
   ) => ContractResult | null | undefined;
   getAccountPath: (publicKey: string) => string;
   getContractPackageInfoByHash: (
-    contractPackageHash: string
+    contractPackageHash: string,
   ) => DeployContractPackageResult | null | undefined;
   getNftPath: (collectionHash: string, nftId: string) => string;
   getContractPackagePath: (hash: string) => string;
   getSearchPath: (hash: string) => string;
   formatCurrency?: (
-      value:  number | string | null,
-      precision?: number) => string | null;
+    value: number | string | null,
+    precision?: number,
+  ) => string | null;
   i18n?: TFunction;
 };
 

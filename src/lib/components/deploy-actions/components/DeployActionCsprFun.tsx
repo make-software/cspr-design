@@ -1,15 +1,16 @@
 import React from 'react';
 import { useDeployActionDataContext } from '../services/deploy-action-context';
-import {deriveSplitDataFromNamedKeyValue} from "../../../utils/named-key";
+import { deriveSplitDataFromNamedKeyValue } from '../../../utils/named-key';
 import { HashFontSize } from '../../../utils/formatters';
-import FlexRow from "../../flex-row/flex-row";
-import BodyText from "../../body-text/body-text";
-import {ContractIdentifier} from "../../contract-identifier/contract-identifier";
+import FlexRow from '../../flex-row/flex-row';
+import BodyText from '../../body-text/body-text';
+import { ContractIdentifier } from '../../contract-identifier/contract-identifier';
 
 const DeployActionCsprFun = ({ deploy }) => {
   const contractHash = deploy.args.token_to_trade_contract_hash_key.parsed;
   const { hash } = deriveSplitDataFromNamedKeyValue(contractHash);
-  const { getContractInfoByHash, getContractPackagePath } = useDeployActionDataContext();
+  const { getContractInfoByHash, getContractPackagePath } =
+    useDeployActionDataContext();
 
   const contractInfo = getContractInfoByHash(hash);
   const contractPackageInfo = contractInfo?.contract_package;

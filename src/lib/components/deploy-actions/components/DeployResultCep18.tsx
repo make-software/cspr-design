@@ -1,6 +1,6 @@
 import React from 'react';
 import { Cep18ActionRow } from './Cep18ActionRow';
-import {FTActionTypeEnum} from "../../../types/FTToken";
+import { FTActionTypeEnum } from '../../../types/FTToken';
 
 const ftResultActionNameMap = {
   [FTActionTypeEnum.Approve]: 'Granted transfer rights',

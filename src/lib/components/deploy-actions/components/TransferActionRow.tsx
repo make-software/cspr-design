@@ -3,14 +3,18 @@ import Skeleton from 'react-loading-skeleton';
 import Avatar from '../../../components/avatar/avatar';
 import DeployFiatAmount from './DeployFiatAmount';
 import { useDeployActionDataContext } from '../services/deploy-action-context';
-import {AccountCentralizedInfo, AccountInfoResult, DeployTransferResult} from "../../../types/types";
-import {AccountModel, deriveAccountInfo} from "../../../utils/account";
-import FlexRow from "../../flex-row/flex-row";
-import BodyText from "../../body-text/body-text";
-import Address from "../../address/address";
-import {TableDataNamedKey} from "../../table-data-named-key/table-data-named-key";
-import Link from "../../link/link";
-import AuctionContractIcon from "../../../assets/icons/ic-auction-contract.svg";
+import {
+  AccountCentralizedInfo,
+  AccountInfoResult,
+  DeployTransferResult,
+} from '../../../types/types';
+import { AccountModel, deriveAccountInfo } from '../../../utils/account';
+import FlexRow from '../../flex-row/flex-row';
+import BodyText from '../../body-text/body-text';
+import Address from '../../address/address';
+import { TableDataNamedKey } from '../../table-data-named-key/table-data-named-key';
+import Link from '../../link/link';
+import AuctionContractIcon from '../../../assets/icons/ic-auction-contract.svg';
 
 interface TransferActionAccountProps {
   publicKey?: string | null;
@@ -34,15 +38,16 @@ const TransferActionAccount = ({
   actionPoolAccountHash,
   purseAccountInfoFromTransfer,
 }: TransferActionAccountProps) => {
-  const { getAccountInfo, getAccountPath, getSearchPath } = useDeployActionDataContext();
+  const { getAccountInfo, getAccountPath, getSearchPath } =
+    useDeployActionDataContext();
 
-    const accountInfo = getAccountInfo<AccountInfoResult>(
-    publicKey || accountHash || ''
+  const accountInfo = getAccountInfo<AccountInfoResult>(
+    publicKey || accountHash || '',
   );
   const accountInfoDetails = deriveAccountInfo(
     accountInfo?.account_info ||
       accountInfo?.centralized_account_info ||
-      purseAccountInfoFromTransfer
+      purseAccountInfoFromTransfer,
   );
 
   const logo = accountInfoDetails && accountInfoDetails?.logo;
@@ -84,7 +89,11 @@ const TransferActionAccount = ({
       minifiedCopyNotification
     />
   ) : (
-    <TableDataNamedKey purse={purse} fontSize={'sm'} getSearchPath={getSearchPath} />
+    <TableDataNamedKey
+      purse={purse}
+      fontSize={'sm'}
+      getSearchPath={getSearchPath}
+    />
   );
 };
 
@@ -103,9 +112,9 @@ const TransferActionRow = ({
   actionPoolAccountHash,
   renderAsResultAction = false,
 }: TransferActionRowProps) => {
-    const { formatCurrency } = useDeployActionDataContext();
+  const { formatCurrency } = useDeployActionDataContext();
 
-    const fromAccountHash = transfer.from_purse_public_key
+  const fromAccountHash = transfer.from_purse_public_key
     ? AccountModel({
         publicKeyHex: transfer.from_purse_public_key,
       }).getAccountHash()

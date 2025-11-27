@@ -2,13 +2,13 @@ import React from 'react';
 import { useDeployActionDataContext } from '../services/deploy-action-context';
 import { deriveAccountInfo } from '../../../utils/account';
 import { deriveUpdatedAssociatedKey } from '../utils/deploy-action-helpers';
-import {DataResponse, Deploy, GetDeployResult} from "../../../types/types";
-import {deriveSplitDataFromNamedKeyValue} from "../../../utils/named-key";
-import FlexRow from "../../flex-row/flex-row";
-import BodyText from "../../body-text/body-text";
-import {ContractIdentifier} from "../../contract-identifier/contract-identifier";
-import {HashFontSize} from "../../../utils/formatters";
-import Address from "../../address/address";
+import { DataResponse, Deploy, GetDeployResult } from '../../../types/types';
+import { deriveSplitDataFromNamedKeyValue } from '../../../utils/named-key';
+import FlexRow from '../../flex-row/flex-row';
+import BodyText from '../../body-text/body-text';
+import { ContractIdentifier } from '../../contract-identifier/contract-identifier';
+import { HashFontSize } from '../../../utils/formatters';
+import Address from '../../address/address';
 
 interface DeployAssociatedKeysActionProps {
   deploy: Deploy;
@@ -26,12 +26,16 @@ const DeployActionAssociatedKeys = ({
   const updatedMasterKey = deriveUpdatedAssociatedKey(deployRawData?.data);
   const { hash } = deriveSplitDataFromNamedKeyValue(updatedMasterKey || '');
 
-  const { getAccountInfo, getPublicKeyAccountHash, getContractPackagePath, getAccountPath } =
-    useDeployActionDataContext();
+  const {
+    getAccountInfo,
+    getPublicKeyAccountHash,
+    getContractPackagePath,
+    getAccountPath,
+  } = useDeployActionDataContext();
   const publicKey = getPublicKeyAccountHash(hash);
   const accountInfo = getAccountInfo(hash);
   const accountInfoData = deriveAccountInfo(
-    accountInfo?.account_info || accountInfo?.centralized_account_info
+    accountInfo?.account_info || accountInfo?.centralized_account_info,
   );
   const logo = accountInfoData?.logo;
   const name = accountInfo?.name;
@@ -47,17 +51,17 @@ const DeployActionAssociatedKeys = ({
         {deployActionText}
       </BodyText>{' '}
       {(publicKey || !!hash) && (
-          <Address
-              logo={logo}
-              name={name}
-              hash={publicKey || hash}
-              csprName={csprName}
-              loading={!hash}
-              navigateToPath={getAccountPath(publicKey || hash)}
-              avatarSize={'small'}
-              hashFontSize={'sm'}
-              minifiedCopyNotification
-          />
+        <Address
+          logo={logo}
+          name={name}
+          hash={publicKey || hash}
+          csprName={csprName}
+          loading={!hash}
+          navigateToPath={getAccountPath(publicKey || hash)}
+          avatarSize={'small'}
+          hashFontSize={'sm'}
+          minifiedCopyNotification
+        />
       )}
       {!renderAsResultAction && (
         <FlexRow itemsSpacing={8} align={'center'}>

@@ -1,10 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
-import {Deploy, DeployResult} from "../../types/types";
-import Tooltip from "../tooltip/tooltip";
-import SvgIcon from "../svg-icon/svg-icon";
-import FlexRow from "../flex-row/flex-row";
-import BodyText from "../body-text/body-text";
+import { Deploy, DeployResult } from '../../types/types';
+import Tooltip from '../tooltip/tooltip';
+import SvgIcon from '../svg-icon/svg-icon';
+import FlexRow from '../flex-row/flex-row';
+import BodyText from '../body-text/body-text';
 import SuccessIcon from '../../assets/icons/ic-success.svg';
 import ClockIcon from '../../assets/icons/ic-clock.svg';
 import ErrorIcon from '../../assets/icons/ic-error.svg';
@@ -53,7 +53,7 @@ const SvgIconWrapper = styled.span<{ status: Status }>(({ theme, status }) => ({
 }));
 
 export const getDeployStatus = (
-  deployResult?: DeployResult | Deploy | null
+  deployResult?: DeployResult | Deploy | null,
 ): Status => {
   if (
     deployResult &&
@@ -75,9 +75,8 @@ export const DeployStatus = ({
   deployResult,
   iconWithText,
   size = DeployStatusSize.Medium,
-    i18n: t = (hash) => hash
+  i18n: t = (hash) => hash,
 }: DeployStatusProps) => {
-
   const StatusLabel = {
     [Status.Success]: t('Success'),
     [Status.Processed]: t('Processed'),
@@ -92,7 +91,11 @@ export const DeployStatus = ({
 
   if (!iconWithText) {
     return (
-      <Tooltip scale={'xs'} lineHeight={'xs'} tooltipContent={message.toString()}>
+      <Tooltip
+        scale={'xs'}
+        lineHeight={'xs'}
+        tooltipContent={message.toString()}
+      >
         <SvgIconWrapper status={status}>
           <SvgIcon
             src={StatusIcons[status]}
