@@ -40,7 +40,7 @@ export const NftTokenId = ({ token_id, path }) => {
 export const NftTokenIds = ({
   nftTokenIds,
   collectionHash,
-                              csprLiveDomainPath,
+  csprLiveDomainPath,
 }: {
   nftTokenIds: string[] | undefined | null;
   collectionHash: string;

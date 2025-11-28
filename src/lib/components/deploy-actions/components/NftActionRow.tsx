@@ -65,11 +65,8 @@ export const NftActionRow = ({
   to_public_key,
   to_type,
 }: NftActionRowProps) => {
-  const {
-    getAccountInfo,
-    getContractPackageInfoByHash,
-      csprLiveDomainPath
-  } = useDeployActionDataContext();
+  const { getAccountInfo, getContractPackageInfoByHash, csprLiveDomainPath } =
+    useDeployActionDataContext();
   const fromAccountInfo = getAccountInfo<AccountInfoResult>(
     from_public_key || from_hash || '',
   );

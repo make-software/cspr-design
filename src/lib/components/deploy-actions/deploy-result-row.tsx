@@ -6,9 +6,7 @@ import { DeployResultNft } from './components/DeployResultNft';
 import { DeployResultCep18 } from './components/DeployResultCep18';
 import TransferActionRow from './components/TransferActionRow';
 import { ActionIdentificationHashesType } from './deploy-action-row';
-import {
-  DeployActionDataProvider,
-} from './services/deploy-action-context';
+import { DeployActionDataProvider } from './services/deploy-action-context';
 import {
   ContractResult,
   DataResponse,

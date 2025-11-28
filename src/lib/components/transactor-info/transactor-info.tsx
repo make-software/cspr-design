@@ -45,7 +45,7 @@ export const TransactorInfo = ({
   minifiedCopyNotification = true,
   avatarSize = 'default',
   withName = false,
-                                 csprLiveDomainPath
+  csprLiveDomainPath,
 }: TransactorInfoProps) => {
   const accountInfoResult = deriveAccountInfo(accountInfo);
 
@@ -69,7 +69,7 @@ export const TransactorInfo = ({
       csprName={csprName || undefined}
       loading={loading}
       hashLength={hashLength}
-      navigateToPath={`${csprLiveDomainPath}/account/${(publicKey || hash)}`}
+      navigateToPath={`${csprLiveDomainPath}/account/${publicKey || hash}`}
       avatarSize={avatarSize}
       hashFontSize={hashFontSize}
       minifiedCopyNotification={minifiedCopyNotification}

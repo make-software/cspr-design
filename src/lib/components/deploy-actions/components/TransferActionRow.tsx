@@ -38,8 +38,7 @@ const TransferActionAccount = ({
   actionPoolAccountHash,
   purseAccountInfoFromTransfer,
 }: TransferActionAccountProps) => {
-  const { getAccountInfo, csprLiveDomainPath } =
-    useDeployActionDataContext();
+  const { getAccountInfo, csprLiveDomainPath } = useDeployActionDataContext();
 
   const accountInfo = getAccountInfo<AccountInfoResult>(
     publicKey || accountHash || '',
@@ -83,7 +82,7 @@ const TransferActionAccount = ({
       hash={publicKey || accountHash}
       csprName={csprName}
       loading={loading}
-      navigateToPath={`${csprLiveDomainPath}/account/${(publicKey || accountHash)}`}
+      navigateToPath={`${csprLiveDomainPath}/account/${publicKey || accountHash}`}
       avatarSize={'small'}
       hashFontSize={'sm'}
       minifiedCopyNotification

@@ -17,7 +17,7 @@ export const NamedKeyValue = ({
   namedKey,
   noPrefix,
   hashLength,
-                                csprLiveDomainPath,
+  csprLiveDomainPath,
 }: NamedKeyValueProps) => {
   const responsiveHashLength = useMatchMedia(
     [HashLength.TINY, HashLength.MEDIUM, HashLength.FULL, HashLength.FULL],

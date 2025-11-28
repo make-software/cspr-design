@@ -15,7 +15,8 @@ export const WasmProxyBadge = ({
   return (
     <Tooltip
       tooltipContent={
-        'This WASM transaction ran the code from the identified smart contract.'}
+        'This WASM transaction ran the code from the identified smart contract.'
+      }
     >
       <FlexRow gap={3} align={'center'}>
         <Badge

@@ -106,13 +106,7 @@ const StyledFlexColumn = styled(FlexColumn)(({ theme }) =>
   }),
 );
 
-const BlockFeedInfo = ({
-  deploy,
-    path
-}: {
-  deploy: Deploy;
-  path: string;
-}) => (
+const BlockFeedInfo = ({ deploy, path }: { deploy: Deploy; path: string }) => (
   <FlexRow itemsSpacing={8} align={'center'}>
     <BodyText
       scale={'xs'}
@@ -174,7 +168,7 @@ export const ActivityFeedItem = ({
   getAccountInfo,
   getContractPackageInfoByHash,
   getContractInfoByHash,
-                                   csprLiveDomainPath
+  csprLiveDomainPath,
 }: ActivityFeedItemProps) => {
   const {
     callerPublicKey,
@@ -422,7 +416,10 @@ export const ActivityFeedItem = ({
         </FlexRow>
       </FlexColumn>
       <FlexColumn itemsSpacing={16}>
-        <BlockFeedInfo deploy={deploy} path={`${csprLiveDomainPath}/block/${deploy.blockHash}`}/>
+        <BlockFeedInfo
+          deploy={deploy}
+          path={`${csprLiveDomainPath}/block/${deploy.blockHash}`}
+        />
         <DeployResultRow
           deploy={deploy}
           loading={loading}

@@ -99,7 +99,7 @@ const OfferMarketAction = ({
     getAccountInfo,
     getPublicKeyAccountHash,
     getContractPackageInfoByHash,
-      csprLiveDomainPath
+    csprLiveDomainPath,
   } = useDeployActionDataContext();
 
   const accountInfo = offererHash && getAccountInfo(offererHash?.hash);
@@ -154,7 +154,7 @@ const OfferMarketAction = ({
             hash={publicKey || offererHash.hash}
             csprName={csprName}
             loading={!offererHash}
-            navigateToPath={`${csprLiveDomainPath}/account/${(publicKey || offererHash.hash)}`}
+            navigateToPath={`${csprLiveDomainPath}/account/${publicKey || offererHash.hash}`}
             avatarSize={'small'}
             hashFontSize={'sm'}
             minifiedCopyNotification
@@ -166,7 +166,7 @@ const OfferMarketAction = ({
       </BodyText>
       <MarketContractIdentifier
         contractPackage={contractPackage}
-        path={`${csprLiveDomainPath}/contract-package/${(contractPackage.contract_package_hash)}`}
+        path={`${csprLiveDomainPath}/contract-package/${contractPackage.contract_package_hash}`}
       />
     </FlexRow>
   );
@@ -208,7 +208,7 @@ const ListMarketAction = ({
       </BodyText>
       <MarketContractIdentifier
         contractPackage={contractPackage}
-        path={`${csprLiveDomainPath}/contract-package/${(contractPackage.contract_package_hash)}`}
+        path={`${csprLiveDomainPath}/contract-package/${contractPackage.contract_package_hash}`}
       />
     </FlexRow>
   );

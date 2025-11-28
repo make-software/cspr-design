@@ -32,7 +32,7 @@ export const UnknownContractInfo = ({
   iconSize = 'small',
   hashFontSize = HashFontSize.big,
   hashLength,
-                                      path,
+  path,
 }: {
   hash: string | null;
   iconSize?: AvatarProps['size'];
@@ -90,7 +90,7 @@ export const DefaultContractIdentifier = ({
   avatarSize = 'tiny',
   hashFontSize = HashFontSize.default,
   loading,
-                                            path,
+  path,
 }: DefaultContractIdentifierProps) => {
   const { latest_version_contract_type_id, icon_url, name, contract_name } =
     contractPackage;

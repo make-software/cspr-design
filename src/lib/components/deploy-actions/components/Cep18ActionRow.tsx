@@ -40,11 +40,8 @@ export const Cep18ActionRow = ({
   prefix,
   senderPrefix,
 }: Cep18ActionRowProps) => {
-  const {
-    getAccountInfo,
-    getContractPackageInfoByHash,
-    csprLiveDomainPath
-  } = useDeployActionDataContext();
+  const { getAccountInfo, getContractPackageInfoByHash, csprLiveDomainPath } =
+    useDeployActionDataContext();
   const fromAccountInfo = getAccountInfo<AccountInfoResult>(
     from_public_key || from_hash || '',
   );

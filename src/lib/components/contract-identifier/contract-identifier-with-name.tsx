@@ -22,7 +22,7 @@ interface ContractIdentifierWithNameProps {
   avatarSize?: AvatarProps['size'];
   hashFontSize?: HashFontSize;
   loading?: boolean;
-    path: string;
+  path: string;
 }
 
 export const ContractIdentifierWithName = ({
@@ -31,7 +31,7 @@ export const ContractIdentifierWithName = ({
   avatarSize = 'default',
   hashLength = HashLength.TINY,
   loading,
-                                               path,
+  path,
 }: ContractIdentifierWithNameProps) => {
   const { latest_version_contract_type_id, icon_url, name, contract_name } =
     contractPackage;

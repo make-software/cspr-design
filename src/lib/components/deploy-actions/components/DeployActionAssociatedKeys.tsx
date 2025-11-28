@@ -26,11 +26,8 @@ const DeployActionAssociatedKeys = ({
   const updatedMasterKey = deriveUpdatedAssociatedKey(deployRawData?.data);
   const { hash } = deriveSplitDataFromNamedKeyValue(updatedMasterKey || '');
 
-  const {
-    getAccountInfo,
-    getPublicKeyAccountHash,
-    csprLiveDomainPath
-  } = useDeployActionDataContext();
+  const { getAccountInfo, getPublicKeyAccountHash, csprLiveDomainPath } =
+    useDeployActionDataContext();
   const publicKey = getPublicKeyAccountHash(hash);
   const accountInfo = getAccountInfo(hash);
   const accountInfoData = deriveAccountInfo(
@@ -56,7 +53,7 @@ const DeployActionAssociatedKeys = ({
           hash={publicKey || hash}
           csprName={csprName}
           loading={!hash}
-          navigateToPath={`${csprLiveDomainPath}/account/${(publicKey || hash)}`}
+          navigateToPath={`${csprLiveDomainPath}/account/${publicKey || hash}`}
           avatarSize={'small'}
           hashFontSize={'sm'}
           minifiedCopyNotification

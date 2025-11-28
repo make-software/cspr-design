@@ -12,7 +12,7 @@ type DeployActionDataContextType = {
   ) => T | null | undefined;
   getContractInfoByHash?: <T>(contractHash: string) => T | null | undefined;
   getPublicKeyAccountHash: (accountHash: string) => string | null | undefined;
-    csprLiveDomainPath: string;
+  csprLiveDomainPath: string;
 };
 
 export const deployActionDataContext =
@@ -21,7 +21,7 @@ export const deployActionDataContext =
     getPublicKeyAccountHash: () => null,
     getContractInfoByHash: () => null,
     getContractPackageInfoByHash: () => null,
-      csprLiveDomainPath: ''
+    csprLiveDomainPath: '',
   });
 
 const { Provider: DeployActionDataContextProvider } = deployActionDataContext;
@@ -36,17 +36,13 @@ type DeployActionDataProviderProps = {
     contractPackageHash: string,
   ) => T | null | undefined;
   getContractInfoByHash?: <T>(contractHash: string) => T | null | undefined;
-    csprLiveDomainPath: string;
+  csprLiveDomainPath: string;
 };
 
 export const DeployActionDataProvider = (
   props: PropsWithChildren<DeployActionDataProviderProps>,
 ) => {
-  const {
-    getAccountInfo,
-      csprLiveDomainPath,
-    children,
-  } = props;
+  const { getAccountInfo, csprLiveDomainPath, children } = props;
 
   const getPublicKeyAccountHash = useCallback(
     (accountHash: string): string | null | undefined => {
@@ -73,7 +69,7 @@ export const DeployActionDataProvider = (
         getPublicKeyAccountHash,
         getContractInfoByHash,
         getContractPackageInfoByHash,
-          csprLiveDomainPath
+        csprLiveDomainPath,
       }}
     >
       {children}

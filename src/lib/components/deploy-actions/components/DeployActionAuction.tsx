@@ -38,7 +38,7 @@ const AuctionContractIdentifier = ({
       />
       <BodyText size={3} variation="blue" monotype>
         <Link
-          href={`${csprLiveDomainPath}/contract-package/${(contract_package_hash)}`}
+          href={`${csprLiveDomainPath}/contract-package/${contract_package_hash}`}
           ariaDescription={'Link to contract package details'}
           color={'primaryBlue'}
         >
@@ -138,10 +138,7 @@ const DelegationAuctionAction = ({ deploy }: { deploy: Deploy }) => {
         {auctionActionNameMap[entryPoint?.name || '']}
       </BodyText>
       {amount && (
-        <DeployFiatAmount
-          amount={amount}
-          rate={timeTransactionCurrencyRate}
-        />
+        <DeployFiatAmount amount={amount} rate={timeTransactionCurrencyRate} />
       )}
       <ValidatorAccountInfo
         publicKey={args.validator?.parsed as string}
