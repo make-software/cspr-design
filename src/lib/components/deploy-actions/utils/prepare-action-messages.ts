@@ -55,31 +55,30 @@ const getCep18TransactorsDataFromArgs = (args) => {
 export const prepareFtActionMessageDataForDeployDetails = (
   deploy: Deploy,
   getPublicKeyByAccountHash: (hash: string) => any,
-  t,
 ): MessageData | null => {
   const { entryPoint, args, contractPackage } = deploy;
   const entryPointName = entryPoint?.name || '';
   const amount = deploy.args.amount?.parsed as string;
 
   const actionName = {
-    [FTEntryPointType.transfer]: t('Transfer'),
-    [FTEntryPointType.approve]: t('Approve transfer rights'),
-    [FTEntryPointType.burn]: t('Burn'),
-    [FTEntryPointType.mint]: t('Mint'),
+    [FTEntryPointType.transfer]: 'Transfer',
+    [FTEntryPointType.approve]: 'Approve transfer rights',
+    [FTEntryPointType.burn]: 'Burn',
+    [FTEntryPointType.mint]: 'Mint',
   };
 
   const contractPrefixesMap = {
-    [FTEntryPointType.transfer]: t('of'),
-    [FTEntryPointType.burn]: t('of'),
-    [FTEntryPointType.mint]: t('of'),
-    [FTEntryPointType.approve]: t('for'),
+    [FTEntryPointType.transfer]: 'of',
+    [FTEntryPointType.burn]: 'of',
+    [FTEntryPointType.mint]: 'of',
+    [FTEntryPointType.approve]: 'for',
   };
 
   const senderPrefixesMap = {
-    [FTEntryPointType.transfer]: t('from'),
-    [FTEntryPointType.burn]: t('owned by'),
-    [FTEntryPointType.mint]: t('to'),
-    [FTEntryPointType.approve]: t('to'),
+    [FTEntryPointType.transfer]: 'from',
+    [FTEntryPointType.burn]: 'owned by',
+    [FTEntryPointType.mint]: 'to',
+    [FTEntryPointType.approve]: 'to',
   };
 
   const { recipientHash, recipientAccountHash, ownerHash, spenderHash } =
@@ -120,7 +119,7 @@ export const prepareFtActionMessageDataForDeployDetails = (
     // so, we need to avoid overwriting recipientAccountHash with recipientHash
     ...(recipientAccountHash?.hash
       ? {
-          prefix2: t('to'),
+          prefix2: 'to',
           account2: {
             hash: recipientAccountHash?.hash,
             publicKey:
@@ -130,7 +129,7 @@ export const prepareFtActionMessageDataForDeployDetails = (
           },
         }
       : {
-          prefix2: t('to'),
+          prefix2: 'to',
           account2: {
             hash: recipientHash?.hash,
             hashType: TransactorHashType.hash,
@@ -199,34 +198,33 @@ const getNftTransactorsDataFromArgs = (args) => {
 export const prepareNftActionMessageDataForDeployDetails = (
   deploy: Deploy,
   getPublicKeyByAccountHash: (hash: string) => any,
-  t,
 ): MessageData | null => {
   const { entryPoint, args } = deploy;
   const entryPointName = entryPoint?.name || '';
 
   const actionName = {
-    [NftTokenEntryPoint.transfer]: t('Transfer'),
-    [NftTokenEntryPoint.transfer_from]: t('Transfer'),
-    [NftTokenEntryPoint.approve]: t('Approve transfer rights'),
-    [NftTokenEntryPoint.burn]: t('Burn'),
-    [NftTokenEntryPoint.mint]: t('Mint'),
-    [NftTokenEntryPoint.update_token_meta]: t('Update metadata'),
-    [NftTokenEntryPoint.set_approval_for_all]: t('Approve transfer rights'),
+    [NftTokenEntryPoint.transfer]: 'Transfer',
+    [NftTokenEntryPoint.transfer_from]: 'Transfer',
+    [NftTokenEntryPoint.approve]: 'Approve transfer rights',
+    [NftTokenEntryPoint.burn]: 'Burn',
+    [NftTokenEntryPoint.mint]: 'Mint',
+    [NftTokenEntryPoint.update_token_meta]: 'Update metadata',
+    [NftTokenEntryPoint.set_approval_for_all]: 'Approve transfer rights',
   };
 
   const contractPrefixesMap = {
-    [NftTokenEntryPoint.approve]: t('for'),
-    [NftTokenEntryPoint.update_token_meta]: t('for'),
-    [NftTokenEntryPoint.mint]: t('of'),
-    [NftTokenEntryPoint.set_approval_for_all]: t('of'),
+    [NftTokenEntryPoint.approve]: 'for',
+    [NftTokenEntryPoint.update_token_meta]: 'for',
+    [NftTokenEntryPoint.mint]: 'of',
+    [NftTokenEntryPoint.set_approval_for_all]: 'of',
   };
 
   const senderPrefixesMap = {
-    [NftTokenEntryPoint.transfer]: t('from'),
-    [NftTokenEntryPoint.transfer_from]: t('from'),
-    [NftTokenEntryPoint.burn]: t('owned by'),
-    [NftTokenEntryPoint.approve]: t('to'),
-    [NftTokenEntryPoint.mint]: t('to'),
+    [NftTokenEntryPoint.transfer]: 'from',
+    [NftTokenEntryPoint.transfer_from]: 'from',
+    [NftTokenEntryPoint.burn]: 'owned by',
+    [NftTokenEntryPoint.approve]: 'to',
+    [NftTokenEntryPoint.mint]: 'to',
   };
 
   if (actionName[entryPointName] === undefined) {

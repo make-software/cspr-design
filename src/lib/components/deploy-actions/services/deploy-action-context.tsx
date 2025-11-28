@@ -4,7 +4,6 @@ import React, {
   useCallback,
   useContext,
 } from 'react';
-import { TFunction } from 'i18next';
 
 type DeployActionDataContextType = {
   getAccountInfo: <T>(publicKey: string) => T | null | undefined;
@@ -13,27 +12,8 @@ type DeployActionDataContextType = {
   ) => T | null | undefined;
   getContractInfoByHash?: <T>(contractHash: string) => T | null | undefined;
   getPublicKeyAccountHash: (accountHash: string) => string | null | undefined;
-  getNftPath: (collectionHash: string, nftId: string) => string;
-  getContractPackagePath: (hash: string) => string;
-  getAccountPath: (hash: string) => string;
-  getSearchPath: (hash: string) => string;
-  i18n: (word: string) => string;
-  formatCurrency: (
-    value: number | string | null,
-    precision?: number,
-  ) => string | null;
+    csprLiveDomainPath: string;
 };
-
-//
-// export interface PathGetters {
-//     getNftPath: (collectionHash: string, nftId: string) => string;
-//     getContractPackagePath: (hash: string) => string;
-//     getAccountPath: (hash: string) => string;
-//     getSearchPath: (hash: string) => string;
-// }
-
-// rewrite to this structure??
-// paths: PathGetters;
 
 export const deployActionDataContext =
   createContext<DeployActionDataContextType>({
@@ -41,12 +21,7 @@ export const deployActionDataContext =
     getPublicKeyAccountHash: () => null,
     getContractInfoByHash: () => null,
     getContractPackageInfoByHash: () => null,
-    getNftPath: () => '',
-    getContractPackagePath: () => '',
-    getAccountPath: () => '',
-    getSearchPath: () => '',
-    i18n: () => '',
-    formatCurrency: () => null,
+      csprLiveDomainPath: ''
   });
 
 const { Provider: DeployActionDataContextProvider } = deployActionDataContext;
@@ -61,15 +36,7 @@ type DeployActionDataProviderProps = {
     contractPackageHash: string,
   ) => T | null | undefined;
   getContractInfoByHash?: <T>(contractHash: string) => T | null | undefined;
-  getNftPath: (collectionHash: string, nftId: string) => string;
-  getContractPackagePath: (hash: string) => string;
-  getAccountPath: (hash: string) => string;
-  getSearchPath: (hash: string) => string;
-  i18n?: TFunction;
-  formatCurrency?: (
-    value: number | string | null,
-    precision?: number,
-  ) => string;
+    csprLiveDomainPath: string;
 };
 
 export const DeployActionDataProvider = (
@@ -77,10 +44,7 @@ export const DeployActionDataProvider = (
 ) => {
   const {
     getAccountInfo,
-    getNftPath,
-    getContractPackagePath,
-    getAccountPath,
-    getSearchPath,
+      csprLiveDomainPath,
     children,
   } = props;
 
@@ -102,11 +66,6 @@ export const DeployActionDataProvider = (
       ? props.getContractPackageInfoByHash(contractPackageHash)
       : null;
 
-  const formatCurrency = (value, precision) =>
-    props.formatCurrency ? props.formatCurrency(value, precision) : null;
-
-  const i18n = (word) => (props.i18n ? props.i18n(word) : word);
-
   return (
     <DeployActionDataContextProvider
       value={{
@@ -114,12 +73,7 @@ export const DeployActionDataProvider = (
         getPublicKeyAccountHash,
         getContractInfoByHash,
         getContractPackageInfoByHash,
-        getNftPath,
-        getContractPackagePath,
-        getAccountPath,
-        getSearchPath,
-        i18n,
-        formatCurrency,
+          csprLiveDomainPath
       }}
     >
       {children}

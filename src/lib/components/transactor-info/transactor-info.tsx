@@ -21,14 +21,15 @@ interface TransactorInfoProps {
   publicKey: string | null;
   csprName?: string | null;
   loading: boolean;
-  getContractPackagePath: (hash: string) => string;
-  getAccountPath: (hash: string) => string;
+  contractPackagePath: string;
+  accountPath: string;
   hashLength?: HashLength;
   hashFontSize?: BodyTextProps['scale'];
   minifiedCopyNotification?: boolean;
   avatarSize?: AvatarProps['size'];
   nameSize?: Size;
   withName?: boolean;
+  csprLiveDomainPath: string;
 }
 
 export const TransactorInfo = ({
@@ -44,8 +45,7 @@ export const TransactorInfo = ({
   minifiedCopyNotification = true,
   avatarSize = 'default',
   withName = false,
-  getAccountPath,
-  getContractPackagePath,
+                                 csprLiveDomainPath
 }: TransactorInfoProps) => {
   const accountInfoResult = deriveAccountInfo(accountInfo);
 
@@ -58,7 +58,7 @@ export const TransactorInfo = ({
       loading={loading}
       hideContractType
       withName={withName}
-      getContractPackagePath={getContractPackagePath}
+      path={`${csprLiveDomainPath}/contract-package/${hash}`}
       contractPackage={contractPackage}
     />
   ) : (
@@ -69,7 +69,7 @@ export const TransactorInfo = ({
       csprName={csprName || undefined}
       loading={loading}
       hashLength={hashLength}
-      navigateToPath={getAccountPath(publicKey || hash)}
+      navigateToPath={`${csprLiveDomainPath}/account/${(publicKey || hash)}`}
       avatarSize={avatarSize}
       hashFontSize={hashFontSize}
       minifiedCopyNotification={minifiedCopyNotification}

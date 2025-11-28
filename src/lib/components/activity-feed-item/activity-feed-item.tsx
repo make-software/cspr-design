@@ -14,7 +14,6 @@ import {
   ActionIdentificationHashesType,
   DeployActionRow,
 } from '../deploy-actions/deploy-action-row';
-import { TFunction } from 'i18next';
 import PageTile from '../page-tile/page-tile';
 import FlexColumn from '../flex-column/flex-column';
 import FlexRow from '../flex-row/flex-row';
@@ -109,10 +108,10 @@ const StyledFlexColumn = styled(FlexColumn)(({ theme }) =>
 
 const BlockFeedInfo = ({
   deploy,
-  getBlockPath,
+    path
 }: {
   deploy: Deploy;
-  getBlockPath: (hash: string) => string;
+  path: string;
 }) => (
   <FlexRow itemsSpacing={8} align={'center'}>
     <BodyText
@@ -129,7 +128,7 @@ const BlockFeedInfo = ({
         'N/A'
       ) : (
         <Link
-          href={getBlockPath(deploy.blockHash)}
+          href={path}
           ariaDescription={'Link to block details'}
           color={'primaryBlue'}
         >
@@ -156,26 +155,16 @@ interface ActivityFeedItemProps {
   deploy: Deploy;
   loading: boolean;
   actionIdentificationHashes: ActionIdentificationHashesType;
+  csprLiveDomainPath: string;
   getAccountInfo: <T = AccountInfoResult>(
     publicKey: string,
   ) => T | null | undefined;
-  getNftPath: (collectionHash: string, nftId: string) => string;
-  getAccountPath: (publicKey: string) => string;
-  getDeployPath: (hash: string) => string;
-  getBlockPath: (hash: string) => string;
-  getSearchPath: (hash: string) => string;
-  getContractPackagePath: (hash: string) => string;
   getContractInfoByHash: (
     contractHash: string,
   ) => ContractResult | null | undefined;
   getContractPackageInfoByHash?: (
     contractPackageHash: string,
   ) => DeployContractPackageResult | null | undefined;
-  formatCurrency?: (
-    value: number | string | null,
-    precision?: number,
-  ) => string | null;
-  i18n?: TFunction;
 }
 
 export const ActivityFeedItem = ({
@@ -185,14 +174,7 @@ export const ActivityFeedItem = ({
   getAccountInfo,
   getContractPackageInfoByHash,
   getContractInfoByHash,
-  getAccountPath,
-  getContractPackagePath,
-  getNftPath,
-  getBlockPath,
-  getDeployPath,
-  getSearchPath,
-  formatCurrency,
-  i18n = (hash) => hash,
+                                   csprLiveDomainPath
 }: ActivityFeedItemProps) => {
   const {
     callerPublicKey,
@@ -216,8 +198,8 @@ export const ActivityFeedItem = ({
   const csprName = accountInfo?.cspr_name || deploy.callerCsprName;
 
   const keyTooltipCaption = isValidPublicKey(callerPublicKey)
-    ? i18n('Public Key')
-    : i18n('Account hash');
+    ? 'Public Key'
+    : 'Account hash';
 
   const chargedAmount = Big(paymentAmount || '0')
     .minus(refundAmount || '0')
@@ -231,7 +213,7 @@ export const ActivityFeedItem = ({
           <Tooltip scale={'xs'} lineHeight={'xs'} tooltipContent={deployHash}>
             <BodyText size={3} scale={'sm'} monotype>
               <Link
-                href={getDeployPath(deploy.deployHash)}
+                href={`${csprLiveDomainPath}/transaction/${deploy.deployHash}`}
                 ariaDescription={'Link to deploy details'}
                 color={'primaryBlue'}
               >
@@ -260,14 +242,14 @@ export const ActivityFeedItem = ({
             noWrap
             variation={'darkGray'}
           >
-            {i18n('Block:')}
+            Block:
           </BodyText>
           <BodyText size={3} monotype>
             {deploy.blockHash == null ? (
               'N/A'
             ) : (
               <Link
-                href={getBlockPath(deploy.blockHash)}
+                href={`${csprLiveDomainPath}/block/${deploy.blockHash}`}
                 ariaDescription={'Link to block details'}
                 color={'primaryBlue'}
               >
@@ -286,7 +268,7 @@ export const ActivityFeedItem = ({
               size={3}
               variation={'darkGray'}
             >
-              {i18n('Charge:')}
+              Charge:
             </BodyText>
             <BodyText scale={'xs'} lineHeight={'xs'} size={3} monotype noWrap>
               <CsprAmount
@@ -308,7 +290,7 @@ export const ActivityFeedItem = ({
           <FlexRow justify={'space-between'}>
             <FlexRow itemsSpacing={8}>
               <TooltipWithExtendedInfo
-                extendedLine={{ title: csprName, caption: i18n('CSPR.name') }}
+                extendedLine={{ title: csprName, caption: 'CSPR.name' }}
                 tooltipCaption={keyTooltipCaption}
                 hash={callerPublicKey || callerHash}
               >
@@ -320,7 +302,7 @@ export const ActivityFeedItem = ({
                     monotype={!csprName}
                   >
                     <Link
-                      href={getAccountPath(callerPublicKey)}
+                      href={`${csprLiveDomainPath}/account/${callerPublicKey}`}
                       ariaDescription={`Link to Account page`}
                       color={'primaryBlue'}
                     >
@@ -341,7 +323,7 @@ export const ActivityFeedItem = ({
           <FlexRow>
             <FlexRow itemsSpacing={8}>
               {isWASMProxyTransaction(deploy.executionTypeId) && (
-                <WasmProxyBadge lineHeight={'xxs'} i18n={i18n} />
+                <WasmProxyBadge lineHeight={'xxs'} />
               )}
               <BodyText size={3} scale={'sm'} lineHeight={'xs'}>
                 <WrappedContainer>
@@ -352,12 +334,7 @@ export const ActivityFeedItem = ({
                     getAccountInfo={getAccountInfo}
                     getContractInfoByHash={getContractInfoByHash}
                     getContractPackageInfoByHash={getContractPackageInfoByHash}
-                    getAccountPath={getAccountPath}
-                    getContractPackagePath={getContractPackagePath}
-                    getNftPath={getNftPath}
-                    getSearchPath={getSearchPath}
-                    formatCurrency={formatCurrency}
-                    i18n={i18n}
+                    csprLiveDomainPath={csprLiveDomainPath}
                   />
                 </WrappedContainer>
               </BodyText>
@@ -370,12 +347,7 @@ export const ActivityFeedItem = ({
             variation={ResultRowVariation.gray}
             getAccountInfo={getAccountInfo}
             getContractPackageInfoByHash={getContractPackageInfoByHash}
-            getAccountPath={getAccountPath}
-            getContractPackagePath={getContractPackagePath}
-            getNftPath={getNftPath}
-            getSearchPath={getSearchPath}
-            formatCurrency={formatCurrency}
-            i18n={i18n}
+            csprLiveDomainPath={csprLiveDomainPath}
             shouldCollapse
           />
         </StyledFlexColumn>
@@ -391,7 +363,7 @@ export const ActivityFeedItem = ({
           <Tooltip tooltipContent={deployHash} scale={'xs'} lineHeight={'xs'}>
             <BodyText scale={'xs'} lineHeight={'xs'} size={3} monotype>
               <Link
-                href={getDeployPath(deploy.deployHash)}
+                href={`${csprLiveDomainPath}/transaction/${deploy.deployHash}`}
                 ariaDescription={'Link to deploy details'}
                 color={'primaryBlue'}
               >
@@ -407,7 +379,7 @@ export const ActivityFeedItem = ({
             size={3}
             variation={'darkGray'}
           >
-            {i18n('Charge:')}
+            Charge:
           </BodyText>
           <BodyText scale={'xs'} lineHeight={'xs'} size={3} monotype noWrap>
             <CsprAmount
@@ -424,7 +396,7 @@ export const ActivityFeedItem = ({
           hash={callerPublicKey || callerHash}
           csprName={callerCsprName || csprName}
           loading={loading}
-          navigateToPath={getAccountPath(callerPublicKey || callerHash)}
+          navigateToPath={`${csprLiveDomainPath}/account/${callerPublicKey || callerHash}`}
           avatarSize={'small'}
           hashFontSize={'sm'}
           minifiedCopyNotification
@@ -432,7 +404,7 @@ export const ActivityFeedItem = ({
 
         <FlexRow itemsSpacing={8}>
           {isWASMProxyTransaction(deploy.executionTypeId) && (
-            <WasmProxyBadge lineHeight={'xxs'} i18n={i18n} />
+            <WasmProxyBadge lineHeight={'xxs'} />
           )}
           <BodyText size={3} scale={'sm'} lineHeight={'xs'}>
             <WrappedContainer>
@@ -443,19 +415,14 @@ export const ActivityFeedItem = ({
                 getAccountInfo={getAccountInfo}
                 getContractInfoByHash={getContractInfoByHash}
                 getContractPackageInfoByHash={getContractPackageInfoByHash}
-                getAccountPath={getAccountPath}
-                getSearchPath={getSearchPath}
-                getContractPackagePath={getContractPackagePath}
-                getNftPath={getNftPath}
-                formatCurrency={formatCurrency}
-                i18n={i18n}
+                csprLiveDomainPath={csprLiveDomainPath}
               />
             </WrappedContainer>
           </BodyText>
         </FlexRow>
       </FlexColumn>
       <FlexColumn itemsSpacing={16}>
-        <BlockFeedInfo deploy={deploy} getBlockPath={getBlockPath} />
+        <BlockFeedInfo deploy={deploy} path={`${csprLiveDomainPath}/block/${deploy.blockHash}`}/>
         <DeployResultRow
           deploy={deploy}
           loading={loading}
@@ -463,12 +430,7 @@ export const ActivityFeedItem = ({
           actionIdentificationHashes={actionIdentificationHashes}
           getAccountInfo={getAccountInfo}
           getContractPackageInfoByHash={getContractPackageInfoByHash}
-          getAccountPath={getAccountPath}
-          getContractPackagePath={getContractPackagePath}
-          getNftPath={getNftPath}
-          getSearchPath={getSearchPath}
-          formatCurrency={formatCurrency}
-          i18n={i18n}
+          csprLiveDomainPath={csprLiveDomainPath}
           shouldCollapse
         />
       </FlexColumn>

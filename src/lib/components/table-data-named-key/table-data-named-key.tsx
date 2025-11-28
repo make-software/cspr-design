@@ -10,20 +10,20 @@ interface TableDataNamedKeyProps {
   purse: string;
   fontSize?: 'xs' | 'sm' | 'md' | 'lg' | 'xl';
   hashLength?: HashLength;
-    getSearchPath: (hash: string) => string;
+    csprLiveDomainPath: string;
 }
 
 export const TableDataNamedKey = ({
   purse,
   fontSize = 'xs',
   hashLength = HashLength.TINY,
-                                      getSearchPath
+                                      csprLiveDomainPath
 }: TableDataNamedKeyProps) => {
   return (
     <FlexRow itemsSpacing={4}>
       <Tooltip scale={'xs'} lineHeight={'xs'} tooltipContent={purse}>
         <BodyText lineHeight={'xs'} size={3} monotype noWrap scale={fontSize}>
-          <NamedKeyValue namedKey={purse} hashLength={hashLength} getSearchPath={getSearchPath} />
+          <NamedKeyValue namedKey={purse} hashLength={hashLength} csprLiveDomainPath={csprLiveDomainPath} />
         </BodyText>
       </Tooltip>
       <Copy value={purse} minified/>

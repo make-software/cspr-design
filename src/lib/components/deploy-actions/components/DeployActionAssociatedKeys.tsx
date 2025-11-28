@@ -29,8 +29,7 @@ const DeployActionAssociatedKeys = ({
   const {
     getAccountInfo,
     getPublicKeyAccountHash,
-    getContractPackagePath,
-    getAccountPath,
+    csprLiveDomainPath
   } = useDeployActionDataContext();
   const publicKey = getPublicKeyAccountHash(hash);
   const accountInfo = getAccountInfo(hash);
@@ -57,7 +56,7 @@ const DeployActionAssociatedKeys = ({
           hash={publicKey || hash}
           csprName={csprName}
           loading={!hash}
-          navigateToPath={getAccountPath(publicKey || hash)}
+          navigateToPath={`${csprLiveDomainPath}/account/${(publicKey || hash)}`}
           avatarSize={'small'}
           hashFontSize={'sm'}
           minifiedCopyNotification
@@ -73,7 +72,7 @@ const DeployActionAssociatedKeys = ({
             contractPackage={contractPackage}
             hashFontSize={HashFontSize.big}
             avatarSize={'small'}
-            getContractPackagePath={getContractPackagePath}
+            path={`${csprLiveDomainPath}/contract-package/${contractPackage.contract_package_hash}`}
           />
         </FlexRow>
       )}

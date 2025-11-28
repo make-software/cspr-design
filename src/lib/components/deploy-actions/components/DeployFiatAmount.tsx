@@ -2,22 +2,17 @@ import React from 'react';
 import Big from 'big.js';
 import BodyText from '../../body-text/body-text';
 import { motesToCSPR, PrecisionCase } from '../../../utils/currency';
-import { SMALL_PRECISION } from '../../../utils/formatters';
+import {formatCurrency, SMALL_PRECISION} from '../../../utils/formatters';
 import CsprAmount from '../../cspr-amount/cspr-amount';
 
 interface DeployFiatAmountProps {
   amount: string | null;
   rate: number;
-  formatCurrency: (
-    value: number | string | null,
-    precision?: number,
-  ) => string | null;
 }
 
 const DeployFiatAmount = ({
   amount,
   rate,
-  formatCurrency,
 }: DeployFiatAmountProps) => {
   const csprAmount = amount ? motesToCSPR(amount) : 0;
   const currencyAmount =
@@ -29,7 +24,7 @@ const DeployFiatAmount = ({
         <CsprAmount motes={amount} precisionCase={PrecisionCase.small} />
       </BodyText>
       <BodyText size={3} monotype variation="darkGray">
-        ({formatCurrency(currencyAmount, SMALL_PRECISION)})
+        ({formatCurrency(currencyAmount, 'USD', SMALL_PRECISION)})
       </BodyText>
     </>
   );

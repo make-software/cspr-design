@@ -28,7 +28,7 @@ const AuctionContractIdentifier = ({
   identifier: string;
   contract_package_hash: string | undefined;
 }) => {
-  const { getContractPackagePath } = useDeployActionDataContext();
+  const { csprLiveDomainPath } = useDeployActionDataContext();
   return (
     <FlexRow align="center" itemsSpacing={8}>
       <Avatar
@@ -38,7 +38,7 @@ const AuctionContractIdentifier = ({
       />
       <BodyText size={3} variation="blue" monotype>
         <Link
-          href={getContractPackagePath(contract_package_hash)}
+          href={`${csprLiveDomainPath}/contract-package/${(contract_package_hash)}`}
           ariaDescription={'Link to contract package details'}
           color={'primaryBlue'}
         >
@@ -50,7 +50,7 @@ const AuctionContractIdentifier = ({
 };
 
 const ValidatorAccountInfo = ({ publicKey, prefix }) => {
-  const { getAccountInfo, getAccountPath } = useDeployActionDataContext();
+  const { getAccountInfo, csprLiveDomainPath } = useDeployActionDataContext();
   const avatarSize = useMatchMedia(['small', 'default'], []);
 
   const accountInfo = getAccountInfo<AccountInfoResult>(publicKey);
@@ -69,7 +69,7 @@ const ValidatorAccountInfo = ({ publicKey, prefix }) => {
         name={validatorName}
         hash={publicKey}
         loading={!publicKey}
-        navigateToPath={getAccountPath(publicKey)}
+        navigateToPath={`${csprLiveDomainPath}/account/${publicKey}`}
         avatarSize={avatarSize}
         hashFontSize={'sm'}
         minifiedCopyNotification
@@ -96,7 +96,6 @@ const DefaultAuctionAction = ({ deploy }: { deploy: Deploy }) => (
 const ManageAuctionBidAction = ({ deploy }: { deploy: Deploy }) => {
   const { args, timeTransactionCurrencyRate, contractPackage, entryPoint } =
     deploy;
-  const { formatCurrency } = useDeployActionDataContext();
   const amount = args.amount?.parsed as string;
 
   return (
@@ -119,7 +118,6 @@ const ManageAuctionBidAction = ({ deploy }: { deploy: Deploy }) => {
           <DeployFiatAmount
             amount={amount}
             rate={timeTransactionCurrencyRate}
-            formatCurrency={formatCurrency}
           />
         </>
       )}
@@ -129,7 +127,6 @@ const ManageAuctionBidAction = ({ deploy }: { deploy: Deploy }) => {
 
 const DelegationAuctionAction = ({ deploy }: { deploy: Deploy }) => {
   const { timeTransactionCurrencyRate, entryPoint, args } = deploy;
-  const { formatCurrency } = useDeployActionDataContext();
 
   const amount = args.amount?.parsed as string;
   const initialValidatorPrefix =
@@ -144,7 +141,6 @@ const DelegationAuctionAction = ({ deploy }: { deploy: Deploy }) => {
         <DeployFiatAmount
           amount={amount}
           rate={timeTransactionCurrencyRate}
-          formatCurrency={formatCurrency}
         />
       )}
       <ValidatorAccountInfo

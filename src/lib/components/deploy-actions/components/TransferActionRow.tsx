@@ -38,7 +38,7 @@ const TransferActionAccount = ({
   actionPoolAccountHash,
   purseAccountInfoFromTransfer,
 }: TransferActionAccountProps) => {
-  const { getAccountInfo, getAccountPath, getSearchPath } =
+  const { getAccountInfo, csprLiveDomainPath } =
     useDeployActionDataContext();
 
   const accountInfo = getAccountInfo<AccountInfoResult>(
@@ -66,7 +66,7 @@ const TransferActionAccount = ({
           alt={'Auction contract logo'}
         />
         <Link
-          href={getAccountPath(actionPoolAccountHash)}
+          href={`${csprLiveDomainPath}/account/${actionPoolAccountHash}`}
           color={'hash'}
           ariaDescription={'Link to account details'}
         >
@@ -83,7 +83,7 @@ const TransferActionAccount = ({
       hash={publicKey || accountHash}
       csprName={csprName}
       loading={loading}
-      navigateToPath={getAccountPath(publicKey || accountHash)}
+      navigateToPath={`${csprLiveDomainPath}/account/${(publicKey || accountHash)}`}
       avatarSize={'small'}
       hashFontSize={'sm'}
       minifiedCopyNotification
@@ -92,7 +92,7 @@ const TransferActionAccount = ({
     <TableDataNamedKey
       purse={purse}
       fontSize={'sm'}
-      getSearchPath={getSearchPath}
+      csprLiveDomainPath={csprLiveDomainPath}
     />
   );
 };
@@ -112,8 +112,6 @@ const TransferActionRow = ({
   actionPoolAccountHash,
   renderAsResultAction = false,
 }: TransferActionRowProps) => {
-  const { formatCurrency } = useDeployActionDataContext();
-
   const fromAccountHash = transfer.from_purse_public_key
     ? AccountModel({
         publicKeyHex: transfer.from_purse_public_key,
@@ -138,7 +136,6 @@ const TransferActionRow = ({
       <DeployFiatAmount
         amount={transfer.amount}
         rate={timeTransactionCurrencyRate}
-        formatCurrency={formatCurrency}
       />
       {renderAsResultAction && (
         <>

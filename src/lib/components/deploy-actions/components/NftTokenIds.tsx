@@ -40,11 +40,11 @@ export const NftTokenId = ({ token_id, path }) => {
 export const NftTokenIds = ({
   nftTokenIds,
   collectionHash,
-  getNftPath,
+                              csprLiveDomainPath,
 }: {
   nftTokenIds: string[] | undefined | null;
   collectionHash: string;
-  getNftPath: (collectionHash: string, nftId: string) => string;
+  csprLiveDomainPath: string;
 }) => {
   return (
     <>
@@ -53,7 +53,7 @@ export const NftTokenIds = ({
             <NftTokenId
               token_id={nftId}
               key={nftId}
-              path={getNftPath(collectionHash, nftId)}
+              path={`${csprLiveDomainPath}/contracts/${collectionHash}/nfts/${nftId}`}
             />
           ))
         : null}

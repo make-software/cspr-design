@@ -17,7 +17,7 @@ interface ContractIdentifierProps {
   avatarSize?: AvatarProps['size'];
   hashFontSize?: HashFontSize;
   loading?: boolean;
-  getContractPackagePath: (hash: string) => string;
+  path: string;
 }
 
 export const ContractIdentifier = ({
@@ -32,7 +32,7 @@ export const ContractIdentifier = ({
         hashFontSize={props.hashFontSize}
         hashLength={props.hashLength}
         avatarSize={props.avatarSize}
-        getContractPackagePath={props.getContractPackagePath}
+        path={props.path}
       />
     );
   }

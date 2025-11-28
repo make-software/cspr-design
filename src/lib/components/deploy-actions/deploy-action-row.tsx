@@ -24,7 +24,6 @@ import {
   DeployContractPackageResult,
   GetDeployResult,
 } from '../../types/types';
-import { TFunction } from 'i18next';
 import { Transaction } from 'casper-js-sdk';
 import { getWasmProxyArgumentsFromRawData } from './utils/deploy-action-helpers';
 
@@ -179,18 +178,10 @@ type DeployActionRowProps = DeployActionRowComponentProps & {
   getContractInfoByHash?: (
     contractHash: string,
   ) => ContractResult | null | undefined;
-  getAccountPath: (publicKey: string) => string;
   getContractPackageInfoByHash: (
     contractPackageHash: string,
   ) => DeployContractPackageResult | null | undefined;
-  getNftPath: (collectionHash: string, nftId: string) => string;
-  getContractPackagePath: (hash: string) => string;
-  getSearchPath: (hash: string) => string;
-  formatCurrency?: (
-    value: number | string | null,
-    precision?: number,
-  ) => string | null;
-  i18n?: TFunction;
+  csprLiveDomainPath: string;
 };
 
 export const DeployActionRow = (props: DeployActionRowProps) => {
@@ -198,28 +189,18 @@ export const DeployActionRow = (props: DeployActionRowProps) => {
     getAccountInfo,
     getContractPackageInfoByHash,
     getContractInfoByHash,
-    getNftPath,
-    getContractPackagePath,
-    getAccountPath,
-    getSearchPath,
-    i18n,
-    formatCurrency,
     deployRawData,
     loading,
     deploy,
     actionIdentificationHashes,
+    csprLiveDomainPath,
   } = props;
   return (
     <DeployActionDataProvider
       getAccountInfo={getAccountInfo}
       getContractPackageInfoByHash={getContractPackageInfoByHash}
       getContractInfoByHash={getContractInfoByHash}
-      getAccountPath={getAccountPath}
-      getNftPath={getNftPath}
-      getContractPackagePath={getContractPackagePath}
-      getSearchPath={getSearchPath}
-      i18n={i18n}
-      formatCurrency={formatCurrency}
+      csprLiveDomainPath={csprLiveDomainPath}
     >
       <DeployActionRowComponent
         deploy={deploy}

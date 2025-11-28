@@ -21,7 +21,7 @@ import BodyText from '../body-text/body-text';
 
 export default {
   renderComponent: (args) => ActivityFeedItem,
-  title: 'Components/Deploy/ActivityFeedItem',
+  title: 'Composites/Deploy/ActivityFeedItem',
   args: {
     deploy: MapDeploy(defaultDeploy),
     loading: false,
@@ -44,16 +44,6 @@ export default {
       mockedContractInfos.filter(
         (contract) => contract.contract_hash === hash,
       )[0],
-    getAccountPath: (hash) => `https://cspr.live/account/${hash}`,
-    getContractPackagePath: (hash) =>
-      `https://cspr.live/contract-package/${hash}`,
-    getDeployPath: (hash) => `https://cspr.live/transaction/${hash}`,
-    getBlockPath: (hash) => `https://cspr.live/block/${hash}`,
-    getSearchPath: (hash) => `https://cspr.live/search/${hash}`,
-    getNftPath: (collectionId, nftId) =>
-      `https://cspr.live/contracts/${collectionId}/nfts/${nftId}`,
-    formatCurrency: (amount, precision) =>
-      `$${Number(amount).toFixed(precision)}`,
   },
 } as Meta<typeof ActivityFeedItem>;
 

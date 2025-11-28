@@ -5,10 +5,10 @@ import BodyText from '../../body-text/body-text';
 import Link from '../../link/link';
 
 export const NftCollectionIdentifier = ({
-  getContractPackagePath,
+  path,
   contractPackage,
 }: {
-  getContractPackagePath: (hash: string) => string;
+  path: string;
   contractPackage: DeployContractPackageResult | undefined | null;
 }) => {
   return contractPackage ? (
@@ -20,7 +20,7 @@ export const NftCollectionIdentifier = ({
       />
       <BodyText size={3} variation={'black'} monotype>
         <Link
-          href={getContractPackagePath(contractPackage.contract_package_hash)}
+          href={path}
           ariaDescription={'Link to contract package details'}
           color={'primaryBlue'}
         >

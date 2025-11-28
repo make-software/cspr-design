@@ -14,7 +14,7 @@ import { NftTokenEntryPoint } from '../../../types/NFTToken';
 
 const SetAllApprovalsNFTAction = ({ deploy }: { deploy: Deploy }) => {
   const { contractPackage, args } = deploy;
-  const { getContractPackagePath, getContractPackageInfoByHash } =
+  const { csprLiveDomainPath, getContractPackageInfoByHash } =
     useDeployActionDataContext();
   const operatorHash =
     args.operator && guardedDeriveSplitDataFromArguments(args.operator, 'Hash');
@@ -31,7 +31,7 @@ const SetAllApprovalsNFTAction = ({ deploy }: { deploy: Deploy }) => {
         all
       </BodyText>
       <NftCollectionIdentifier
-        getContractPackagePath={getContractPackagePath}
+        path={`${csprLiveDomainPath}/contract-package/${contractPackage.contract_package_hash}`}
         contractPackage={contractPackage}
       />
 
@@ -44,7 +44,7 @@ const SetAllApprovalsNFTAction = ({ deploy }: { deploy: Deploy }) => {
             hash={operatorHash.hash}
             avatarSize={'small'}
             hashFontSize={HashFontSize.big}
-            getContractPackagePath={getContractPackagePath}
+            path={`${csprLiveDomainPath}/contract-package/${operatorHash.hash}`}
             contractPackage={getContractPackageInfoByHash(operatorHash.hash)}
           />
         </>
@@ -58,11 +58,10 @@ interface DeployNftActionProps {
 }
 
 export const DeployActionNft = ({ deploy }: DeployNftActionProps) => {
-  const { getPublicKeyAccountHash, i18n } = useDeployActionDataContext();
+  const { getPublicKeyAccountHash } = useDeployActionDataContext();
   const message = prepareNftActionMessageDataForDeployDetails(
     deploy,
     getPublicKeyAccountHash,
-    i18n,
   );
 
   if (!message) {

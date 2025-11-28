@@ -98,11 +98,8 @@ const OfferMarketAction = ({
   const {
     getAccountInfo,
     getPublicKeyAccountHash,
-    getNftPath,
-    getAccountPath,
-    getContractPackagePath,
     getContractPackageInfoByHash,
-    formatCurrency,
+      csprLiveDomainPath
   } = useDeployActionDataContext();
 
   const accountInfo = offererHash && getAccountInfo(offererHash?.hash);
@@ -127,7 +124,6 @@ const OfferMarketAction = ({
           <DeployFiatAmount
             amount={amount}
             rate={timeTransactionCurrencyRate}
-            formatCurrency={formatCurrency}
           />
         </>
       )}
@@ -137,7 +133,7 @@ const OfferMarketAction = ({
             for
           </BodyText>
           <NftCollectionIdentifier
-            getContractPackagePath={getContractPackagePath}
+            path={`${csprLiveDomainPath}/contract-package/${collectionHash}`}
             contractPackage={getContractPackageInfoByHash(collectionHash)}
           />
         </>
@@ -145,7 +141,7 @@ const OfferMarketAction = ({
       <NftTokenIds
         nftTokenIds={nftTokenIds}
         collectionHash={collectionHash}
-        getNftPath={getNftPath}
+        csprLiveDomainPath={csprLiveDomainPath}
       />
       {offererHash && (
         <FlexRow itemsSpacing={6} align={'center'}>
@@ -158,7 +154,7 @@ const OfferMarketAction = ({
             hash={publicKey || offererHash.hash}
             csprName={csprName}
             loading={!offererHash}
-            navigateToPath={getAccountPath(publicKey || offererHash.hash)}
+            navigateToPath={`${csprLiveDomainPath}/account/${(publicKey || offererHash.hash)}`}
             avatarSize={'small'}
             hashFontSize={'sm'}
             minifiedCopyNotification
@@ -170,7 +166,7 @@ const OfferMarketAction = ({
       </BodyText>
       <MarketContractIdentifier
         contractPackage={contractPackage}
-        path={getContractPackagePath(contractPackage.contract_package_hash)}
+        path={`${csprLiveDomainPath}/contract-package/${(contractPackage.contract_package_hash)}`}
       />
     </FlexRow>
   );
@@ -186,7 +182,7 @@ const ListMarketAction = ({
   nftTokenIds: string[] | null;
 }) => {
   const { entryPoint, contractPackage } = deploy;
-  const { getNftPath, getContractPackagePath, getContractPackageInfoByHash } =
+  const { csprLiveDomainPath, getContractPackageInfoByHash } =
     useDeployActionDataContext();
   const contractIdentifierPrefix =
     entryPoint?.name === CsprMarketEntryPoint.delist_token ? 'from' : 'on';
@@ -198,21 +194,21 @@ const ListMarketAction = ({
       </BodyText>
       {collectionHash && (
         <NftCollectionIdentifier
-          getContractPackagePath={getContractPackagePath}
+          path={`${csprLiveDomainPath}/contract-package/${collectionHash}`}
           contractPackage={getContractPackageInfoByHash(collectionHash)}
         />
       )}
       <NftTokenIds
         nftTokenIds={nftTokenIds}
         collectionHash={collectionHash}
-        getNftPath={getNftPath}
+        csprLiveDomainPath={csprLiveDomainPath}
       />
       <BodyText size={3} variation={'darkGray'}>
         {contractIdentifierPrefix}
       </BodyText>
       <MarketContractIdentifier
         contractPackage={contractPackage}
-        path={getContractPackagePath(contractPackage.contract_package_hash)}
+        path={`${csprLiveDomainPath}/contract-package/${(contractPackage.contract_package_hash)}`}
       />
     </FlexRow>
   );
@@ -220,7 +216,7 @@ const ListMarketAction = ({
 
 const DefaultMarketAction = ({ deploy }: { deploy: Deploy }) => {
   const { entryPoint, contractPackage } = deploy;
-  const { getContractPackagePath } = useDeployActionDataContext();
+  const { csprLiveDomainPath } = useDeployActionDataContext();
   return (
     <FlexRow align={'center'} itemsSpacing={8}>
       <BodyText monotype size={3} wordBreak noWrap variation={'black'}>
@@ -231,7 +227,7 @@ const DefaultMarketAction = ({ deploy }: { deploy: Deploy }) => {
       </BodyText>
       <MarketContractIdentifier
         contractPackage={contractPackage}
-        path={getContractPackagePath(contractPackage.contract_package_hash)}
+        path={`${csprLiveDomainPath}/contract-package/${contractPackage.contract_package_hash}`}
       />
     </FlexRow>
   );

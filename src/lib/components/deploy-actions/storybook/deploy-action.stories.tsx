@@ -21,7 +21,7 @@ import BodyText from '../../body-text/body-text';
 
 export default {
   renderComponent: (args) => DeployActionRow,
-  title: 'Components/Deploy/DeployActionRow',
+  title: 'Composites/Deploy/DeployActionRow',
   args: {
     deploy: MapDeploy(defaultDeploy),
     loading: false,
@@ -44,13 +44,6 @@ export default {
       mockedContractInfos.filter(
         (contract) => contract.contract_hash === hash,
       )[0],
-    getAccountPath: (hash) => `https://cspr.live/account/${hash}`,
-    getContractPackagePath: (hash) =>
-      `https://cspr.live/contract-package/${hash}`,
-    getNftPath: (collectionId, nftId) =>
-      `https://cspr.live/contracts/${collectionId}/nfts/${nftId}`,
-    formatCurrency: (amount, precision) =>
-      `$${Number(amount).toFixed(precision)}`,
   },
 } as Meta<typeof DeployActionRow>;
 

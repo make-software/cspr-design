@@ -8,9 +8,7 @@ import TransferActionRow from './components/TransferActionRow';
 import { ActionIdentificationHashesType } from './deploy-action-row';
 import {
   DeployActionDataProvider,
-  useDeployActionDataContext,
 } from './services/deploy-action-context';
-import { TFunction } from 'i18next';
 import {
   ContractResult,
   DataResponse,
@@ -133,7 +131,6 @@ export const DeployResultRowComponent = (
     actionComponents,
   } = props;
   const [isCollapsed, setCollapsed] = useState<boolean>(shouldCollapse);
-  const { i18n } = useDeployActionDataContext();
   const handleExpandList = () => {
     setCollapsed(!isCollapsed);
   };
@@ -233,12 +230,12 @@ export const DeployResultRowComponent = (
         <ExpandCollapsedButton
           collapsedLabel={
             <>
-              <>{i18n('View all')} </>
+              <>View all</>
               {combinedActionComponents?.length}
-              <> {i18n('results')}</>
+              <> results</>
             </>
           }
-          expandedLabel={<>{i18n('Collapse results')} </>}
+          expandedLabel={<>Collapse results </>}
           onExpand={handleExpandList}
         />
       ) : null}
@@ -251,11 +248,7 @@ type DeployResultRowProps = DeployResultRowComponentProps & {
   getContractPackageInfoByHash?: (
     contractHash: string,
   ) => ContractResult | null | undefined;
-  getAccountPath: (publicKey: string) => string;
-  getNftPath: (collectionHash: string, nftId: string) => string;
-  getContractPackagePath: (hash: string) => string;
-  getSearchPath: (hash: string) => string;
-  i18n?: TFunction;
+  csprLiveDomainPath: string;
 };
 
 export const DeployResultRow = (props: DeployResultRowProps) => {
@@ -263,12 +256,7 @@ export const DeployResultRow = (props: DeployResultRowProps) => {
     getAccountInfo,
     getContractPackageInfoByHash,
     getContractInfoByHash,
-    getNftPath,
-    getContractPackagePath,
-    getAccountPath,
-    getSearchPath,
-    i18n,
-    formatCurrency,
+    csprLiveDomainPath,
     ...rest
   } = props;
   return (
@@ -276,12 +264,7 @@ export const DeployResultRow = (props: DeployResultRowProps) => {
       getAccountInfo={getAccountInfo}
       getContractPackageInfoByHash={getContractPackageInfoByHash}
       getContractInfoByHash={getContractInfoByHash}
-      getAccountPath={getAccountPath}
-      getNftPath={getNftPath}
-      getContractPackagePath={getContractPackagePath}
-      getSearchPath={getSearchPath}
-      i18n={i18n}
-      formatCurrency={formatCurrency}
+      csprLiveDomainPath={csprLiveDomainPath}
     >
       <DeployResultRowComponent {...rest} />
     </DeployActionDataProvider>

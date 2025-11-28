@@ -7,7 +7,7 @@ import { useDeployActionDataContext } from '../services/deploy-action-context';
 import { ContractIdentifier } from '../../contract-identifier/contract-identifier';
 
 const DeployActionDefault = ({ deploy }: { deploy: Deploy }) => {
-  const { getContractPackagePath } = useDeployActionDataContext();
+  const { csprLiveDomainPath } = useDeployActionDataContext();
   return (
     <FlexRow align={'center'} itemsSpacing={8}>
       <BodyText monotype size={3} wordBreak noWrap variation={'black'}>
@@ -21,7 +21,7 @@ const DeployActionDefault = ({ deploy }: { deploy: Deploy }) => {
         contractPackage={deploy.contractPackage}
         avatarSize={'small'}
         hashFontSize={HashFontSize.big}
-        getContractPackagePath={getContractPackagePath}
+        path={`${csprLiveDomainPath}/contract-package/${deploy.contractPackage.contract_package_hash}`}
       />
     </FlexRow>
   );

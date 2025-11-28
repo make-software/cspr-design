@@ -75,15 +75,14 @@ export const DeployStatus = ({
   deployResult,
   iconWithText,
   size = DeployStatusSize.Medium,
-  i18n: t = (hash) => hash,
 }: DeployStatusProps) => {
   const StatusLabel = {
-    [Status.Success]: t('Success'),
-    [Status.Processed]: t('Processed'),
-    [Status.Error]: t('Error'),
-    [Status.Executed]: t('Executed'),
-    [Status.Pending]: t('Pending'),
-    [Status.Expired]: t('Expired'),
+    [Status.Success]: 'Success',
+    [Status.Processed]: 'Processed',
+    [Status.Error]: 'Error',
+    [Status.Executed]: 'Executed',
+    [Status.Pending]: 'Pending',
+    [Status.Expired]: 'Expired',
   };
 
   const status = getDeployStatus(deployResult);
@@ -101,7 +100,7 @@ export const DeployStatus = ({
             src={StatusIcons[status]}
             size={size}
             role={'img'}
-            alt={t(`Transaction status: ${status} icon`)}
+            alt={`Transaction status: ${status} icon`}
           />
         </SvgIconWrapper>
       </Tooltip>
@@ -115,7 +114,7 @@ export const DeployStatus = ({
           src={StatusIcons[status]}
           size={size}
           role={'img'}
-          alt={t(`Transaction status: ${status} icon`)}
+          alt={`Transaction status: ${status} icon`}
         />
       </SvgIconWrapper>
       <BodyText size={3}>{message}</BodyText>

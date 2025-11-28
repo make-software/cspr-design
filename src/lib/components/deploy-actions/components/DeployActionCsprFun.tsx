@@ -9,7 +9,7 @@ import { ContractIdentifier } from '../../contract-identifier/contract-identifie
 const DeployActionCsprFun = ({ deploy }) => {
   const contractHash = deploy.args.token_to_trade_contract_hash_key.parsed;
   const { hash } = deriveSplitDataFromNamedKeyValue(contractHash);
-  const { getContractInfoByHash, getContractPackagePath } =
+  const { getContractInfoByHash, csprLiveDomainPath } =
     useDeployActionDataContext();
 
   const contractInfo = getContractInfoByHash(hash);
@@ -33,7 +33,7 @@ const DeployActionCsprFun = ({ deploy }) => {
               hashFontSize={HashFontSize.big}
               contractPackage={contractPackageInfo}
               hideContractIdentifier={false}
-              getContractPackagePath={getContractPackagePath}
+              path={`${csprLiveDomainPath}/contract-package/${contractInfo?.contract_package_hash}`}
             />
           </FlexRow>
         </>

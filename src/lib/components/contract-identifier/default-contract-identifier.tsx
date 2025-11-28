@@ -32,13 +32,13 @@ export const UnknownContractInfo = ({
   iconSize = 'small',
   hashFontSize = HashFontSize.big,
   hashLength,
-  getContractPackagePath,
+                                      path,
 }: {
   hash: string | null;
   iconSize?: AvatarProps['size'];
   hashFontSize?: HashFontSize;
   hashLength?: HashLength;
-  getContractPackagePath: (hash: string) => string;
+  path: string;
 }) => {
   const itemsSpacing = iconSize === 'default' ? 12 : 4;
   if (!hash) {
@@ -58,7 +58,7 @@ export const UnknownContractInfo = ({
           lineHeight={'xs'}
         >
           <Link
-            href={getContractPackagePath(hash)}
+            href={path}
             ariaDescription={'Link to contract package details'}
             color={'hash'}
           >
@@ -79,7 +79,7 @@ interface DefaultContractIdentifierProps {
   hashFontSize?: HashFontSize;
   hideContractType?: boolean;
   loading?: boolean;
-  getContractPackagePath: (hash: string) => string;
+  path: string;
 }
 
 export const DefaultContractIdentifier = ({
@@ -90,7 +90,7 @@ export const DefaultContractIdentifier = ({
   avatarSize = 'tiny',
   hashFontSize = HashFontSize.default,
   loading,
-  getContractPackagePath,
+                                            path,
 }: DefaultContractIdentifierProps) => {
   const { latest_version_contract_type_id, icon_url, name, contract_name } =
     contractPackage;
@@ -138,7 +138,7 @@ export const DefaultContractIdentifier = ({
             monotype
           >
             <Link
-              href={getContractPackagePath(hash)}
+              href={path}
               ariaDescription={'Link to contract package details'}
               color={'hash'}
             >

@@ -22,7 +22,7 @@ interface ContractIdentifierWithNameProps {
   avatarSize?: AvatarProps['size'];
   hashFontSize?: HashFontSize;
   loading?: boolean;
-  getContractPackagePath: (hash: string) => string;
+    path: string;
 }
 
 export const ContractIdentifierWithName = ({
@@ -31,7 +31,7 @@ export const ContractIdentifierWithName = ({
   avatarSize = 'default',
   hashLength = HashLength.TINY,
   loading,
-  getContractPackagePath,
+                                               path,
 }: ContractIdentifierWithNameProps) => {
   const { latest_version_contract_type_id, icon_url, name, contract_name } =
     contractPackage;
@@ -41,7 +41,6 @@ export const ContractIdentifierWithName = ({
     contractName && hashLength === HashLength.TINY
       ? truncateName(contractName, SHORTENED_CONTRACT_NAME_LENGTH)
       : contractName;
-  const path = getContractPackagePath(hash);
 
   return (
     <FlexRow align={'center'} itemsSpacing={12}>

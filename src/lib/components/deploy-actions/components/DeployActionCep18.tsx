@@ -13,11 +13,10 @@ interface DeployActionCep18Props {
 }
 
 export const DeployActionCep18 = ({ deploy }: DeployActionCep18Props) => {
-  const { getPublicKeyAccountHash, i18n } = useDeployActionDataContext();
+  const { getPublicKeyAccountHash } = useDeployActionDataContext();
   const message = prepareFtActionMessageDataForDeployDetails(
     deploy,
     getPublicKeyAccountHash,
-    i18n,
   );
 
   if (!message) {

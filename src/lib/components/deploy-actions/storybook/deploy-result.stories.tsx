@@ -21,7 +21,7 @@ import { DeployResultRow, ResultRowVariation } from '../deploy-result-row';
 
 export default {
   renderComponent: (args) => DeployResultRow,
-  title: 'Components/Deploy/DeployResultRow',
+  title: 'Composites/Deploy/DeployResultRow',
   args: {
     deploy: MapDeploy(defaultDeploy),
     loading: false,
@@ -44,14 +44,6 @@ export default {
       mockedContractInfos.filter(
         (contract) => contract.contract_hash === hash,
       )[0],
-    getAccountPath: (hash) => `https://cspr.live/account/${hash}`,
-    getSearchPath: (hash) => `https://cspr.live/search/${hash}`,
-    getContractPackagePath: (hash) =>
-      `https://cspr.live/contract-package/${hash}`,
-    getNftPath: (collectionId, nftId) =>
-      `https://cspr.live/contracts/${collectionId}/nfts/${nftId}`,
-    formatCurrency: (amount, precision) =>
-      `$${Number(amount).toFixed(precision)}`,
   },
 } as Meta<typeof DeployResultRow>;
 

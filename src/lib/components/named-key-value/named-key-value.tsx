@@ -10,14 +10,14 @@ interface NamedKeyValueProps {
   namedKey: string;
   noPrefix?: boolean;
   hashLength?: HashLength;
-  getSearchPath: (hash: string) => string;
+  csprLiveDomainPath: string;
 }
 
 export const NamedKeyValue = ({
   namedKey,
   noPrefix,
   hashLength,
-  getSearchPath,
+                                csprLiveDomainPath,
 }: NamedKeyValueProps) => {
   const responsiveHashLength = useMatchMedia(
     [HashLength.TINY, HashLength.MEDIUM, HashLength.FULL, HashLength.FULL],
@@ -28,7 +28,7 @@ export const NamedKeyValue = ({
   const isURefNamedKey = namedKey.includes(NamedKeyPrefix.UREF);
   const redirectHash = isURefNamedKey ? namedKey : hash;
 
-  const redirectPath = getSearchPath(redirectHash);
+  const redirectPath = `${csprLiveDomainPath}/search/${redirectHash}`;
   return (
     <FlexRow>
       {redirectPath ? (

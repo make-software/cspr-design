@@ -42,9 +42,8 @@ export const Cep18ActionRow = ({
 }: Cep18ActionRowProps) => {
   const {
     getAccountInfo,
-    getAccountPath,
-    getContractPackagePath,
     getContractPackageInfoByHash,
+    csprLiveDomainPath
   } = useDeployActionDataContext();
   const fromAccountInfo = getAccountInfo<AccountInfoResult>(
     from_public_key || from_hash || '',
@@ -81,7 +80,7 @@ export const Cep18ActionRow = ({
           avatarSize={'small'}
           hashFontSize={HashFontSize.big}
           contractPackage={contractPackage}
-          getContractPackagePath={getContractPackagePath}
+          path={`${csprLiveDomainPath}/contract-package/${contractPackage?.contract_package_hash}`}
           hideContractType
         />
         <BodyText size={3} noWrap variation={'darkGray'}>
@@ -107,8 +106,6 @@ export const Cep18ActionRow = ({
             avatarSize="small"
             hash={from_hash}
             loading={false}
-            getContractPackagePath={getContractPackagePath}
-            getAccountPath={getAccountPath}
           />
         </>
       )}
@@ -130,8 +127,6 @@ export const Cep18ActionRow = ({
             avatarSize="small"
             hash={to_hash}
             loading={false}
-            getContractPackagePath={getContractPackagePath}
-            getAccountPath={getAccountPath}
           />
         </>
       )}

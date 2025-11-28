@@ -16,7 +16,7 @@ export const UpdateMetadataNFTAction = ({
   nftTokenIds,
   contractPackage,
 }) => {
-  const { getNftPath, getContractPackagePath } = useDeployActionDataContext();
+  const { csprLiveDomainPath } = useDeployActionDataContext();
   return (
     <FlexRow align={'center'} itemsSpacing={8}>
       <BodyText monotype size={3} wordBreak noWrap variation={'black'}>
@@ -27,12 +27,12 @@ export const UpdateMetadataNFTAction = ({
       </BodyText>
       <NftCollectionIdentifier
         contractPackage={contractPackage}
-        getContractPackagePath={getContractPackagePath}
+        path={`${csprLiveDomainPath}/contract-package/${contractPackage.contract_package_hash}`}
       />
       <NftTokenIds
         nftTokenIds={nftTokenIds}
         collectionHash={contractPackage.contract_package_hash}
-        getNftPath={getNftPath}
+        csprLiveDomainPath={csprLiveDomainPath}
       />
     </FlexRow>
   );
@@ -67,10 +67,8 @@ export const NftActionRow = ({
 }: NftActionRowProps) => {
   const {
     getAccountInfo,
-    getNftPath,
-    getContractPackagePath,
-    getAccountPath,
     getContractPackageInfoByHash,
+      csprLiveDomainPath
   } = useDeployActionDataContext();
   const fromAccountInfo = getAccountInfo<AccountInfoResult>(
     from_public_key || from_hash || '',
@@ -91,12 +89,12 @@ export const NftActionRow = ({
       )}
       <NftCollectionIdentifier
         contractPackage={contract_package}
-        getContractPackagePath={getContractPackagePath}
+        path={`${csprLiveDomainPath}/contract-package/${contract_package.contract_package_hash}`}
       />
       <NftTokenIds
         nftTokenIds={nftTokenIds}
         collectionHash={contract_package?.contract_package_hash}
-        getNftPath={getNftPath}
+        csprLiveDomainPath={csprLiveDomainPath}
       />
 
       {from_hash && (
@@ -119,8 +117,7 @@ export const NftActionRow = ({
             hashFontSize={'sm'}
             avatarSize="small"
             hash={from_hash}
-            getContractPackagePath={getContractPackagePath}
-            getAccountPath={getAccountPath}
+            csprLiveDomainPath={csprLiveDomainPath}
           />
         </>
       )}
@@ -142,8 +139,7 @@ export const NftActionRow = ({
             hashFontSize={'sm'}
             avatarSize="small"
             hash={to_hash}
-            getContractPackagePath={getContractPackagePath}
-            getAccountPath={getAccountPath}
+            csprLiveDomainPath={csprLiveDomainPath}
           />
         </>
       )}
