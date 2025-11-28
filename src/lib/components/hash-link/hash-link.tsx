@@ -38,7 +38,7 @@ export const HashLink = ({
 
   return (
     <FlexRow itemsSpacing={4} align={align}>
-      <Link color={'hash'} href={href}>
+      <Link color={'primaryBlue'} href={href}>
         {truncatedCsprName || formattedHash}
       </Link>
       <Copy value={copiedValue} minified={minified} />

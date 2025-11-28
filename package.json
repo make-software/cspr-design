@@ -32,6 +32,7 @@
   "dependencies": {
     "@formatjs/intl": "^3.1.6",
     "big.js": "^7.0.1",
+    "casper-js-sdk": "^5.0.3",
     "copy-to-clipboard": "^3.3.3",
     "date-fns": "^4.1.0",
     "downshift": "^9.0.4",

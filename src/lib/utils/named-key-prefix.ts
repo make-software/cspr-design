@@ -14,13 +14,13 @@ export enum NamedKeyPrefix {
 
 export const hashPrefixRegEx = new RegExp(
   `(${Object.values(NamedKeyPrefix).join('|')})(?=[0-9a-fA-F])`,
-  'i'
+  'i',
 );
 
 export const hasNamedKeyPrefix = (value: any): boolean =>
   typeof value === 'string' &&
   Object.values(NamedKeyPrefix).some((prefix) =>
-    (value || '').includes(prefix)
+    (value || '').includes(prefix),
   );
 
 export const getNamedKeyPrefix = (value: string): string => {
