@@ -21,6 +21,10 @@ export declare const formatDate: (value: string | number) => string;
 export declare const formatDateWithWeekday: (value: string) => string;
 export declare const formatDateShort: (value: string) => string;
 export declare const formatDateWithMonthAndYear: (value: string) => string;
+export declare enum HashFontSize {
+    'default' = "default",
+    'big' = "big"
+}
 export declare enum HashLength {
     FULL = 0,
     TINY = 5,
