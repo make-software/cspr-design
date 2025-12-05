@@ -1,5 +1,5 @@
 import { isObjEmpty } from './object.tsx';
-import {AccountInfoResult, GeneralizedAccountInfo} from "../types/types";
+import {AccountCentralizedInfo, AccountInfoResult, GeneralizedAccountInfo} from "../types/types";
 import { Conversions, PublicKey as CLPublicKey } from 'casper-js-sdk';
 
 type Input = { base64: string } | { publicKeyHex: string };

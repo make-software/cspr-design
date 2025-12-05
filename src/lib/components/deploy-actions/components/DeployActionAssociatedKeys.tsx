@@ -1,7 +1,6 @@
 import React from 'react';
 import { useDeployActionDataContext } from '../services/deploy-action-context';
 import { deriveAccountInfo } from '../../../utils/account';
-import { deriveUpdatedAssociatedKey } from '../utils/deploy-action-helpers';
 import { DataResponse, Deploy, GetDeployResult } from '../../../types/types';
 import { deriveSplitDataFromNamedKeyValue } from '../../../utils/named-key';
 import FlexRow from '../../flex-row/flex-row';
@@ -9,6 +8,7 @@ import BodyText from '../../body-text/body-text';
 import { ContractIdentifier } from '../../contract-identifier/contract-identifier';
 import { HashFontSize } from '../../../utils/formatters';
 import Address from '../../address/address';
+import {deriveUpdatedAssociatedKey} from "../../../utils/deploy-action-helpers";
 
 interface DeployAssociatedKeysActionProps {
   deploy: Deploy;

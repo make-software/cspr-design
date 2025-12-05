@@ -228,7 +228,7 @@ export const DeployResultRowComponent = (
         <ExpandCollapsedButton
           collapsedLabel={
             <>
-              <>View all</>
+              <>View all </>
               {combinedActionComponents?.length}
               <> results</>
             </>
@@ -268,3 +268,5 @@ export const DeployResultRow = (props: DeployResultRowProps) => {
     </DeployActionDataProvider>
   );
 };
+
+export default DeployResultRow;
