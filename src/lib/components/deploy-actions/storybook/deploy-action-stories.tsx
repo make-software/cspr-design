@@ -16,8 +16,8 @@ import {
   cep18Deploy,
   nftDeploy,
 } from './mockedDeploys';
-import { MapDeploy } from '../utils/deploy-action-helpers';
 import BodyText from '../../body-text/body-text';
+import {MapDeploy} from "../../../utils/deploy-action-helpers";
 
 export default {
   renderComponent: (args) => DeployActionRow,

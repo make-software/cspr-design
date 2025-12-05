@@ -86,9 +86,16 @@ export * from './utils/named-key-prefix';
 export * from './utils/detect-browser';
 export * from './utils/formatters';
 export * from './utils/input-interaction-type';
+export * from './utils/account';
+export * from './utils/deploy-action-helpers';
+export * from './utils/named-key';
+export * from './utils/guards';
 export * from './utils/currency';
 export * from './utils/md5';
 export * from './theme-config';
-export * from './types';
+export * from './types/types';
+export * from './types/NFTToken';
+export * from './types/FTToken';
+export * from './types/CLType';
 
 export * from './icons-index';

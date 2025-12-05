@@ -4,7 +4,7 @@ import { deriveAccountInfo } from '../../../utils/account.tsx';
 import { useMatchMedia } from '../../../utils/match-media';
 import DeployFiatAmount from './DeployFiatAmount';
 import { useDeployActionDataContext } from '../services/deploy-action-context';
-import AuctionContractIcon from '../../../assets/icons/ic-auction-contract.svg';
+import {AuctionContractIcon} from '../../../icons-index';
 import FlexRow from '../../flex-row/flex-row';
 import Avatar from '../../avatar/avatar';
 import BodyText from '../../body-text/body-text';

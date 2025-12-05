@@ -1,6 +1,6 @@
 import React from 'react';
 import { Meta, StoryFn } from '@storybook/react';
-import { MapDeploy } from '../deploy-actions/utils/deploy-action-helpers';
+
 import {
   associatedKeysDeploy,
   auctionDeploy,
@@ -18,6 +18,7 @@ import { ActivityFeedItem } from './activity-feed-item';
 import FlexColumn from '../flex-column/flex-column';
 import FlexRow from '../flex-row/flex-row';
 import BodyText from '../body-text/body-text';
+import {MapDeploy} from "../../utils/deploy-action-helpers";
 
 export default {
   renderComponent: (args) => ActivityFeedItem,

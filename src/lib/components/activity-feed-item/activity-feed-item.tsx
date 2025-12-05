@@ -440,3 +440,5 @@ export const ActivityFeedItem = ({
 
   return <StyledPageTile>{responsiveFeedItem}</StyledPageTile>;
 };
+
+export default ActivityFeedItem;

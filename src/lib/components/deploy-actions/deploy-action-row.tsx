@@ -25,7 +25,7 @@ import {
   GetDeployResult,
 } from '../../types/types';
 import { Transaction } from 'casper-js-sdk';
-import { getWasmProxyArgumentsFromRawData } from './utils/deploy-action-helpers';
+import {getWasmProxyArgumentsFromRawData} from "../../utils/deploy-action-helpers";
 
 export type ActionIdentificationHashesType = {
   auction_manager_contract_hash?: string;
@@ -211,3 +211,5 @@ export const DeployActionRow = (props: DeployActionRowProps) => {
     </DeployActionDataProvider>
   );
 };
+
+export default DeployActionRow;
