@@ -35288,7 +35288,7 @@ const A8 = be(M8).withConfig({
   theme: e,
   lineHeight: o = "sm",
   scale: g = "sm",
-  paddingScale: C = 2
+  $paddingScale: C = 2
 }) => ({
   zIndex: e.zIndex.tooltip,
   color: e.styleguideColors.contentPrimary,
@@ -35318,7 +35318,7 @@ const A8 = be(M8).withConfig({
   monotype: x,
   lineHeight: r = "sm",
   scale: c = "sm",
-  paddingScale: n = 2,
+  $paddingScale: n = 2,
   ...a
 }, i) => {
   const m = P8({
@@ -35326,7 +35326,7 @@ const A8 = be(M8).withConfig({
   }), t = o ? typeof o == "string" ? o : "500px" : void 0;
   return e == null ? null : g == null ? /* @__PURE__ */ $(Ct, { children: e }) : /* @__PURE__ */ Pe(Ct, { children: [
     /* @__PURE__ */ $(E8, { ...m, ref: e.ref, ...e.props, children: (f) => At.cloneElement(e, f) }),
-    /* @__PURE__ */ $(A8, { paddingScale: n, ...m, ...a, children: /* @__PURE__ */ $("div", { style: {
+    /* @__PURE__ */ $(A8, { $paddingScale: n, ...m, ...a, children: /* @__PURE__ */ $("div", { style: {
       maxWidth: t
     }, children: /* @__PURE__ */ Pe(Ut, { itemsSpacing: 8, children: [
       /* @__PURE__ */ Pe(Ut, { children: [
@@ -39888,7 +39888,7 @@ const Fv = be(no).withConfig({
   }
 }));
 function k_(e) {
-  return /* @__PURE__ */ $(lr, { tooltipContent: e.tooltip, limitWidth: !0, lineHeight: e.lineHeight, scale: e.scale, paddingScale: e.tooltipPaddingScale, children: /* @__PURE__ */ $(Fv, { color: "utility", ...e, children: /* @__PURE__ */ Pe(je, { gap: 3, align: "center", children: [
+  return /* @__PURE__ */ $(lr, { tooltipContent: e.tooltip, limitWidth: !0, lineHeight: e.lineHeight, scale: e.scale, $paddingScale: e.tooltipPaddingScale, children: /* @__PURE__ */ $(Fv, { color: "utility", ...e, children: /* @__PURE__ */ Pe(je, { gap: 3, align: "center", children: [
     e.children,
     e.tooltip && /* @__PURE__ */ $(_t, { width: 17, height: 16, src: Gf })
   ] }) }) });
