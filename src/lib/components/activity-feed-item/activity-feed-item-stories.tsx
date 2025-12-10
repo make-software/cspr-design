@@ -18,7 +18,7 @@ import { ActivityFeedItem } from './activity-feed-item';
 import FlexColumn from '../flex-column/flex-column';
 import FlexRow from '../flex-row/flex-row';
 import BodyText from '../body-text/body-text';
-import {MapDeploy} from "../../utils/deploy-action-helpers";
+import { MapDeploy } from '../../utils/deploy-action-helpers';
 
 export default {
   renderComponent: (args) => ActivityFeedItem,

@@ -11,7 +11,7 @@ import {
 import { Size } from '../../types.ts';
 import { HashLength } from '../../utils/formatters';
 import Address from '../address/address';
-import { BodyTextProps } from '@make-software/cspr.design';
+import { BodyTextProps } from '../body-text/body-text';
 
 interface TransactorInfoProps {
   type?: TransactorHashType | undefined;

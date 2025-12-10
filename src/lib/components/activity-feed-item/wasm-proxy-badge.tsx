@@ -1,9 +1,8 @@
 import React from 'react';
 import { useTheme } from 'styled-components';
-import { BadgeProps } from '@make-software/cspr.design';
 import Tooltip from '../tooltip/tooltip';
 import FlexRow from '../flex-row/flex-row';
-import Badge from '../badge/badge';
+import Badge, { BadgeProps } from '../badge/badge';
 
 export const WasmProxyBadge = ({
   lineHeight,
