@@ -25,4 +25,4 @@ yarn-error.log*
 /src/stories/
 
 *storybook.log
-/dist/
+#/dist/
