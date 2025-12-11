@@ -1,1 +1,0 @@
-{"version":3,"file":"derive-ft-token-market-data-service.d.ts","sourceRoot":"","sources":["../../../../src/lib/utils/derive-ft-token-market-data-service.ts"],"names":[],"mappings":"AAAA,OAAO,EAAE,2BAA2B,EAAE,MAAM,gBAAgB,CAAC;AAC7D,OAAO,EAAE,iBAAiB,EAAE,MAAM,kBAAkB,CAAC;AAErD,eAAO,MAAM,8BAA8B,GACzC,qBAAqB,2BAA2B,GAAG,SAAS,GAAG,IAAI,KAClE,iBAgCF,CAAC;AAEF,eAAe,8BAA8B,CAAC"}

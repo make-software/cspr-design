@@ -1,17 +1,18 @@
 import { default as React, PropsWithChildren } from 'react';
+import { AccountInfoResult, ContractResult, DeployContractPackageResult } from '../../../index.ts';
 type DeployActionDataContextType = {
-    getAccountInfo: <T>(publicKey: string) => T | null | undefined;
-    getContractPackageInfoByHash: <T>(contractPackageHash: string) => T | null | undefined;
-    getContractInfoByHash?: <T>(contractHash: string) => T | null | undefined;
+    getAccountInfo: (publicKey: string) => AccountInfoResult | null | undefined;
+    getContractPackageInfoByHash: (contractPackageHash: string) => DeployContractPackageResult | null | undefined;
+    getContractInfoByHash: (contractHash: string) => ContractResult | null | undefined;
     getPublicKeyAccountHash: (accountHash: string) => string | null | undefined;
     csprLiveDomainPath: string;
 };
 export declare const deployActionDataContext: React.Context<DeployActionDataContextType>;
 export declare const useDeployActionDataContext: () => DeployActionDataContextType;
 type DeployActionDataProviderProps = {
-    getAccountInfo: <T>(publicKey: string) => T | null | undefined;
-    getContractPackageInfoByHash?: <T>(contractPackageHash: string) => T | null | undefined;
-    getContractInfoByHash?: <T>(contractHash: string) => T | null | undefined;
+    getAccountInfo: (publicKey: string) => AccountInfoResult | null | undefined;
+    getContractPackageInfoByHash?: (contractPackageHash: string) => DeployContractPackageResult | null | undefined;
+    getContractInfoByHash?: (contractHash: string) => ContractResult | null | undefined;
     csprLiveDomainPath: string;
 };
 export declare const DeployActionDataProvider: (props: PropsWithChildren<DeployActionDataProviderProps>) => import("react/jsx-runtime").JSX.Element;

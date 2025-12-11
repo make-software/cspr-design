@@ -1,14 +1,11 @@
 import { AvatarProps } from '../avatar/avatar';
 import { DeployContractPackageResult } from '../../types/types';
+import { BodyTextProps } from '../body-text/body-text';
 import { HashLength } from '../../utils/formatters.ts';
-export declare enum HashFontSize {
-    'default' = "default",
-    'big' = "big"
-}
 export declare const UnknownContractInfo: ({ hash, iconSize, hashFontSize, hashLength, path, }: {
     hash: string | null;
     iconSize?: AvatarProps["size"];
-    hashFontSize?: HashFontSize;
+    hashFontSize?: BodyTextProps["scale"];
     hashLength?: HashLength;
     path: string;
 }) => import("react/jsx-runtime").JSX.Element | null;
@@ -17,7 +14,7 @@ interface DefaultContractIdentifierProps {
     contractPackage?: DeployContractPackageResult;
     hashLength?: HashLength;
     avatarSize?: AvatarProps['size'];
-    hashFontSize?: HashFontSize;
+    hashFontSize?: BodyTextProps['scale'];
     hideContractType?: boolean;
     loading?: boolean;
     path: string;

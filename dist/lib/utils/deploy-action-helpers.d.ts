@@ -1,7 +1,11 @@
 import { ExecutionResult } from 'casper-js-sdk';
 import { Deploy, DeployResult, GetDeployResult, PaginatedResponse } from '../types/types';
-export declare const getExecutionResultsFromDeployRawData: (deployRawData?: GetDeployResult) => ExecutionResult | null;
-export declare const deriveUpdatedAssociatedKey: (deployRawData: GetDeployResult | undefined) => string | undefined;
+export declare const getExecutionResultsFromDeployRawData: (deployRawData?: (GetDeployResult & {
+    api_version: string;
+}) | undefined | null) => ExecutionResult | null;
+export declare const deriveUpdatedAssociatedKey: (deployRawData: (GetDeployResult & {
+    api_version: string;
+}) | undefined | null) => string | undefined;
 export declare function getWasmProxyArguments(args: any): Record<string, any>;
 export declare function getWasmProxyArgumentsFromRawData(argumentsFromRawData: any): Record<string, any> | null;
 export declare const deriveHashListByKeysFromObject: (data: any, keys: string[]) => string[] | null;
