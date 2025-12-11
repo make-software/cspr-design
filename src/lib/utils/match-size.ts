@@ -10,10 +10,10 @@
  */
 export const matchSize = <
   SizeType extends string | number,
-  ReturnType extends any,
+  ReturnType extends any
 >(
   matchers: Record<SizeType, ReturnType>,
-  size: SizeType,
+  size: SizeType
 ): ReturnType => {
   const match = matchers[size];
   if (match == null) {

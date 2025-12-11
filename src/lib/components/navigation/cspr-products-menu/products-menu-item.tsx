@@ -56,14 +56,14 @@ export const ProductItemWrapper = styled.span<{
         color: theme.styleguideColors.contentSecondary,
       },
     }),
-  }),
+  })
 );
 
 export const StyledBodyText = styled(BodyText)<{}>(({ theme }) =>
   theme.withMedia({
     whiteSpace: 'nowrap',
     color: theme.styleguideColors.contentPrimary,
-  }),
+  })
 );
 
 const defaultIcon = {

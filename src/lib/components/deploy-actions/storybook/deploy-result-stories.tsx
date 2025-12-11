@@ -17,7 +17,7 @@ import {
 } from './mockedDeploys';
 import BodyText from '../../body-text/body-text';
 import { DeployResultRow, ResultRowVariation } from '../deploy-result-row';
-import { MapDeploy } from '../../../utils/deploy-action-helpers';
+import {MapDeploy} from "../../../utils/deploy-action-helpers";
 
 export default {
   renderComponent: (args) => DeployResultRow,

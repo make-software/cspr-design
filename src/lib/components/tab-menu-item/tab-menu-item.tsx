@@ -16,7 +16,7 @@ export interface TabMenuItemProps extends ButtonProps, ActivableProps {
   lineHeight?: 'xs' | 'sm';
   scale?: 'xs' | 'sm';
   tooltipPaddingScale?: 1 | 2;
-  hasOutline?: boolean;
+  hasOutline?:boolean;
 }
 
 const StyledButton = styled(Button)<TabMenuItemProps>(

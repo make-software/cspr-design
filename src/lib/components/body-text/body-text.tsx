@@ -23,7 +23,7 @@ const StyledText = styled(Text)<BodyTextProps>(
         3: theme.typography.fontWeight.regular,
         4: theme.typography.fontWeight.light,
       },
-      size,
+      size
     ),
     fontSize: matchSize(
       {
@@ -33,24 +33,24 @@ const StyledText = styled(Text)<BodyTextProps>(
         sm: '0.875rem',
         xs: '0.813rem',
       },
-      scale,
+      scale
     ),
     lineHeight: matchSize(
       {
         sm: '1.5rem',
         xs: '1.25rem',
       },
-      lineHeight,
+      lineHeight
     ),
-    '&:where(h1, h2, h3, h4, h5, h6)': {
-      margin: 0,
-    },
-  }),
+      '&:where(h1, h2, h3, h4, h5, h6)': {
+          margin: 0,
+      },
+  })
 );
 
 export const BodyText = React.forwardRef<Ref, BodyTextProps>(function BodyText(
   props: BodyTextProps,
-  ref,
+  ref
 ) {
   return <StyledText ref={ref} {...props} />;
 });

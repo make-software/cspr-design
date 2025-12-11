@@ -17,7 +17,7 @@ import {
   nftDeploy,
 } from './mockedDeploys';
 import BodyText from '../../body-text/body-text';
-import { MapDeploy } from '../../../utils/deploy-action-helpers';
+import {MapDeploy} from "../../../utils/deploy-action-helpers";
 
 export default {
   renderComponent: (args) => DeployActionRow,

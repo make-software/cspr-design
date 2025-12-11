@@ -1,5 +1,5 @@
 import { InfoGetDeployResult, DeployExecutionResult } from 'casper-js-sdk';
-import { CLTypeParsedResult, CLTypeTypeResult } from './CLType';
+import {CLTypeParsedResult, CLTypeTypeResult} from './CLType';
 export type ResponseError = { message?: string };
 
 export type DataResponse<T = any> = {

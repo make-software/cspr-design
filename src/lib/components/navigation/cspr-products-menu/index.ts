@@ -1,4 +1,4 @@
-import { ProductsMenu } from './products-menu';
-import { ProductsMenuItem } from './products-menu-item';
+import { ProductsMenu } from "./products-menu";
+import { ProductsMenuItem } from "./products-menu-item";
 
 export { ProductsMenuItem, ProductsMenu };

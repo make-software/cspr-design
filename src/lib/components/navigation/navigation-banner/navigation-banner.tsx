@@ -19,13 +19,13 @@ export interface NavigationBannerStyleProps extends TextProps {
 
 const getTopBannerColors = (
   theme,
-  color: NavigationBannerStyleProps['color'],
+  color: NavigationBannerStyleProps['color']
 ) =>
   ({
     blue: theme.colorSpecialCase.blueBanner,
     red: theme.styleguideColors.fillPrimaryRed,
     lightBlue: theme.colorSpecialCase.blueBanner2,
-  })[color];
+  }[color]);
 
 const StyledTopBanner = styled.div<NavigationBannerStyleProps>(
   ({ theme, size = 2, color }) => ({
@@ -36,10 +36,10 @@ const StyledTopBanner = styled.div<NavigationBannerStyleProps>(
         2: 14,
         3: 16,
       },
-      size,
+      size
     ),
     width: '100%',
-  }),
+  })
 );
 
 const BannerLink = styled.a(({ theme }) =>
@@ -50,7 +50,7 @@ const BannerLink = styled.a(({ theme }) =>
       color: [theme.styleguideColors.contentTertiary],
     },
     textDecoration: 'none',
-  }),
+  })
 );
 
 const NavigationBanner = ({ message, link }: NavigationBannerProps) => {
@@ -76,7 +76,7 @@ const NavigationBanner = ({ message, link }: NavigationBannerProps) => {
 
   const responsiveNavigationBanner = useMatchMedia(
     [onMobile, onMobile, onAbove],
-    [],
+    []
   );
 
   return responsiveNavigationBanner;

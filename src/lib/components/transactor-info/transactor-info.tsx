@@ -16,7 +16,7 @@ import { BodyTextProps } from '../body-text/body-text';
 interface TransactorInfoProps {
   type?: TransactorHashType | undefined | null;
   accountInfo: AccountInfoResult | AccountCentralizedInfo | undefined;
-  contractPackage?: DeployContractPackageResult | undefined | null;
+  contractPackage?: DeployContractPackageResult  | undefined | null;
   hash: string | null;
   publicKey: string | undefined | null;
   csprName?: string | undefined | null;

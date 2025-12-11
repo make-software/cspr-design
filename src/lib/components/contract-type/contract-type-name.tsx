@@ -1,5 +1,5 @@
 import React from 'react';
-import { ContractTypeId } from '../../types/types';
+import {ContractTypeId} from "../../types/types";
 
 export const contractTypes = {
   [ContractTypeId.System]: 'System Contract',
@@ -19,5 +19,11 @@ export const ContractTypeName = ({
 }: {
   contractTypeId: number | null;
 }) => {
-  return <>{contractTypeId ? contractTypes[contractTypeId] : null}</>;
+  return (
+    <>
+      {contractTypeId ? (
+        contractTypes[contractTypeId]
+      ) : null}
+    </>
+  );
 };

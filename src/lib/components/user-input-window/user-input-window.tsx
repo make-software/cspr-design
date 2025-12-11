@@ -101,20 +101,20 @@ const ModalContainer = styled(FlexColumn)<ModalPositionProps>(
           : ['300px', '440px', '496px'],
       background: theme.styleguideColors.backgroundPrimary,
       borderColor: theme.styleguideColors.backgroundPrimary,
-    }),
+    })
 );
 
 const ImageWrapper = styled(FlexRow)(({ theme }) =>
   theme.withMedia({
     margin: '15px 0 24px 0',
-  }),
+  })
 );
 
 const StyledCaption = styled.div<ModalPositionProps>(({ theme, position }) =>
   theme.withMedia({
     textAlign: 'left',
     marginBottom: '16px',
-  }),
+  })
 );
 
 const StyledCaptionText = styled(SubtitleText)(({ theme }) =>
@@ -122,14 +122,14 @@ const StyledCaptionText = styled(SubtitleText)(({ theme }) =>
     fontWeight: [600, 600, 700],
     fontSize: ['20px', '24px', '24px'],
     color: theme.styleguideColors.contentPrimary,
-  }),
+  })
 );
 
 const StyledInformationText = styled(BodyText)<ModalPositionProps>(
   ({ theme, position }) =>
     theme.withMedia({
       color: theme.styleguideColors.contentSecondary,
-    }),
+    })
 );
 
 const ButtonsContainer = styled(FlexRow)<ModalPositionProps>(
@@ -138,7 +138,7 @@ const ButtonsContainer = styled(FlexRow)<ModalPositionProps>(
       marginTop:
         position === ModalPosition.TopRight ? '40px' : ['32px', '32px', '56px'],
       flexDirection: ['column', 'row', 'row'],
-    }),
+    })
 );
 
 const StyledInput = styled(Input)<{ margin?: string }>(({ theme, margin }) =>
@@ -148,7 +148,7 @@ const StyledInput = styled(Input)<{ margin?: string }>(({ theme, margin }) =>
     ':focus': {
       outline: 'none',
     },
-  }),
+  })
 );
 
 const CheckBoxContainer = styled.div<ModalPositionProps>(
@@ -158,7 +158,7 @@ const CheckBoxContainer = styled.div<ModalPositionProps>(
         position === ModalPosition.TopRight
           ? '40px 0 -20px 0'
           : ['40px 0 -20px 0', '40px 0 -20px 0', '72px 0 -40px 0'],
-    }),
+    })
 );
 
 const handleTheme = (theme, position) => {

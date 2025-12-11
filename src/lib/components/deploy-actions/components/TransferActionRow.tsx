@@ -14,7 +14,7 @@ import BodyText from '../../body-text/body-text';
 import Address from '../../address/address';
 import { TableDataNamedKey } from '../../table-data-named-key/table-data-named-key';
 import Link from '../../link/link';
-import { AuctionContractIcon } from '../../../icons-index';
+import {AuctionContractIcon} from '../../../icons-index';
 
 interface TransferActionAccountProps {
   publicKey?: string | null;

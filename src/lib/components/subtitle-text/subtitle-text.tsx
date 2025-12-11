@@ -22,26 +22,26 @@ const StyledText = styled(Text)<SubtitleTextProps>(
             2: theme.typography.fontWeight.regular,
             3: theme.typography.fontWeight.light,
           },
-          size,
+          size
         ),
     fontSize: matchSize(
       {
         lg: '1.5rem',
         md: '1.25rem',
       },
-      scale,
+      scale
     ),
     lineHeight: '2rem',
-    '&:where(h1, h2, h3, h4, h5, h6)': {
-      margin: 0,
-    },
-  }),
+      '&:where(h1, h2, h3, h4, h5, h6)': {
+          margin: 0,
+      },
+  })
 );
 
 export const SubtitleText = React.forwardRef<Ref, SubtitleTextProps>(
   (props: SubtitleTextProps, ref) => {
     return <StyledText ref={ref} {...props} />;
-  },
+  }
 );
 
 export default SubtitleText;

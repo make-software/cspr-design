@@ -6,7 +6,7 @@ import FlexBox, { FlexBoxProps } from '../flex-box/flex-box';
 export interface FlexRowProps extends FlexBoxProps {}
 
 export const FlexRow = React.forwardRef<HTMLDivElement, FlexRowProps>(
-  (props, ref) => <FlexBox ref={ref} direction="row" {...props} />,
+  (props, ref) => <FlexBox ref={ref} direction="row" {...props} />
 );
 
 export default FlexRow;

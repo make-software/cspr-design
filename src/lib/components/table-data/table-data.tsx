@@ -25,7 +25,7 @@ const StyledTableData = styled.td<TableDataProps>(
     ...(fitContent && {
       width: '1%',
     }),
-  }),
+  })
 );
 
 export function TableData(props: TableDataProps) {

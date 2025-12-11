@@ -26,22 +26,22 @@ const StyledFlexRow = styled(FlexRow)<{
         checked && !disabled && customCheckedColor
           ? customCheckedColor
           : checked && !disabled
-            ? theme.styleguideColors.contentBlue
-            : 'none',
+          ? theme.styleguideColors.contentBlue
+          : 'none',
       path: {
         fill:
           checked && !disabled
             ? theme.styleguideColors.backgroundPrimary
             : checked && disabled
-              ? theme.styleguideColors.contentQuaternary
-              : 'none',
+            ? theme.styleguideColors.contentQuaternary
+            : 'none',
       },
       rect: {
         stroke: disabled
           ? theme.styleguideColors.contentQuaternary
           : customUncheckedColor
-            ? customUncheckedColor
-            : theme.styleguideColors.contentBlue,
+          ? customUncheckedColor
+          : theme.styleguideColors.contentBlue,
       },
     },
     span: {
@@ -49,7 +49,7 @@ const StyledFlexRow = styled(FlexRow)<{
         ? theme.styleguideColors.contentQuaternary
         : theme.styleguideColors.contentPrimary,
     },
-  }),
+  })
 );
 
 export enum CheckboxFontSize {
@@ -107,8 +107,8 @@ export function Checkbox({
       disabled={disabled}
       onClick={handleClick}
       onKeyDown={(ev) => {
-        if (ev.key === 'Enter') {
-          handleClick(ev);
+        if(ev.key === 'Enter'){
+          handleClick(ev)
         }
       }}
       customCheckedColor={customCheckedColor}
@@ -116,7 +116,7 @@ export function Checkbox({
       role="checkbox"
       aria-checked={checked}
       aria-disabled={disabled}
-      aria-label={checked ? 'Checked' : 'Not checked'}
+      aria-label={checked ? "Checked" : "Not checked"}
       tabIndex={0}
     >
       <SvgIcon src={iconSrc} />

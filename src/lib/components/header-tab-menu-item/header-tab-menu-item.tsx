@@ -25,7 +25,7 @@ const StyledHeaderTabMenuItem = styled(HeaderText)<ActivableProps>(
       color: theme.styleguideColors.contentPrimary,
       cursor: 'default',
     }),
-  }),
+  })
 );
 
 export function HeaderTabMenuItem(props: HeaderTabMenuItemProps) {

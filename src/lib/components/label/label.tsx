@@ -20,19 +20,19 @@ const StyledText = styled(Text)<LabelProps>(
         1: theme.typography.fontWeight.bold,
         2: theme.typography.fontWeight.medium,
       },
-      size,
+      size
     ),
-    lineHeight: matchSize(
-      {
-        sm: '1.5rem',
-        xs: '1.25rem',
-        xxs: '0.75rem',
-      },
-      lineHeight,
-    ),
+      lineHeight: matchSize(
+          {
+              sm: '1.5rem',
+              xs: '1.25rem',
+              xxs: '0.75rem'
+          },
+          lineHeight
+      ),
     fontSize: '0.625rem',
     textTransform: transform,
-  }),
+  })
 );
 
 export function Label(props: LabelProps) {

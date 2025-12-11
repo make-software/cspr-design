@@ -15,7 +15,7 @@ const HeaderContainer = styled(FlexColumn)<{ margin?: string }>(
   ({ theme, margin }) =>
     theme.withMedia({
       margin: margin ? margin : '16px 0 16px 0',
-    }),
+    })
 );
 export const ModalContentHeader = ({
   title,

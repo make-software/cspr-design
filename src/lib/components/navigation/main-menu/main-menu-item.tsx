@@ -15,7 +15,7 @@ const NavItem = styled.li<{ selected?: boolean }>(({ theme, selected }) =>
       cursor: 'pointer',
       color: theme.styleguideColors.contentOnFill,
     },
-  }),
+  })
 );
 
 export interface MainMenuItemProps {

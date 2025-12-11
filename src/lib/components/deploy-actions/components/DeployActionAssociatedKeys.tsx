@@ -7,14 +7,11 @@ import FlexRow from '../../flex-row/flex-row';
 import BodyText from '../../body-text/body-text';
 import { ContractIdentifier } from '../../contract-identifier/contract-identifier';
 import Address from '../../address/address';
-import { deriveUpdatedAssociatedKey } from '../../../utils/deploy-action-helpers';
+import {deriveUpdatedAssociatedKey} from "../../../utils/deploy-action-helpers";
 
 interface DeployAssociatedKeysActionProps {
   deploy: Deploy;
-  deployRawData:
-    | DataResponse<GetDeployResult & { api_version: string }>
-    | undefined
-    | null;
+  deployRawData: DataResponse< GetDeployResult & {api_version: string}> | undefined | null;
   renderAsResultAction?: boolean;
 }
 

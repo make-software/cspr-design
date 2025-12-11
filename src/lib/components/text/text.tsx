@@ -86,16 +86,14 @@ const StyledText = styled('span').withConfig({
       wordBreak: 'break-word',
     }),
     '-webkit-text-size-adjust': '100%',
-  }),
+  })
 );
 
 export const Text = React.forwardRef<Ref, TextProps>(function Text(
   { tag = 'span', ...props }: TextProps,
-  ref,
+  ref
 ) {
-  const validTag = ['h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'span'].includes(tag)
-    ? tag
-    : 'span';
+  const validTag = ['h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'span'].includes(tag) ? tag : 'span';
   if (props.loading) {
     return (
       <StyledText ref={ref} {...props} as={validTag}>
@@ -104,7 +102,7 @@ export const Text = React.forwardRef<Ref, TextProps>(function Text(
     );
   }
 
-  return <StyledText ref={ref} {...props} as={validTag} />;
+  return <StyledText ref={ref} {...props} as={validTag}/>;
 });
 
 export default Text;

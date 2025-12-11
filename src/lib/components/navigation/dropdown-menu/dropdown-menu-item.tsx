@@ -2,17 +2,15 @@ import React, { PropsWithChildren } from 'react';
 import styled from 'styled-components';
 import FlexRow from '../../flex-row/flex-row';
 
-const ItemContainer = styled(FlexRow)<{ padding?: string }>(
-  ({ theme, padding }) => ({
-    width: '100%',
-    cursor: 'pointer',
-    padding: padding ?? '12px 16px',
-    ':hover, :active': {
-      borderRadius: theme.borderRadius.base,
-      background: theme.styleguideColors.fillSecondary,
-    },
-  }),
-);
+const ItemContainer = styled(FlexRow)<{ padding?: string }>(({ theme, padding }) => ({
+  width: '100%',
+  cursor: 'pointer',
+  padding: padding ?? '12px 16px',
+  ':hover, :active': {
+    borderRadius: theme.borderRadius.base,
+    background: theme.styleguideColors.fillSecondary,
+  },
+}));
 
 const MenuItemWrapper = styled.li(({ theme }) =>
   theme.withMedia({
@@ -28,7 +26,7 @@ const MenuItemWrapper = styled.li(({ theme }) =>
         background: theme.styleguideColors.fillSecondary,
       },
     },
-  }),
+  })
 );
 
 interface DropdownMenuItemProps {
@@ -37,7 +35,7 @@ interface DropdownMenuItemProps {
 }
 
 export const DropdownMenuItem = (
-  props: PropsWithChildren<DropdownMenuItemProps>,
+  props: PropsWithChildren<DropdownMenuItemProps>
 ) => {
   return (
     <MenuItemWrapper {...props}>

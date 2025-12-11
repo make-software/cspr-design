@@ -3,7 +3,9 @@ import DeployActionDefault from './DeployActionDefault';
 import { Cep18ActionRow } from './Cep18ActionRow';
 import { useDeployActionDataContext } from '../services/deploy-action-context';
 import { Deploy } from '../../../types/types';
-import { prepareFtActionMessageDataForDeployDetails } from '../utils/prepare-action-messages';
+import {
+  prepareFtActionMessageDataForDeployDetails,
+} from '../utils/prepare-action-messages';
 
 interface DeployActionCep18Props {
   deploy: Deploy;

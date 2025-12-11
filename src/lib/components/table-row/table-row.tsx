@@ -30,7 +30,7 @@ export const StyledTableRow = styled.tr<{
       left: 20,
       right: 20,
       borderBottom: theme.border.tableRowSeparator,
-      bottom: 0,
+      bottom: 0
     },
     position: 'relative',
     ...(isClickable && {

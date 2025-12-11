@@ -27,28 +27,30 @@ export const CircularIndicatorTextVariation: {
 };
 
 const StyledText = styled(Text)<{
-  size: 1 | 2 | 3;
-  scale?: 'xs' | 'sm' | 'md' | 'lg';
-  lineHeight?: 'xs' | 'sm';
-  textSize: 1 | 2;
-}>(({ theme, size = 3, textSize }) => ({
-  fontWeight: matchSize(
-    {
-      1: theme.typography.fontWeight.semiBold,
-      2: theme.typography.fontWeight.medium,
-      3: theme.typography.fontWeight.regular,
-    },
-    size,
-  ),
-  fontSize: matchSize(
-    {
-      1: '0.813rem',
-      2: '0.875rem',
-    },
-    textSize,
-  ),
-  lineHeight: '1.25rem',
-}));
+    size: 1 | 2 | 3;
+    scale?: 'xs' | 'sm' | 'md' | 'lg';
+    lineHeight?: 'xs' | 'sm';
+    textSize: 1 | 2
+}>(
+  ({ theme, size = 3, textSize }) => ({
+    fontWeight: matchSize(
+      {
+        1: theme.typography.fontWeight.semiBold,
+        2: theme.typography.fontWeight.medium,
+        3: theme.typography.fontWeight.regular,
+      },
+      size
+    ),
+    fontSize: matchSize(
+      {
+        1: '0.813rem',
+        2: '0.875rem',
+      },
+      textSize
+    ),
+    lineHeight: '1.25rem',
+  })
+);
 
 export const ProgressColorsRange = [
   { id: 1, limit: 0, color: 'E6332A' },
@@ -71,7 +73,7 @@ const calculatePerfomanceGradientColor = (progress) => {
     (progress - PROGRESS_MINIMUM) / (PROGRESS_MAXIMUM - PROGRESS_MINIMUM);
 
   const firstGradientItem = ProgressColorsRange.find(
-    (range) => ratio <= range.limit,
+    (range) => ratio <= range.limit
   );
 
   const firstGradientColor = firstGradientItem!.color;
@@ -81,7 +83,7 @@ const calculatePerfomanceGradientColor = (progress) => {
   }
 
   const secondGradientColor = ProgressColorsRange.find(
-    (range) => range.id === firstGradientItem!.id + 1,
+    (range) => range.id === firstGradientItem!.id + 1
   )!.color;
 
   const hex = (x) => {
@@ -90,15 +92,15 @@ const calculatePerfomanceGradientColor = (progress) => {
 
   const r = Math.ceil(
     parseInt(firstGradientColor.substring(0, 2), 16) * ratio +
-      parseInt(secondGradientColor.substring(0, 2), 16) * (1 - ratio),
+      parseInt(secondGradientColor.substring(0, 2), 16) * (1 - ratio)
   );
   const g = Math.ceil(
     parseInt(firstGradientColor.substring(2, 4), 16) * ratio +
-      parseInt(secondGradientColor.substring(2, 4), 16) * (1 - ratio),
+      parseInt(secondGradientColor.substring(2, 4), 16) * (1 - ratio)
   );
   const b = Math.ceil(
     parseInt(firstGradientColor.substring(4, 6), 16) * ratio +
-      parseInt(secondGradientColor.substring(4, 6), 16) * (1 - ratio),
+      parseInt(secondGradientColor.substring(4, 6), 16) * (1 - ratio)
   );
   const color = hex(r) + hex(g) + hex(b);
 
@@ -113,13 +115,13 @@ export function CircularIndicator({
   size,
   progress,
   textSize,
-  title,
+  title
 }: CircularIndicatorProps) {
   const { stroke, radius } = matchSize(
     {
       medium: { stroke: 4, radius: 12 },
     },
-    size,
+    size
   );
 
   // validation 0 - 100
@@ -136,9 +138,9 @@ export function CircularIndicator({
   const color = calculatePerfomanceGradientColor(progress);
 
   return (
-    <FlexRow align="center" tag={'span'}>
+    <FlexRow align="center" tag={"span"}>
       <svg height={radius * 2} width={radius * 2}>
-        <title>{title}</title>
+          <title>{title}</title>
         <circle
           stroke={color}
           fill="transparent"

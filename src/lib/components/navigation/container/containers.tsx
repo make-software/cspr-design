@@ -7,7 +7,7 @@ const SettingsContainer = styled.div(({ theme }) =>
     height: '40px',
     width: '100%',
     display: 'flex',
-  }),
+  })
 );
 
 export interface ContainerProps {}

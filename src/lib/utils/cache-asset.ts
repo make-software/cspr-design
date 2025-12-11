@@ -5,7 +5,7 @@ interface ImageProxyUrlProps {
 
 export const getImageProxyUrl = (
   url: string | undefined,
-  { ttl, width }: ImageProxyUrlProps,
+  { ttl, width }: ImageProxyUrlProps
 ) => {
   if (!url) {
     return undefined;

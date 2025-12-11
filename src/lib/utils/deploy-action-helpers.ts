@@ -12,45 +12,42 @@ import {
   DeployResult,
   GetDeployResult,
   NetworkMajorVersion,
-  PaginatedResponse,
+  PaginatedResponse
 } from '../types/types';
-import { convertTransactionArgsToObj } from './cltype';
-import { deriveSplitDataFromNamedKeyValue } from './named-key';
-import { isNonNullable, isObject, uniq } from './guards';
+import {convertTransactionArgsToObj} from "./cltype";
+import {deriveSplitDataFromNamedKeyValue} from "./named-key";
+import {isNonNullable, isObject, uniq} from "./guards";
 
 export const getExecutionResultsFromDeployRawData = (
-  deployRawData?:
-    | (GetDeployResult & { api_version: string })
-    | undefined
-    | null,
+    deployRawData?: GetDeployResult & {api_version: string}  | undefined | null,
 ): ExecutionResult | null => {
   if (!deployRawData) return null;
   const networkVersionFromRawData =
-    (deployRawData.api_version && deployRawData.api_version.startsWith('1')
-      ? NetworkMajorVersion.V1
-      : NetworkMajorVersion.V2) || NetworkMajorVersion.V2;
+      (deployRawData.api_version && deployRawData.api_version.startsWith('1')
+          ? NetworkMajorVersion.V1
+          : NetworkMajorVersion.V2) || NetworkMajorVersion.V2;
 
   if (networkVersionFromRawData === '1') {
     const transactionData =
-      InfoGetDeployResultV1Compatible.fromJSON(deployRawData);
+        InfoGetDeployResultV1Compatible.fromJSON(deployRawData);
 
     return transactionData?.executionResults &&
-      transactionData?.executionResults[0]
-      ? ExecutionResult.fromV1(transactionData.executionResults?.[0].result)
-      : null;
+    transactionData?.executionResults[0]
+        ? ExecutionResult.fromV1(transactionData.executionResults?.[0].result)
+        : null;
   }
 
   const transactionData =
-    InfoGetTransactionResultV1Compatible.fromJSON(deployRawData);
+      InfoGetTransactionResultV1Compatible.fromJSON(deployRawData);
 
   return transactionData?.executionInfo
-    ? transactionData.executionInfo.executionResult
-    : null;
+      ? transactionData.executionInfo.executionResult
+      : null;
 };
 
+
 export const deriveUpdatedAssociatedKey = (
-  deployRawData: (GetDeployResult & { api_version: string }) | undefined | null,
-): string | undefined => {
+    deployRawData: GetDeployResult & {api_version: string} | undefined | null): string | undefined => {
   const executionResult: ExecutionResult | null =
     getExecutionResultsFromDeployRawData(deployRawData);
 
@@ -85,7 +82,7 @@ export function getWasmProxyArgumentsFromRawData(argumentsFromRawData) {
     console.error('getWasmProxyArgumentsFromRawData', e);
     return null;
   }
-}
+};
 
 export const deriveHashListByKeysFromObject = (data: any, keys: string[]) => {
   const result: string[] = [];
@@ -94,13 +91,13 @@ export const deriveHashListByKeysFromObject = (data: any, keys: string[]) => {
   }
 
   data.forEach((obj: any) => {
-    keys.forEach((key) => {
+    keys.forEach(key => {
       if (key in obj && obj[key] !== null && obj[key] !== undefined) {
         const hash = obj[key] as string;
 
         if (hash) {
           const { hash: hashWithoutPrefix } =
-            deriveSplitDataFromNamedKeyValue(hash);
+              deriveSplitDataFromNamedKeyValue(hash);
           result.push(hashWithoutPrefix);
         }
       }
@@ -116,8 +113,8 @@ export const deriveHashListByKeysFromObject = (data: any, keys: string[]) => {
  * @param keys
  */
 export const deriveHashListByKeysFromDeployArgsObject = (
-  data: any,
-  keys: string[],
+    data: any,
+    keys: string[]
 ) => {
   const result: string[] = [];
 
@@ -128,23 +125,23 @@ export const deriveHashListByKeysFromDeployArgsObject = (
   const uniqKeys = uniq(keys);
 
   data.forEach((obj: any) => {
-    uniqKeys.forEach((key) => {
+    uniqKeys.forEach(key => {
       if (
-        key in obj.args &&
-        obj.args[key] !== null &&
-        obj.args[key] !== undefined
+          key in obj.args &&
+          obj.args[key] !== null &&
+          obj.args[key] !== undefined
       ) {
         if (Array.isArray(obj.args[key].parsed)) {
           return;
         }
 
         const hash = isObject(obj.args[key].parsed)
-          ? (Object.values(obj.args[key].parsed)[0] as string)
-          : (obj.args[key].parsed as string);
+            ? (Object.values(obj.args[key].parsed)[0] as string)
+            : (obj.args[key].parsed as string);
 
         if (hash) {
           const { hash: hashWithoutPrefix } =
-            deriveSplitDataFromNamedKeyValue(hash);
+              deriveSplitDataFromNamedKeyValue(hash);
           result.push(hashWithoutPrefix);
         }
       }
@@ -203,9 +200,9 @@ export const MapDeploy = ({
 };
 
 export const MapPaginatedDeploys = ({
-  data,
-  ...rest
-}: PaginatedResponse<DeployResult>): PaginatedResponse<Deploy> => {
+                                      data,
+                                      ...rest
+                                    }: PaginatedResponse<DeployResult>): PaginatedResponse<Deploy> => {
   return {
     ...rest,
     data: data ? data.map(MapDeploy) : [],

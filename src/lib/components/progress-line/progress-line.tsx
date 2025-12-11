@@ -38,7 +38,7 @@ const StepText = styled(CaptionText)<{
     ...(isLastStep && {
       right: 0,
     }),
-  }),
+  })
 );
 
 const StepContainer = styled(FlexRow)<{ disabled: boolean; checked: boolean }>(
@@ -61,7 +61,7 @@ const StepContainer = styled(FlexRow)<{ disabled: boolean; checked: boolean }>(
         fill: theme.styleguideColors.backgroundPrimary,
       },
     },
-  }),
+  })
 );
 
 const Circle = styled.div<{ disabled?: boolean }>(({ theme, disabled }) => ({
@@ -85,7 +85,7 @@ const renderStep = (
   label: string,
   idx: number,
   currentIdx: number,
-  totalSteps: number,
+  totalSteps: number
 ) => {
   const isCurrentStep = idx === currentIdx;
   const isFirstStep = idx === 0;
@@ -132,7 +132,7 @@ export function ProgressLine({ steps, currentIdx }: ProgressLineProps) {
   return (
     <FlexRow align="center">
       {steps.map((label, idx) =>
-        renderStep(label, idx, currentIdx, steps.length),
+        renderStep(label, idx, currentIdx, steps.length)
       )}
     </FlexRow>
   );
