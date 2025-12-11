@@ -6,7 +6,8 @@ import {
 } from './default-contract-identifier';
 import { AvatarProps } from '../avatar/avatar';
 import { DeployContractPackageResult } from '../../types/types';
-import { HashLength, HashFontSize } from '../../utils/formatters';
+import { HashLength } from '../../utils/formatters';
+import {BodyTextProps} from "../body-text/body-text";
 
 interface ContractIdentifierProps {
   hash: string;
@@ -15,7 +16,7 @@ interface ContractIdentifierProps {
   hideContractType?: boolean;
   hashLength?: HashLength;
   avatarSize?: AvatarProps['size'];
-  hashFontSize?: HashFontSize;
+  hashFontSize?: BodyTextProps['scale'];
   loading?: boolean;
   path: string;
 }

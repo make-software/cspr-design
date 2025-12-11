@@ -18,25 +18,16 @@ import Copy from '../copy/copy';
 import Link from '../link/link';
 import { formatHash, HashLength } from '../../utils/formatters.ts';
 
-export enum HashFontSize {
-  'default' = 'default',
-  'big' = 'big',
-}
-const mapScaleByHashFontSize: Record<HashFontSize, BodyTextProps['scale']> = {
-  [HashFontSize.default]: 'xs',
-  [HashFontSize.big]: 'sm',
-};
-
 export const UnknownContractInfo = ({
   hash,
   iconSize = 'small',
-  hashFontSize = HashFontSize.big,
+  hashFontSize = 'sm',
   hashLength,
   path,
 }: {
   hash: string | null;
   iconSize?: AvatarProps['size'];
-  hashFontSize?: HashFontSize;
+  hashFontSize?: BodyTextProps['scale'];
   hashLength?: HashLength;
   path: string;
 }) => {
@@ -53,7 +44,7 @@ export const UnknownContractInfo = ({
           size={3}
           variation={'darkGray'}
           noWrap
-          scale={mapScaleByHashFontSize[hashFontSize]}
+          scale={hashFontSize}
           monotype
           lineHeight={'xs'}
         >
@@ -76,7 +67,7 @@ interface DefaultContractIdentifierProps {
   contractPackage?: DeployContractPackageResult;
   hashLength?: HashLength;
   avatarSize?: AvatarProps['size'];
-  hashFontSize?: HashFontSize;
+  hashFontSize?: BodyTextProps['scale'];
   hideContractType?: boolean;
   loading?: boolean;
   path: string;
@@ -88,7 +79,7 @@ export const DefaultContractIdentifier = ({
   hideContractType = false,
   hashLength = HashLength.TINY,
   avatarSize = 'tiny',
-  hashFontSize = HashFontSize.default,
+  hashFontSize = 'xs',
   loading,
   path,
 }: DefaultContractIdentifierProps) => {
@@ -134,7 +125,7 @@ export const DefaultContractIdentifier = ({
             size={3}
             variation={'darkGray'}
             noWrap
-            scale={mapScaleByHashFontSize[hashFontSize]}
+            scale={hashFontSize}
             monotype
           >
             <Link
@@ -152,7 +143,7 @@ export const DefaultContractIdentifier = ({
           size={3}
           variation={'darkGray'}
           noWrap
-          scale={hashFontSize === HashFontSize.big ? 'sm' : 'xs'}
+          scale={hashFontSize}
         >
           <ContractTypeName contractTypeId={latest_version_contract_type_id} />
         </BodyText>

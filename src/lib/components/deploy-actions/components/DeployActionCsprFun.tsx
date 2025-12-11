@@ -1,7 +1,6 @@
 import React from 'react';
 import { useDeployActionDataContext } from '../services/deploy-action-context';
 import { deriveSplitDataFromNamedKeyValue } from '../../../utils/named-key';
-import { HashFontSize } from '../../../utils/formatters';
 import FlexRow from '../../flex-row/flex-row';
 import BodyText from '../../body-text/body-text';
 import { ContractIdentifier } from '../../contract-identifier/contract-identifier';
@@ -30,9 +29,9 @@ const DeployActionCsprFun = ({ deploy }) => {
             <ContractIdentifier
               hash={contractInfo?.contract_package_hash}
               avatarSize={'small'}
-              hashFontSize={HashFontSize.big}
+              hashFontSize={'sm'}
               contractPackage={contractPackageInfo}
-              hideContractIdentifier={false}
+              hideContractType={false}
               path={`${csprLiveDomainPath}/contract-package/${contractInfo?.contract_package_hash}`}
             />
           </FlexRow>

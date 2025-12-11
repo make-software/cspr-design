@@ -4,13 +4,14 @@ import React, {
   useCallback,
   useContext,
 } from 'react';
+import {AccountInfoResult, ContractResult, DeployContractPackageResult} from "@make-software/cspr.design";
 
 type DeployActionDataContextType = {
-  getAccountInfo: <T>(publicKey: string) => T | null | undefined;
-  getContractPackageInfoByHash: <T>(
+  getAccountInfo: (publicKey: string) => AccountInfoResult | null | undefined;
+  getContractPackageInfoByHash: (
     contractPackageHash: string,
-  ) => T | null | undefined;
-  getContractInfoByHash?: <T>(contractHash: string) => T | null | undefined;
+  ) => DeployContractPackageResult | null | undefined;
+  getContractInfoByHash: (contractHash: string) => ContractResult | null | undefined;
   getPublicKeyAccountHash: (accountHash: string) => string | null | undefined;
   csprLiveDomainPath: string;
 };
@@ -31,11 +32,11 @@ export const useDeployActionDataContext = () => {
 };
 
 type DeployActionDataProviderProps = {
-  getAccountInfo: <T>(publicKey: string) => T | null | undefined;
-  getContractPackageInfoByHash?: <T>(
+  getAccountInfo: (publicKey: string) => AccountInfoResult | null | undefined;
+  getContractPackageInfoByHash?: (
     contractPackageHash: string,
-  ) => T | null | undefined;
-  getContractInfoByHash?: <T>(contractHash: string) => T | null | undefined;
+  ) => DeployContractPackageResult | null | undefined;
+  getContractInfoByHash?: (contractHash: string) => ContractResult | null | undefined;
   csprLiveDomainPath: string;
 };
 

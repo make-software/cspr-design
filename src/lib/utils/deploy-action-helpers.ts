@@ -7,13 +7,19 @@ import {
   InfoGetDeployResultV1Compatible,
   InfoGetTransactionResultV1Compatible,
 } from 'casper-js-sdk';
-import {Deploy, DeployResult, GetDeployResult, NetworkMajorVersion, PaginatedResponse} from '../types/types';
+import {
+  Deploy,
+  DeployResult,
+  GetDeployResult,
+  NetworkMajorVersion,
+  PaginatedResponse
+} from '../types/types';
 import {convertTransactionArgsToObj} from "./cltype";
 import {deriveSplitDataFromNamedKeyValue} from "./named-key";
 import {isNonNullable, isObject, uniq} from "./guards";
 
 export const getExecutionResultsFromDeployRawData = (
-    deployRawData?: GetDeployResult,
+    deployRawData?: GetDeployResult & {api_version: string}  | undefined | null,
 ): ExecutionResult | null => {
   if (!deployRawData) return null;
   const networkVersionFromRawData =
@@ -41,8 +47,7 @@ export const getExecutionResultsFromDeployRawData = (
 
 
 export const deriveUpdatedAssociatedKey = (
-  deployRawData: GetDeployResult | undefined,
-): string | undefined => {
+    deployRawData: GetDeployResult & {api_version: string} | undefined | null): string | undefined => {
   const executionResult: ExecutionResult | null =
     getExecutionResultsFromDeployRawData(deployRawData);
 

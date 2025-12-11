@@ -1,14 +1,17 @@
 import { InfoGetDeployResult, DeployExecutionResult } from 'casper-js-sdk';
-import { CLTypeTypeResult } from './CLType';
+import {CLTypeParsedResult, CLTypeTypeResult} from './CLType';
 export type ResponseError = { message?: string };
 
 export type DataResponse<T = any> = {
-  data: T;
-  error?: ResponseError;
+  data: T | null;
+  loading: boolean;
+  error?: ResponseError | null;
 };
 
 export type PaginatedResponse<T = any> = {
-  data: T[];
+  data: T[] | null;
+  loading: boolean;
+  error: ResponseError | null;
   item_count: number;
   page_count: number;
 };
