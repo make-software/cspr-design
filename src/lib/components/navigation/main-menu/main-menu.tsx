@@ -12,7 +12,7 @@ const MenuContainer = styled.ul(({ theme }) =>
     width: '100%',
     padding: ['0px'],
     margin: [0],
-  })
+  }),
 );
 
 export interface MainMenuProps {}

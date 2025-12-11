@@ -5,7 +5,10 @@ export type ClickAwayProps = {
   callback: () => void;
 };
 
-export function useClickAway({ eventType = 'click', callback }: ClickAwayProps) {
+export function useClickAway({
+  eventType = 'click',
+  callback,
+}: ClickAwayProps) {
   const ref = useRef<HTMLDivElement>(null);
 
   const handleClickOutside = useCallback(
@@ -16,7 +19,7 @@ export function useClickAway({ eventType = 'click', callback }: ClickAwayProps) 
         }
       }
     },
-    [callback, ref]
+    [callback, ref],
   );
 
   useEffect(() => {

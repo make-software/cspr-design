@@ -6,7 +6,7 @@ import FlexBox, { FlexBoxProps } from '../flex-box/flex-box';
 export interface FlexColumnProps extends FlexBoxProps {}
 
 export const FlexColumn = React.forwardRef<HTMLDivElement, FlexColumnProps>(
-  (props, ref) => <FlexBox ref={ref} direction="column" {...props} />
+  (props, ref) => <FlexBox ref={ref} direction="column" {...props} />,
 );
 
 export default FlexColumn;

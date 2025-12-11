@@ -1,16 +1,13 @@
 import type { StorybookConfig } from '@storybook/react-vite';
 import remarkGfm from 'remark-gfm';
 
-
 async function filterStories(list): Promise<StoriesEntry[]> {
-  console.log(list)
-  return ['../src/**/*.mdx', '../src/**/*.stories.@(js|jsx|mjs|ts|tsx)']
+  console.log(list);
+  return ['../src/**/*.mdx', '../src/**/*.stories.@(js|jsx|mjs|ts|tsx)'];
 }
 
 const config: StorybookConfig = {
-  stories: async (list: StoriesEntry[]) => [
-    ...(await filterStories(list)),
-  ],
+  stories: async (list: StoriesEntry[]) => [...(await filterStories(list))],
   addons: [
     {
       name: '@storybook/addon-docs',

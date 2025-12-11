@@ -26,7 +26,7 @@ const StyledDropdown = styled.div<{ disabled?: boolean }>(
         },
       },
     },
-  })
+  }),
 );
 
 const StyledContentRow = styled(FlexRow)<{ error?: boolean }>(
@@ -34,7 +34,7 @@ const StyledContentRow = styled(FlexRow)<{ error?: boolean }>(
     theme.withMedia({
       width: '100%',
       border: error ? `1px solid ${theme.styleguideColors.contentRed}` : 'none',
-    })
+    }),
 );
 
 const StyledInput = styled.input<{ fontSize?: string; icon?: boolean }>(
@@ -53,7 +53,7 @@ const StyledInput = styled.input<{ fontSize?: string; icon?: boolean }>(
     ':hover': {
       cursor: 'pointer',
     },
-  })
+  }),
 );
 
 const ItemContainer = styled.div<{
@@ -176,7 +176,7 @@ export const SearchableDropdown = ({
   const filterOptionsWithSearchedValue = (options, searchedValue) => {
     return options.filter(
       (option) =>
-        option.label.toLowerCase().indexOf(searchedValue.toLowerCase()) > -1
+        option.label.toLowerCase().indexOf(searchedValue.toLowerCase()) > -1,
     );
   };
 

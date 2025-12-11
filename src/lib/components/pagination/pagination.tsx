@@ -15,13 +15,13 @@ import ArrowRightIcon from '../../assets/icons/ic-arrow-right.svg';
 const ROWS_PER_PAGE = [5, 10, 25, 50];
 
 export const Container = styled(FlexRow)(({ theme }) =>
-    theme.withMedia({
-      height: [80, 48],
-      flexDirection: ['column', 'row', 'row'],
-      justifyContent: 'space-between',
-      padding: ['12px 10px', '12px 20px'],
-      margin: ['0 0 10px 0', '0'],
-    }),
+  theme.withMedia({
+    height: [80, 48],
+    flexDirection: ['column', 'row', 'row'],
+    justifyContent: 'space-between',
+    padding: ['12px 10px', '12px 20px'],
+    margin: ['0 0 10px 0', '0'],
+  }),
 );
 
 const MirroredSvgIcon = styled(SvgIcon)(({ theme }) => ({
@@ -41,7 +41,7 @@ export interface PaginationProps {
 
 export const Pagination: React.FC<PaginationProps> = ({
   perPage = 10,
-  itemCount= 0,
+  itemCount = 0,
   pageCount = 1,
   currentPage = 1,
   setCurrentPage = () => {},
@@ -62,8 +62,7 @@ export const Pagination: React.FC<PaginationProps> = ({
 
   const lastPageHandler = () => setCurrentPage(pageCount);
 
-  const handlePaginationChange = (page: number) =>
-      setCurrentPage(page);
+  const handlePaginationChange = (page: number) => setCurrentPage(page);
 
   const onMobile = (
     <FlexColumn itemsSpacing={4}>
@@ -103,11 +102,11 @@ export const Pagination: React.FC<PaginationProps> = ({
         </PaginationButton>
       </FlexRow>
       {!hideRowsPerPage && (
-          <RowsPerPage
-            value={perPage}
-            items={ROWS_PER_PAGE}
-            onChange={setPerPage}
-          />
+        <RowsPerPage
+          value={perPage}
+          items={ROWS_PER_PAGE}
+          onChange={setPerPage}
+        />
       )}
     </FlexColumn>
   );
@@ -115,11 +114,11 @@ export const Pagination: React.FC<PaginationProps> = ({
   const onAbove = (
     <FlexRow itemsSpacing={40}>
       {!hideRowsPerPage && (
-          <RowsPerPage
-            value={perPage}
-            items={ROWS_PER_PAGE}
-            onChange={setPerPage}
-          />
+        <RowsPerPage
+          value={perPage}
+          items={ROWS_PER_PAGE}
+          onChange={setPerPage}
+        />
       )}
       <FlexRow itemsSpacing={4} align={'center'}>
         <PaginationButton
@@ -173,7 +172,7 @@ export const Pagination: React.FC<PaginationProps> = ({
   }
   return (
     <Container>
-      <FlexRow align={"center"}>
+      <FlexRow align={'center'}>
         <BodyText size={3} scale={'xs'} variation={'darkGray'}>
           {formatNumber(itemCount)} {totalRowsLabel}
           {itemCount > 1 && 's'}

@@ -1,9 +1,13 @@
-
-import {Args, Approval as ApprovalSDK, Approval} from 'casper-js-sdk';
-import {CLType, CLTypeParsedListResult, CLTypeParsedResult, CLTypeTypeResult} from "../types/CLType";
+import { Args, Approval as ApprovalSDK, Approval } from 'casper-js-sdk';
+import {
+  CLType,
+  CLTypeParsedListResult,
+  CLTypeParsedResult,
+  CLTypeTypeResult,
+} from '../types/CLType';
 
 export const stringifyCLTypeType = (
-  type: string | CLType | CLTypeTypeResult
+  type: string | CLType | CLTypeTypeResult,
 ): string => {
   const getTypeFromNestedObj = (type) =>
     typeof type === 'object' ? Object.keys(type)[0] : type;
@@ -67,7 +71,7 @@ export const stringifyCLTypeValue = ({
           stringifyCLTypeValue({
             type: clValueInnerType,
             value: listItem,
-          })
+          }),
         )
         .join(', ');
 
@@ -94,7 +98,7 @@ export const stringifyCLTypeValue = ({
 };
 
 export const convertTransactionArgsToObj = (
-  args: Args
+  args: Args,
 ): Record<string, any> => {
   if (!args) {
     return {};
@@ -111,7 +115,7 @@ export const convertTransactionArgsToObj = (
 };
 
 export const convertApprovalsFromBytesToString = (
-  approvals: ApprovalSDK[]
+  approvals: ApprovalSDK[],
 ): Approval[] => {
   if (!approvals || !approvals.length) {
     return [];

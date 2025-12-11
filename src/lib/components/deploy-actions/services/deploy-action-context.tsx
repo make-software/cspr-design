@@ -4,14 +4,20 @@ import React, {
   useCallback,
   useContext,
 } from 'react';
-import {AccountInfoResult, ContractResult, DeployContractPackageResult} from "@make-software/cspr.design";
+import {
+  AccountInfoResult,
+  ContractResult,
+  DeployContractPackageResult,
+} from '@make-software/cspr.design';
 
 type DeployActionDataContextType = {
   getAccountInfo: (publicKey: string) => AccountInfoResult | null | undefined;
   getContractPackageInfoByHash: (
     contractPackageHash: string,
   ) => DeployContractPackageResult | null | undefined;
-  getContractInfoByHash: (contractHash: string) => ContractResult | null | undefined;
+  getContractInfoByHash: (
+    contractHash: string,
+  ) => ContractResult | null | undefined;
   getPublicKeyAccountHash: (accountHash: string) => string | null | undefined;
   csprLiveDomainPath: string;
 };
@@ -36,7 +42,9 @@ type DeployActionDataProviderProps = {
   getContractPackageInfoByHash?: (
     contractPackageHash: string,
   ) => DeployContractPackageResult | null | undefined;
-  getContractInfoByHash?: (contractHash: string) => ContractResult | null | undefined;
+  getContractInfoByHash?: (
+    contractHash: string,
+  ) => ContractResult | null | undefined;
   csprLiveDomainPath: string;
 };
 

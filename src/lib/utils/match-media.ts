@@ -57,7 +57,7 @@ export const withMedia: (styled: CSSObjectMulti) => CSSObject = facepaint([
  */
 export const useMatchMedia = <T extends any>(
   [onMobile, onTablet, onLaptop, onDesktop]: [T, T?, T?, T?],
-  dependencies: any[]
+  dependencies: any[],
 ) => {
   const queries = [
     MediaQueries['desktop'],

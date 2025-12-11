@@ -7,7 +7,7 @@ import {
 import { AvatarProps } from '../avatar/avatar';
 import { DeployContractPackageResult } from '../../types/types';
 import { HashLength } from '../../utils/formatters';
-import {BodyTextProps} from "../body-text/body-text";
+import { BodyTextProps } from '../body-text/body-text';
 
 interface ContractIdentifierProps {
   hash: string;

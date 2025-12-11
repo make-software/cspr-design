@@ -139,12 +139,7 @@ export const DefaultContractIdentifier = ({
         </TooltipWithExtendedInfo>
       </FlexRow>
       {showContractType && (
-        <BodyText
-          size={3}
-          variation={'darkGray'}
-          noWrap
-          scale={hashFontSize}
-        >
+        <BodyText size={3} variation={'darkGray'} noWrap scale={hashFontSize}>
           <ContractTypeName contractTypeId={latest_version_contract_type_id} />
         </BodyText>
       )}

@@ -5,7 +5,7 @@ import {
   formatTokenAmount,
   getAmountFromMotes,
 } from '../../utils/ft-token-amount';
-import {DEFAULT_PRECISION} from '../../utils/formatters';
+import { DEFAULT_PRECISION } from '../../utils/formatters';
 
 export interface TokenAmountProps {
   amount: string | null;
@@ -33,7 +33,7 @@ export function TokenAmount({
   const formattedAmount = formatTokenAmount(
     calculatedAmount,
     precision,
-    shouldShortenAmount
+    shouldShortenAmount,
   );
   const formattedText = formattedAmount + ` ${symbol}`;
 

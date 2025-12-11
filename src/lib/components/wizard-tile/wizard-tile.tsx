@@ -14,7 +14,7 @@ const StyledWizardTile = styled.div(({ theme }) =>
     marginBottom: 24,
     height: '100%',
     padding: ['80px 20px', '80px 150px', '80px 200px', '80px 300px'],
-  })
+  }),
 );
 
 export function WizardTile(props: WizardTileProps) {

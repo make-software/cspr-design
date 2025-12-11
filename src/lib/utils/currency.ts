@@ -1,5 +1,9 @@
 import Big from 'big.js';
-import { SMALL_PRECISION, DEFAULT_PRECISION, FULL_PRECISION } from './formatters';
+import {
+  SMALL_PRECISION,
+  DEFAULT_PRECISION,
+  FULL_PRECISION,
+} from './formatters';
 
 export enum PrecisionCase {
   'none' = 'none',

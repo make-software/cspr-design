@@ -1,5 +1,9 @@
 import { isObjEmpty } from './object.tsx';
-import {AccountCentralizedInfo, AccountInfoResult, GeneralizedAccountInfo} from "../types/types";
+import {
+  AccountCentralizedInfo,
+  AccountInfoResult,
+  GeneralizedAccountInfo,
+} from '../types/types';
 import { Conversions, PublicKey as CLPublicKey } from 'casper-js-sdk';
 
 type Input = { base64: string } | { publicKeyHex: string };
@@ -46,7 +50,7 @@ export const AccountModel = (input: Input) => {
 };
 
 export const getAccountInfoLogo = (
-    accountInfo: AccountInfoResult | null | undefined
+  accountInfo: AccountInfoResult | null | undefined,
 ): string | null => {
   if (!accountInfo) return null;
 
@@ -64,7 +68,7 @@ export const getAccountInfoLogo = (
 };
 
 export const getCentralizedAccountInfoLogo = (
-    accountInfo: AccountCentralizedInfo | null | undefined
+  accountInfo: AccountCentralizedInfo | null | undefined,
 ): string | null => {
   if (!accountInfo) return null;
 
@@ -83,7 +87,7 @@ export const getCentralizedAccountInfoLogo = (
  * @param accountInfoObj : AccountInfoResult | AccountCentralizedInfo
  */
 export const deriveAccountInfo = (
-  accountInfoObj: any
+  accountInfoObj: any,
 ): GeneralizedAccountInfo | null => {
   if (accountInfoObj == null) {
     return null;

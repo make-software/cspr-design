@@ -63,7 +63,7 @@ const Container = styled('span').withConfig({
     transition: 'transform 500ms ease',
     marginLeft: marginLeft ? 8 : 'initial',
     marginRight: marginRight ? 8 : 'initial',
-  })
+  }),
 );
 
 const StyledReactSVG = styled(ReactSVG)(({ theme }) => ({
@@ -81,7 +81,7 @@ export const SvgIcon = React.forwardRef<Ref, SvgIconProps>(
       rotate = false,
       ...props
     }: SvgIconProps,
-    ref
+    ref,
   ) => {
     const handleClick = (ev: any) => {
       onClick && onClick(ev);
@@ -93,7 +93,7 @@ export const SvgIcon = React.forwardRef<Ref, SvgIconProps>(
     return (
       <Container
         ref={ref}
-        role={"img"}
+        role={'img'}
         aria-label={alt}
         size={size}
         color={color}
@@ -101,10 +101,16 @@ export const SvgIcon = React.forwardRef<Ref, SvgIconProps>(
         onClick={handleClick}
         {...props}
       >
-        <StyledReactSVG src={src} preProcessor={preProcessor} title={alt} aria-hidden="true" cacheRequests />
+        <StyledReactSVG
+          src={src}
+          preProcessor={preProcessor}
+          title={alt}
+          aria-hidden="true"
+          cacheRequests
+        />
       </Container>
     );
-  }
+  },
 );
 
 export default SvgIcon;

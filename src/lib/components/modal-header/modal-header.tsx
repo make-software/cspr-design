@@ -9,7 +9,7 @@ const ModalHeaderContainer = styled(FlexRow)<{ marginBottom?: string }>(
   ({ theme, marginBottom }) =>
     theme.withMedia({
       marginBottom: marginBottom ? marginBottom : '40px',
-    })
+    }),
 );
 
 const CloseButton = styled.div(() => ({

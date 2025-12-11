@@ -12,15 +12,15 @@ export interface TruncateBoxProps extends BaseProps {
 
 const getSize = (size: Size) =>
   matchSize(
-      {
-          0: 7.8,
-          1: 10,
-          2: 23,
-          3: 35,
-          4: 45,
-          5: 55,
-      },
-    size
+    {
+      0: 7.8,
+      1: 10,
+      2: 23,
+      3: 35,
+      4: 45,
+      5: 55,
+    },
+    size,
   );
 
 const StyledTruncateBox = styled('div')<TruncateBoxProps>(
@@ -36,18 +36,20 @@ const StyledTruncateBox = styled('div')<TruncateBoxProps>(
       content: "''",
       display: 'block',
     },
-      lineHeight: lineHeight ? matchSize(
+    lineHeight: lineHeight
+      ? matchSize(
           {
-              sm: '1.5rem',
-              xs: '1.25rem',
+            sm: '1.5rem',
+            xs: '1.25rem',
           },
-          lineHeight
-      ) : 'unset',
-  })
+          lineHeight,
+        )
+      : 'unset',
+  }),
 );
 
 export const TruncateBox = React.forwardRef<HTMLDivElement, TruncateBoxProps>(
-  (props, ref) => <StyledTruncateBox ref={ref} {...props} />
+  (props, ref) => <StyledTruncateBox ref={ref} {...props} />,
 );
 
 export default TruncateBox;

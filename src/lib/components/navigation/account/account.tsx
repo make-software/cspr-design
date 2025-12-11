@@ -8,7 +8,7 @@ const StyledBodyText = styled(BodyText)<{ fontSize?: string }>(
   ({ theme, fontSize }) => ({
     color: theme.styleguideColors.contentTertiary,
     fontSize: fontSize,
-  })
+  }),
 );
 
 export interface AccountProps {
@@ -18,12 +18,7 @@ export interface AccountProps {
   fontSize?: string;
 }
 
-export const Account = ({
-  name,
-  hash,
-  logo,
-  fontSize,
-}: AccountProps) => {
+export const Account = ({ name, hash, logo, fontSize }: AccountProps) => {
   return (
     <FlexRow itemsSpacing={8} align="center">
       {logo ? (
@@ -31,16 +26,15 @@ export const Account = ({
       ) : (
         <Avatar hash={hash} size="small" />
       )}
-      {name
-          ? (
-            <StyledBodyText size={2} monotype fontSize={fontSize}>
-              {name}
-            </StyledBodyText>
-          ) : (
-            <StyledBodyText size={2} monotype fontSize={fontSize}>
-              {formatHash(hash)}
-            </StyledBodyText>
-          )}
+      {name ? (
+        <StyledBodyText size={2} monotype fontSize={fontSize}>
+          {name}
+        </StyledBodyText>
+      ) : (
+        <StyledBodyText size={2} monotype fontSize={fontSize}>
+          {formatHash(hash)}
+        </StyledBodyText>
+      )}
     </FlexRow>
   );
 };
