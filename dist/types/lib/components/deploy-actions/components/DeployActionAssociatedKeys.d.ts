@@ -1,0 +1,9 @@
+import { DataResponse, Deploy, GetDeployResult } from '../../../types/types';
+interface DeployAssociatedKeysActionProps {
+    deploy: Deploy;
+    deployRawData: DataResponse<GetDeployResult> | undefined | null;
+    renderAsResultAction?: boolean;
+}
+declare const DeployActionAssociatedKeys: ({ deploy, deployRawData, renderAsResultAction, }: DeployAssociatedKeysActionProps) => import("react/jsx-runtime").JSX.Element;
+export default DeployActionAssociatedKeys;
+//# sourceMappingURL=DeployActionAssociatedKeys.d.ts.map

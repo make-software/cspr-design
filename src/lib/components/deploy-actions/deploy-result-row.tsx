@@ -8,9 +8,10 @@ import TransferActionRow from './components/TransferActionRow';
 import { ActionIdentificationHashesType } from './deploy-action-row';
 import { DeployActionDataProvider } from './services/deploy-action-context';
 import {
+  AccountInfoResult,
   ContractResult,
   DataResponse,
-  Deploy,
+  Deploy, DeployContractPackageResult,
   DeployTransferResult,
   FTActionsResult,
   GetDeployResult,
@@ -110,7 +111,7 @@ interface DeployResultRowComponentProps {
   deploy: Deploy;
   loading: boolean;
   actionIdentificationHashes: ActionIdentificationHashesType;
-  deployRawData?: DataResponse<GetDeployResult> | null;
+  deployRawData?: DataResponse< GetDeployResult & {api_version: string}> | null;
   actionComponents?: React.ReactElement[] | null;
   variation?: ResultRowVariation;
   shouldCollapse?: boolean;
@@ -242,9 +243,12 @@ export const DeployResultRowComponent = (
 };
 
 type DeployResultRowProps = DeployResultRowComponentProps & {
-  getAccountInfo: <T>(publicKey: string) => T | null | undefined;
+  getAccountInfo: (publicKey: string) => AccountInfoResult | null | undefined;
   getContractPackageInfoByHash?: (
     contractHash: string,
+  ) => DeployContractPackageResult | null | undefined;
+  getContractInfoByHash?: (
+      contractHash: string,
   ) => ContractResult | null | undefined;
   csprLiveDomainPath: string;
 };

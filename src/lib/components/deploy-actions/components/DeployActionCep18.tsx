@@ -4,7 +4,6 @@ import { Cep18ActionRow } from './Cep18ActionRow';
 import { useDeployActionDataContext } from '../services/deploy-action-context';
 import { Deploy } from '../../../types/types';
 import {
-  prepareActionMessageDataForDeployDetails,
   prepareFtActionMessageDataForDeployDetails,
 } from '../utils/prepare-action-messages';
 

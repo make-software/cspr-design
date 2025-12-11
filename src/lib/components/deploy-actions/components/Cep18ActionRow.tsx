@@ -8,7 +8,6 @@ import {
 } from '../../../types/types';
 import FlexRow from '../../flex-row/flex-row';
 import BodyText from '../../body-text/body-text';
-import { HashFontSize } from '../../../utils/formatters';
 import { ContractIdentifier } from '../../contract-identifier/contract-identifier';
 import Cep18FormattedAmount from '../../cep18-formatted-amount/cep18-formatted-amount';
 import TransactorInfo from '../../transactor-info/transactor-info';
@@ -75,7 +74,7 @@ export const Cep18ActionRow = ({
         <ContractIdentifier
           hash={contractPackage?.contract_package_hash}
           avatarSize={'small'}
-          hashFontSize={HashFontSize.big}
+          hashFontSize={'sm'}
           contractPackage={contractPackage}
           path={`${csprLiveDomainPath}/contract-package/${contractPackage?.contract_package_hash}`}
           hideContractType
@@ -103,6 +102,7 @@ export const Cep18ActionRow = ({
             avatarSize="small"
             hash={from_hash}
             loading={false}
+            csprLiveDomainPath={csprLiveDomainPath}
           />
         </>
       )}
@@ -124,6 +124,7 @@ export const Cep18ActionRow = ({
             avatarSize="small"
             hash={to_hash}
             loading={false}
+            csprLiveDomainPath={csprLiveDomainPath}
           />
         </>
       )}

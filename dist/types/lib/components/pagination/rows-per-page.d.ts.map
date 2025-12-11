@@ -1,0 +1,1 @@
+{"version":3,"file":"rows-per-page.d.ts","sourceRoot":"","sources":["../../../../../src/lib/components/pagination/rows-per-page.tsx"],"names":[],"mappings":"AAKA,eAAO,MAAM,WAAW,GAAI,6BAIzB;IACD,KAAK,EAAE,MAAM,CAAC;IACd,KAAK,EAAE,MAAM,EAAE,CAAC;IAChB,QAAQ,EAAE,CAAC,OAAO,KAAA,KAAK,IAAI,CAAC;CAC7B,4CAOA,CAAC"}

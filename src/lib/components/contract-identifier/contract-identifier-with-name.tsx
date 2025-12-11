@@ -5,7 +5,6 @@ import { AvatarProps } from '../avatar/avatar';
 import TooltipWithExtendedInfo from '../tooltip-with-extended-info/tooltip-with-extended-info';
 import { DeployContractPackageResult } from '../../types/types';
 import { HashLength } from '../../utils/formatters.ts';
-import { HashFontSize } from './default-contract-identifier';
 import {
   SHORTENED_CONTRACT_NAME_LENGTH,
   truncateName,
@@ -20,7 +19,6 @@ interface ContractIdentifierWithNameProps {
   contractPackage: DeployContractPackageResult;
   hashLength?: HashLength;
   avatarSize?: AvatarProps['size'];
-  hashFontSize?: HashFontSize;
   loading?: boolean;
   path: string;
 }

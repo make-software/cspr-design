@@ -17,6 +17,7 @@ import DeployActionDefault from './components/DeployActionDefault';
 import { DeployActionDataProvider } from './services/deploy-action-context';
 import BodyText from '../body-text/body-text';
 import {
+  AccountInfoResult,
   ContractResult,
   ContractTypeId,
   DataResponse,
@@ -37,7 +38,7 @@ export type ActionIdentificationHashesType = {
 
 interface DeployActionRowComponentProps {
   deploy: Deploy;
-  deployRawData?: DataResponse<GetDeployResult> | null;
+  deployRawData?: DataResponse< GetDeployResult & {api_version: string} > | undefined | null;
   loading: boolean;
   actionIdentificationHashes: ActionIdentificationHashesType;
 }
@@ -76,7 +77,7 @@ export const DeployActionRowComponent = ({
   const isTransfer = isTransferDeploy(
     contractHash,
     entryPoint?.name,
-    actionIdentificationHashes?.native_transfer_contract_hash,
+    actionIdentificationHashes?.native_transfer_contract_hash || '',
   );
   const isWasm = isWASMTransaction(executionTypeId); // deployType !== WASM_DEPLOY;
   const isCSPRFun =
@@ -174,11 +175,11 @@ export const DeployActionRowComponent = ({
 };
 
 type DeployActionRowProps = DeployActionRowComponentProps & {
-  getAccountInfo: <T>(publicKey: string) => T | null | undefined;
+  getAccountInfo: (publicKey: string) => AccountInfoResult | null | undefined;
   getContractInfoByHash?: (
     contractHash: string,
   ) => ContractResult | null | undefined;
-  getContractPackageInfoByHash: (
+  getContractPackageInfoByHash?: (
     contractPackageHash: string,
   ) => DeployContractPackageResult | null | undefined;
   csprLiveDomainPath: string;

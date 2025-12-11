@@ -150,10 +150,10 @@ interface ActivityFeedItemProps {
   loading: boolean;
   actionIdentificationHashes: ActionIdentificationHashesType;
   csprLiveDomainPath: string;
-  getAccountInfo: <T = AccountInfoResult>(
+  getAccountInfo: (
     publicKey: string,
-  ) => T | null | undefined;
-  getContractInfoByHash: (
+  ) => AccountInfoResult | null | undefined;
+  getContractInfoByHash?: (
     contractHash: string,
   ) => ContractResult | null | undefined;
   getContractPackageInfoByHash?: (

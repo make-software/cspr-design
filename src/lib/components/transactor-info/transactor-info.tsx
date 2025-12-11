@@ -14,15 +14,13 @@ import Address from '../address/address';
 import { BodyTextProps } from '../body-text/body-text';
 
 interface TransactorInfoProps {
-  type?: TransactorHashType | undefined;
+  type?: TransactorHashType | undefined | null;
   accountInfo: AccountInfoResult | AccountCentralizedInfo | undefined;
-  contractPackage?: DeployContractPackageResult;
+  contractPackage?: DeployContractPackageResult  | undefined | null;
   hash: string | null;
-  publicKey: string | null;
-  csprName?: string | null;
+  publicKey: string | undefined | null;
+  csprName?: string | undefined | null;
   loading: boolean;
-  contractPackagePath: string;
-  accountPath: string;
   hashLength?: HashLength;
   hashFontSize?: BodyTextProps['scale'];
   minifiedCopyNotification?: boolean;

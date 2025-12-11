@@ -1,0 +1,1 @@
+{"version":3,"file":"NftCollectionIdentifier.d.ts","sourceRoot":"","sources":["../../../../../../src/lib/components/deploy-actions/components/NftCollectionIdentifier.tsx"],"names":[],"mappings":"AAEA,OAAO,EAAE,2BAA2B,EAAE,MAAM,sBAAsB,CAAC;AAInE,eAAO,MAAM,uBAAuB,GAAI,4BAGrC;IACD,IAAI,EAAE,MAAM,CAAC;IACb,eAAe,EAAE,2BAA2B,GAAG,SAAS,GAAG,IAAI,CAAC;CACjE,mDAsBA,CAAC"}

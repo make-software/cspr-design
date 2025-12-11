@@ -8,7 +8,7 @@ import TableData from '../table-data/table-data';
 type Props = {
   columnsLength: number;
   rowsLength?: number;
-  tableRowType?: TableRowType;
+  tableRowType: TableRowType;
 };
 
 type TableLoaderRowProps = {
