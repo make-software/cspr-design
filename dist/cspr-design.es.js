@@ -35282,6 +35282,7 @@ function x8(e) {
   });
 }
 const E8 = be(S8).withConfig({
+  shouldForwardProp: (e) => e !== "paddingScale",
   displayName: "tooltip__StyledReactTooltip",
   componentId: "sc-1m82hpm-0"
 })(({
@@ -40777,7 +40778,7 @@ const k7 = be.span.withConfig({
   disabled: C
 }) => e.withMedia({
   display: "flex",
-  flex: "1 1 auto",
+  flex: "0 1 auto",
   justifyContent: "center",
   alignItems: "center",
   padding: ["8px 12px", "8px 12px", "16px"],

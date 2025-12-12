@@ -28,8 +28,11 @@ export interface TooltipProps extends BaseProps {
   limitWidth?: boolean | string;
 }
 
-const StyledReactTooltip = styled(ReakitTooltip)<StyledReactTooltipProps>(
-  ({ theme, lineHeight = 'sm', scale = 'sm', paddingScale = 2 }) => ({
+const StyledReactTooltip = styled(
+    ReakitTooltip,
+).withConfig<StyledReactTooltipProps>({
+    shouldForwardProp: (prop) => prop !== 'paddingScale',
+})(({ theme, lineHeight = 'sm', scale = 'sm', paddingScale = 2 }) => ({
     zIndex: theme.zIndex.tooltip,
     color: theme.styleguideColors.contentPrimary,
     backgroundColor: theme.styleguideColors.backgroundPrimary,
