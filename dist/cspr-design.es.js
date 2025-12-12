@@ -40756,7 +40756,7 @@ const O7 = be.div.withConfig({
 })(({
   theme: e
 }) => ({
-  maxWidth: "820px",
+  maxWidth: "620px",
   padding: "8px",
   margin: 0
 })), K_ = ({
