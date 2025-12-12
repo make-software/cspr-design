@@ -14,7 +14,7 @@ import {
 export default {
   component: ProductsMenu,
   title: 'Components/Navigation/ProductsMenu',
-  excludeStories: ['Primary'],
+  // excludeStories: ['Primary'],
   // tags: ['autodocs', '!dev'],
   args: {
     opened: true,
@@ -75,6 +75,18 @@ Primary.args = {
         link={''}
         icon={CsprNftStudioIcon}
         comingSoonBadgeLabel={'Coming soom'}
+      />
+      <ProductsMenuItem
+          nameLabel={'CSPR.studio (Beta)'}
+          link={''}
+          icon={CsprNftStudioIcon}
+          comingSoonBadgeLabel={'Coming soom'}
+      />
+      <ProductsMenuItem
+          nameLabel={'CSPR.studio (Beta)'}
+          link={''}
+          icon={CsprNftStudioIcon}
+          comingSoonBadgeLabel={'Coming soom'}
       />
     </>
   ),
