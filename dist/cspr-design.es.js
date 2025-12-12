@@ -40778,13 +40778,12 @@ const k7 = be.span.withConfig({
   disabled: C
 }) => e.withMedia({
   display: "flex",
-  flex: "1 1 auto",
+  flex: "0 1 auto",
   justifyContent: "center",
   alignItems: "center",
   padding: ["8px 12px", "8px 12px", "16px"],
   width: ["208px", "208px", "172px"],
   height: ["56px", "56px", "137px"],
-  flexGrow: "0",
   "&:hover": {
     borderRadius: e.borderRadius.base,
     background: e.styleguideColors.backgroundSecondary
