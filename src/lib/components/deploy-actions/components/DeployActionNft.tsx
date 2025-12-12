@@ -8,7 +8,6 @@ import { guardedDeriveSplitDataFromArguments } from '../../../utils/deploy-args'
 import FlexRow from '../../flex-row/flex-row';
 import BodyText from '../../body-text/body-text';
 import { ContractIdentifier } from '../../contract-identifier/contract-identifier';
-import { HashFontSize } from '../../../utils/formatters';
 import DeployActionDefault from './DeployActionDefault';
 import { NftTokenEntryPoint } from '../../../types/NFTToken';
 
@@ -43,7 +42,7 @@ const SetAllApprovalsNFTAction = ({ deploy }: { deploy: Deploy }) => {
           <ContractIdentifier
             hash={operatorHash.hash}
             avatarSize={'small'}
-            hashFontSize={HashFontSize.big}
+            hashFontSize={'sm'}
             path={`${csprLiveDomainPath}/contract-package/${operatorHash.hash}`}
             contractPackage={getContractPackageInfoByHash(operatorHash.hash)}
           />

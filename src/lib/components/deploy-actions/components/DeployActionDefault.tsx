@@ -2,7 +2,6 @@ import React from 'react';
 import FlexRow from '../../flex-row/flex-row';
 import BodyText from '../../body-text/body-text';
 import { Deploy } from '../../../types/types';
-import { HashFontSize } from '../../contract-identifier/default-contract-identifier';
 import { useDeployActionDataContext } from '../services/deploy-action-context';
 import { ContractIdentifier } from '../../contract-identifier/contract-identifier';
 
@@ -20,7 +19,7 @@ const DeployActionDefault = ({ deploy }: { deploy: Deploy }) => {
         hash={deploy.contractPackage.contract_package_hash}
         contractPackage={deploy.contractPackage}
         avatarSize={'small'}
-        hashFontSize={HashFontSize.big}
+        hashFontSize={'sm'}
         path={`${csprLiveDomainPath}/contract-package/${deploy.contractPackage.contract_package_hash}`}
       />
     </FlexRow>

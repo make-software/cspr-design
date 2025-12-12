@@ -1,0 +1,1 @@
+{"version":3,"file":"wasm-proxy-badge.d.ts","sourceRoot":"","sources":["../../../../src/lib/components/activity-feed-item/wasm-proxy-badge.tsx"],"names":[],"mappings":"AAIA,OAAc,EAAE,UAAU,EAAE,MAAM,gBAAgB,CAAC;AAEnD,eAAO,MAAM,cAAc,GAAI,iBAE5B;IACD,UAAU,CAAC,EAAE,IAAI,CAAC,UAAU,EAAE,YAAY,CAAC,CAAC,YAAY,CAAC,CAAC;CAC3D,4CAkBA,CAAC"}

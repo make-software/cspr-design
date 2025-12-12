@@ -106,12 +106,6 @@ const AddressContent = ({
   );
 };
 
-/** @deprecated  */
-export enum HashFontSize {
-  'default' = 'default',
-  'big' = 'big',
-}
-
 /**
  * Address component can be used to display a public key or hash associated with an account.
  * It supports various configurations, including loading state, logo, name, csprName, and tooltip.

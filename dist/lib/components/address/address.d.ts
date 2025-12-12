@@ -25,11 +25,6 @@ interface AddressProps {
     /** @deprecated use *minifiedCopyNotification* instead */
     copyNotifyingStyle?: 'full' | 'tiny';
 }
-/** @deprecated  */
-export declare enum HashFontSize {
-    'default' = "default",
-    'big' = "big"
-}
 export declare const Address: React.ForwardRefExoticComponent<AddressProps & React.RefAttributes<HTMLDivElement>>;
 export default Address;
 //# sourceMappingURL=address.d.ts.map
