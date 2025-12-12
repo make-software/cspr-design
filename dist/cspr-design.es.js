@@ -40756,7 +40756,7 @@ const I7 = be.div.withConfig({
 })(({
   theme: e
 }) => ({
-  maxWidth: "620px",
+  maxWidth: "820px",
   padding: "8px",
   margin: 0
 })), J_ = ({

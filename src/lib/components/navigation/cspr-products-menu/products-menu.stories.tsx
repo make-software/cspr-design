@@ -74,19 +74,7 @@ Primary.args = {
         nameLabel={'CSPR.studio (Beta)'}
         link={''}
         icon={CsprNftStudioIcon}
-        comingSoonBadgeLabel={'Coming soom'}
-      />
-      <ProductsMenuItem
-          nameLabel={'CSPR.studio (Beta)'}
-          link={''}
-          icon={CsprNftStudioIcon}
-          comingSoonBadgeLabel={'Coming soom'}
-      />
-      <ProductsMenuItem
-          nameLabel={'CSPR.studio (Beta)'}
-          link={''}
-          icon={CsprNftStudioIcon}
-          comingSoonBadgeLabel={'Coming soom'}
+        comingSoonBadgeLabel={'Coming soon'}
       />
     </>
   ),
