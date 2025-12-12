@@ -14,7 +14,7 @@ import {
 export default {
   component: ProductsMenu,
   title: 'Components/Navigation/ProductsMenu',
-  // excludeStories: ['Primary'],
+  excludeStories: ['Primary'],
   // tags: ['autodocs', '!dev'],
   args: {
     opened: true,

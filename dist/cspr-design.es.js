@@ -35282,6 +35282,7 @@ function x8(e) {
   });
 }
 const E8 = be(S8).withConfig({
+  shouldForwardProp: (e) => e !== "paddingScale",
   displayName: "tooltip__StyledReactTooltip",
   componentId: "sc-1m82hpm-0"
 })(({
@@ -40755,7 +40756,7 @@ const O7 = be.div.withConfig({
 })(({
   theme: e
 }) => ({
-  maxWidth: "620px",
+  maxWidth: "820px",
   padding: "8px",
   margin: 0
 })), K_ = ({
@@ -40783,6 +40784,7 @@ const k7 = be.span.withConfig({
   padding: ["8px 12px", "8px 12px", "16px"],
   width: ["208px", "208px", "172px"],
   height: ["56px", "56px", "137px"],
+  flexGrow: "0",
   "&:hover": {
     borderRadius: e.borderRadius.base,
     background: e.styleguideColors.backgroundSecondary
