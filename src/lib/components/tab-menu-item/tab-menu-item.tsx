@@ -89,7 +89,7 @@ export function TabMenuItem(props: TabMenuItemProps) {
       limitWidth
       lineHeight={props.lineHeight}
       scale={props.scale}
-      $paddingScale={props.tooltipPaddingScale}
+      paddingScale={props.tooltipPaddingScale}
     >
       <StyledButton color="utility" {...props}>
         <FlexRow gap={3} align={'center'}>

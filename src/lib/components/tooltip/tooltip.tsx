@@ -16,7 +16,7 @@ type Ref = HTMLDivElement;
 type StyledReactTooltipProps = {
   lineHeight?: 'xs' | 'sm';
   scale?: 'xs' | 'sm';
-  $paddingScale?: 1 | 2;
+  paddingScale?: 1 | 2;
 };
 
 export interface TooltipProps extends BaseProps {
@@ -28,13 +28,16 @@ export interface TooltipProps extends BaseProps {
   limitWidth?: boolean | string;
 }
 
-const StyledReactTooltip = styled(ReakitTooltip)<StyledReactTooltipProps>(
-  ({ theme, lineHeight = 'sm', scale = 'sm', $paddingScale = 2 }) => ({
+const StyledReactTooltip = styled(
+    ReakitTooltip,
+).withConfig<StyledReactTooltipProps>({
+    shouldForwardProp: (prop) => prop !== 'paddingScale',
+})(({ theme, lineHeight = 'sm', scale = 'sm', paddingScale = 2 }) => ({
     zIndex: theme.zIndex.tooltip,
     color: theme.styleguideColors.contentPrimary,
     backgroundColor: theme.styleguideColors.backgroundPrimary,
     borderRadius: theme.borderRadius.base,
-    padding: theme.padding[$paddingScale],
+    padding: theme.padding[paddingScale],
     boxShadow: theme.boxShadow.tooltip,
 
     transition: 'opacity 250ms ease-in-out',
@@ -73,7 +76,7 @@ export const Tooltip = React.forwardRef<
       monotype,
       lineHeight = 'sm',
       scale = 'sm',
-      $paddingScale = 2,
+      paddingScale = 2,
       ...props
     },
     ref,
@@ -98,7 +101,7 @@ export const Tooltip = React.forwardRef<
         <TooltipReference {...tooltip} ref={children.ref} {...children.props}>
           {(referenceProps) => React.cloneElement(children, referenceProps)}
         </TooltipReference>
-        <StyledReactTooltip $paddingScale={$paddingScale} {...tooltip} {...props}>
+        <StyledReactTooltip paddingScale={paddingScale} {...tooltip} {...props}>
           <div style={{ maxWidth }}>
             <FlexColumn itemsSpacing={8}>
               <FlexColumn>
