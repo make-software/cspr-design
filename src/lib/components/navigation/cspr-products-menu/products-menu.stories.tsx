@@ -76,9 +76,6 @@ Primary.args = {
         icon={CsprNftStudioIcon}
         comingSoonBadgeLabel={'Coming soom'}
       />
-      <ProductsMenuItem nameLabel={'some name3'} link={''} icon={''} />
-      <ProductsMenuItem nameLabel={'some name3'} link={''} icon={''} />
-      <ProductsMenuItem nameLabel={'some name3'} link={''} icon={''} />
     </>
   ),
 };
