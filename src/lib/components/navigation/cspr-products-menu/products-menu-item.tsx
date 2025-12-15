@@ -36,7 +36,7 @@ export const ProductItemWrapper = styled.span<{
     justifyContent: 'center',
     alignItems: 'center',
     padding: ['8px 12px', '8px 12px', '16px'],
-    width: ['208px', '208px', '172px'],
+    width: ['208px', '208px', '177px'],
     height: ['56px', '56px', '137px'],
 
     '&:hover': {
