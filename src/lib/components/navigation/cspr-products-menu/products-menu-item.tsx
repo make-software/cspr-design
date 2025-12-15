@@ -32,7 +32,7 @@ export const ProductItemWrapper = styled.span<{
 }>(({ theme, isOpen, selected, disabled }) =>
   theme.withMedia({
     display: 'flex',
-    flex: '1 1 auto',
+    flex: '0 1 auto',
     justifyContent: 'center',
     alignItems: 'center',
     padding: ['8px 12px', '8px 12px', '16px'],
