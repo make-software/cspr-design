@@ -40782,7 +40782,7 @@ const k7 = be.span.withConfig({
   justifyContent: "center",
   alignItems: "center",
   padding: ["8px 12px", "8px 12px", "16px"],
-  width: ["208px", "208px", "177px"],
+  width: ["208px", "208px", "172px"],
   height: ["56px", "56px", "137px"],
   "&:hover": {
     borderRadius: e.borderRadius.base,
