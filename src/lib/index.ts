@@ -78,6 +78,7 @@ export * from './components/contract-identifier/contract-identifier';
 export * from './components/contract-icon/contract-icon';
 export * from './components/activity-feed-item/activity-feed-item';
 export * from './components/cspr-amount/cspr-amount';
+export * from './components/cspr-amount-with-fiat/cspr-amount-with-fiat';
 export * from './components/token-amount/token-amount';
 export * from './hooks/use-click-and-touch-away';
 export * from './hooks/use-escape-key';
