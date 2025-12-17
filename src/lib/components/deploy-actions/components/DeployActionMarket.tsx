@@ -1,7 +1,7 @@
 import React from 'react';
 import ContractIcon from '../../../components/contract-icon/contract-icon';
 import { deriveAccountInfo } from '../../../utils/account.tsx';
-import DeployFiatAmount from './DeployFiatAmount';
+import CsprAmountWithFiat from '../../cspr-amount-with-fiat/cspr-amount-with-fiat';
 import { NftCollectionIdentifier } from './NftCollectionIdentifier';
 import { NftTokenIds } from './NftTokenIds';
 import { useDeployActionDataContext } from '../services/deploy-action-context';
@@ -121,7 +121,7 @@ const OfferMarketAction = ({
           <BodyText size={3} variation="darkGray">
             of
           </BodyText>
-          <DeployFiatAmount
+          <CsprAmountWithFiat
             amount={amount}
             rate={timeTransactionCurrencyRate}
           />

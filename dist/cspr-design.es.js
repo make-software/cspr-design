@@ -43370,7 +43370,9 @@ const sa = ({
     /* @__PURE__ */ $(Te, { size: 3, monotype: !0, variation: "black", children: /* @__PURE__ */ $(rs, { motes: e, precisionCase: Hn.small }) }),
     /* @__PURE__ */ Pe(Te, { size: 3, monotype: !0, variation: "darkGray", children: [
       "(",
-      S6(C, "USD", kl),
+      S6(C, "USD", {
+        precision: kl
+      }),
       ")"
     ] })
   ] });
@@ -45044,6 +45046,7 @@ export {
   n2 as CopyHash,
   ol as CopyIcon,
   jf as CrossIcon,
+  rs as CsprAmount,
   QS as CsprClickIcon,
   YS as CsprClickLogoDarkIcon,
   e_ as CsprCloudIcon,
@@ -45205,6 +45208,7 @@ export {
   Nb as TextRowType,
   H_ as Textarea,
   es as ThemeModeType,
+  Td as TokenAmount,
   _0 as TokenContractIcon,
   fC as TokenStandardEnum,
   lr as Tooltip,
