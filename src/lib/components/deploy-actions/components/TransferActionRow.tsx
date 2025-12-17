@@ -1,7 +1,7 @@
 import React from 'react';
 import Skeleton from 'react-loading-skeleton';
 import Avatar from '../../../components/avatar/avatar';
-import DeployFiatAmount from './DeployFiatAmount';
+import CsprAmountWithFiat from '../../cspr-amount-with-fiat/cspr-amount-with-fiat';
 import { useDeployActionDataContext } from '../services/deploy-action-context';
 import {
   AccountCentralizedInfo,
@@ -132,7 +132,7 @@ const TransferActionRow = ({
       <BodyText size={3} monotype variation={'black'}>
         {deployActionText}
       </BodyText>{' '}
-      <DeployFiatAmount
+      <CsprAmountWithFiat
         amount={transfer.amount}
         rate={timeTransactionCurrencyRate}
       />
