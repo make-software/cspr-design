@@ -5,8 +5,8 @@ import SvgIcon from '../svg-icon/svg-icon';
 import ArrowDownIcon from '../../assets/icons/ic-arrow-down.svg';
 import FlexRow from '../flex-row/flex-row';
 
-const CollapsedRow = styled(FlexRow)(({ theme }) => ({
-  marginTop: '8px',
+const CollapsedRow = styled(FlexRow)<{ hasTopMargin?: boolean }>(({ theme, hasTopMargin }) => ({
+  marginTop: hasTopMargin ? '8px' : 'unset',
   '&:hover': {
     span: {
       color: theme.styleguideColors.contentRed,
@@ -23,6 +23,7 @@ interface ExpandCollapsedButtonProps {
   expandedLabel: React.ReactNode;
   collapsedLabel: React.ReactNode;
   showArrow?: boolean;
+  hasTopMargin?: boolean;
   onExpand?: (collapsed: boolean) => void;
 }
 
@@ -30,6 +31,7 @@ export const ExpandCollapsedButton = ({
   expandedLabel,
   collapsedLabel,
   showArrow = true,
+  hasTopMargin = true,
   onExpand,
 }: ExpandCollapsedButtonProps) => {
   const [isCollapsed, setCollapsed] = useState<boolean>(true);
@@ -41,6 +43,7 @@ export const ExpandCollapsedButton = ({
         setCollapsed(!isCollapsed);
         onExpand && onExpand(!isCollapsed);
       }}
+      hasTopMargin={hasTopMargin}
     >
       <BodyText scale={'xs'} lineHeight={'xs'} size={3} variation="blue">
         {isCollapsed ? collapsedLabel : expandedLabel}

@@ -1824,3 +1824,132 @@ export const nftDeploy = {
   ],
   ft_token_actions: null,
 };
+
+export const duplicatedResultsDeploy = {
+  "deploy_hash": "250eeb15c1ea77077bfc4b8b2b35d4dd9e139dfb528fb62414aed290c6eef400",
+  "block_hash": "522e1e131ec2c0078c682003e729605d733e3e5124865fa7504f7f5507c74f1c",
+  "block_height": 6265786,
+  "caller_public_key": "0188ed5156681e57c66d2f3f5baa38126607774a6cba86369fa89970426242413a",
+  "caller_hash": "1856e4a0b23c70b64e4509987680de0d99145fa0cdc71ad9b78760e18ff0deec",
+  "execution_type_id": 4,
+  "contract_package_hash": "20b6b67cc838b43a2168919068c2bedee3ad730d624d86e2e2ae144e902f6de1",
+  "contract_hash": "6e1777c006965596581c3a0379c1d46f7aa518debb128d11d08c5897ff267579",
+  "entry_point_id": 2625978,
+  "args": {
+    "amount": {
+      "cl_type": "U256",
+      "parsed": "7974267226024"
+    },
+    "spender": {
+      "cl_type": "Key",
+      "parsed": "hash-e3b30447e4e67526689e8eed97f4d276a3448b77c8c27e7df451dd59ecc83a5e"
+    }
+  },
+  "payment_amount": "5000000000",
+  "refund_amount": "3456371610",
+  "cost": "5000000000",
+  "consumed_gas": "391504519",
+  "error_message": null,
+  "status": "processed",
+  "timestamp": "2025-12-19T10:49:08Z",
+  "rate": 0.00466498,
+  "account_info": null,
+  "centralized_account_info": null,
+  "contract_package": {
+    "contract_package_hash": "20b6b67cc838b43a2168919068c2bedee3ad730d624d86e2e2ae144e902f6de1",
+    "owner_public_key": "0193fba0ea4f79984067fe50c3064dccde11ede3c4913c160f2452bd6710c72217",
+    "owner_hash": "55c081be92939b87d1cac05916e9273056edaa67cf3cefb561157160082be739",
+    "name": "Staked CSPR (sCSPR)",
+    "description": "Liquid staking token representing a proportionate share of staked CSPR held by this contract",
+    "metadata": {
+      "balances_uref": "uref-8cfe212b407be125618f7c6db2e3601caeb04e8e7a7b68a52412b5306cf3217b-007",
+      "decimals": 9,
+      "name": "Staked CSPR",
+      "symbol": "sCSPR",
+      "total_supply_uref": "uref-3ae72401fff282ac073963ee76ae8b153bc9c813c834e89c82a2ad6135ae2bef-007"
+    },
+    "latest_version_contract_type_id": 2,
+    "timestamp": "2025-06-18T19:17:08Z",
+    "icon_url": "https://casper-assets.s3.amazonaws.com/contracts/staked-cspr.png",
+    "website_url": "https://testnet.wiselending.com/liquid-staking",
+    "coingecko_id": null,
+    "latest_version_contract_hash": null,
+    "account_info": null,
+    "centralized_account_info": null,
+    "coingecko_data": null,
+    "friendlymarket_data": null,
+    "csprtrade_data": null
+  },
+  "contract": {
+    "block_height": 5172205,
+    "contract_hash": "6e1777c006965596581c3a0379c1d46f7aa518debb128d11d08c5897ff267579",
+    "contract_package_hash": "20b6b67cc838b43a2168919068c2bedee3ad730d624d86e2e2ae144e902f6de1",
+    "contract_type_id": 2,
+    "contract_version": 1,
+    "deploy_hash": "63388150fda5108ed343e122b5eacdf3b1ef09b5ae6ebde43f4bb2e8d1733ea6",
+    "is_disabled": false,
+    "major_protocol_version": 2,
+    "timestamp": "2025-06-18T19:17:08Z"
+  },
+  "contract_entrypoint": {
+    "action_type_id": null,
+    "contract_hash": "6e1777c006965596581c3a0379c1d46f7aa518debb128d11d08c5897ff267579",
+    "contract_package_hash": "20b6b67cc838b43a2168919068c2bedee3ad730d624d86e2e2ae144e902f6de1",
+    "id": 2625978,
+    "name": "approve"
+  },
+  "caller_cspr_name": null,
+  "transfers": null,
+  "nft_token_actions": null,
+  "ft_token_actions": [
+    {
+      "block_height": 6265786,
+      "contract_package_hash": "20b6b67cc838b43a2168919068c2bedee3ad730d624d86e2e2ae144e902f6de1",
+      "transform_idx": 6,
+      "from_type": 0,
+      "from_hash": "1856e4a0b23c70b64e4509987680de0d99145fa0cdc71ad9b78760e18ff0deec",
+      "to_type": 1,
+      "to_hash": "e3b30447e4e67526689e8eed97f4d276a3448b77c8c27e7df451dd59ecc83a5e",
+      "ft_action_type_id": 3,
+      "amount": "7974267226024",
+      "timestamp": null,
+      "rate": null,
+      "from_public_key": "0188ed5156681e57c66d2f3f5baa38126607774a6cba86369fa89970426242413a",
+      "to_public_key": null,
+      "from_account_info": null,
+      "to_account_info": null,
+      "caller_account_info": null,
+      "from_centralized_account_info": null,
+      "to_centralized_account_info": null,
+      "caller_centralized_account_info": null,
+      "contract_package": {
+        "contract_package_hash": "20b6b67cc838b43a2168919068c2bedee3ad730d624d86e2e2ae144e902f6de1",
+        "owner_public_key": "0193fba0ea4f79984067fe50c3064dccde11ede3c4913c160f2452bd6710c72217",
+        "owner_hash": "55c081be92939b87d1cac05916e9273056edaa67cf3cefb561157160082be739",
+        "name": "Staked CSPR (sCSPR)",
+        "description": "Liquid staking token representing a proportionate share of staked CSPR held by this contract",
+        "metadata": {
+          "balances_uref": "uref-8cfe212b407be125618f7c6db2e3601caeb04e8e7a7b68a52412b5306cf3217b-007",
+          "decimals": 9,
+          "name": "Staked CSPR",
+          "symbol": "sCSPR",
+          "total_supply_uref": "uref-3ae72401fff282ac073963ee76ae8b153bc9c813c834e89c82a2ad6135ae2bef-007"
+        },
+        "latest_version_contract_type_id": 2,
+        "timestamp": "2025-06-18T19:17:08Z",
+        "icon_url": "https://casper-assets.s3.amazonaws.com/contracts/staked-cspr.png",
+        "website_url": "https://testnet.wiselending.com/liquid-staking",
+        "coingecko_id": null,
+        "latest_version_contract_hash": null,
+        "account_info": null,
+        "centralized_account_info": null,
+        "coingecko_data": null,
+        "friendlymarket_data": null,
+        "csprtrade_data": null
+      },
+      "deploy": null,
+      "from_cspr_name": null,
+      "to_cspr_name": null
+    }
+  ]
+}

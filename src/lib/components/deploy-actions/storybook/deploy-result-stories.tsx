@@ -13,7 +13,7 @@ import {
   transferDeploy,
   csprMarketDeploy,
   cep18Deploy,
-  nftDeploy,
+  nftDeploy, duplicatedResultsDeploy,
 } from './mockedDeploys';
 import BodyText from '../../body-text/body-text';
 import { DeployResultRow, ResultRowVariation } from '../deploy-result-row';
@@ -82,6 +82,12 @@ const exampleComponents = [
     templateLabel: 'CEP-18 deploy results message:',
     renderComponent: (args) => (
       <DeployResultRow {...args} deploy={MapDeploy(cep18Deploy)} />
+    ),
+  },
+  {
+    templateLabel: 'CEP-18 deploy with duplicated results message:',
+    renderComponent: (args) => (
+        <DeployResultRow {...args} deploy={MapDeploy(duplicatedResultsDeploy)} shouldCollapse/>
     ),
   },
   {
