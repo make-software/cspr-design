@@ -1476,4 +1476,130 @@ export declare const nftDeploy: {
     }[];
     ft_token_actions: null;
 };
+export declare const duplicatedResultsDeploy: {
+    deploy_hash: string;
+    block_hash: string;
+    block_height: number;
+    caller_public_key: string;
+    caller_hash: string;
+    execution_type_id: number;
+    contract_package_hash: string;
+    contract_hash: string;
+    entry_point_id: number;
+    args: {
+        amount: {
+            cl_type: string;
+            parsed: string;
+        };
+        spender: {
+            cl_type: string;
+            parsed: string;
+        };
+    };
+    payment_amount: string;
+    refund_amount: string;
+    cost: string;
+    consumed_gas: string;
+    error_message: null;
+    status: string;
+    timestamp: string;
+    rate: number;
+    account_info: null;
+    centralized_account_info: null;
+    contract_package: {
+        contract_package_hash: string;
+        owner_public_key: string;
+        owner_hash: string;
+        name: string;
+        description: string;
+        metadata: {
+            balances_uref: string;
+            decimals: number;
+            name: string;
+            symbol: string;
+            total_supply_uref: string;
+        };
+        latest_version_contract_type_id: number;
+        timestamp: string;
+        icon_url: string;
+        website_url: string;
+        coingecko_id: null;
+        latest_version_contract_hash: null;
+        account_info: null;
+        centralized_account_info: null;
+        coingecko_data: null;
+        friendlymarket_data: null;
+        csprtrade_data: null;
+    };
+    contract: {
+        block_height: number;
+        contract_hash: string;
+        contract_package_hash: string;
+        contract_type_id: number;
+        contract_version: number;
+        deploy_hash: string;
+        is_disabled: boolean;
+        major_protocol_version: number;
+        timestamp: string;
+    };
+    contract_entrypoint: {
+        action_type_id: null;
+        contract_hash: string;
+        contract_package_hash: string;
+        id: number;
+        name: string;
+    };
+    caller_cspr_name: null;
+    transfers: null;
+    nft_token_actions: null;
+    ft_token_actions: {
+        block_height: number;
+        contract_package_hash: string;
+        transform_idx: number;
+        from_type: number;
+        from_hash: string;
+        to_type: number;
+        to_hash: string;
+        ft_action_type_id: number;
+        amount: string;
+        timestamp: null;
+        rate: null;
+        from_public_key: string;
+        to_public_key: null;
+        from_account_info: null;
+        to_account_info: null;
+        caller_account_info: null;
+        from_centralized_account_info: null;
+        to_centralized_account_info: null;
+        caller_centralized_account_info: null;
+        contract_package: {
+            contract_package_hash: string;
+            owner_public_key: string;
+            owner_hash: string;
+            name: string;
+            description: string;
+            metadata: {
+                balances_uref: string;
+                decimals: number;
+                name: string;
+                symbol: string;
+                total_supply_uref: string;
+            };
+            latest_version_contract_type_id: number;
+            timestamp: string;
+            icon_url: string;
+            website_url: string;
+            coingecko_id: null;
+            latest_version_contract_hash: null;
+            account_info: null;
+            centralized_account_info: null;
+            coingecko_data: null;
+            friendlymarket_data: null;
+            csprtrade_data: null;
+        };
+        deploy: null;
+        from_cspr_name: null;
+        to_cspr_name: null;
+    }[];
+};
 //# sourceMappingURL=mockedDeploys.d.ts.map

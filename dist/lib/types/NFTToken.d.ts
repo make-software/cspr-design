@@ -23,6 +23,13 @@ export declare const NFTActivityType: {
     5: string;
     6: string;
 };
+export declare const NftTypeToEntryPointMap: {
+    1: NftTokenEntryPoint;
+    2: NftTokenEntryPoint;
+    3: NftTokenEntryPoint;
+    4: NftTokenEntryPoint;
+    5: NftTokenEntryPoint;
+};
 export declare enum CsprMarketEntryPoint {
     delist_token = "delist_token",
     list_token = "list_token",

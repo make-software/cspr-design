@@ -35,6 +35,14 @@ export const NFTActivityType = {
   [NftActivityTypeEnum.Revoke]: 'Revoke',
 };
 
+export const NftTypeToEntryPointMap  = {
+  [NftActivityTypeEnum.Mint]: NftTokenEntryPoint.mint,
+  [NftActivityTypeEnum.Burn]: NftTokenEntryPoint.burn,
+  [NftActivityTypeEnum.Approve]: NftTokenEntryPoint.approve,
+  [NftActivityTypeEnum.Transfer]: NftTokenEntryPoint.transfer,
+  [NftActivityTypeEnum.Metadata]: NftTokenEntryPoint.update_token_meta,
+};
+
 export enum CsprMarketEntryPoint {
   delist_token = 'delist_token',
   list_token = 'list_token',

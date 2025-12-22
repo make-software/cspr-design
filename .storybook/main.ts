@@ -3,7 +3,6 @@ import remarkGfm from 'remark-gfm';
 
 
 async function filterStories(list): Promise<StoriesEntry[]> {
-  console.log(list)
   return ['../src/**/*.mdx', '../src/**/*.stories.@(js|jsx|mjs|ts|tsx)']
 }
 

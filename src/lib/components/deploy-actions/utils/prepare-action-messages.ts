@@ -5,6 +5,7 @@ import {
   guardedDeriveSplitDataFromArguments,
 } from '../../../utils/deploy-args';
 import { NftTokenEntryPoint } from '../../../types/NFTToken';
+import {NamedKeyPrefix} from "../../../utils/named-key-prefix";
 
 export interface MessageDataAccount {
   accountHash?: string;
@@ -96,6 +97,8 @@ export const prepareFtActionMessageDataForDeployDetails = (
   const senderPrefix = senderPrefixesMap[entryPointName];
   const contractPrefix = contractPrefixesMap[entryPointName];
 
+  const isTransactorAccount = (transactor) => transactor?.prefix === NamedKeyPrefix.ACCOUNT_HASH
+
   const actionOutcome: Partial<MessageData> = {
     amount,
     ...(tokenSymbol && { symbol: tokenSymbol }),
@@ -112,7 +115,8 @@ export const prepareFtActionMessageDataForDeployDetails = (
       prefix1: senderPrefix,
       account1: {
         hash: spenderHash?.hash,
-        hashType: TransactorHashType.hash,
+        publicKey: isTransactorAccount(spenderHash) ? spenderHash?.hash && getPublicKeyByAccountHash(spenderHash.hash) : null,
+        hashType:  isTransactorAccount(spenderHash) ?  TransactorHashType.account : TransactorHashType.hash
       },
     }),
     // here could be a case when recipientAccountHash and recipientHash are both present
