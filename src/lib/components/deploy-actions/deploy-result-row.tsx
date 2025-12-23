@@ -267,8 +267,6 @@ export const DeployResultRowComponent = (
     shouldCollapse,
   });
 
-  console.log('shouldCollapseDuplicatedResults',shouldCollapseDuplicatedResults);
-
   useEffect(() => {
     if (shouldCollapseDuplicatedResults) setCollapsed(true);
   }, [shouldCollapseDuplicatedResults]);

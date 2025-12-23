@@ -44696,7 +44696,7 @@ const KC = (e) => {
     actionsArray: c,
     shouldCollapse: x
   });
-  console.log("shouldCollapseDuplicatedResults", m), vt(() => {
+  vt(() => {
     m && a(!0);
   }, [m]);
   const t = m ? 0 : FC, d = c?.length <= 1 ? `View ${c?.length} result` : `View all ${c?.length} results`, b = c?.length <= 1 ? "Collapse result" : "Collapse results", y = (x || m) && c?.length > t;
