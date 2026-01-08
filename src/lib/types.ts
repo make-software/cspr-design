@@ -10,7 +10,7 @@ export type ActivableProps = {
   active?: boolean;
 };
 
-export type Size = 0 | 1 | 2 | 3 | 4 | 5;
+export type Size = 0 | 1 | 1.6 | 2 | 3 | 4 | 5;
 
 export enum LabelFontSize {
   'default' = 'default',
