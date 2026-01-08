@@ -1,4 +1,4 @@
-import { BaseProps } from '../../types';
+import { BaseProps } from '../../base-types.ts';
 export interface TabContentProps extends BaseProps {
 }
 export declare function TabContent(props: TabContentProps): import("react/jsx-runtime").JSX.Element;

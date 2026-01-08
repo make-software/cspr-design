@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import { ActivableProps, BaseProps } from '../../types';
+import { ActivableProps, BaseProps } from '../../base-types.ts';
 
 type Ref = HTMLAnchorElement;
 

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import { BaseProps } from '../../types';
+import { BaseProps } from '../../base-types.ts';
 import FlexColumn from '../flex-column/flex-column';
 import { useClickAway } from '../../hooks/use-click-away';
 

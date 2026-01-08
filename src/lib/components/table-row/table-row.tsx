@@ -1,7 +1,7 @@
 import React, { MouseEventHandler } from 'react';
 import styled from 'styled-components';
 
-import { BaseProps } from '../../types';
+import { BaseProps } from '../../base-types.ts';
 
 /* eslint-disable-next-line */
 export interface TableRowProps extends BaseProps {
@@ -30,7 +30,7 @@ export const StyledTableRow = styled.tr<{
       left: 20,
       right: 20,
       borderBottom: theme.border.tableRowSeparator,
-      bottom: 0
+      bottom: 0,
     },
     position: 'relative',
     ...(isClickable && {

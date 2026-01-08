@@ -8,7 +8,7 @@ import { Tooltip } from '../tooltip/tooltip';
 import { useMatchMedia } from '../../utils/match-media';
 import { CopyHash } from '../copy-hash/copy-hash';
 import { HashLength } from '../../utils/formatters';
-import { Size } from '../../types';
+import { Size } from '../../base-types.ts';
 
 const StyledWrapper = styled('div')(({}) => ({
   display: 'flex',

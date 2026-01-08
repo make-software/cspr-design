@@ -1,5 +1,5 @@
 import { default as React } from 'react';
-import { BaseProps } from '../../types';
+import { BaseProps } from '../../base-types.ts';
 export type SocialMediaType = 'keybase' | 'telegram' | 'twitter' | 'twitter_x' | 'github' | 'youtube' | 'facebook' | 'medium' | 'reddit' | 'wechat' | 'linkedin' | 'website';
 export interface SvgIconSocialProps extends BaseProps {
     socialMediaType: SocialMediaType;

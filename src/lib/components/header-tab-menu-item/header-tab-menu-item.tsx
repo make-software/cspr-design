@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import { ActivableProps } from '../../types';
+import { ActivableProps } from '../../base-types.ts';
 
 import HeaderText, { HeaderTextProps } from '../header-text/header-text';
 
@@ -25,7 +25,7 @@ const StyledHeaderTabMenuItem = styled(HeaderText)<ActivableProps>(
       color: theme.styleguideColors.contentPrimary,
       cursor: 'default',
     }),
-  })
+  }),
 );
 
 export function HeaderTabMenuItem(props: HeaderTabMenuItemProps) {

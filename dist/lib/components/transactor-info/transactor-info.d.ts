@@ -1,6 +1,6 @@
 import { AvatarProps } from '../avatar/avatar';
 import { AccountCentralizedInfo, AccountInfoResult, DeployContractPackageResult, TransactorHashType } from '../../types/types';
-import { Size } from '../../types.ts';
+import { Size } from '../../base-types.ts';
 import { HashLength } from '../../utils/formatters';
 import { BodyTextProps } from '../body-text/body-text';
 interface TransactorInfoProps {

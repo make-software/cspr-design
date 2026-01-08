@@ -1,5 +1,5 @@
 import { default as React } from 'react';
-import { BaseProps } from '../../types';
+import { BaseProps } from '../../base-types.ts';
 export type TextVariation = 'inherit' | 'gray' | 'white' | 'contentViolet' | 'lightGray' | 'darkGray' | 'black' | 'blue' | 'red' | 'green';
 export interface TextProps extends BaseProps {
     variation?: TextVariation;

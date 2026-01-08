@@ -2,7 +2,7 @@ import React from 'react';
 import { Meta, StoryFn } from '@storybook/react';
 import SvgIcon from '../svg-icon/svg-icon';
 import Textarea from './textarea';
-import { LabelFontSize } from '../../types';
+import { LabelFontSize } from '../../base-types';
 import { HeartIcon } from '../../icons-index';
 
 export default {

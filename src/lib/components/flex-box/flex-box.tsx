@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import { BaseProps } from '../../types';
+import { BaseProps } from '../../base-types.ts';
 
 /* eslint-disable-next-line */
 export interface FlexBoxProps extends BaseProps {
@@ -46,23 +46,22 @@ const StyledFlexBox = styled('div')<FlexBoxProps>(
         [flexDirection === 'row' ? 'marginLeft' : 'marginTop']: itemsSpacing,
       },
       '> * + *:where(h1, h2, h3, h4, h5, h6)': {
-        [flexDirection === 'row' ? 'marginLeft' : 'marginTop']: `${itemsSpacing}px !important`,
+        [flexDirection === 'row' ? 'marginLeft' : 'marginTop']:
+          `${itemsSpacing}px !important`,
       },
     }),
     ...(onClick && {
       cursor: 'pointer',
     }),
-  })
+  }),
 );
 
 export const FlexBox = React.forwardRef<HTMLDivElement, FlexBoxProps>(
   (props, ref) => {
-      const {tag = 'div'} = props;
-      const validTag = ['div', 'span'].includes(tag) ? tag : 'div';
-      return (
-          <StyledFlexBox ref={ref} {...props} as={validTag}/>
-      )
-  }
+    const { tag = 'div' } = props;
+    const validTag = ['div', 'span'].includes(tag) ? tag : 'div';
+    return <StyledFlexBox ref={ref} {...props} as={validTag} />;
+  },
 );
 
 export default FlexBox;

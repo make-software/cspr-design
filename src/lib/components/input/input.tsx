@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { matchSize } from '../../utils/match-size';
 import { FormField, FormFieldStatus } from '../form-field/form-field';
 import SvgIcon from '../svg-icon/svg-icon';
-import { LabelFontSize } from '../../types';
+import { LabelFontSize } from '../../base-types.ts';
 import { ErrorIcon } from '../../icons-index';
 
 const getThemeColorByError = (error?: boolean) => {

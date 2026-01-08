@@ -1,5 +1,5 @@
 import { default as React, ReactNode } from 'react';
-import { LabelFontSize } from '../../types';
+import { LabelFontSize } from '../../base-types.ts';
 export declare enum InputValidationType {
     PositiveInteger = "positive_int",
     CSPR = "cspr",

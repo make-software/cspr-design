@@ -1,4 +1,4 @@
-import { ActivableProps } from '../../types';
+import { ActivableProps } from '../../base-types.ts';
 import { HeaderTextProps } from '../header-text/header-text';
 export interface HeaderTabMenuItemProps extends Omit<HeaderTextProps, 'size'>, ActivableProps {
     onClick?: (ev: any) => void;

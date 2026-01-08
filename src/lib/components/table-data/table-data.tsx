@@ -1,7 +1,7 @@
 import React from 'react';
 
 import styled from 'styled-components';
-import { BaseProps } from '../../types';
+import { BaseProps } from '../../base-types.ts';
 
 export interface TableDataProps extends BaseProps {
   align?: 'left' | 'right' | 'center';
@@ -25,7 +25,7 @@ const StyledTableData = styled.td<TableDataProps>(
     ...(fitContent && {
       width: '1%',
     }),
-  })
+  }),
 );
 
 export function TableData(props: TableDataProps) {

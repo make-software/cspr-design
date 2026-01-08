@@ -1,5 +1,5 @@
 import { default as React } from 'react';
-import { BaseProps } from '../../types';
+import { BaseProps } from '../../base-types.ts';
 export interface RadioButtonProps extends BaseProps {
     label?: string | React.ReactNode;
     onChange?: (value: string) => void;

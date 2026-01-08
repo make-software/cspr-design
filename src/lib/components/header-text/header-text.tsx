@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Size } from '../../types';
+import { Size } from '../../base-types.ts';
 
 import { matchSize } from '../../utils/match-size';
 import Text, { TextProps } from '../text/text';

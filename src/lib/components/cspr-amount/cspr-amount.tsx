@@ -6,7 +6,7 @@ import {
 } from '../../utils/currency';
 import TokenAmount from '../token-amount/token-amount';
 
-export interface CsprProps {
+export interface CsprAmountProps {
   motes?: string | number | null;
   precisionCase?: PrecisionCase;
   hideCsprCurrency?: boolean;
@@ -16,7 +16,7 @@ export function CsprAmount({
   motes,
   precisionCase,
   hideCsprCurrency,
-}: CsprProps) {
+}: CsprAmountProps) {
   const precision = currencyPrecisionByCase(precisionCase);
 
   return (

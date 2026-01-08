@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import { BaseProps, Size } from '../../types';
+import { BaseProps, Size } from '../../base-types.ts';
 import { matchSize } from '../../utils/match-size';
 
 /* eslint-disable-next-line */

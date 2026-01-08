@@ -96,6 +96,7 @@ export * from './utils/guards';
 export * from './utils/currency';
 export * from './utils/md5';
 export * from './theme-config';
+export * from './base-types';
 export * from './types/types';
 export * from './types/NFTToken';
 export * from './types/FTToken';

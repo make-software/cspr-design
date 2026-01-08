@@ -1,5 +1,5 @@
 import { default as React } from 'react';
-import { BaseProps } from '../../types';
+import { BaseProps } from '../../base-types.ts';
 export interface FlexBoxProps extends BaseProps {
     itemsSpacing?: number;
     innerRef?: React.Ref<HTMLDivElement>;

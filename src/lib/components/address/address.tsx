@@ -13,7 +13,7 @@ import {
   shortenCsprName,
   truncateCSPRName,
 } from '../../utils/formatters.ts';
-import { Size } from '../../types.ts';
+import { Size } from '../../base-types.ts';
 import TruncateBox from '../truncate-box/truncate-box.tsx';
 import Copy from '../copy/copy.tsx';
 import TooltipWithExtendedInfo from '../tooltip-with-extended-info/tooltip-with-extended-info';

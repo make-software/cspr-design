@@ -1,6 +1,6 @@
 import React, { ReactNode } from 'react';
 import styled from 'styled-components';
-import { BaseProps, LabelFontSize } from '../../types';
+import { BaseProps, LabelFontSize } from '../../base-types.ts';
 import FormField, { FormFieldStatus } from '../form-field/form-field';
 import SvgIcon from '../svg-icon/svg-icon';
 import { ErrorIcon } from '../../icons-index.ts';

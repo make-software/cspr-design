@@ -1,4 +1,4 @@
-import { ActivableProps } from '../../types';
+import { ActivableProps } from '../../base-types.ts';
 import { ButtonProps } from '../button/button';
 export interface TabMenuItemProps extends ButtonProps, ActivableProps {
     disabled?: boolean;

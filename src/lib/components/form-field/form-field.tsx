@@ -1,6 +1,6 @@
 import React, { ReactNode } from 'react';
 import styled from 'styled-components';
-import { BaseProps, LabelFontSize } from '../../types';
+import { BaseProps, LabelFontSize } from '../../base-types.ts';
 import { SubtitleText } from '../subtitle-text/subtitle-text';
 import CaptionText from '../caption-text/caption-text';
 import BodyText from '../body-text/body-text';

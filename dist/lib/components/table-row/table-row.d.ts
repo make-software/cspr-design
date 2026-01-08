@@ -1,5 +1,5 @@
 import { MouseEventHandler } from 'react';
-import { BaseProps } from '../../types';
+import { BaseProps } from '../../base-types.ts';
 export interface TableRowProps extends BaseProps {
     loading?: boolean;
     isClickable?: boolean;

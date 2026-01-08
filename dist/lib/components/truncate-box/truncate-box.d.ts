@@ -1,5 +1,5 @@
 import { default as React } from 'react';
-import { BaseProps, Size } from '../../types';
+import { BaseProps, Size } from '../../base-types.ts';
 export interface TruncateBoxProps extends BaseProps {
     size?: Size;
     lineHeight?: 'xs' | 'sm';

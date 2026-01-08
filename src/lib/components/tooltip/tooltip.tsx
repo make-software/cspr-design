@@ -5,7 +5,7 @@ import {
   useTooltipState,
 } from 'reakit/Tooltip';
 import styled from 'styled-components';
-import { BaseProps } from '../../types';
+import { BaseProps } from '../../base-types.ts';
 import BodyText from '../body-text/body-text';
 import CaptionText from '../caption-text/caption-text';
 import FlexColumn from '../flex-column/flex-column';
@@ -29,38 +29,37 @@ export interface TooltipProps extends BaseProps {
 }
 
 const StyledReactTooltip = styled(
-    ReakitTooltip,
+  ReakitTooltip,
 ).withConfig<StyledReactTooltipProps>({
-    shouldForwardProp: (prop) => prop !== 'paddingScale',
+  shouldForwardProp: (prop) => prop !== 'paddingScale',
 })(({ theme, lineHeight = 'sm', scale = 'sm', paddingScale = 2 }) => ({
-    zIndex: theme.zIndex.tooltip,
-    color: theme.styleguideColors.contentPrimary,
-    backgroundColor: theme.styleguideColors.backgroundPrimary,
-    borderRadius: theme.borderRadius.base,
-    padding: theme.padding[paddingScale],
-    boxShadow: theme.boxShadow.tooltip,
+  zIndex: theme.zIndex.tooltip,
+  color: theme.styleguideColors.contentPrimary,
+  backgroundColor: theme.styleguideColors.backgroundPrimary,
+  borderRadius: theme.borderRadius.base,
+  padding: theme.padding[paddingScale],
+  boxShadow: theme.boxShadow.tooltip,
 
-    transition: 'opacity 250ms ease-in-out',
-    opacity: 0,
-    fontSize: matchSize(
-      {
-        sm: '1.3rem',
-        xs: '0.8125rem',
-      },
-      scale,
-    ),
-    lineHeight: matchSize(
-      {
-        sm: '1.5rem',
-        xs: '1.25rem',
-      },
-      lineHeight,
-    ),
-    '&[data-enter]': {
-      opacity: 1,
+  transition: 'opacity 250ms ease-in-out',
+  opacity: 0,
+  fontSize: matchSize(
+    {
+      sm: '1.3rem',
+      xs: '0.8125rem',
     },
-  }),
-);
+    scale,
+  ),
+  lineHeight: matchSize(
+    {
+      sm: '1.5rem',
+      xs: '1.25rem',
+    },
+    lineHeight,
+  ),
+  '&[data-enter]': {
+    opacity: 1,
+  },
+}));
 
 export const Tooltip = React.forwardRef<
   Ref,

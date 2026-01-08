@@ -1,4 +1,4 @@
-import { Size } from '../../types';
+import { Size } from '../../base-types.ts';
 import { TextProps } from '../text/text';
 export interface HeaderTextProps extends TextProps {
     size: Size;

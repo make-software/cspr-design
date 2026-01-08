@@ -5,7 +5,7 @@ import { useClickAndTouchAway } from '../../hooks/use-click-and-touch-away';
 import FlexRow from '../flex-row/flex-row';
 import FlexColumn from '../flex-column/flex-column';
 import BodyText from '../body-text/body-text';
-import { BaseProps } from '../../types';
+import { BaseProps } from '../../base-types.ts';
 import SvgIcon from '../svg-icon/svg-icon';
 import Input from '../input/input';
 import { ArrowDownIcon, DeleteIcon, SearchIcon } from '../../icons-index';

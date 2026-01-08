@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import Label from '../label/label';
-import { BaseProps } from '../../types';
+import { BaseProps } from '../../base-types.ts';
 
 type BadgeBackgroundColor =
   | 'green'
@@ -46,7 +46,7 @@ const StyledBadge = styled.div<StyledBadgeProps>(
     borderRadius: '40px',
     minHeight: '17px',
     padding: '0 6px 1px 6px',
-  })
+  }),
 );
 
 const StyledLabelContentWrapper = styled.div(({ theme }) => ({
@@ -74,7 +74,7 @@ export const Badge = React.forwardRef<HTMLDivElement, BadgeProps>(
         <StyledLabelContentWrapper>{props.label}</StyledLabelContentWrapper>
       </Label>
     </StyledBadge>
-  )
+  ),
 );
 
 export default Badge;

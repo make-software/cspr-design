@@ -1,4 +1,4 @@
-import { BaseProps } from '../../types';
+import { BaseProps } from '../../base-types.ts';
 export type DropdownValue = {
     value: string;
     label: string;

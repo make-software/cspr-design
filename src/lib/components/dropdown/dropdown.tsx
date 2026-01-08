@@ -7,7 +7,7 @@ import Downshift, {
 import styled from 'styled-components';
 import isEqual from 'fast-deep-equal';
 
-import { BaseProps } from '../../types';
+import { BaseProps } from '../../base-types.ts';
 
 import BodyText from '../body-text/body-text';
 import FlexRow, { FlexRowProps } from '../flex-row/flex-row';

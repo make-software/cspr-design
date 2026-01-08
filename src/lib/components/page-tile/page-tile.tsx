@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { BaseProps } from '../../types';
+import { BaseProps } from '../../base-types.ts';
 
 /* eslint-disable-next-line */
 export interface PageTileProps extends BaseProps {

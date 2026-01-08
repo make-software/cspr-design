@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import { BaseProps } from '../../types';
+import { BaseProps } from '../../base-types.ts';
 import BodyText from '../body-text/body-text';
 import Tooltip from '../tooltip/tooltip';
 import FlexRow from '../flex-row/flex-row';

@@ -1,4 +1,4 @@
-import { BaseProps } from '../../types';
+import { BaseProps } from '../../base-types.ts';
 export interface PageTileProps extends BaseProps {
     withPadding?: boolean;
     bottomGap?: number;

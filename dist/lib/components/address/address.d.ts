@@ -3,7 +3,7 @@ import { AvatarProps } from '../avatar/avatar';
 import { BodyTextProps } from '../body-text/body-text.tsx';
 import { FlexRowProps } from '../flex-row/flex-row.tsx';
 import { HashLength } from '../../utils/formatters.ts';
-import { Size } from '../../types.ts';
+import { Size } from '../../base-types.ts';
 interface AddressProps {
     hash: string | null | undefined;
     name?: string | undefined;

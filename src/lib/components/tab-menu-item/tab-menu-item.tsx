@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import { ActivableProps } from '../../types';
+import { ActivableProps } from '../../base-types.ts';
 import Button, { ButtonProps } from '../button/button';
 import SvgIcon from '../svg-icon/svg-icon';
 import FlexRow from '../flex-row/flex-row';
@@ -16,7 +16,7 @@ export interface TabMenuItemProps extends ButtonProps, ActivableProps {
   lineHeight?: 'xs' | 'sm';
   scale?: 'xs' | 'sm';
   tooltipPaddingScale?: 1 | 2;
-  hasOutline?:boolean;
+  hasOutline?: boolean;
 }
 
 const StyledButton = styled(Button)<TabMenuItemProps>(

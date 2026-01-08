@@ -1,4 +1,4 @@
-import { BaseProps } from '../../types';
+import { BaseProps } from '../../base-types.ts';
 export interface TabMenuContainerProps extends BaseProps {
     tabsCount: number;
 }
