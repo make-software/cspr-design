@@ -120,7 +120,15 @@ export const Copy = ({
 
   return (
     <FlexRow style={styles} align="center" itemsSpacing={8}>
-      <StyledContainer onClick={handleCopy} isCopied={isCopied}>
+      <StyledContainer
+          onClick={handleCopy}
+          isCopied={isCopied}
+          tabIndex={0}
+          onKeyDown={(ev) => {
+              if (ev.key === 'Enter') {
+                  handleCopy();
+              }
+          }}>
         <StyledSvgIcon
           variation={variation}
           size={16}
