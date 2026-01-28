@@ -2,12 +2,13 @@ import React from 'react';
 import { Badge, BadgeProps } from '../../badge/badge';
 import CaptionText from '../../caption-text/caption-text';
 import FlexRow from '../../flex-row/flex-row';
-import NavLink from '../../nav-link/nav-link';
 import FlexColumn from '../../flex-column/flex-column';
 import styled, { useTheme } from 'styled-components';
 import { useMatchMedia } from '../../../utils/match-media';
 import SvgIcon from '../../svg-icon/svg-icon';
 import BodyText from '../../body-text/body-text';
+
+type Ref = HTMLSpanElement;
 
 export interface ProductsMenuItemProps {
   comingSoonBadgeLabel?: string;
@@ -71,17 +72,22 @@ const defaultIcon = {
   [ThemeModeType.dark]: 'assets/icons/ic-sand-clock-dark.svg',
 };
 
-export const ProductsMenuItem = ({
-  nameLabel,
-  link,
-  icon,
-  descriptionText,
-  selected = false,
-  newBadgeLabel,
-  comingSoonBadgeLabel,
-  badge,
-}: ProductsMenuItemProps) => {
-  const theme = useTheme();
+export const ProductsMenuItem = React.forwardRef<Ref, ProductsMenuItemProps>(
+    function ProductsMenuItem(
+        {
+            nameLabel,
+            link,
+            icon,
+            descriptionText,
+            selected = false,
+            newBadgeLabel,
+            comingSoonBadgeLabel,
+            badge,
+            ...props
+        },
+        ref
+    ) {
+        const theme = useTheme();
 
   let itemBadge;
   if (badge) {
@@ -130,13 +136,16 @@ export const ProductsMenuItem = ({
 
   const productMedia = useMatchMedia([mobile, mobile, desktop], []);
 
-  return (
-    <ProductItemWrapper
-      onClick={() => !comingSoonBadgeLabel && window.open(link, '_blank')}
-      selected={selected}
-      disabled={!!comingSoonBadgeLabel}
-    >
-      {productMedia}
-    </ProductItemWrapper>
-  );
-};
+        return (
+            <ProductItemWrapper
+                onClick={() => !comingSoonBadgeLabel && window.open(link, '_blank')}
+                selected={selected}
+                disabled={!!comingSoonBadgeLabel}
+                {...props}
+                ref={ref}
+            >
+                {productMedia}
+            </ProductItemWrapper>
+        );
+    }
+);

@@ -1,6 +1,8 @@
 import React, { PropsWithChildren } from 'react';
 import styled from 'styled-components';
-import FlexRow from '../../flex-row/flex-row';
+import { FlexRow } from '../../flex-row/flex-row';
+
+type Ref = HTMLSpanElement;
 
 const ItemContainer = styled(FlexRow)<{ padding?: string }>(({ theme, padding }) => ({
   width: '100%',
@@ -34,12 +36,12 @@ interface DropdownMenuItemProps {
   padding?: string;
 }
 
-export const DropdownMenuItem = (
-  props: PropsWithChildren<DropdownMenuItemProps>
-) => {
-  return (
-    <MenuItemWrapper {...props}>
-      <ItemContainer padding={props.padding}>{props.children}</ItemContainer>
-    </MenuItemWrapper>
-  );
-};
+export const DropdownMenuItem = React.forwardRef<Ref, PropsWithChildren<DropdownMenuItemProps>>(
+    function DropdownMenuItem(props, ref) {
+        return (
+            <MenuItemWrapper {...props} ref={ref}>
+                <ItemContainer padding={props.padding}>{props.children}</ItemContainer>
+            </MenuItemWrapper>
+        );
+    }
+);

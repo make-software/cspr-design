@@ -217,11 +217,28 @@ export const ConfirmationWindow = ({
               justify={'space-between'}
             >
               {dismissLabel && (
-                <StyledDismissButton color={'utility'} onClick={onDismiss}>
+                <StyledDismissButton
+                    color={'utility'}
+                    hasOutline
+                    onClick={onDismiss}
+                    tabIndex={0}
+                    onKeyDown={(e) => {
+                      if (e.key === 'Enter') {
+                        onDismiss();
+                      }
+                    }}>
                   {dismissLabel}
                 </StyledDismissButton>
               )}
-              <StyledConfirmButton onClick={onConfirm}>
+              <StyledConfirmButton
+                  onClick={onConfirm}
+                  hasOutline
+                  tabIndex={0}
+                  onKeyDown={(e) => {
+                     if (e.key === 'Enter') {
+                         onConfirm();
+                     }
+                  }}>
                 {confirmLabel}
               </StyledConfirmButton>
             </ButtonsContainer>

@@ -43,7 +43,14 @@ export const ModalHeader = ({
     >
       {headerLogo && headerLogo}
       {onClose && (
-        <CloseButton onClick={onClose}>
+        <CloseButton
+            onClick={onClose}
+            tabIndex={0}
+            onKeyDown={(e) => {
+              if (e.key === 'Enter') {
+                onClose && onClose();
+              }
+            }}>
           <StyledSvgIcon src={CloseIcon} size={20} />
         </CloseButton>
       )}
