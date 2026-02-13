@@ -45168,6 +45168,7 @@ export {
   CS as KeyIcon,
   Jf as KeybaseIcon,
   B8 as Label,
+  Wo as LabelFontSize,
   SS as LightModeIcon,
   vr as Link,
   _S as LinkIcon,
