@@ -12,6 +12,11 @@ export enum NamedKeyPrefix {
   CONTRACT_PACKAGE = 'contract-package-',
 }
 
+export const hashPrefixRegExpV2 = new RegExp(
+  /^(?:(entity-)?contract(?:-package)?|account-hash|dictionary|withdraw|balance|deploy|uref|hash|era|bid)-[0-9a-f]{64}(?:-\d{3})?$/gi,
+);
+
+/** @deprecated use hashPrefixRegExpV2 instead */
 export const hashPrefixRegEx = new RegExp(
   `(${Object.values(NamedKeyPrefix).join('|')})(?=[0-9a-fA-F])`,
   'i',
@@ -26,7 +31,7 @@ export const hasNamedKeyPrefix = (value: any): boolean =>
 export const getNamedKeyPrefix = (value: string): string => {
   const hasPrefix = hasNamedKeyPrefix(value);
 
-  return hasPrefix && value.match(hashPrefixRegEx)
-    ? value.match(hashPrefixRegEx)![0]
+  return hasPrefix && value.match(hashPrefixRegExpV2)
+    ? value.match(hashPrefixRegExpV2)![0]
     : '';
 };

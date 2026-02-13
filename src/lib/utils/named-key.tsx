@@ -1,4 +1,4 @@
-import { hashPrefixRegEx } from './named-key-prefix';
+import { getNamedKeyPrefix, hashPrefixRegExpV2 } from './named-key-prefix';
 
 export interface SplitDataType {
   prefix: string;
@@ -9,12 +9,10 @@ export const deriveSplitDataFromNamedKeyValue = (
   namedKeyValue: string,
 ): SplitDataType => {
   const [hash, lastDigits] = namedKeyValue
-    .replace(hashPrefixRegEx, '')
+    .replace(hashPrefixRegExpV2, '')
     .split('-');
 
-  const formattedPrefix = namedKeyValue.match(hashPrefixRegEx)
-    ? namedKeyValue.match(hashPrefixRegEx)![0]
-    : '';
+  const formattedPrefix = getNamedKeyPrefix(namedKeyValue);
   const formattedHash = lastDigits ? `${hash}-${lastDigits}` : `${hash}`;
 
   return {

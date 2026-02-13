@@ -11,6 +11,8 @@ export declare enum NamedKeyPrefix {
     ACCOUNT_HASH = "account-hash-",
     CONTRACT_PACKAGE = "contract-package-"
 }
+export declare const hashPrefixRegExpV2: RegExp;
+/** @deprecated use hashPrefixRegExpV2 instead */
 export declare const hashPrefixRegEx: RegExp;
 export declare const hasNamedKeyPrefix: (value: any) => boolean;
 export declare const getNamedKeyPrefix: (value: string) => string;
