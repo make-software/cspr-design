@@ -4,6 +4,7 @@ export interface AccordionProps extends BaseProps {
     backgroundColor?: string;
     renderContent: (renderProps: RenderProps) => React.ReactNode | string;
     disableClickAway?: boolean;
+    isOpen?: boolean;
 }
 interface RenderProps {
     isOpen: boolean;

@@ -8,6 +8,7 @@ export interface AccordionProps extends BaseProps {
   backgroundColor?: string;
   renderContent: (renderProps: RenderProps) => React.ReactNode | string;
   disableClickAway?: boolean;
+  isOpen?: boolean;
 }
 
 interface RenderProps {
@@ -32,7 +33,7 @@ export function Accordion({
   disableClickAway,
   ...props
 }: React.PropsWithChildren<AccordionProps>) {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(props.isOpen || false);
 
   const { ref } = useClickAway({
     callback: () => {

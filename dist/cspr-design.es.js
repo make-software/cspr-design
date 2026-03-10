@@ -40596,7 +40596,7 @@ function F_({
   disableClickAway: g,
   ...C
 }) {
-  const [A, x] = Ct(!1), {
+  const [A, x] = Ct(C.isOpen || !1), {
     ref: r
   } = co({
     callback: () => {
