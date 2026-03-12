@@ -35330,7 +35330,7 @@ const E8 = be(S8).withConfig({
   }), t = o ? typeof o == "string" ? o : "500px" : void 0;
   return e == null ? null : g == null ? /* @__PURE__ */ $(At, { children: e }) : /* @__PURE__ */ Pe(At, { children: [
     /* @__PURE__ */ $(M8, { ...p, ref: e.ref, ...e.props, children: (d) => St.cloneElement(e, d) }),
-    /* @__PURE__ */ $(E8, { paddingScale: n, ...p, ...a, children: /* @__PURE__ */ $("div", { style: {
+    /* @__PURE__ */ $(E8, { unstable_portal: !1, paddingScale: n, ...p, ...a, children: /* @__PURE__ */ $("div", { style: {
       maxWidth: t
     }, children: /* @__PURE__ */ Pe(zt, { itemsSpacing: 8, children: [
       /* @__PURE__ */ Pe(zt, { children: [

@@ -101,7 +101,7 @@ export const Tooltip = React.forwardRef<
         <TooltipReference {...tooltip} ref={children.ref} {...children.props}>
           {(referenceProps) => React.cloneElement(children, referenceProps)}
         </TooltipReference>
-        <StyledReactTooltip paddingScale={paddingScale} {...tooltip} {...props}>
+        <StyledReactTooltip unstable_portal={false} paddingScale={paddingScale} {...tooltip} {...props}>
           <div style={{ maxWidth }}>
             <FlexColumn itemsSpacing={8}>
               <FlexColumn>
