@@ -34,6 +34,7 @@ const MenuItemWrapper = styled.li(({ theme }) =>
 interface DropdownMenuItemProps {
   onClick?: () => void;
   padding?: string;
+  tabIndex?: number;
 }
 
 export const DropdownMenuItem = React.forwardRef<Ref, PropsWithChildren<DropdownMenuItemProps>>(
