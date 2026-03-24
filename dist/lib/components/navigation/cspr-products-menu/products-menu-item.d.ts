@@ -9,6 +9,7 @@ export interface ProductsMenuItemProps {
     link: string;
     icon: string;
     badge?: BadgeProps;
+    tabIndex?: number;
     role?: string;
 }
 export declare enum ThemeModeType {
