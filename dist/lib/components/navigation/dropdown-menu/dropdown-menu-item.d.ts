@@ -3,6 +3,7 @@ interface DropdownMenuItemProps {
     onClick?: () => void;
     padding?: string;
     tabIndex?: number;
+    role?: string;
 }
 export declare const DropdownMenuItem: React.ForwardRefExoticComponent<DropdownMenuItemProps & {
     children?: React.ReactNode | undefined;
