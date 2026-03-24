@@ -35,6 +35,7 @@ interface DropdownMenuItemProps {
   onClick?: () => void;
   padding?: string;
   tabIndex?: number;
+  role?: string;
 }
 
 export const DropdownMenuItem = React.forwardRef<Ref, PropsWithChildren<DropdownMenuItemProps>>(
