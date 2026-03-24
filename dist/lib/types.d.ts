@@ -4,6 +4,8 @@ export type BaseProps = {
     children?: any;
     style?: React.CSSProperties;
     onClick?: (ev: any) => void;
+    onKeyDown?: (ev: any) => void;
+    tabIndex?: number;
 };
 export type ActivableProps = {
     active?: boolean;
