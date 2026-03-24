@@ -19,6 +19,7 @@ export interface ProductsMenuItemProps {
   link: string;
   icon: string;
   badge?: BadgeProps;
+  role?: string;
 }
 
 export enum ThemeModeType {
@@ -83,6 +84,7 @@ export const ProductsMenuItem = React.forwardRef<Ref, ProductsMenuItemProps>(
             newBadgeLabel,
             comingSoonBadgeLabel,
             badge,
+            role,
             ...props
         },
         ref

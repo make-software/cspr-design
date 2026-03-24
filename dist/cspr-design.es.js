@@ -40824,25 +40824,26 @@ const k7 = be.span.withConfig({
   newBadgeLabel: r,
   comingSoonBadgeLabel: c,
   badge: n,
-  ...a
-}, i) {
-  const p = Ui();
-  let t;
-  n ? t = /* @__PURE__ */ $(Si, { ...n, lineHeight: "xxs" }) : c ? t = /* @__PURE__ */ $(Si, { label: c, variation: "violet", lineHeight: "xxs" }) : r ? t = /* @__PURE__ */ $(Si, { label: r, variation: "green", lineHeight: "xxs" }) : t = /* @__PURE__ */ $(pn, { size: 2, variation: "lightGray", children: A });
-  const d = /* @__PURE__ */ $(je, { itemsSpacing: 8, justify: "flex-start", grow: 1, children: /* @__PURE__ */ Pe(je, { itemsSpacing: 8, grow: 1, children: [
-    /* @__PURE__ */ $(_t, { src: C || yc[p.themeName], size: 32 }),
+  role: a,
+  ...i
+}, p) {
+  const t = Ui();
+  let d;
+  n ? d = /* @__PURE__ */ $(Si, { ...n, lineHeight: "xxs" }) : c ? d = /* @__PURE__ */ $(Si, { label: c, variation: "violet", lineHeight: "xxs" }) : r ? d = /* @__PURE__ */ $(Si, { label: r, variation: "green", lineHeight: "xxs" }) : d = /* @__PURE__ */ $(pn, { size: 2, variation: "lightGray", children: A });
+  const b = /* @__PURE__ */ $(je, { itemsSpacing: 8, justify: "flex-start", grow: 1, children: /* @__PURE__ */ Pe(je, { itemsSpacing: 8, grow: 1, children: [
+    /* @__PURE__ */ $(_t, { src: C || yc[t.themeName], size: 32 }),
     /* @__PURE__ */ Pe(zt, { itemsSpacing: 4, children: [
-      t,
+      d,
       /* @__PURE__ */ $(mc, { size: 1, children: o })
     ] })
-  ] }) }), b = /* @__PURE__ */ Pe(zt, { itemsSpacing: 16, align: "center", justify: "center", grow: 1, children: [
-    /* @__PURE__ */ $(_t, { src: C || yc[p.themeName], size: 48 }),
+  ] }) }), y = /* @__PURE__ */ Pe(zt, { itemsSpacing: 16, align: "center", justify: "center", grow: 1, children: [
+    /* @__PURE__ */ $(_t, { src: C || yc[t.themeName], size: 48 }),
     /* @__PURE__ */ Pe(zt, { itemsSpacing: 4, align: "center", children: [
-      t,
+      d,
       /* @__PURE__ */ $(mc, { size: 1, children: o })
     ] })
-  ] }), y = yn([d, d, b], []);
-  return /* @__PURE__ */ $(k7, { onClick: () => !c && window.open(g, "_blank"), selected: x, disabled: !!c, ...a, ref: i, children: y });
+  ] }), u = yn([b, b, y], []);
+  return /* @__PURE__ */ $(k7, { onClick: () => !c && window.open(g, "_blank"), selected: x, disabled: !!c, ...i, ref: p, children: u });
 });
 var mi = { exports: {} }, bn = {}, yi = { exports: {} }, Hr = {}, gi = { exports: {} }, gc;
 function md() {
