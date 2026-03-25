@@ -14,21 +14,23 @@ const ItemContainer = styled(FlexRow)<{ padding?: string }>(({ theme, padding })
   },
 }));
 
-const MenuItemWrapper = styled.li(({ theme }) =>
-  theme.withMedia({
-    boxSizing: 'border-box',
-    display: 'flex',
-    color: theme.styleguideColors.contentPrimary,
-    '&:hover': {
-      cursor: 'pointer',
-      borderRadius: theme.borderRadius.base,
-      '> *': {
-        color: [theme.styleguideColors.contentBlue],
-        fill: [theme.styleguideColors.contentBlue],
-        background: theme.styleguideColors.fillSecondary,
-      },
-    },
-  })
+const MenuItemWrapper = styled.li<
+    React.LiHTMLAttributes<HTMLLIElement>
+>(({ theme }) =>
+    theme.withMedia({
+        boxSizing: 'border-box',
+        display: 'flex',
+        color: theme.styleguideColors.contentPrimary,
+        '&:hover': {
+            cursor: 'pointer',
+            borderRadius: theme.borderRadius.base,
+            '> *': {
+                color: [theme.styleguideColors.contentBlue],
+                fill: [theme.styleguideColors.contentBlue],
+                background: theme.styleguideColors.fillSecondary,
+            },
+        },
+    })
 );
 
 interface DropdownMenuItemProps {
