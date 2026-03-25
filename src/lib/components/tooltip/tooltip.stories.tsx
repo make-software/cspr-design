@@ -11,7 +11,6 @@ import CaptionText from '../caption-text/caption-text';
 const meta = {
   component: Tooltip,
   title: 'Components/Display/Tooltip',
-  // tags: ['autodocs', '!dev'],
   args: {
     caption: 'PublicKey',
     tooltipContent:
@@ -37,10 +36,27 @@ export const Primary: Story = {
     return (
       <FlexRow itemsSpacing={30}>
         <FlexColumn itemsSpacing={20}>
-          <BodyText size={2}>Tooltip</BodyText>
+          <BodyText size={2}>Tooltip V2</BodyText>
           <Tooltip {...args}>
             <BodyText size={3} monotype>
-              <TruncateBox size={1}>{args.tooltipContent}</TruncateBox>
+              <TruncateBox size={1}>{args.tooltipContent as string}</TruncateBox>
+            </BodyText>
+          </Tooltip>
+        </FlexColumn>
+      </FlexRow>
+    );
+  },
+};
+
+export const WithCaption: Story = {
+  render: (args) => {
+    return (
+      <FlexRow itemsSpacing={30}>
+        <FlexColumn itemsSpacing={20}>
+          <BodyText size={2}>With Caption</BodyText>
+          <Tooltip {...args} caption="PublicKey">
+            <BodyText size={3} monotype>
+              <TruncateBox size={1}>{args.tooltipContent as string}</TruncateBox>
             </BodyText>
           </Tooltip>
         </FlexColumn>
@@ -63,3 +79,21 @@ export const WithExtendedLine: Story = {
     ),
   },
 };
+
+export const LimitedWidth: Story = {
+  render: (args) => {
+    return (
+      <FlexRow itemsSpacing={30}>
+        <FlexColumn itemsSpacing={20}>
+          <BodyText size={2}>Limited Width (300px)</BodyText>
+          <Tooltip {...args} limitWidth="300px">
+            <BodyText size={3} monotype>
+              <TruncateBox size={1}>{args.tooltipContent as string}</TruncateBox>
+            </BodyText>
+          </Tooltip>
+        </FlexColumn>
+      </FlexRow>
+    );
+  },
+};
+

@@ -1,9 +1,5 @@
-import React from 'react';
-import {
-  Tooltip as ReakitTooltip,
-  TooltipReference,
-  useTooltipState,
-} from 'reakit/Tooltip';
+import React, { useId } from 'react';
+import { Tooltip as ReactTooltip } from 'react-tooltip';
 import styled from 'styled-components';
 import { BaseProps } from '../../types';
 import BodyText from '../body-text/body-text';
@@ -11,9 +7,7 @@ import CaptionText from '../caption-text/caption-text';
 import FlexColumn from '../flex-column/flex-column';
 import { matchSize } from '../../utils/match-size';
 
-type Ref = HTMLDivElement;
-
-type StyledReactTooltipProps = {
+type StyledTooltipProps = {
   lineHeight?: 'xs' | 'sm';
   scale?: 'xs' | 'sm';
   paddingScale?: 1 | 2;
@@ -28,43 +22,42 @@ export interface TooltipProps extends BaseProps {
   limitWidth?: boolean | string;
 }
 
-const StyledReactTooltip = styled(
-    ReakitTooltip,
-).withConfig<StyledReactTooltipProps>({
-    shouldForwardProp: (prop) => prop !== 'paddingScale',
-})(({ theme, lineHeight = 'sm', scale = 'sm', paddingScale = 2 }) => ({
-    zIndex: theme.zIndex.tooltip,
-    color: theme.styleguideColors.contentPrimary,
-    backgroundColor: theme.styleguideColors.backgroundPrimary,
-    borderRadius: theme.borderRadius.base,
-    padding: theme.padding[paddingScale],
-    boxShadow: theme.boxShadow.tooltip,
-
-    transition: 'opacity 250ms ease-in-out',
-    opacity: 0,
-    fontSize: matchSize(
-      {
-        sm: '1.3rem',
-        xs: '0.8125rem',
-      },
-      scale,
-    ),
-    lineHeight: matchSize(
-      {
-        sm: '1.5rem',
-        xs: '1.25rem',
-      },
-      lineHeight,
-    ),
-    '&[data-enter]': {
-      opacity: 1,
+const StyledReactTooltip = styled(ReactTooltip).withConfig<StyledTooltipProps>({
+  shouldForwardProp: (prop) =>
+    !['paddingScale', 'lineHeight', 'scale'].includes(prop),
+})<StyledTooltipProps>(({ theme, lineHeight = 'sm', scale = 'sm', paddingScale = 2 }) => ({
+  zIndex: `${theme.zIndex.tooltip} !important`,
+  color: `${theme.styleguideColors.contentPrimary} !important`,
+  backgroundColor: `${theme.styleguideColors.backgroundPrimary} !important`,
+  borderRadius: `${theme.borderRadius.base}px !important`,
+  padding: `${theme.padding[paddingScale]} !important`,
+  boxShadow: `${theme.boxShadow.tooltip} !important`,
+  opacity: '1 !important',
+  fontSize: matchSize(
+    {
+      sm: '1.3rem',
+      xs: '0.8125rem',
     },
-  }),
-);
+    scale,
+  ),
+  lineHeight: matchSize(
+    {
+      sm: '1.5rem',
+      xs: '1.25rem',
+    },
+    lineHeight,
+  ),
+  '&.react-tooltip': {
+    maxWidth: 'none',
+  },
+  '&.react-tooltip__place-top .react-tooltip-arrow, &.react-tooltip__place-bottom .react-tooltip-arrow, &.react-tooltip__place-left .react-tooltip-arrow, &.react-tooltip__place-right .react-tooltip-arrow': {
+    display: 'none',
+  },
+}));
 
 export const Tooltip = React.forwardRef<
-  Ref,
-  TooltipProps & StyledReactTooltipProps
+  HTMLDivElement,
+  TooltipProps & StyledTooltipProps
 >(
   (
     {
@@ -79,9 +72,9 @@ export const Tooltip = React.forwardRef<
       paddingScale = 2,
       ...props
     },
-    ref,
+    _ref,
   ) => {
-    const tooltip = useTooltipState({ animated: 250 });
+    const id = useId();
     const maxWidth = limitWidth
       ? typeof limitWidth === 'string'
         ? limitWidth
@@ -96,31 +89,40 @@ export const Tooltip = React.forwardRef<
       return <>{children}</>;
     }
 
+    const trigger = React.cloneElement(children, {
+      'data-tooltip-id': id,
+    });
+
     return (
       <>
-        <TooltipReference {...tooltip} ref={children.ref} {...children.props}>
-          {(referenceProps) => React.cloneElement(children, referenceProps)}
-        </TooltipReference>
-        <StyledReactTooltip paddingScale={paddingScale} {...tooltip} {...props}>
-          <div style={{ maxWidth }}>
-            <FlexColumn itemsSpacing={8}>
-              <FlexColumn>
-                <CaptionText size={2} variation="gray">
-                  {caption}
-                </CaptionText>
-                <BodyText
-                  size={3}
-                  monotype={monotype}
-                  lineHeight={lineHeight}
-                  scale={scale}
-                >
-                  {tooltipContent}
-                </BodyText>
+        {trigger}
+        <StyledReactTooltip
+          id={id}
+          lineHeight={lineHeight}
+          scale={scale}
+          paddingScale={paddingScale}
+          render={() => (
+            <div style={{ maxWidth }}>
+              <FlexColumn itemsSpacing={8}>
+                <FlexColumn>
+                  <CaptionText size={2} variation="gray">
+                    {caption}
+                  </CaptionText>
+                  <BodyText
+                    size={3}
+                    monotype={monotype}
+                    lineHeight={lineHeight}
+                    scale={scale}
+                  >
+                    {tooltipContent}
+                  </BodyText>
+                </FlexColumn>
+                {additionalBlock}
               </FlexColumn>
-              {additionalBlock}
-            </FlexColumn>
-          </div>
-        </StyledReactTooltip>
+            </div>
+          )}
+          {...props}
+        />
       </>
     );
   },
