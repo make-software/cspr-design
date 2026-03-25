@@ -4,7 +4,7 @@ interface DropdownMenuItemProps {
     padding?: string;
     tabIndex?: number;
     role?: string;
-    onKeyDown?: (e: React.KeyboardEvent<HTMLDivElement>) => void;
+    onKeyDown?: (e: React.KeyboardEvent<HTMLLIElement>) => void;
 }
 export declare const DropdownMenuItem: React.ForwardRefExoticComponent<DropdownMenuItemProps & {
     children?: React.ReactNode | undefined;
