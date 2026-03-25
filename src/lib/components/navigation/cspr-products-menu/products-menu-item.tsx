@@ -29,37 +29,34 @@ export enum ThemeModeType {
 }
 
 export const ProductItemWrapper = styled.span<{
-  isOpen?: boolean;
-  selected?: boolean;
-  disabled: boolean;
-}>(({ theme, isOpen, selected, disabled }) =>
-  theme.withMedia({
-    display: 'flex',
-    flex: '0 1 auto',
-    justifyContent: 'center',
-    alignItems: 'center',
-    padding: ['8px 12px', '8px 12px', '16px'],
-    width: ['208px', '208px', '172px'],
-    height: ['56px', '56px', '137px'],
-
-    '&:hover': {
-      borderRadius: theme.borderRadius.base,
-      background: theme.styleguideColors.backgroundSecondary,
-    },
-
-    ...(selected && {
-      background: theme.styleguideColors.backgroundSecondary,
-      pointerEvents: 'none',
-    }),
-
-    ...(disabled && {
-      color: theme.styleguideColors.contentSecondary,
-      '&:hover > *': {
-        pointerEvents: 'none',
-        color: theme.styleguideColors.contentSecondary,
-      },
-    }),
-  })
+    isOpen?: boolean;
+    selected?: boolean;
+    disabled: boolean;
+} & React.HTMLAttributes<HTMLSpanElement>>(({ theme, isOpen, selected, disabled }) =>
+    theme.withMedia({
+        display: 'flex',
+        flex: '0 1 auto',
+        justifyContent: 'center',
+        alignItems: 'center',
+        padding: ['8px 12px', '8px 12px', '16px'],
+        width: ['208px', '208px', '172px'],
+        height: ['56px', '56px', '137px'],
+        '&:hover': {
+            borderRadius: theme.borderRadius.base,
+            background: theme.styleguideColors.backgroundSecondary,
+        },
+        ...(selected && {
+            background: theme.styleguideColors.backgroundSecondary,
+            pointerEvents: 'none',
+        }),
+        ...(disabled && {
+            color: theme.styleguideColors.contentSecondary,
+            '&:hover > *': {
+                pointerEvents: 'none',
+                color: theme.styleguideColors.contentSecondary,
+            },
+        }),
+    })
 );
 
 export const StyledBodyText = styled(BodyText)<{}>(({ theme }) =>
@@ -141,6 +138,15 @@ export const ProductsMenuItem = React.forwardRef<Ref, ProductsMenuItemProps>(
         return (
             <ProductItemWrapper
                 onClick={() => !comingSoonBadgeLabel && window.open(link, '_blank')}
+                onKeyDown={(e) => {
+                    if (comingSoonBadgeLabel) return;
+
+                    if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        window.open(link, '_blank');
+                    }
+                }}
+                tabIndex={comingSoonBadgeLabel ? -1 : 0}
                 selected={selected}
                 disabled={!!comingSoonBadgeLabel}
                 {...props}
