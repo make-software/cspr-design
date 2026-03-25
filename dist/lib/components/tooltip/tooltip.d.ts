@@ -1,6 +1,6 @@
 import { default as React } from 'react';
 import { BaseProps } from '../../types';
-type StyledReactTooltipProps = {
+type StyledTooltipProps = {
     lineHeight?: 'xs' | 'sm';
     scale?: 'xs' | 'sm';
     paddingScale?: 1 | 2;
@@ -13,6 +13,6 @@ export interface TooltipProps extends BaseProps {
     monotype?: boolean;
     limitWidth?: boolean | string;
 }
-export declare const Tooltip: React.ForwardRefExoticComponent<TooltipProps & StyledReactTooltipProps & React.RefAttributes<HTMLDivElement>>;
+export declare const Tooltip: React.ForwardRefExoticComponent<TooltipProps & StyledTooltipProps & React.RefAttributes<HTMLDivElement>>;
 export default Tooltip;
 //# sourceMappingURL=tooltip.d.ts.map
