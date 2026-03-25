@@ -36,7 +36,7 @@ interface DropdownMenuItemProps {
   padding?: string;
   tabIndex?: number;
   role?: string;
-  onKeyDown?: (e: React.KeyboardEvent<HTMLDivElement>) => void;
+  onKeyDown?: (e: React.KeyboardEvent<HTMLLIElement>) => void;
 }
 
 export const DropdownMenuItem = React.forwardRef<Ref, PropsWithChildren<DropdownMenuItemProps>>(

@@ -85,7 +85,6 @@ export const ProductsMenuItem = React.forwardRef<Ref, ProductsMenuItemProps>(
             newBadgeLabel,
             comingSoonBadgeLabel,
             badge,
-            role,
             ...props
         },
         ref
