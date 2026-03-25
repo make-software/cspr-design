@@ -20,7 +20,7 @@ export declare const ProductItemWrapper: import('styled-components').StyledCompo
     isOpen?: boolean;
     selected?: boolean;
     disabled: boolean;
-}, never>;
+} & React.HTMLAttributes<HTMLSpanElement>, never>;
 export declare const StyledBodyText: import('styled-components').StyledComponent<React.ForwardRefExoticComponent<import('../../..').BodyTextProps & React.RefAttributes<HTMLSpanElement>>, import('styled-components').DefaultTheme, {}, never>;
 export declare const ProductsMenuItem: React.ForwardRefExoticComponent<ProductsMenuItemProps & React.RefAttributes<HTMLSpanElement>>;
 //# sourceMappingURL=products-menu-item.d.ts.map
