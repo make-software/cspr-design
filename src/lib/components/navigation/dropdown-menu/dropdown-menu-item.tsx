@@ -4,6 +4,8 @@ import { FlexRow } from '../../flex-row/flex-row';
 
 type Ref = HTMLSpanElement;
 
+type NativeLiProps = React.LiHTMLAttributes<HTMLLIElement>;
+
 const ItemContainer = styled(FlexRow)<{ padding?: string }>(({ theme, padding }) => ({
   width: '100%',
   cursor: 'pointer',
@@ -33,20 +35,19 @@ const MenuItemWrapper = styled.li<
     })
 );
 
-interface DropdownMenuItemProps {
-  onClick?: () => void;
-  padding?: string;
-  tabIndex?: number;
-  role?: string;
-  onKeyDown?: (e: React.KeyboardEvent<HTMLLIElement>) => void;
+interface DropdownMenuItemProps extends NativeLiProps {
+    padding?: string;
 }
 
-export const DropdownMenuItem = React.forwardRef<Ref, PropsWithChildren<DropdownMenuItemProps>>(
-    function DropdownMenuItem(props, ref) {
-        return (
-            <MenuItemWrapper {...props} ref={ref}>
-                <ItemContainer padding={props.padding}>{props.children}</ItemContainer>
-            </MenuItemWrapper>
-        );
-    }
-);
+export const DropdownMenuItem = React.forwardRef<
+    HTMLLIElement,
+    React.PropsWithChildren<DropdownMenuItemProps>
+>(function DropdownMenuItem(props, ref) {
+    const { padding, children, ...rest } = props;
+
+    return (
+        <MenuItemWrapper {...rest} ref={ref}>
+            <ItemContainer padding={padding}>{children}</ItemContainer>
+        </MenuItemWrapper>
+    );
+});
