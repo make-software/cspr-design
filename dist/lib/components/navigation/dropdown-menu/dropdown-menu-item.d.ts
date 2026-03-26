@@ -1,13 +1,10 @@
 import { default as React } from 'react';
-interface DropdownMenuItemProps {
-    onClick?: () => void;
+type NativeLiProps = React.LiHTMLAttributes<HTMLLIElement>;
+interface DropdownMenuItemProps extends NativeLiProps {
     padding?: string;
-    tabIndex?: number;
-    role?: string;
-    onKeyDown?: (e: React.KeyboardEvent<HTMLLIElement>) => void;
 }
 export declare const DropdownMenuItem: React.ForwardRefExoticComponent<DropdownMenuItemProps & {
     children?: React.ReactNode | undefined;
-} & React.RefAttributes<HTMLSpanElement>>;
+} & React.RefAttributes<HTMLLIElement>>;
 export {};
 //# sourceMappingURL=dropdown-menu-item.d.ts.map
