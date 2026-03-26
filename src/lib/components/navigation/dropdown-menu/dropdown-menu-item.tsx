@@ -36,13 +36,14 @@ const MenuItemWrapper = styled.li<
 );
 
 interface DropdownMenuItemProps
-    extends React.PropsWithChildren<React.LiHTMLAttributes<HTMLLIElement>> {
+    extends React.LiHTMLAttributes<HTMLLIElement> {
     padding?: string;
+    children?: React.ReactNode;
 }
 
 export const DropdownMenuItem = React.forwardRef<
     HTMLLIElement,
-    React.PropsWithChildren<DropdownMenuItemProps>
+    DropdownMenuItemProps
 >(function DropdownMenuItem(props, ref) {
     const { padding, children, ...rest } = props;
 
