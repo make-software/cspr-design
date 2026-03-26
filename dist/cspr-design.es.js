@@ -40754,7 +40754,12 @@ const O7 = be.div.withConfig({
     }
   }
 })), G_ = St.forwardRef(function(o, g) {
-  return /* @__PURE__ */ $(R7, { ...o, ref: g, children: /* @__PURE__ */ $(L7, { padding: o.padding, children: o.children }) });
+  const {
+    padding: C,
+    children: A,
+    ...x
+  } = o;
+  return /* @__PURE__ */ $(R7, { ...x, ref: g, children: /* @__PURE__ */ $(L7, { padding: C, children: A }) });
 }), B7 = be.ul.withConfig({
   displayName: "products-menu__ProductsMenuWrapper",
   componentId: "sc-n6ukm0-0"
