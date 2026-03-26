@@ -1,6 +1,5 @@
 import { default as React } from 'react';
-type NativeLiProps = React.LiHTMLAttributes<HTMLLIElement>;
-interface DropdownMenuItemProps extends NativeLiProps {
+interface DropdownMenuItemProps extends React.PropsWithChildren<React.LiHTMLAttributes<HTMLLIElement>> {
     padding?: string;
 }
 export declare const DropdownMenuItem: React.ForwardRefExoticComponent<DropdownMenuItemProps & {
