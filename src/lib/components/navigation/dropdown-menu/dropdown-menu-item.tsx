@@ -2,7 +2,7 @@ import React, { PropsWithChildren } from 'react';
 import styled from 'styled-components';
 import { FlexRow } from '../../flex-row/flex-row';
 
-type Ref = HTMLSpanElement;
+type Ref = HTMLLIElement;
 
 type NativeLiProps = React.LiHTMLAttributes<HTMLLIElement>;
 
@@ -35,7 +35,7 @@ const MenuItemWrapper = styled.li<
     })
 );
 
-interface DropdownMenuItemProps
+export interface DropdownMenuItemProps
     extends React.LiHTMLAttributes<HTMLLIElement> {
     padding?: string;
     children?: React.ReactNode;
