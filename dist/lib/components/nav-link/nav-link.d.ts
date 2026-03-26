@@ -1,7 +1,8 @@
 import { default as React } from 'react';
 import { ActivableProps, BaseProps } from '../../types';
 type Ref = HTMLAnchorElement;
-export interface NavLinkProps extends BaseProps, ActivableProps {
+type NativeAnchorProps = Omit<React.AnchorHTMLAttributes<HTMLAnchorElement>, keyof BaseProps | keyof ActivableProps>;
+export interface NavLinkProps extends BaseProps, ActivableProps, NativeAnchorProps {
     disabled?: boolean;
     target?: string;
     href?: string;

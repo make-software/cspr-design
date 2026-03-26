@@ -3,8 +3,12 @@ import styled from 'styled-components';
 
 import { BaseProps } from '../../types';
 
+type NativeDivProps = Omit<
+    React.HTMLAttributes<HTMLDivElement>,
+    keyof BaseProps
+>;
 /* eslint-disable-next-line */
-export interface FlexBoxProps extends BaseProps {
+export interface FlexBoxProps extends BaseProps, NativeDivProps {
   /* @description will add spacing between children, work depending on row/column layout */
   itemsSpacing?: number;
   innerRef?: React.Ref<HTMLDivElement>;
