@@ -35,7 +35,8 @@ const MenuItemWrapper = styled.li<
     })
 );
 
-interface DropdownMenuItemProps extends NativeLiProps {
+interface DropdownMenuItemProps
+    extends React.PropsWithChildren<React.LiHTMLAttributes<HTMLLIElement>> {
     padding?: string;
 }
 
