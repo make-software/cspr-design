@@ -1,6 +1,7 @@
 import { default as React } from 'react';
 import { BaseProps } from '../../types';
-export interface FlexBoxProps extends BaseProps {
+type NativeDivProps = Omit<React.HTMLAttributes<HTMLDivElement>, keyof BaseProps>;
+export interface FlexBoxProps extends BaseProps, NativeDivProps {
     itemsSpacing?: number;
     innerRef?: React.Ref<HTMLDivElement>;
     gap?: React.CSSProperties['gap'];

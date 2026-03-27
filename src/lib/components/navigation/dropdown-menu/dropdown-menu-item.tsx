@@ -2,7 +2,9 @@ import React, { PropsWithChildren } from 'react';
 import styled from 'styled-components';
 import { FlexRow } from '../../flex-row/flex-row';
 
-type Ref = HTMLSpanElement;
+type Ref = HTMLLIElement;
+
+type NativeLiProps = React.LiHTMLAttributes<HTMLLIElement>;
 
 const ItemContainer = styled(FlexRow)<{ padding?: string }>(({ theme, padding }) => ({
   width: '100%',
@@ -14,34 +16,40 @@ const ItemContainer = styled(FlexRow)<{ padding?: string }>(({ theme, padding })
   },
 }));
 
-const MenuItemWrapper = styled.li(({ theme }) =>
-  theme.withMedia({
-    boxSizing: 'border-box',
-    display: 'flex',
-    color: theme.styleguideColors.contentPrimary,
-    '&:hover': {
-      cursor: 'pointer',
-      borderRadius: theme.borderRadius.base,
-      '> *': {
-        color: [theme.styleguideColors.contentBlue],
-        fill: [theme.styleguideColors.contentBlue],
-        background: theme.styleguideColors.fillSecondary,
-      },
-    },
-  })
+const MenuItemWrapper = styled.li<
+    React.LiHTMLAttributes<HTMLLIElement>
+>(({ theme }) =>
+    theme.withMedia({
+        boxSizing: 'border-box',
+        display: 'flex',
+        color: theme.styleguideColors.contentPrimary,
+        '&:hover': {
+            cursor: 'pointer',
+            borderRadius: theme.borderRadius.base,
+            '> *': {
+                color: [theme.styleguideColors.contentBlue],
+                fill: [theme.styleguideColors.contentBlue],
+                background: theme.styleguideColors.fillSecondary,
+            },
+        },
+    })
 );
 
-interface DropdownMenuItemProps {
-  onClick?: () => void;
-  padding?: string;
+export interface DropdownMenuItemProps
+    extends React.LiHTMLAttributes<HTMLLIElement> {
+    padding?: string;
+    children?: React.ReactNode;
 }
 
-export const DropdownMenuItem = React.forwardRef<Ref, PropsWithChildren<DropdownMenuItemProps>>(
-    function DropdownMenuItem(props, ref) {
-        return (
-            <MenuItemWrapper {...props} ref={ref}>
-                <ItemContainer padding={props.padding}>{props.children}</ItemContainer>
-            </MenuItemWrapper>
-        );
-    }
-);
+export const DropdownMenuItem = React.forwardRef<
+    HTMLLIElement,
+    DropdownMenuItemProps
+>(function DropdownMenuItem(props, ref) {
+    const { padding, children, ...rest } = props;
+
+    return (
+        <MenuItemWrapper {...rest} ref={ref}>
+            <ItemContainer padding={padding}>{children}</ItemContainer>
+        </MenuItemWrapper>
+    );
+});
