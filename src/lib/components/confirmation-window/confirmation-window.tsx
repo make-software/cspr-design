@@ -151,7 +151,7 @@ export const ConfirmationWindow = ({
   const modalStyle = {
     overlay: {
       backgroundColor: theme.styleguideColors.backgroundOverlay,
-      zIndex: 15,
+      zIndex: 999999,
     },
     content:
       position === ModalPosition.TopRight
