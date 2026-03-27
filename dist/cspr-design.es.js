@@ -41988,7 +41988,7 @@ const Q7 = {
   const b = Ui(), y = {
     overlay: {
       backgroundColor: b.styleguideColors.backgroundOverlay,
-      zIndex: 999999
+      zIndex: 20
     },
     content: o === "topRight" ? {
       ...eb,
