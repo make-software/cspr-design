@@ -149,6 +149,7 @@ export const ConfirmationWindow = ({
   const theme = useTheme();
 
   const modalStyle = {
+
     overlay: {
       backgroundColor: theme.styleguideColors.backgroundOverlay,
       zIndex: 20,
