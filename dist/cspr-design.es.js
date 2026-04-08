@@ -39685,6 +39685,7 @@ const Iv = be.div.withConfig({
   theme: e
 }) => ({
   display: "flex",
+  alignItems: "center",
   cursor: "pointer",
   userSelect: "none"
 })), Lv = be.div.withConfig({

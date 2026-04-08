@@ -13,6 +13,7 @@ export interface RadioButtonProps extends BaseProps {
 
 const Container = styled.div(({ theme }) => ({
   display: 'flex',
+  alignItems: 'center',
   cursor: 'pointer',
   userSelect: 'none',
 }));
