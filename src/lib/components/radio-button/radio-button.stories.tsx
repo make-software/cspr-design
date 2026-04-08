@@ -30,6 +30,7 @@ const Template: StoryFn<typeof RadioButton> = (args) => (
   <FlexRow itemsSpacing={30}>
     <FlexColumn itemsSpacing={20}>
       <RadioButton {...args} />
+      <RadioButton {...args} label={'Mainnet'} size={12} />
     </FlexColumn>
   </FlexRow>
 );

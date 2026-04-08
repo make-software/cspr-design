@@ -9,30 +9,34 @@ export interface RadioButtonProps extends BaseProps {
   value: string;
   color?: string;
   disabled?: boolean;
+  size: number;
 }
 
 const Container = styled.div(({ theme }) => ({
   display: 'flex',
+  alignItems: 'center',
   cursor: 'pointer',
   userSelect: 'none',
 }));
 
-const OuterCircle = styled.div<{ disabled?: boolean; color?: string }>(
-  ({ theme, disabled, color = 'contentBlue' }) => ({
-    width: 24,
-    height: 24,
-    minWidth: 24,
-    minHeight: 24,
-    border: disabled
-      ? `2px solid ${theme.styleguideColors.contentQuaternary}`
-      : `2px solid ${theme.styleguideColors[color]}`,
-    borderRadius: '50%',
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
-    marginRight: 12,
-  }),
-);
+const OuterCircle = styled.div<{
+  disabled?: boolean;
+  color?: string;
+  size: number;
+}>(({ theme, disabled, size, color = 'contentBlue' }) => ({
+  width: size,
+  height: size,
+  minWidth: size,
+  minHeight: size,
+  border: disabled
+    ? `2px solid ${theme.styleguideColors.contentQuaternary}`
+    : `2px solid ${theme.styleguideColors[color]}`,
+  borderRadius: '50%',
+  display: 'flex',
+  justifyContent: 'center',
+  alignItems: 'center',
+  marginRight: 12,
+}));
 
 const InnerCircle = styled.div<{
   unslected: boolean;
@@ -40,8 +44,8 @@ const InnerCircle = styled.div<{
   color?: string;
 }>(({ theme, unslected, disabled, color = 'contentBlue' }) => ({
   borderRadius: '50%',
-  width: unslected ? 0 : 12,
-  height: unslected ? 0 : 12,
+  width: unslected ? 0 : '70%',
+  height: unslected ? 0 : '70%',
   backgroundColor: disabled
     ? theme.styleguideColors.contentQuaternary
     : theme.styleguideColors[color],
@@ -54,6 +58,7 @@ export const RadioButton = ({
   value,
   disabled,
   color,
+  size = 24,
 }: RadioButtonProps) => {
   return (
     <Container
@@ -61,7 +66,7 @@ export const RadioButton = ({
         onChange && onChange(value);
       }}
     >
-      <OuterCircle disabled={disabled} color={color}>
+      <OuterCircle disabled={disabled} color={color} size={size}>
         <InnerCircle
           unslected={value !== selected}
           disabled={disabled}
