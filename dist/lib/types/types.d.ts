@@ -87,6 +87,15 @@ export type FMPriceData = {
 export type CoingeckoPriceData = FMPriceData & {
     change_24h: number;
 };
+export type TokenMarketData = {
+    currency_id: number;
+    dex_id: number;
+    latest_rate: number;
+    timestamp: string;
+    token_contract_package_hash: string;
+    token_volume_24h: string;
+    volume_24h: string;
+};
 export type DeployContractPackageResult = {
     description: string | null;
     icon_url: string | null;
@@ -95,8 +104,10 @@ export type DeployContractPackageResult = {
     latest_version_contract_type_id: number | null;
     owner_public_key: string | null;
     owner_hash: string | null;
+    owner_type?: TransactorHashType;
     timestamp: string;
     has_ces_events: boolean;
+    is_featured: boolean;
     deploys_number?: number;
     activity_number?: number;
     metadata?: DeployContractPackageMetadata;
@@ -106,8 +117,13 @@ export type DeployContractPackageResult = {
     cspr_name?: string | null;
     coingecko_id: string | null;
     latest_version_contract_hash: string | null;
+    token_market_data?: Array<TokenMarketData>;
+    /** @deprecated */
     coingecko_data: CoingeckoPriceData;
+    /** @deprecated */
     friendlymarket_data: FMPriceData;
+    /** @deprecated */
+    csprtrade_data: FMPriceData;
     contract_type_id?: number | null;
     contract_name: string | null;
     website_url?: string | null;
