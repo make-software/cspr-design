@@ -23,14 +23,16 @@ const OuterCircle = styled.div<{
   disabled?: boolean;
   color?: string;
   size: number;
-}>(({ theme, disabled, size, color = 'contentBlue' }) => ({
+  unselected?: boolean;
+}>(({ theme, unselected, disabled, size, color = 'contentBlue' }) => ({
   width: size,
   height: size,
   minWidth: size,
   minHeight: size,
-  border: disabled
-    ? `2px solid ${theme.styleguideColors.contentQuaternary}`
-    : `2px solid ${theme.styleguideColors[color]}`,
+  border:
+    disabled || unselected
+      ? `2px solid ${theme.styleguideColors.contentQuaternary}`
+      : `2px solid ${theme.styleguideColors[color]}`,
   borderRadius: '50%',
   display: 'flex',
   justifyContent: 'center',
@@ -66,7 +68,12 @@ export const RadioButton = ({
         onChange && onChange(value);
       }}
     >
-      <OuterCircle disabled={disabled} color={color} size={size}>
+      <OuterCircle
+        disabled={disabled}
+        unselected={value !== selected}
+        color={color}
+        size={size}
+      >
         <InnerCircle
           unslected={value !== selected}
           disabled={disabled}

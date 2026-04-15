@@ -35734,7 +35734,7 @@ const k8 = (e, o) => ({
       fill: o && !g ? e.styleguideColors.backgroundPrimary : o && g ? e.styleguideColors.contentQuaternary : "none"
     },
     rect: {
-      stroke: g ? e.styleguideColors.contentQuaternary : A || e.styleguideColors.contentBlue
+      stroke: g ? e.styleguideColors.contentQuaternary : A || e.styleguideColors.contentQuaternary
     }
   },
   span: {
@@ -39693,15 +39693,16 @@ const Iv = be.div.withConfig({
   componentId: "sc-1c62lye-1"
 })(({
   theme: e,
-  disabled: o,
-  size: g,
-  color: C = "contentBlue"
+  unselected: o,
+  disabled: g,
+  size: C,
+  color: A = "contentBlue"
 }) => ({
-  width: g,
-  height: g,
-  minWidth: g,
-  minHeight: g,
-  border: o ? `2px solid ${e.styleguideColors.contentQuaternary}` : `2px solid ${e.styleguideColors[C]}`,
+  width: C,
+  height: C,
+  minWidth: C,
+  minHeight: C,
+  border: g || o ? `2px solid ${e.styleguideColors.contentQuaternary}` : `2px solid ${e.styleguideColors[A]}`,
   borderRadius: "50%",
   display: "flex",
   justifyContent: "center",
@@ -39731,7 +39732,7 @@ const Iv = be.div.withConfig({
 }) => /* @__PURE__ */ Pe(Nv, { onClick: () => {
   o && o(C);
 }, children: [
-  /* @__PURE__ */ $(Lv, { disabled: A, color: x, size: r, children: /* @__PURE__ */ $(Rv, { unslected: C !== e, disabled: A, color: x }) }),
+  /* @__PURE__ */ $(Lv, { disabled: A, unselected: C !== e, color: x, size: r, children: /* @__PURE__ */ $(Rv, { unslected: C !== e, disabled: A, color: x }) }),
   g
 ] }), Bv = {
   keybase: Jf,
