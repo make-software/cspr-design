@@ -22,6 +22,11 @@ const Template: StoryFn<typeof Checkbox> = (args) => (
     <FlexColumn itemsSpacing={10}>
       <Checkbox checked disabled label="disabled" />
     </FlexColumn>
+    <FlexColumn itemsSpacing={10}>
+      <Checkbox checked={false} label="case 1" />
+      <Checkbox checked={true} label="case 2" />
+      <Checkbox checked={false} label="case 3" />
+    </FlexColumn>
   </FlexRow>
 );
 
