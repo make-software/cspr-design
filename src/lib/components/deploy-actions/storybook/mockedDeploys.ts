@@ -2,6 +2,10 @@ export const mockedAccountInfos = [
   {
     account_hash:
       '8c15bba2d147859c7b7a8f43028eeb4d3c9571c6e36dfecc97c77463d3af08cd',
+    url: '',
+    is_active: false,
+    deploy_hash: '',
+    verified_account_hashes: [],
     account_info: null,
     balance: '17036461366585526',
     centralized_account_info: {
@@ -24,6 +28,10 @@ export const mockedAccountInfos = [
   {
     account_hash:
       '3bb2277db93e2c812ec9f68c9b02a5d54c524e9c3583a41da6388b89a94ed487',
+    url: '',
+    is_active: false,
+    deploy_hash: '',
+    verified_account_hashes: [],
     account_info: {
       account_hash:
         '3bb2277db93e2c812ec9f68c9b02a5d54c524e9c3583a41da6388b89a94ed487',
@@ -111,6 +119,10 @@ export const mockedAccountInfos = [
   {
     account_hash:
       '6174cf2e6f8fed1715c9a3bace9c50bfe572eecb763b0ed3f644532616452008',
+    url: '',
+    is_active: false,
+    deploy_hash: '',
+    verified_account_hashes: [],
     account_info: null,
     auction_status: null,
     balance: '0',
@@ -136,6 +148,10 @@ export const mockedAccountInfos = [
   {
     account_hash:
       'fe115dcc6d78f929a5cd2fc4ffd94ffc7d5a2f542e0dcc4df39a59e4948e8299',
+    url: '',
+    is_active: false,
+    deploy_hash: '',
+    verified_account_hashes: [],
     account_info: null,
     auction_status: null,
     balance: '0',
@@ -155,6 +171,10 @@ export const mockedAccountInfos = [
   {
     account_hash:
       'ba86b6ac0797768b5603ee6d6d68545ab9bc5c67df8e0ff47b7d66804d80643e',
+    url: '',
+    is_active: false,
+    deploy_hash: '',
+    verified_account_hashes: [],
     account_info: null,
     balance: '0',
     centralized_account_info: null,
@@ -369,6 +389,8 @@ export const defaultDeploy = {
     },
   },
   payment_amount: '6000000000',
+  amount: null,
+  currency_cost: 0,
   refund_amount: '0',
   cost: '6000000000',
   consumed_gas: '6000000000',
@@ -519,7 +541,7 @@ export const defaultDeploy = {
       'ccb576d6ce6dec84a551e48f0d0b7af89ddba44c7390b690036257a04a3ae9ea',
     contract_package_hash:
       '86f2d45f024d7bb7fb5266b2390d7c253b588a0a16ebd946a60cb4314600af74',
-    id: 20,
+    id: '20',
     name: 'withdraw_bid',
   },
   caller_cspr_name: null,
@@ -561,6 +583,8 @@ export const transferDeploy = {
     },
   },
   payment_amount: '100000000',
+  amount: null,
+  currency_cost: 0,
   refund_amount: '0',
   cost: '100000000',
   consumed_gas: '100000000',
@@ -609,13 +633,13 @@ export const transferDeploy = {
       '7cc1b1db4e08bbfe7bacf8e1ad828a5d9bcccbb33e55d322808c3a88da53213a',
     contract_package_hash:
       '4475016098705466254edd18d267a9dad43e341d4dafadb507d0fe3cf2d4a74b',
-    id: 10,
+    id: '10',
     name: 'transfer',
   },
   caller_cspr_name: null,
   transfers: [
     {
-      id: 0,
+      id: '0',
       transfer_index: null,
       initiator_account_hash:
         '0c3dceb081b08078d56f5c5cad4630a9ee5307842beca1af9510559fbe81aaf3',
@@ -698,6 +722,8 @@ export const csprFunDeploy = {
     },
   },
   payment_amount: '16000000000',
+  amount: null,
+  currency_cost: 0,
   refund_amount: '5277516408',
   cost: '16000000000',
   consumed_gas: '8963311455',
@@ -749,13 +775,13 @@ export const csprFunDeploy = {
       '122ae343fb9e2c75e27ad7661bca3e001caf5b7d54f9db119275ae0993f1077f',
     contract_package_hash:
       '91683630ce3bd09003e039eee22a013d36ebe7d6aa25f52f5fd3311bb2ca875c',
-    id: 445439,
+    id: '445439',
     name: 'trade',
   },
   caller_cspr_name: null,
   transfers: [
     {
-      id: 0,
+      id: '0',
       transfer_index: null,
       initiator_account_hash:
         '14ef6746474e91d27c37a50566ee7262c388aa2cd1aa4c452f6028d55f37283f',
@@ -1056,6 +1082,8 @@ export const auctionDeploy = {
     },
   },
   payment_amount: '2500000000',
+  amount: null,
+  currency_cost: 0,
   refund_amount: '0',
   cost: '2500000000',
   consumed_gas: '2500000000',
@@ -1104,13 +1132,13 @@ export const auctionDeploy = {
       'ccb576d6ce6dec84a551e48f0d0b7af89ddba44c7390b690036257a04a3ae9ea',
     contract_package_hash:
       '86f2d45f024d7bb7fb5266b2390d7c253b588a0a16ebd946a60cb4314600af74',
-    id: 13,
+    id: '13',
     name: 'delegate',
   },
   caller_cspr_name: null,
   transfers: [
     {
-      id: 0,
+      id: '0',
       transfer_index: null,
       initiator_account_hash:
         '95cf8f83bf7f6ed59f1d53c00b98825247a5e8d8eaa75655fa01c149009a89ed',
@@ -1177,6 +1205,8 @@ export const associatedKeysDeploy = {
     },
   },
   payment_amount: '50000000000',
+  amount: null,
+  currency_cost: 0,
   refund_amount: '36775062059',
   cost: '50000000000',
   consumed_gas: '966583921',
@@ -1313,7 +1343,7 @@ export const associatedKeysDeploy = {
       'b2ec4f982efa8643c979cb3ab42ad1a18851c2e6f91804cd3e65c079679bdc59',
     contract_package_hash:
       '51f3812fde357ac73c6d89785155be59ddbcba97cf8f5b49362ebdbbd90290d2',
-    id: 435148,
+    id: '435148',
     name: 'set_associated_keys',
   },
   caller_cspr_name: null,
@@ -1358,6 +1388,8 @@ export const csprMarketDeploy = {
     },
   },
   payment_amount: '20000000000',
+  amount: null,
+  currency_cost: 0,
   refund_amount: '1580287485',
   cost: '20000000000',
   consumed_gas: '17892950019',
@@ -1408,13 +1440,13 @@ export const csprMarketDeploy = {
       '5adb720d529964437caf75f3df974edffd204fe511b9e359e7dff28f79d12337',
     contract_package_hash:
       '31cc023b17c903a963ec60eab96a60f1fa37cb74b4b3bafc91a441e0e9d70f97',
-    id: 7542,
+    id: '7542',
     name: 'accept_offer',
   },
   caller_cspr_name: null,
   transfers: [
     {
-      id: 0,
+      id: '0',
       transfer_index: null,
       initiator_account_hash:
         '81aed480140ac4e7c615f219c70b7a2d72e97c0dff23f52c994d70be9d043d3a',
@@ -1436,7 +1468,7 @@ export const csprMarketDeploy = {
       to_purse_cspr_name: null,
     },
     {
-      id: 0,
+      id: '0',
       transfer_index: null,
       initiator_account_hash:
         '81aed480140ac4e7c615f219c70b7a2d72e97c0dff23f52c994d70be9d043d3a',
@@ -1555,6 +1587,8 @@ export const cep18Deploy = {
     },
   },
   payment_amount: '800000000',
+  amount: null,
+  currency_cost: 0,
   refund_amount: '45491599',
   cost: '754048889',
   consumed_gas: '754048889',
@@ -1614,7 +1648,7 @@ export const cep18Deploy = {
       '40bd4a45c414df61be3832e28ff6dcedc479744707c611fd97fea0d90619146f',
     contract_package_hash:
       'b42a439eb81cc5bf250e30785eaa59c7285a919663a98a21217df0fd7dcb19a3',
-    id: 877,
+    id: '877',
     name: 'transfer',
   },
   caller_cspr_name: null,
@@ -1713,6 +1747,8 @@ export const nftDeploy = {
     },
   },
   payment_amount: '2500000000',
+  amount: null,
+  currency_cost: 0,
   refund_amount: '1415423684',
   cost: '2500000000',
   consumed_gas: '612768421',
@@ -1765,7 +1801,7 @@ export const nftDeploy = {
       '2e64dbd1aea72e5b7ad3fa6cc64087150962fb13e5acdf2f886540b543ef0727',
     contract_package_hash:
       'c4e5a03066ce3c6006f562939e48f7076c77de5d46cf8fe625c41e02c5e74814',
-    id: 3708,
+    id: '3708',
     name: 'approve',
   },
   caller_cspr_name: null,
@@ -1846,6 +1882,8 @@ export const duplicatedResultsDeploy = {
     }
   },
   "payment_amount": "5000000000",
+  "amount": null,
+  "currency_cost": 0,
   "refund_amount": "3456371610",
   "cost": "5000000000",
   "consumed_gas": "391504519",
@@ -1895,7 +1933,7 @@ export const duplicatedResultsDeploy = {
     "action_type_id": null,
     "contract_hash": "6e1777c006965596581c3a0379c1d46f7aa518debb128d11d08c5897ff267579",
     "contract_package_hash": "20b6b67cc838b43a2168919068c2bedee3ad730d624d86e2e2ae144e902f6de1",
-    "id": 2625978,
+    "id": "2625978",
     "name": "approve"
   },
   "caller_cspr_name": null,

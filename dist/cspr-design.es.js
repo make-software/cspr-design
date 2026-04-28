@@ -1458,7 +1458,7 @@ const al = /* @__PURE__ */ Ji(C1), A0 = {
   minified: x = !1
 }) => {
   const [r, c] = Ct(!1), n = r ? Ki : rl, a = r ? g : o, i = r ? "green" : "black", p = (t) => {
-    t.stopPropagation(), e && (al(e), c(!0), setTimeout(() => c(!1), 2800));
+    t?.stopPropagation(), e && (al(e), c(!0), setTimeout(() => c(!1), 2800));
   };
   return /* @__PURE__ */ $(je, { style: A, align: "center", itemsSpacing: 8, children: /* @__PURE__ */ Pe(_1, { onClick: p, isCopied: r, tabIndex: 0, onKeyDown: (t) => {
     t.key === "Enter" && p();
@@ -39370,6 +39370,7 @@ const yv = be(ao).withConfig({
   fontWeight: It(C ? {
     0: e.typography.fontWeight.bold,
     1: e.typography.fontWeight.bold,
+    1.6: e.typography.fontWeight.bold,
     2: e.typography.fontWeight.bold,
     3: e.typography.fontWeight.regular,
     4: e.typography.fontWeight.regular,
@@ -39377,6 +39378,7 @@ const yv = be(ao).withConfig({
   } : {
     0: e.typography.fontWeight.extraBold,
     1: e.typography.fontWeight.extraBold,
+    1.6: e.typography.fontWeight.extraBold,
     2: e.typography.fontWeight.bold,
     3: e.typography.fontWeight.semiBold,
     4: e.typography.fontWeight.semiBold,
@@ -40491,14 +40493,14 @@ const U_ = ({
   tableRowType: x = Zn.TextWithAvatar,
   ...r
 }) => {
-  const c = () => !g && /* @__PURE__ */ $(h7, { ...r });
+  const c = () => !g && /* @__PURE__ */ $(h7, { ...r, perPage: r.pageSize ?? 10 });
   return /* @__PURE__ */ $(Qv, { renderHeader: () => c(), renderDataHeaders: () => C({
     sortingProps: null
   }), renderData: () => e == null && !g || o ? /* @__PURE__ */ $(m7, { columnsLength: y0.count(C({
     sortingProps: {}
   }).props.children), tableRowType: x }) : g ? /* @__PURE__ */ $(w7, { columnsLength: y0.count(C({
     sortingProps: {}
-  }).props.children), error: g }) : e ? A(e, {
+  }).props.children) }) : e ? A(e, {
     sortingProps: {}
   }) : /* @__PURE__ */ $(At, {}), renderFooter: () => c(), ...r });
 }, S7 = (e) => e ? "contentRed" : "", _7 = be.textarea.withConfig({
@@ -43382,7 +43384,7 @@ function es({
   hideCsprCurrency: g
 }) {
   const C = h0(o);
-  return /* @__PURE__ */ $(Od, { decimals: gb, amount: e, symbol: g ? "" : "CSPR", precision: C });
+  return /* @__PURE__ */ $(Od, { decimals: gb, amount: e != null ? String(e) : null, symbol: g ? "" : "CSPR", precision: C });
 }
 const ua = ({
   amount: e,
@@ -43393,7 +43395,7 @@ const ua = ({
     /* @__PURE__ */ $(Te, { size: 3, monotype: !0, variation: "black", children: /* @__PURE__ */ $(es, { motes: e, precisionCase: Hn.small }) }),
     /* @__PURE__ */ Pe(Te, { size: 3, monotype: !0, variation: "darkGray", children: [
       "(",
-      S6(C, "USD", {
+      S6(C ?? "0", "USD", {
         precision: Rl
       }),
       ")"
@@ -43495,8 +43497,8 @@ const ts = new RegExp(/^(?:(entity-)?contract(?:-package)?|account-hash|dictiona
   } = br(), a = c(e || o || ""), i = lo(a?.account_info || a?.centralized_account_info || r), p = i && i?.logo, t = i?.name, d = a?.cspr_name;
   return o === x && A ? /* @__PURE__ */ Pe(je, { itemsSpacing: 8, align: "center", children: [
     /* @__PURE__ */ $(Rr, { size: "small", path: el, loading: g, alt: "Auction contract logo" }),
-    /* @__PURE__ */ $(vr, { href: `${n}/account/${x}`, color: "hash", ariaDescription: "Link to account details", children: "Auction Pool" })
-  ] }) : e || o ? /* @__PURE__ */ $(Dn, { logo: p, name: t, hash: e || o, csprName: d, loading: g, navigateToPath: `${n}/account/${e || o}`, avatarSize: "small", hashFontSize: "sm", minifiedCopyNotification: !0 }) : /* @__PURE__ */ $(Uw, { purse: C, fontSize: "sm", csprLiveDomainPath: n });
+    /* @__PURE__ */ $(vr, { href: `${n}/account/${x}`, color: "hash", "aria-description": "Link to account details", children: "Auction Pool" })
+  ] }) : e || o ? /* @__PURE__ */ $(Dn, { logo: p, name: t, hash: e || o, csprName: d ?? void 0, loading: g, navigateToPath: `${n}/account/${e || o}`, avatarSize: "small", hashFontSize: "sm", minifiedCopyNotification: !0 }) : /* @__PURE__ */ $(Uw, { purse: C, fontSize: "sm", csprLiveDomainPath: n });
 }, Nd = ({
   timeTransactionCurrencyRate: e,
   transfer: o,
@@ -43554,12 +43556,12 @@ const Fw = {
   return /* @__PURE__ */ Pe(je, { align: "center", itemsSpacing: 12, children: [
     /* @__PURE__ */ $(qo, { src: c, size: g, contractTypeId: r, loading: A }),
     /* @__PURE__ */ $(ta, { extendedLine: {
-      title: i,
+      title: i ?? void 0,
       caption: "Contract package name"
     }, tooltipCaption: "Contract package hash", hash: e, children: /* @__PURE__ */ $(zt, { children: p ? /* @__PURE__ */ Pe(At, { children: [
-      /* @__PURE__ */ $(Te, { size: 3, monotype: !0, scale: "xs", lineHeight: "xs", children: /* @__PURE__ */ $(Ka, { hash: e, href: x, hashLength: C, ariaDescription: "Link to contract package" }) }),
+      /* @__PURE__ */ $(Te, { size: 3, monotype: !0, scale: "xs", lineHeight: "xs", children: /* @__PURE__ */ $(Ka, { hash: e, href: x, hashLength: C }) }),
       /* @__PURE__ */ $(qi, { size: 2, children: /* @__PURE__ */ $(Te, { size: 3, scale: "xs", lineHeight: "xs", variation: "darkGray", noWrap: !0, children: p }) })
-    ] }) : /* @__PURE__ */ $(Te, { size: 3, monotype: !0, scale: "xs", lineHeight: "xs", children: /* @__PURE__ */ $(Ka, { href: x, hash: e, hashLength: C, ariaDescription: "Link to contract package" }) }) }) })
+    ] }) : /* @__PURE__ */ $(Te, { size: 3, monotype: !0, scale: "xs", lineHeight: "xs", children: /* @__PURE__ */ $(Ka, { href: x, hash: e, hashLength: C }) }) }) })
   ] });
 }, Rd = {
   [Ot.System]: "System Contract",
@@ -43584,7 +43586,7 @@ const Fw = {
   const x = o === "default" ? 12 : 4;
   return e ? /* @__PURE__ */ Pe(je, { itemsSpacing: x, align: "center", children: [
     /* @__PURE__ */ $(qo, { size: o, contractTypeId: null }),
-    /* @__PURE__ */ $(lr, { tooltipContent: e, caption: "Contract Package Hash", children: /* @__PURE__ */ $(Te, { size: 3, variation: "darkGray", noWrap: !0, scale: g, monotype: !0, lineHeight: "xs", children: /* @__PURE__ */ $(vr, { href: A, ariaDescription: "Link to contract package details", color: "hash", children: Br(e, C) }) }) }),
+    /* @__PURE__ */ $(lr, { tooltipContent: e, caption: "Contract Package Hash", children: /* @__PURE__ */ $(Te, { size: 3, variation: "darkGray", noWrap: !0, scale: g, monotype: !0, lineHeight: "xs", children: /* @__PURE__ */ $(vr, { href: A, "aria-description": "Link to contract package details", color: "hash", children: Br(e, C) }) }) }),
     /* @__PURE__ */ $($i, { value: e, minified: !0 })
   ] }) : null;
 }, Gw = ({
@@ -43602,21 +43604,21 @@ const Fw = {
     icon_url: a,
     name: i,
     contract_name: p
-  } = o, t = Ld(i || p, rs), d = n ? Rd[n] : "", b = i ? t : Br(e, C), y = !g && b.length + d.length < rs;
+  } = o ?? {}, t = Ld(i || p, rs), d = n ? Rd[n] : "", b = i ? t : Br(e, C), y = !g && b.length + d.length < rs;
   return /* @__PURE__ */ Pe(je, { itemsSpacing: 4, align: "center", children: [
     /* @__PURE__ */ Pe(je, { itemsSpacing: A === "default" ? 12 : 4, align: "center", children: [
       /* @__PURE__ */ $(qo, { size: A, contractTypeId: n, src: a, loading: r }),
       /* @__PURE__ */ $(ta, { hash: e, tooltipCaption: "Contract Package Hash", extendedLine: {
-        title: i || p,
+        title: i || p || void 0,
         caption: "Contract name"
-      }, monotype: !0, children: /* @__PURE__ */ $(Te, { size: 3, variation: "darkGray", noWrap: !0, scale: x, monotype: !0, children: /* @__PURE__ */ $(vr, { href: c, ariaDescription: "Link to contract package details", color: "hash", children: b }) }) })
+      }, children: /* @__PURE__ */ $(Te, { size: 3, variation: "darkGray", noWrap: !0, scale: x, monotype: !0, children: /* @__PURE__ */ $(vr, { href: c, "aria-description": "Link to contract package details", color: "hash", children: b }) }) })
     ] }),
     y && /* @__PURE__ */ $(Te, { size: 3, variation: "darkGray", noWrap: !0, scale: x, children: /* @__PURE__ */ $(Jw, { contractTypeId: n }) })
   ] });
 }, fo = ({
   withName: e = !1,
   ...o
-}) => o.contractPackage ? e ? /* @__PURE__ */ $(Ww, { ...o }) : /* @__PURE__ */ $(Gw, { ...o }) : /* @__PURE__ */ $($w, { hash: o.hash, iconSize: o.avatarSize, hashFontSize: o.hashFontSize, hashLength: o.hashLength, avatarSize: o.avatarSize, path: o.path }), qw = ({
+}) => o.contractPackage ? e ? /* @__PURE__ */ $(Ww, { ...o, contractPackage: o.contractPackage }) : /* @__PURE__ */ $(Gw, { ...o }) : /* @__PURE__ */ $($w, { hash: o.hash, iconSize: o.avatarSize, hashFontSize: o.hashFontSize, hashLength: o.hashLength, path: o.path }), qw = ({
   deploy: e
 }) => {
   const o = e.args.token_to_trade_contract_hash_key.parsed, {
@@ -43633,9 +43635,9 @@ const Fw = {
     ] }) : null
   ] });
 }, Bd = {
-  [Ft.AuctionManagerEntryPoint.add]: "Add",
-  [Ft.AuctionManagerEntryPoint.withdraw]: "Withdraw",
-  [Ft.AuctionManagerEntryPoint.activate]: "Activate",
+  [Ft.AuctionManagerEntryPoint.addBid]: "Add",
+  [Ft.AuctionManagerEntryPoint.withdrawBid]: "Withdraw",
+  [Ft.AuctionManagerEntryPoint.activateBid]: "Activate",
   [Ft.AuctionManagerEntryPoint.delegate]: "Delegate",
   [Ft.AuctionManagerEntryPoint.undelegate]: "Undelegate",
   [Ft.AuctionManagerEntryPoint.redelegate]: "Redelegate"
@@ -43648,7 +43650,7 @@ const Fw = {
   } = br();
   return /* @__PURE__ */ Pe(je, { align: "center", itemsSpacing: 8, children: [
     /* @__PURE__ */ $(Rr, { path: el, size: "small", alt: "Auction contract logo" }),
-    /* @__PURE__ */ $(Te, { size: 3, variation: "blue", monotype: !0, children: /* @__PURE__ */ $(vr, { href: `${g}/contract-package/${o}`, ariaDescription: "Link to contract package details", color: "primaryBlue", children: e }) })
+    /* @__PURE__ */ $(Te, { size: 3, variation: "blue", monotype: !0, children: /* @__PURE__ */ $(vr, { href: `${g}/contract-package/${o}`, "aria-description": "Link to contract package details", color: "primaryBlue", children: e }) })
   ] });
 }, Hc = ({
   publicKey: e,
@@ -43657,10 +43659,10 @@ const Fw = {
   const {
     getAccountInfo: g,
     csprLiveDomainPath: C
-  } = br(), A = yn(["small", "default"], []), x = g(e), r = lo(x?.account_info || x?.centralized_account_info), c = x?.account_info?.info?.owner?.name;
+  } = br(), A = yn(["small", "default"], []), x = g(e), r = lo(x?.account_info || x?.centralized_account_info), c = r?.name;
   return e ? /* @__PURE__ */ Pe(At, { children: [
     /* @__PURE__ */ $(Te, { size: 3, variation: "darkGray", children: o }),
-    /* @__PURE__ */ $(Dn, { logo: r && r?.logo, name: c, hash: e, loading: !e, navigateToPath: `${C}/account/${e}`, avatarSize: A, hashFontSize: "sm", minifiedCopyNotification: !0 })
+    /* @__PURE__ */ $(Dn, { logo: r?.logo, name: c, hash: e, loading: !e, navigateToPath: `${C}/account/${e}`, avatarSize: A, hashFontSize: "sm", minifiedCopyNotification: !0 })
   ] }) : null;
 }, Zw = ({
   deploy: e
@@ -43705,13 +43707,13 @@ const Fw = {
 }) => {
   const {
     entryPoint: o
-  } = e, g = o?.name || "", C = g === Ft.AuctionManagerEntryPoint.activate || g === Ft.AuctionManagerEntryPoint.withdraw || g === Ft.AuctionManagerEntryPoint.add;
+  } = e, g = o?.name || "", C = g === Ft.AuctionManagerEntryPoint.activateBid || g === Ft.AuctionManagerEntryPoint.withdrawBid || g === Ft.AuctionManagerEntryPoint.addBid;
   return g === Ft.AuctionManagerEntryPoint.delegate || g === Ft.AuctionManagerEntryPoint.undelegate || g === Ft.AuctionManagerEntryPoint.redelegate ? /* @__PURE__ */ $(Yw, { deploy: e }) : C ? /* @__PURE__ */ $(Xw, { deploy: e }) : /* @__PURE__ */ $(Zw, { deploy: e });
 };
 var eC = /* @__PURE__ */ ((e) => (e.Bool = "Bool", e.I32 = "I32", e.I64 = "I64", e.U8 = "U8", e.U32 = "U32", e.U64 = "U64", e.U128 = "U128", e.U256 = "U256", e.U512 = "U512", e.Unit = "Unit", e.String = "String", e.Key = "Key", e.URef = "URef", e.Option = "Option", e.List = "List", e.ByteArray = "ByteArray", e.Result = "Result", e.Map = "Map", e.Tuple1 = "Tuple1", e.Tuple2 = "Tuple2", e.Tuple3 = "Tuple3", e.Any = "Any", e.PublicKey = "PublicKey", e))(eC || {});
 const tC = (e) => e ? [...e.args.keys()].reduce((g, C) => ({
   ...g,
-  [C]: e.getByName(C).toJSON()
+  [C]: e.getByName(C)?.toJSON()
 }), {}) : {}, Zo = (e) => e != null, rC = (e) => {
   if (e === void 0)
     return [];
@@ -43854,11 +43856,11 @@ const uM = (e, o) => {
     getAccountInfo: r,
     getPublicKeyAccountHash: c,
     csprLiveDomainPath: n
-  } = br(), a = c(x), i = r(x), t = lo(i?.account_info || i?.centralized_account_info)?.logo, d = i?.name, b = i?.cspr_name;
+  } = br(), a = c(x), i = r(x), p = lo(i?.account_info || i?.centralized_account_info), t = p?.logo, d = p?.name, b = i?.cspr_name;
   return /* @__PURE__ */ Pe(je, { align: "center", itemsSpacing: 8, children: [
     /* @__PURE__ */ $(Te, { size: 3, monotype: !0, variation: "black", children: g ? "Updated account" : "Update account" }),
     " ",
-    (a || !!x) && /* @__PURE__ */ $(Dn, { logo: t, name: d, hash: a || x, csprName: b, loading: !x, navigateToPath: `${n}/account/${a || x}`, avatarSize: "small", hashFontSize: "sm", minifiedCopyNotification: !0 }),
+    (a || !!x) && /* @__PURE__ */ $(Dn, { logo: t, name: d, hash: a || x, csprName: b ?? void 0, loading: !x, navigateToPath: `${n}/account/${a || x}`, avatarSize: "small", hashFontSize: "sm", minifiedCopyNotification: !0 }),
     !g && /* @__PURE__ */ Pe(je, { itemsSpacing: 8, align: "center", children: [
       /* @__PURE__ */ $(Te, { size: 3, variation: "darkGray", children: "with" }),
       /* @__PURE__ */ $(fo, { hash: C.contract_package_hash, contractPackage: C, hashFontSize: "sm", avatarSize: "small", path: `${n}/contract-package/${C.contract_package_hash}` })
@@ -43869,7 +43871,7 @@ const uM = (e, o) => {
   contractPackage: o
 }) => o ? /* @__PURE__ */ Pe(At, { children: [
   /* @__PURE__ */ $(qo, { size: "small", contractTypeId: o?.latest_version_contract_type_id, src: o.icon_url }),
-  /* @__PURE__ */ $(Te, { size: 3, variation: "black", monotype: !0, children: /* @__PURE__ */ $(vr, { href: e, ariaDescription: "Link to contract package details", color: "primaryBlue", children: o.name }) }),
+  /* @__PURE__ */ $(Te, { size: 3, variation: "black", monotype: !0, children: /* @__PURE__ */ $(vr, { href: e, "aria-description": "Link to contract package details", color: "primaryBlue", children: o.name }) }),
   /* @__PURE__ */ $(Te, { size: 3, variation: "darkGray", children: "NFT(s)" })
 ] }) : null, cC = be.div.withConfig({
   displayName: "NftTokenIds__TokenWrapper",
@@ -43884,7 +43886,7 @@ const uM = (e, o) => {
   token_id: e,
   path: o
 }) => {
-  const g = /* @__PURE__ */ $(cC, { children: /* @__PURE__ */ $(Te, { size: 3, children: /* @__PURE__ */ $(vr, { color: "primaryBlue", href: o, ariaDescription: "Link to nft token details", children: Br(e.toString(), Kt.LITTLE) }) }) }, `token-${e}`);
+  const g = /* @__PURE__ */ $(cC, { children: /* @__PURE__ */ $(Te, { size: 3, children: /* @__PURE__ */ $(vr, { color: "primaryBlue", href: o, "aria-description": "Link to nft token details", children: Br(e.toString(), Kt.LITTLE) }) }) }, `token-${e}`);
   return e.length > lC ? /* @__PURE__ */ $(lr, { tooltipContent: e, scale: "xs", lineHeight: "xs", children: g }) : g;
 }, ca = ({
   nftTokenIds: e,
@@ -43904,7 +43906,9 @@ const fM = {
   4: "Transfer",
   5: "Metadata update",
   6: "Revoke"
-}, hC = {
+};
+var Xt = /* @__PURE__ */ ((e) => (e.approve = "approve", e.burn = "burn", e.mint = "mint", e.transfer = "transfer", e.transfer_from = "transfer_from", e.update_token_meta = "update_token_meta", e.set_approval_for_all = "set_approval_for_all", e))(Xt || {});
+const hC = {
   1: "mint",
   2: "burn",
   3: "approve",
@@ -43912,7 +43916,7 @@ const fM = {
   5: "update_token_meta"
   /* update_token_meta */
 };
-var Dr = /* @__PURE__ */ ((e) => (e.delist_token = "delist_token", e.list_token = "list_token", e.accept_offer = "accept_offer", e.cancel_offer = "cancel_offer", e.make_offer = "make_offer", e))(Dr || {}), Xt = /* @__PURE__ */ ((e) => (e.approve = "approve", e.burn = "burn", e.mint = "mint", e.transfer = "transfer", e.transfer_from = "transfer_from", e.update_token_meta = "update_token_meta", e.set_approval_for_all = "set_approval_for_all", e))(Xt || {});
+var Dr = /* @__PURE__ */ ((e) => (e.delist_token = "delist_token", e.list_token = "list_token", e.accept_offer = "accept_offer", e.cancel_offer = "cancel_offer", e.make_offer = "make_offer", e))(Dr || {});
 function hM(e) {
   return e;
 }
@@ -43970,7 +43974,7 @@ const pC = (e) => e ? Object.entries(e).map((o) => ({
   } = e;
   return /* @__PURE__ */ Pe(je, { itemsSpacing: 4, align: "center", children: [
     /* @__PURE__ */ $(qo, { contractTypeId: g, src: C, loading: !e, size: "small" }),
-    /* @__PURE__ */ $(Te, { size: 3, variation: "darkGray", noWrap: !0, scale: "sm", children: A && /* @__PURE__ */ $(vr, { href: o, ariaDescription: "Link to contract package details", color: "primaryBlue", children: x }) })
+    /* @__PURE__ */ $(Te, { size: 3, variation: "darkGray", noWrap: !0, scale: "sm", children: A && /* @__PURE__ */ $(vr, { href: o, "aria-description": "Link to contract package details", color: "primaryBlue", children: x }) })
   ] });
 }, vC = ({
   deploy: e,
@@ -44002,7 +44006,7 @@ const pC = (e) => e ? Object.entries(e).map((o) => ({
     /* @__PURE__ */ $(ca, { nftTokenIds: g, collectionHash: o, csprLiveDomainPath: t }),
     n && /* @__PURE__ */ Pe(je, { itemsSpacing: 6, align: "center", children: [
       /* @__PURE__ */ $(Te, { size: 3, variation: "darkGray", children: "from" }),
-      /* @__PURE__ */ $(Dn, { logo: s, name: f, hash: b || n.hash, csprName: l, loading: !n, navigateToPath: `${t}/account/${b || n.hash}`, avatarSize: "small", hashFontSize: "sm", minifiedCopyNotification: !0 })
+      /* @__PURE__ */ $(Dn, { logo: s, name: f, hash: b || n.hash, csprName: l ?? void 0, loading: !n, navigateToPath: `${t}/account/${b || n.hash}`, avatarSize: "small", hashFontSize: "sm", minifiedCopyNotification: !0 })
     ] }),
     /* @__PURE__ */ $(Te, { size: 3, variation: "darkGray", children: "on" }),
     /* @__PURE__ */ $(p0, { contractPackage: c, path: `${t}/contract-package/${c.contract_package_hash}` })
@@ -44068,18 +44072,20 @@ const pC = (e) => e ? Object.entries(e).map((o) => ({
       website: null
     };
   const o = e?.coingecko_data, g = e?.friendlymarket_data;
-  if (o)
-    return {
-      ...o,
-      iconPath: "assets/icons/logos/coingecko_logo.png",
-      website: e?.coingecko_id ? `https://www.coingecko.com/en/coins/${e.coingecko_id}` : null
-    };
-  if (g)
-    return {
-      ...g,
-      iconPath: "assets/icons/logos/fm_logo.png",
-      website: e?.latest_version_contract_hash ? `https://www.friendly.market/swap/CSPR/${e.latest_version_contract_hash}` : null
-    };
+  return o ? {
+    ...o,
+    iconPath: "assets/icons/logos/coingecko_logo.png",
+    website: e?.coingecko_id ? `https://www.coingecko.com/en/coins/${e.coingecko_id}` : null
+  } : g ? {
+    ...g,
+    iconPath: "assets/icons/logos/fm_logo.png",
+    website: e?.latest_version_contract_hash ? `https://www.friendly.market/swap/CSPR/${e.latest_version_contract_hash}` : null
+  } : {
+    price: null,
+    volume_24h: null,
+    iconPath: null,
+    website: null
+  };
 }, _C = (e) => {
   const o = SC(e?.contractPackageInfo);
   if (e?.isShiboo)
@@ -44114,7 +44120,7 @@ function MC({
   const A = _C(g ? {
     contractPackageInfo: g
   } : null);
-  return /* @__PURE__ */ $(je, { itemsSpacing: 4, children: /* @__PURE__ */ $(je, { children: /* @__PURE__ */ $(Od, { amount: e, symbol: A.symbol || o, decimals: A.decimals, precision: C ? h0(C) : Ll, shouldShortenAmount: !0 }) }) });
+  return /* @__PURE__ */ $(je, { itemsSpacing: 4, children: /* @__PURE__ */ $(je, { children: /* @__PURE__ */ $(Od, { amount: e, symbol: A.symbol || o, decimals: A.decimals ?? void 0, precision: C ? h0(C) : Ll, shouldShortenAmount: !0 }) }) });
 }
 const Vi = ({
   type: e,
@@ -44132,7 +44138,7 @@ const Vi = ({
   csprLiveDomainPath: t
 }) => {
   const d = lo(o);
-  return e && e === Wr.hash ? /* @__PURE__ */ $(fo, { hash: A, hashLength: c, hashFontSize: n, avatarSize: i, loading: r, hideContractType: !0, withName: p, path: `${t}/contract-package/${A}`, contractPackage: g }) : /* @__PURE__ */ $(Dn, { logo: d && d?.logo, name: d?.name, hash: C || A, csprName: x || void 0, loading: r, hashLength: c, navigateToPath: `${t}/account/${C || A}`, avatarSize: i, hashFontSize: n, minifiedCopyNotification: a });
+  return e && e === Wr.hash ? /* @__PURE__ */ $(fo, { hash: A || "", hashLength: c, hashFontSize: n, avatarSize: i, loading: r, hideContractType: !0, withName: p, path: `${t}/contract-package/${A}`, contractPackage: g ?? void 0 }) : /* @__PURE__ */ $(Dn, { logo: d && d?.logo, name: d?.name, hash: C || A, csprName: x || void 0, loading: r, hashLength: c, navigateToPath: `${t}/account/${C || A}`, avatarSize: i, hashFontSize: n, minifiedCopyNotification: a });
 }, Dd = ({
   amount: e,
   contractPackage: o,
@@ -44162,11 +44168,11 @@ const Vi = ({
     ] }),
     C && /* @__PURE__ */ Pe(At, { children: [
       /* @__PURE__ */ $(Te, { size: 3, noWrap: !0, variation: "darkGray", children: i }),
-      /* @__PURE__ */ $(Vi, { type: A, accountInfo: b?.account_info || b?.centralized_account_info, contractPackage: t(C), csprName: b?.cspr_name, publicKey: g, hashFontSize: "sm", avatarSize: "small", hash: C, loading: !1, csprLiveDomainPath: d })
+      /* @__PURE__ */ $(Vi, { type: A, accountInfo: b?.account_info || b?.centralized_account_info || void 0, contractPackage: t(C) ?? void 0, csprName: b?.cspr_name, publicKey: g, hashFontSize: "sm", avatarSize: "small", hash: C, loading: !1, csprLiveDomainPath: d })
     ] }),
     x && /* @__PURE__ */ Pe(At, { children: [
       /* @__PURE__ */ $(Te, { size: 3, noWrap: !0, variation: "darkGray", children: "to" }),
-      /* @__PURE__ */ $(Vi, { type: r, accountInfo: y?.account_info || y?.centralized_account_info, contractPackage: t(x), csprName: y?.cspr_name, publicKey: c, hashFontSize: "sm", avatarSize: "small", hash: x, loading: !1, csprLiveDomainPath: d })
+      /* @__PURE__ */ $(Vi, { type: r, accountInfo: y?.account_info || y?.centralized_account_info || void 0, contractPackage: t(x) ?? void 0, csprName: y?.cspr_name, publicKey: c, hashFontSize: "sm", avatarSize: "small", hash: x, loading: !1, csprLiveDomainPath: d })
     ] })
   ] });
 };
@@ -44407,11 +44413,11 @@ const EC = (e) => {
     /* @__PURE__ */ $(ca, { nftTokenIds: C, collectionHash: A?.contract_package_hash, csprLiveDomainPath: d }),
     r && /* @__PURE__ */ Pe(At, { children: [
       g && /* @__PURE__ */ $(Te, { size: 3, noWrap: !0, variation: "darkGray", children: g }),
-      /* @__PURE__ */ $(Vi, { type: c, accountInfo: b?.account_info || b?.centralized_account_info, contractPackage: t(r), csprName: b?.cspr_name, loading: !r, publicKey: x, hashFontSize: "sm", avatarSize: "small", hash: r, csprLiveDomainPath: d })
+      /* @__PURE__ */ $(Vi, { type: c, accountInfo: b?.account_info || b?.centralized_account_info || void 0, contractPackage: t(r) ?? void 0, csprName: b?.cspr_name, loading: !r, publicKey: x, hashFontSize: "sm", avatarSize: "small", hash: r, csprLiveDomainPath: d })
     ] }),
     n && /* @__PURE__ */ Pe(At, { children: [
       /* @__PURE__ */ $(Te, { size: 3, noWrap: !0, variation: "darkGray", children: "to" }),
-      /* @__PURE__ */ $(Vi, { type: i, accountInfo: y?.account_info || y?.centralized_account_info, contractPackage: t(n), loading: !n, csprName: y?.cspr_name, publicKey: a, hashFontSize: "sm", avatarSize: "small", hash: n, csprLiveDomainPath: d })
+      /* @__PURE__ */ $(Vi, { type: i, accountInfo: y?.account_info || y?.centralized_account_info || void 0, contractPackage: t(n) ?? void 0, loading: !n, csprName: y?.cspr_name, publicKey: a, hashFontSize: "sm", avatarSize: "small", hash: n, csprLiveDomainPath: d })
     ] })
   ] });
 }, IC = ({
@@ -44431,7 +44437,7 @@ const EC = (e) => {
     /* @__PURE__ */ $(Xo, { path: `${C}/contract-package/${o.contract_package_hash}`, contractPackage: o }),
     x && /* @__PURE__ */ Pe(At, { children: [
       /* @__PURE__ */ $(Te, { size: 3, noWrap: !0, variation: "darkGray", children: "to" }),
-      /* @__PURE__ */ $(fo, { hash: x.hash, avatarSize: "small", hashFontSize: "sm", path: `${C}/contract-package/${x.hash}`, contractPackage: A(x.hash) })
+      /* @__PURE__ */ $(fo, { hash: x.hash, avatarSize: "small", hashFontSize: "sm", path: `${C}/contract-package/${x.hash}`, contractPackage: A(x.hash) ?? void 0 })
     ] })
   ] });
 }, NC = ({
@@ -44655,11 +44661,11 @@ const WC = (e) => {
     ...x,
     type: 2
     /* FT */
-  })), C = (e.transfers || []).sort((x, r) => x.transfer_index - r.transfer_index).map((x) => ({
+  })), C = (e.transfers || []).sort((x, r) => (x.transfer_index ?? 0) - (r.transfer_index ?? 0)).map((x) => ({
     ...x,
     type: 5
     /* NT */
-  })), A = [...o, ...g].sort((x, r) => x.transform_idx - r.transform_idx);
+  })), A = [...o, ...g].sort((x, r) => (x.transform_idx ?? 0) - (r.transform_idx ?? 0));
   return [...C, ...A];
 }, JC = ({
   deploy: e,
@@ -44696,7 +44702,7 @@ const WC = (e) => {
     const a = e?.entryPoint?.name || "", i = e.nftActions && e.nftActions[0] ? hC[e.nftActions[0].nft_action_id] : null;
     return a === i;
   }
-  const c = Ad(e.contractHash, e.entryPoint?.name), n = e.contractHash === o.associated_keys_contract_hash;
+  const c = Ad(e.contractHash, e.entryPoint?.name, o?.native_transfer_contract_hash || ""), n = e.contractHash === o.associated_keys_contract_hash;
   return c || n;
 }, GC = (e) => {
   const {
@@ -44822,7 +44828,7 @@ const WC = (e) => {
   path: o
 }) => /* @__PURE__ */ Pe(je, { itemsSpacing: 8, align: "center", children: [
   /* @__PURE__ */ $(Te, { scale: "xs", lineHeight: "xs", size: 3, noWrap: !0, variation: "darkGray", children: "Block:" }),
-  /* @__PURE__ */ $(Te, { scale: "xs", lineHeight: "xs", size: 3, monotype: !0, children: e.blockHash == null ? "N/A" : /* @__PURE__ */ $(vr, { href: o, ariaDescription: "Link to block details", color: "primaryBlue", children: Gr(e.blockHeight) }) }),
+  /* @__PURE__ */ $(Te, { scale: "xs", lineHeight: "xs", size: 3, monotype: !0, children: e.blockHash == null ? "N/A" : /* @__PURE__ */ $(vr, { href: o, "aria-description": "Link to block details", color: "primaryBlue", children: Gr(e.blockHeight ?? 0) }) }),
   /* @__PURE__ */ $(Te, { scale: "xs", lineHeight: "xs", size: 3, noWrap: !0, children: "·" }),
   /* @__PURE__ */ $(Te, { scale: "xs", lineHeight: "xs", size: 3, noWrap: !0, variation: "darkGray", children: Bl(e.timestamp) })
 ] }), yM = ({
@@ -44845,13 +44851,13 @@ const WC = (e) => {
     /* @__PURE__ */ Pe(XC, { children: [
       /* @__PURE__ */ Pe(je, { align: "center", children: [
         /* @__PURE__ */ $(Uc, { deployResult: e, size: ns.Small }),
-        /* @__PURE__ */ $(lr, { scale: "xs", lineHeight: "xs", tooltipContent: a, children: /* @__PURE__ */ $(Te, { size: 3, scale: "sm", monotype: !0, children: /* @__PURE__ */ $(vr, { href: `${r}/transaction/${e.deployHash}`, ariaDescription: "Link to deploy details", color: "primaryBlue", children: Br(a, Kt.TINY) }) }) })
+        /* @__PURE__ */ $(lr, { scale: "xs", lineHeight: "xs", tooltipContent: a, children: /* @__PURE__ */ $(Te, { size: 3, scale: "sm", monotype: !0, children: /* @__PURE__ */ $(vr, { href: `${r}/transaction/${e.deployHash}`, "aria-description": "Link to deploy details", color: "primaryBlue", children: Br(a, Kt.TINY) }) }) })
       ] }),
       /* @__PURE__ */ Pe(je, { justify: "flex-end", itemsSpacing: 8, align: "baseline", children: [
         /* @__PURE__ */ $(Te, { scale: "xs", lineHeight: "xs", size: 3, noWrap: !0, variation: "darkGray", children: Bl(e.timestamp) }),
         /* @__PURE__ */ $(Te, { scale: "xs", lineHeight: "xs", size: 3, noWrap: !0, children: "·" }),
         /* @__PURE__ */ $(Te, { scale: "xs", lineHeight: "xs", size: 3, noWrap: !0, variation: "darkGray", children: "Block:" }),
-        /* @__PURE__ */ $(Te, { size: 3, monotype: !0, children: e.blockHash == null ? "N/A" : /* @__PURE__ */ $(vr, { href: `${r}/block/${e.blockHash}`, ariaDescription: "Link to block details", color: "primaryBlue", children: Gr(e.blockHeight) }) }),
+        /* @__PURE__ */ $(Te, { size: 3, monotype: !0, children: e.blockHash == null ? "N/A" : /* @__PURE__ */ $(vr, { href: `${r}/block/${e.blockHash}`, "aria-description": "Link to block details", color: "primaryBlue", children: Gr(e.blockHeight ?? 0) }) }),
         /* @__PURE__ */ $(Te, { scale: "xs", lineHeight: "xs", size: 3, noWrap: !0, children: "·" }),
         /* @__PURE__ */ Pe(je, { itemsSpacing: 4, align: "baseline", children: [
           /* @__PURE__ */ $(Te, { scale: "xs", lineHeight: "xs", size: 3, variation: "darkGray", children: "Charge:" }),
@@ -44864,9 +44870,9 @@ const WC = (e) => {
       /* @__PURE__ */ Pe(YC, { itemsSpacing: 12, children: [
         /* @__PURE__ */ $(je, { justify: "space-between", children: /* @__PURE__ */ Pe(je, { itemsSpacing: 8, children: [
           /* @__PURE__ */ $(ta, { extendedLine: {
-            title: f,
+            title: f ?? void 0,
             caption: "CSPR.name"
-          }, tooltipCaption: l, hash: c || n, children: /* @__PURE__ */ $(zt, { children: /* @__PURE__ */ $(Te, { lineHeight: "xs", size: 3, scale: "sm", monotype: !f, children: /* @__PURE__ */ $(vr, { href: `${r}/account/${c}`, ariaDescription: "Link to Account page", color: "primaryBlue", children: f || Br(c, Kt.TINY) }) }) }) }),
+          }, tooltipCaption: l, hash: c || n, children: /* @__PURE__ */ $(zt, { children: /* @__PURE__ */ $(Te, { lineHeight: "xs", size: 3, scale: "sm", monotype: !f, children: /* @__PURE__ */ $(vr, { href: `${r}/account/${c}`, "aria-description": "Link to Account page", color: "primaryBlue", children: f || Br(c, Kt.TINY) }) }) }) }),
           /* @__PURE__ */ $(je, { children: /* @__PURE__ */ $(qi, { size: 5, children: /* @__PURE__ */ $(Te, { size: 3, variation: "darkGray", noWrap: !0, children: s }) }) })
         ] }) }),
         /* @__PURE__ */ $(je, { children: /* @__PURE__ */ Pe(je, { itemsSpacing: 8, children: [
@@ -44880,7 +44886,7 @@ const WC = (e) => {
     /* @__PURE__ */ Pe(je, { justify: "space-between", children: [
       /* @__PURE__ */ Pe(je, { align: "center", children: [
         /* @__PURE__ */ $(Uc, { deployResult: e, size: ns.Small }),
-        /* @__PURE__ */ $(lr, { tooltipContent: a, scale: "xs", lineHeight: "xs", children: /* @__PURE__ */ $(Te, { scale: "xs", lineHeight: "xs", size: 3, monotype: !0, children: /* @__PURE__ */ $(vr, { href: `${r}/transaction/${e.deployHash}`, ariaDescription: "Link to deploy details", color: "primaryBlue", children: Br(a, Kt.TINY) }) }) })
+        /* @__PURE__ */ $(lr, { tooltipContent: a, scale: "xs", lineHeight: "xs", children: /* @__PURE__ */ $(Te, { scale: "xs", lineHeight: "xs", size: 3, monotype: !0, children: /* @__PURE__ */ $(vr, { href: `${r}/transaction/${e.deployHash}`, "aria-description": "Link to deploy details", color: "primaryBlue", children: Br(a, Kt.TINY) }) }) })
       ] }),
       /* @__PURE__ */ Pe(je, { itemsSpacing: 4, align: "baseline", children: [
         /* @__PURE__ */ $(Te, { scale: "xs", lineHeight: "xs", size: 3, variation: "darkGray", children: "Charge:" }),
@@ -44888,7 +44894,7 @@ const WC = (e) => {
       ] })
     ] }),
     /* @__PURE__ */ Pe(zt, { itemsSpacing: 12, children: [
-      /* @__PURE__ */ $(Dn, { logo: y, name: s, hash: c || n, csprName: t || f, loading: o, navigateToPath: `${r}/account/${c || n}`, avatarSize: "small", hashFontSize: "sm", minifiedCopyNotification: !0 }),
+      /* @__PURE__ */ $(Dn, { logo: y, name: s, hash: c || n, csprName: t || f || void 0, loading: o, navigateToPath: `${r}/account/${c || n}`, avatarSize: "small", hashFontSize: "sm", minifiedCopyNotification: !0 }),
       /* @__PURE__ */ Pe(je, { itemsSpacing: 8, children: [
         Qa(e.executionTypeId) && /* @__PURE__ */ $(Fc, { lineHeight: "xxs" }),
         /* @__PURE__ */ $(Te, { size: 3, scale: "sm", lineHeight: "xs", children: /* @__PURE__ */ $(Kc, { children: /* @__PURE__ */ $(jc, { deploy: e, loading: o, actionIdentificationHashes: g, getAccountInfo: C, getContractInfoByHash: x, getContractPackageInfoByHash: A, csprLiveDomainPath: r }) }) })

@@ -21,7 +21,7 @@ export const NftCollectionIdentifier = ({
       <BodyText size={3} variation={'black'} monotype>
         <Link
           href={path}
-          ariaDescription={'Link to contract package details'}
+          aria-description={'Link to contract package details'}
           color={'primaryBlue'}
         >
           {contractPackage.name}

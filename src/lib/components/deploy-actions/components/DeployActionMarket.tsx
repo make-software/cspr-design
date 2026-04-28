@@ -62,7 +62,7 @@ const MarketContractIdentifier = ({
         {contract_package_hash && (
           <Link
             href={path}
-            ariaDescription={'Link to contract package details'}
+            aria-description={'Link to contract package details'}
             color={'primaryBlue'}
           >
             {name}
@@ -152,7 +152,7 @@ const OfferMarketAction = ({
             logo={logo}
             name={name}
             hash={publicKey || offererHash.hash}
-            csprName={csprName}
+            csprName={csprName ?? undefined}
             loading={!offererHash}
             navigateToPath={`${csprLiveDomainPath}/account/${publicKey || offererHash.hash}`}
             avatarSize={'small'}

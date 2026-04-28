@@ -41,10 +41,10 @@ export const Cep18ActionRow = ({
 }: Cep18ActionRowProps) => {
   const { getAccountInfo, getContractPackageInfoByHash, csprLiveDomainPath } =
     useDeployActionDataContext();
-  const fromAccountInfo = getAccountInfo<AccountInfoResult>(
+  const fromAccountInfo = getAccountInfo(
     from_public_key || from_hash || '',
   );
-  const toAccountInfo = getAccountInfo<AccountInfoResult>(
+  const toAccountInfo = getAccountInfo(
     to_public_key || to_hash || '',
   );
 
@@ -93,9 +93,10 @@ export const Cep18ActionRow = ({
             type={from_type}
             accountInfo={
               fromAccountInfo?.account_info ||
-              fromAccountInfo?.centralized_account_info
+              fromAccountInfo?.centralized_account_info ||
+              undefined
             }
-            contractPackage={getContractPackageInfoByHash(from_hash)}
+            contractPackage={getContractPackageInfoByHash(from_hash) ?? undefined}
             csprName={fromAccountInfo?.cspr_name}
             publicKey={from_public_key}
             hashFontSize={'sm'}
@@ -115,9 +116,10 @@ export const Cep18ActionRow = ({
             type={to_type}
             accountInfo={
               toAccountInfo?.account_info ||
-              toAccountInfo?.centralized_account_info
+              toAccountInfo?.centralized_account_info ||
+              undefined
             }
-            contractPackage={getContractPackageInfoByHash(to_hash)}
+            contractPackage={getContractPackageInfoByHash(to_hash) ?? undefined}
             csprName={toAccountInfo?.cspr_name}
             publicKey={to_public_key}
             hashFontSize={'sm'}

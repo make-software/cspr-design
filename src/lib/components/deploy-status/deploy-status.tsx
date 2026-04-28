@@ -64,7 +64,7 @@ export const getDeployStatus = (
     return deployResult?.status as Status;
   }
 
-  if (deployResult?.errorMessage) {
+  if ((deployResult as Deploy)?.errorMessage) {
     return Status.Error;
   }
 
@@ -86,7 +86,7 @@ export const DeployStatus = ({
   };
 
   const status = getDeployStatus(deployResult);
-  const message = deployResult?.errorMessage || StatusLabel[status];
+  const message = (deployResult as Deploy)?.errorMessage || StatusLabel[status];
 
   if (!iconWithText) {
     return (

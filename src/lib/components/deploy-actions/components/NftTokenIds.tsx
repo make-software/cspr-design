@@ -20,7 +20,7 @@ export const NftTokenId = ({ token_id, path }) => {
         <Link
           color={'primaryBlue'}
           href={path}
-          ariaDescription={'Link to nft token details'}
+          aria-description={'Link to nft token details'}
         >
           {formatHash(token_id.toString(), HashLength.LITTLE)}
         </Link>

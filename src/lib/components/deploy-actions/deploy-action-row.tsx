@@ -36,7 +36,7 @@ export type ActionIdentificationHashesType = {
   native_transfer_contract_hash?: string;
 };
 
-interface DeployActionRowComponentProps {
+export interface DeployActionRowComponentProps {
   deploy: Deploy;
   deployRawData?: DataResponse< GetDeployResult & {api_version: string} > | undefined | null;
   loading: boolean;

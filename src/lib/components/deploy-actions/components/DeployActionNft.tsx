@@ -44,7 +44,7 @@ const SetAllApprovalsNFTAction = ({ deploy }: { deploy: Deploy }) => {
             avatarSize={'small'}
             hashFontSize={'sm'}
             path={`${csprLiveDomainPath}/contract-package/${operatorHash.hash}`}
-            contractPackage={getContractPackageInfoByHash(operatorHash.hash)}
+            contractPackage={getContractPackageInfoByHash(operatorHash.hash) ?? undefined}
           />
         </>
       )}

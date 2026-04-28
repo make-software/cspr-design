@@ -55,7 +55,7 @@ export const PaginatedTable = <Entity,>({
   tableRowType = TableRowType.TextWithAvatar,
   ...props
 }: PaginatedTableProps<Entity>) => {
-  const renderPaginationRow = () => !error && <Pagination {...props} />;
+  const renderPaginationRow = () => !error && <Pagination {...props} perPage={props.pageSize ?? 10} />;
 
   return (
     <Table
@@ -82,7 +82,6 @@ export const PaginatedTable = <Entity,>({
                 sortingProps: {}!,
               }).props.children,
             )}
-            error={error}
           />
         ) : data ? (
           renderPaginatedData(data, {

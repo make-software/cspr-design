@@ -1,6 +1,6 @@
 import { ActionIdentificationHashesType } from '../deploy-actions/deploy-action-row';
 import { AccountInfoResult, ContractResult, Deploy, DeployContractPackageResult } from '../../types/types';
-interface ActivityFeedItemProps {
+export interface ActivityFeedItemProps {
     deploy: Deploy;
     loading: boolean;
     actionIdentificationHashes: ActionIdentificationHashesType;
