@@ -35,6 +35,13 @@ export const deriveFtTokenMarketDataService = (
         : null,
     };
   }
+
+  return {
+    price: null,
+    volume_24h: null,
+    iconPath: null,
+    website: null,
+  };
 };
 
 export default deriveFtTokenMarketDataService;

@@ -39,21 +39,21 @@ export enum ContractTypeId {
 }
 
 export type DeployContractPackageMetadata = {
-  symbol: string;
-  name: string;
-  decimals: number;
-  balances_uref: string;
-  total_supply_uref: string;
-  burn_mode?: string;
-  holder_mode?: string;
-  identifier_mode?: string;
-  metadata_mutability?: string;
-  minting_mode?: string;
-  nft_kind?: string;
-  nft_metadata_kind?: string;
-  ownership_mode?: string;
-  whitelist_mode?: string;
-  owner_reverse_lookup_mode?: string;
+  symbol?: string;
+  name?: string;
+  decimals?: number;
+  balances_uref?: string;
+  total_supply_uref?: string;
+  burn_mode?: string | number;
+  holder_mode?: string | number;
+  identifier_mode?: string | number;
+  metadata_mutability?: string | number;
+  minting_mode?: string | number;
+  nft_kind?: string | number;
+  nft_metadata_kind?: string | number;
+  ownership_mode?: string | number;
+  whitelist_mode?: string | number;
+  owner_reverse_lookup_mode?: string | number;
 };
 
 export interface AccountCentralizedInfo {
@@ -74,18 +74,19 @@ export interface AccountInfoResult {
   is_active: boolean;
   deploy_hash: string;
   verified_account_hashes: string[];
-  balance?: number;
-  genesis_balance?: string;
+  info?: Record<string, any>;
+  balance?: string | number;
+  genesis_balance?: string | null;
   delegated_balance?: string;
   staked_balance?: string;
   undelegating_balance?: string;
   auction_status?: string;
-  deployment_threshold: number;
-  key_management_threshold: number;
-  account_info?: AccountInfoResult;
-  centralized_account_info?: AccountCentralizedInfo;
-  public_key?: string;
-  cspr_name?: string;
+  deployment_threshold?: number;
+  key_management_threshold?: number;
+  account_info?: AccountInfoResult | null;
+  centralized_account_info?: AccountCentralizedInfo | null;
+  public_key?: string | null;
+  cspr_name?: string | null;
 }
 export type FMPriceData = {
   price: number;
@@ -116,8 +117,8 @@ export type DeployContractPackageResult = {
   owner_hash: string | null;
   owner_type?: TransactorHashType;
   timestamp: string;
-  has_ces_events: boolean;
-  is_featured: boolean;
+  has_ces_events?: boolean;
+  is_featured?: boolean;
   deploys_number?: number;
   activity_number?: number;
   metadata?: DeployContractPackageMetadata;
@@ -129,14 +130,14 @@ export type DeployContractPackageResult = {
   latest_version_contract_hash: string | null;
   token_market_data?: Array<TokenMarketData>;
   /** @deprecated */
-  coingecko_data: CoingeckoPriceData;
+  coingecko_data?: CoingeckoPriceData | null;
   /** @deprecated */
-  friendlymarket_data: FMPriceData;
+  friendlymarket_data?: FMPriceData | null;
   /** @deprecated */
-  csprtrade_data: FMPriceData;
+  csprtrade_data?: FMPriceData | null;
   // TODO: remove these types
   contract_type_id?: number | null;
-  contract_name: string | null;
+  contract_name?: string | null;
   website_url?: string | null;
 };
 
@@ -147,7 +148,7 @@ export type ContractResult = {
   contract_type_id: number;
   contract_version: number;
   deploy_hash: string;
-  from_purse_public_key: string;
+  from_purse_public_key?: string | null;
   is_disabled: boolean;
   timestamp: string;
   contract_package?: DeployContractPackageResult;
@@ -195,6 +196,10 @@ export type DeployArgsResult = {
   csprfun_contract_hash_key?: DeployClTypeResult;
   token_to_trade_contract_hash_key?: DeployClTypeResult;
   attached_value?: DeployClTypeResult;
+  deployment_threshold?: DeployClTypeResult;
+  key_management_threshold?: DeployClTypeResult;
+  keys?: DeployClTypeResult;
+  weights?: DeployClTypeResult;
 };
 export type DeployEntryPointResult = {
   action_type_id: null;
@@ -205,21 +210,21 @@ export type DeployEntryPointResult = {
 };
 
 export type NftActionsResult = {
-  block_height: number;
+  block_height?: number;
   contract_package: DeployContractPackageResult;
   contract_package_hash: string;
-  deploy_hash: string;
-  from_hash: null;
+  deploy_hash?: string;
+  from_hash: null | string;
   from_public_key: string | null;
-  from_type: null;
+  from_type: null | number;
   nft_action_id: number;
-  timestamp: string;
+  timestamp?: string | null;
   to_hash: string;
   to_public_key: string | null;
   to_type: number;
   token_id: string;
   token_tracking_id: number;
-  transform_idx: number;
+  transform_idx?: number;
 };
 
 export enum HashType {
@@ -236,31 +241,32 @@ export type FTActionsResult = {
   amount: string;
   contract_package: DeployContractPackageResult;
   contract_package_hash: string;
-  deploy_hash: string;
+  deploy_hash?: string;
   ft_action_type_id: number;
   from_hash: string;
   from_public_key: string | null;
   from_type: TransactorHashType;
-  timestamp: string;
+  timestamp?: string | null;
   to_hash: string;
   to_public_key: string | null;
   to_type: TransactorHashType;
   transform_idx: number;
+  block_height?: number;
 };
 
 export type DeployTransferResult = {
   amount: string;
-  block_height: number;
-  transfer_index: number;
-  deploy_hash: string;
+  block_height?: number;
+  transfer_index: number | null;
+  deploy_hash?: string;
   from_purse_public_key: string | null;
   from_purse: string;
   id: string | null;
   initiator_account_hash: string;
-  timestamp: string;
+  timestamp?: string;
   to_account_hash: string;
   to_purse: string;
-  transform_key: string;
+  transform_key?: string;
   to_purse_public_key: string | null;
   to_purse_account_info: AccountInfoResult | null;
   from_purse_account_info: AccountInfoResult | null;
@@ -283,18 +289,18 @@ export interface DeployResult {
   deploy_hash: string;
   error_message: string | null;
   execution_type_id: number;
-  nft_token_actions?: NftActionsResult[];
-  ft_token_actions?: FTActionsResult[];
+  nft_token_actions?: NftActionsResult[] | null;
+  ft_token_actions?: FTActionsResult[] | null;
   payment_amount: string | null;
   refund_amount?: string | null;
   rate: number;
   status: string;
   timestamp: string;
-  transfers?: DeployTransferResult[];
+  transfers?: DeployTransferResult[] | null;
   pending?: boolean;
-  account_info?: AccountInfoResult;
-  centralized_account_info?: AccountCentralizedInfo;
-  cspr_name?: string;
+  account_info?: AccountInfoResult | null;
+  centralized_account_info?: AccountCentralizedInfo | null;
+  cspr_name?: string | null;
   amount: string | null;
   currency_cost: number;
   caller_cspr_name?: string | null;
@@ -303,7 +309,7 @@ export interface DeployResult {
 
 export interface Deploy {
   // means it's a pending deploy
-  accountInfo?: AccountInfoResult;
+  accountInfo?: AccountInfoResult | null;
   amount: string | null;
   args: DeployArgsResult;
   blockHash: string | null;
@@ -321,13 +327,13 @@ export interface Deploy {
   entryPoint?: DeployEntryPointResult;
   errorMessage: string | null;
   executionTypeId: number;
-  ftActions?: FTActionsResult[];
-  nftActions?: NftActionsResult[];
+  ftActions?: FTActionsResult[] | null;
+  nftActions?: NftActionsResult[] | null;
   paymentAmount: string | null;
   pending?: boolean;
   refundAmount?: string | null;
   status: string;
   timeTransactionCurrencyRate: number;
   timestamp: string;
-  transfers?: DeployTransferResult[];
+  transfers?: DeployTransferResult[] | null;
 }

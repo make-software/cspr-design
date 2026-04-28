@@ -123,10 +123,10 @@ const BlockFeedInfo = ({ deploy, path }: { deploy: Deploy; path: string }) => (
       ) : (
         <Link
           href={path}
-          ariaDescription={'Link to block details'}
+          aria-description={'Link to block details'}
           color={'primaryBlue'}
         >
-          {formatNumber(deploy.blockHeight)}
+          {formatNumber(deploy.blockHeight ?? 0)}
         </Link>
       )}
     </BodyText>
@@ -145,7 +145,7 @@ const BlockFeedInfo = ({ deploy, path }: { deploy: Deploy; path: string }) => (
   </FlexRow>
 );
 
-interface ActivityFeedItemProps {
+export interface ActivityFeedItemProps {
   deploy: Deploy;
   loading: boolean;
   actionIdentificationHashes: ActionIdentificationHashesType;
@@ -179,7 +179,7 @@ export const ActivityFeedItem = ({
     callerCsprName,
   } = deploy;
 
-  const accountInfo = getAccountInfo<AccountInfoResult>(
+  const accountInfo = getAccountInfo(
     callerPublicKey || callerHash,
   );
 
@@ -208,7 +208,7 @@ export const ActivityFeedItem = ({
             <BodyText size={3} scale={'sm'} monotype>
               <Link
                 href={`${csprLiveDomainPath}/transaction/${deploy.deployHash}`}
-                ariaDescription={'Link to deploy details'}
+                aria-description={'Link to deploy details'}
                 color={'primaryBlue'}
               >
                 {formatHash(deployHash, HashLength.TINY)}
@@ -244,10 +244,10 @@ export const ActivityFeedItem = ({
             ) : (
               <Link
                 href={`${csprLiveDomainPath}/block/${deploy.blockHash}`}
-                ariaDescription={'Link to block details'}
+                aria-description={'Link to block details'}
                 color={'primaryBlue'}
               >
-                {formatNumber(deploy.blockHeight)}
+                {formatNumber(deploy.blockHeight ?? 0)}
               </Link>
             )}
           </BodyText>
@@ -284,7 +284,7 @@ export const ActivityFeedItem = ({
           <FlexRow justify={'space-between'}>
             <FlexRow itemsSpacing={8}>
               <TooltipWithExtendedInfo
-                extendedLine={{ title: csprName, caption: 'CSPR.name' }}
+                extendedLine={{ title: csprName ?? undefined, caption: 'CSPR.name' }}
                 tooltipCaption={keyTooltipCaption}
                 hash={callerPublicKey || callerHash}
               >
@@ -297,7 +297,7 @@ export const ActivityFeedItem = ({
                   >
                     <Link
                       href={`${csprLiveDomainPath}/account/${callerPublicKey}`}
-                      ariaDescription={`Link to Account page`}
+                      aria-description={`Link to Account page`}
                       color={'primaryBlue'}
                     >
                       {csprName || formatHash(callerPublicKey, HashLength.TINY)}
@@ -358,7 +358,7 @@ export const ActivityFeedItem = ({
             <BodyText scale={'xs'} lineHeight={'xs'} size={3} monotype>
               <Link
                 href={`${csprLiveDomainPath}/transaction/${deploy.deployHash}`}
-                ariaDescription={'Link to deploy details'}
+                aria-description={'Link to deploy details'}
                 color={'primaryBlue'}
               >
                 {formatHash(deployHash, HashLength.TINY)}
@@ -388,7 +388,7 @@ export const ActivityFeedItem = ({
           logo={logo}
           name={name}
           hash={callerPublicKey || callerHash}
-          csprName={callerCsprName || csprName}
+          csprName={callerCsprName || csprName || undefined}
           loading={loading}
           navigateToPath={`${csprLiveDomainPath}/account/${callerPublicKey || callerHash}`}
           avatarSize={'small'}

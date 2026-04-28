@@ -1,5 +1,9 @@
 export declare const mockedAccountInfos: ({
     account_hash: string;
+    url: string;
+    is_active: boolean;
+    deploy_hash: string;
+    verified_account_hashes: never[];
     account_info: null;
     balance: string;
     centralized_account_info: {
@@ -20,6 +24,10 @@ export declare const mockedAccountInfos: ({
     undelegating_balance?: undefined;
 } | {
     account_hash: string;
+    url: string;
+    is_active: boolean;
+    deploy_hash: string;
+    verified_account_hashes: never[];
     account_info: {
         account_hash: string;
         created: string;
@@ -95,6 +103,10 @@ export declare const mockedAccountInfos: ({
     undelegating_balance?: undefined;
 } | {
     account_hash: string;
+    url: string;
+    is_active: boolean;
+    deploy_hash: string;
+    verified_account_hashes: never[];
     account_info: null;
     auction_status: null;
     balance: string;
@@ -115,6 +127,10 @@ export declare const mockedAccountInfos: ({
     undelegating_balance: null;
 } | {
     account_hash: string;
+    url: string;
+    is_active: boolean;
+    deploy_hash: string;
+    verified_account_hashes: never[];
     account_info: null;
     auction_status: null;
     balance: string;
@@ -130,6 +146,10 @@ export declare const mockedAccountInfos: ({
     undelegating_balance: null;
 } | {
     account_hash: string;
+    url: string;
+    is_active: boolean;
+    deploy_hash: string;
+    verified_account_hashes: never[];
     account_info: null;
     balance: string;
     centralized_account_info: null;
@@ -354,6 +374,8 @@ export declare const defaultDeploy: {
         };
     };
     payment_amount: string;
+    amount: null;
+    currency_cost: number;
     refund_amount: string;
     cost: string;
     consumed_gas: string;
@@ -466,7 +488,7 @@ export declare const defaultDeploy: {
         action_type_id: null;
         contract_hash: string;
         contract_package_hash: string;
-        id: number;
+        id: string;
         name: string;
     };
     caller_cspr_name: null;
@@ -501,6 +523,8 @@ export declare const transferDeploy: {
         };
     };
     payment_amount: string;
+    amount: null;
+    currency_cost: number;
     refund_amount: string;
     cost: string;
     consumed_gas: string;
@@ -543,12 +567,12 @@ export declare const transferDeploy: {
         action_type_id: null;
         contract_hash: string;
         contract_package_hash: string;
-        id: number;
+        id: string;
         name: string;
     };
     caller_cspr_name: null;
     transfers: {
-        id: number;
+        id: string;
         transfer_index: null;
         initiator_account_hash: string;
         from_purse: string;
@@ -612,6 +636,8 @@ export declare const csprFunDeploy: {
         };
     };
     payment_amount: string;
+    amount: null;
+    currency_cost: number;
     refund_amount: string;
     cost: string;
     consumed_gas: string;
@@ -654,12 +680,12 @@ export declare const csprFunDeploy: {
         action_type_id: null;
         contract_hash: string;
         contract_package_hash: string;
-        id: number;
+        id: string;
         name: string;
     };
     caller_cspr_name: null;
     transfers: {
-        id: number;
+        id: string;
         transfer_index: null;
         initiator_account_hash: string;
         from_purse: string;
@@ -850,6 +876,8 @@ export declare const auctionDeploy: {
         };
     };
     payment_amount: string;
+    amount: null;
+    currency_cost: number;
     refund_amount: string;
     cost: string;
     consumed_gas: string;
@@ -892,12 +920,12 @@ export declare const auctionDeploy: {
         action_type_id: null;
         contract_hash: string;
         contract_package_hash: string;
-        id: number;
+        id: string;
         name: string;
     };
     caller_cspr_name: null;
     transfers: {
-        id: number;
+        id: string;
         transfer_index: null;
         initiator_account_hash: string;
         from_purse: string;
@@ -949,6 +977,8 @@ export declare const associatedKeysDeploy: {
         };
     };
     payment_amount: string;
+    amount: null;
+    currency_cost: number;
     refund_amount: string;
     cost: string;
     consumed_gas: string;
@@ -1060,7 +1090,7 @@ export declare const associatedKeysDeploy: {
         action_type_id: null;
         contract_hash: string;
         contract_package_hash: string;
-        id: number;
+        id: string;
         name: string;
     };
     caller_cspr_name: null;
@@ -1097,6 +1127,8 @@ export declare const csprMarketDeploy: {
         };
     };
     payment_amount: string;
+    amount: null;
+    currency_cost: number;
     refund_amount: string;
     cost: string;
     consumed_gas: string;
@@ -1139,12 +1171,12 @@ export declare const csprMarketDeploy: {
         action_type_id: null;
         contract_hash: string;
         contract_package_hash: string;
-        id: number;
+        id: string;
         name: string;
     };
     caller_cspr_name: null;
     transfers: ({
-        id: number;
+        id: string;
         transfer_index: null;
         initiator_account_hash: string;
         from_purse: string;
@@ -1160,7 +1192,7 @@ export declare const csprMarketDeploy: {
         from_purse_cspr_name: null;
         to_purse_cspr_name: null;
     } | {
-        id: number;
+        id: string;
         transfer_index: null;
         initiator_account_hash: string;
         from_purse: string;
@@ -1255,6 +1287,8 @@ export declare const cep18Deploy: {
         };
     };
     payment_amount: string;
+    amount: null;
+    currency_cost: number;
     refund_amount: string;
     cost: string;
     consumed_gas: string;
@@ -1303,7 +1337,7 @@ export declare const cep18Deploy: {
         action_type_id: null;
         contract_hash: string;
         contract_package_hash: string;
-        id: number;
+        id: string;
         name: string;
     };
     caller_cspr_name: null;
@@ -1381,6 +1415,8 @@ export declare const nftDeploy: {
         };
     };
     payment_amount: string;
+    amount: null;
+    currency_cost: number;
     refund_amount: string;
     cost: string;
     consumed_gas: string;
@@ -1426,7 +1462,7 @@ export declare const nftDeploy: {
         action_type_id: null;
         contract_hash: string;
         contract_package_hash: string;
-        id: number;
+        id: string;
         name: string;
     };
     caller_cspr_name: null;
@@ -1497,6 +1533,8 @@ export declare const duplicatedResultsDeploy: {
         };
     };
     payment_amount: string;
+    amount: null;
+    currency_cost: number;
     refund_amount: string;
     cost: string;
     consumed_gas: string;
@@ -1546,7 +1584,7 @@ export declare const duplicatedResultsDeploy: {
         action_type_id: null;
         contract_hash: string;
         contract_package_hash: string;
-        id: number;
+        id: string;
         name: string;
     };
     caller_cspr_name: null;

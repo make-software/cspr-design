@@ -9,13 +9,14 @@ import FlexRow from '../../flex-row/flex-row';
 import Avatar from '../../avatar/avatar';
 import BodyText from '../../body-text/body-text';
 import Link from '../../link/link';
-import { AccountInfoResult, Deploy } from '../../../types/types';
+import { Deploy } from '../../../types/types';
+import { AvatarProps } from '../../avatar/avatar';
 import Address from '../../address/address';
 
 const auctionActionNameMap = {
-  [AuctionManagerEntryPoint.add]: 'Add',
-  [AuctionManagerEntryPoint.withdraw]: 'Withdraw',
-  [AuctionManagerEntryPoint.activate]: 'Activate',
+  [AuctionManagerEntryPoint.addBid]: 'Add',
+  [AuctionManagerEntryPoint.withdrawBid]: 'Withdraw',
+  [AuctionManagerEntryPoint.activateBid]: 'Activate',
   [AuctionManagerEntryPoint.delegate]: 'Delegate',
   [AuctionManagerEntryPoint.undelegate]: 'Undelegate',
   [AuctionManagerEntryPoint.redelegate]: 'Redelegate',
@@ -39,7 +40,7 @@ const AuctionContractIdentifier = ({
       <BodyText size={3} variation="blue" monotype>
         <Link
           href={`${csprLiveDomainPath}/contract-package/${contract_package_hash}`}
-          ariaDescription={'Link to contract package details'}
+          aria-description={'Link to contract package details'}
           color={'primaryBlue'}
         >
           {identifier}
@@ -53,11 +54,11 @@ const ValidatorAccountInfo = ({ publicKey, prefix }) => {
   const { getAccountInfo, csprLiveDomainPath } = useDeployActionDataContext();
   const avatarSize = useMatchMedia(['small', 'default'], []);
 
-  const accountInfo = getAccountInfo<AccountInfoResult>(publicKey);
-  const validatorLogo = deriveAccountInfo(
+  const accountInfo = getAccountInfo(publicKey);
+  const validatorAccountInfo = deriveAccountInfo(
     accountInfo?.account_info || accountInfo?.centralized_account_info,
   );
-  const validatorName = accountInfo?.account_info?.info?.owner?.name;
+  const validatorName = validatorAccountInfo?.name;
 
   return publicKey ? (
     <>
@@ -65,12 +66,12 @@ const ValidatorAccountInfo = ({ publicKey, prefix }) => {
         {prefix}
       </BodyText>
       <Address
-        logo={validatorLogo && validatorLogo?.logo}
+        logo={validatorAccountInfo?.logo}
         name={validatorName}
         hash={publicKey}
         loading={!publicKey}
         navigateToPath={`${csprLiveDomainPath}/account/${publicKey}`}
-        avatarSize={avatarSize}
+        avatarSize={avatarSize as AvatarProps['size']}
         hashFontSize={'sm'}
         minifiedCopyNotification
       />
@@ -158,9 +159,9 @@ const DeployActionAuction = ({ deploy }: { deploy: Deploy }) => {
   const entryPointName = entryPoint?.name || '';
 
   const isManageAuctionBidAction =
-    entryPointName === AuctionManagerEntryPoint.activate ||
-    entryPointName === AuctionManagerEntryPoint.withdraw ||
-    entryPointName === AuctionManagerEntryPoint.add;
+    entryPointName === AuctionManagerEntryPoint.activateBid ||
+    entryPointName === AuctionManagerEntryPoint.withdrawBid ||
+    entryPointName === AuctionManagerEntryPoint.addBid;
 
   const isDelegationAction =
     entryPointName === AuctionManagerEntryPoint.delegate ||

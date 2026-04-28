@@ -40,7 +40,7 @@ const TransferActionAccount = ({
 }: TransferActionAccountProps) => {
   const { getAccountInfo, csprLiveDomainPath } = useDeployActionDataContext();
 
-  const accountInfo = getAccountInfo<AccountInfoResult>(
+  const accountInfo = getAccountInfo(
     publicKey || accountHash || '',
   );
   const accountInfoDetails = deriveAccountInfo(
@@ -67,7 +67,7 @@ const TransferActionAccount = ({
         <Link
           href={`${csprLiveDomainPath}/account/${actionPoolAccountHash}`}
           color={'hash'}
-          ariaDescription={'Link to account details'}
+          aria-description={'Link to account details'}
         >
           Auction Pool
         </Link>
@@ -80,7 +80,7 @@ const TransferActionAccount = ({
       logo={logo}
       name={name}
       hash={publicKey || accountHash}
-      csprName={csprName}
+      csprName={csprName ?? undefined}
       loading={loading}
       navigateToPath={`${csprLiveDomainPath}/account/${publicKey || accountHash}`}
       avatarSize={'small'}

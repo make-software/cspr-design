@@ -18,6 +18,7 @@ const StyledText = styled(Text)<HeaderTextProps>(
           {
             0: theme.typography.fontWeight.bold,
             1: theme.typography.fontWeight.bold,
+            1.6: theme.typography.fontWeight.bold,
             2: theme.typography.fontWeight.bold,
             3: theme.typography.fontWeight.regular,
             4: theme.typography.fontWeight.regular,
@@ -29,6 +30,7 @@ const StyledText = styled(Text)<HeaderTextProps>(
           {
             0: theme.typography.fontWeight.extraBold,
             1: theme.typography.fontWeight.extraBold,
+            1.6: theme.typography.fontWeight.extraBold,
             2: theme.typography.fontWeight.bold,
             3: theme.typography.fontWeight.semiBold,
             4: theme.typography.fontWeight.semiBold,

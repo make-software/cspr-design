@@ -73,7 +73,7 @@ export const Alert = (props: StatusMessageProps) => {
   const { message, title, status, scale = 'sm', lineHeight = 'sm' } = props;
 
   const iconPath = props.iconSrc ? props.iconSrc : Icons[status];
-  const statusAlert = props.iconSrc ? '' : status;
+  const statusAlert = (props.iconSrc ? '' : status) as AlertStatus;
 
   if (title) {
     return (

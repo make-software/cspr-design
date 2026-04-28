@@ -32,14 +32,13 @@ export const ContractIdentifier = ({
         iconSize={props.avatarSize}
         hashFontSize={props.hashFontSize}
         hashLength={props.hashLength}
-        avatarSize={props.avatarSize}
         path={props.path}
       />
     );
   }
 
   if (withName) {
-    return <ContractIdentifierWithName {...props} />;
+    return <ContractIdentifierWithName {...props} contractPackage={props.contractPackage!} />;
   }
 
   return <DefaultContractIdentifier {...props} />;
