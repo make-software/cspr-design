@@ -80,6 +80,7 @@ export * from './components/activity-feed-item/activity-feed-item';
 export * from './components/cspr-amount/cspr-amount';
 export * from './components/cspr-amount-with-fiat/cspr-amount-with-fiat';
 export * from './components/token-amount/token-amount';
+export * from './components/event-notification-banner/event-notification-banner';
 export * from './hooks/use-click-and-touch-away';
 export * from './hooks/use-escape-key';
 export * from './hooks/use-click-away';
