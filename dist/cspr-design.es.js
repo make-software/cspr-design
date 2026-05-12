@@ -1263,17 +1263,14 @@ const p1 = (e, o, g = 20, C = 5) => {
     big: "contentQuaternary"
   };
   return o[e] || o.default;
-}, il = (e = "default") => {
-  const o = {
-    tiny: 0,
-    small: 0,
-    default: 4,
-    average: 4,
-    medium: 4,
-    big: 0
-  };
-  return o[e] || o.default;
-}, ha = be.div.withConfig({
+}, il = (e = "default") => ({
+  tiny: 0,
+  small: 0,
+  default: 4,
+  average: 4,
+  medium: 4,
+  big: 0
+})[e], ha = be.div.withConfig({
   displayName: "avatar__BackgroundWrapper",
   componentId: "sc-1p1ar3a-0"
 })(({
