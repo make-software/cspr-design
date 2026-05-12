@@ -224,6 +224,7 @@ export const ActivityFeedItem = ({
             noWrap
             variation={'darkGray'}
           >
+            test33
             {formatTimestampAge(deploy.timestamp)}
           </BodyText>
           <BodyText scale={'xs'} lineHeight={'xs'} size={3} noWrap>
@@ -322,29 +323,31 @@ export const ActivityFeedItem = ({
               )}
               <BodyText size={3} scale={'sm'} lineHeight={'xs'}>
                 <WrappedContainer>
-                  <DeployActionRow
-                    deploy={deploy}
-                    loading={loading}
-                    actionIdentificationHashes={actionIdentificationHashes}
-                    getAccountInfo={getAccountInfo}
-                    getContractInfoByHash={getContractInfoByHash}
-                    getContractPackageInfoByHash={getContractPackageInfoByHash}
-                    csprLiveDomainPath={csprLiveDomainPath}
-                  />
+                  test2
+                  {/*<DeployActionRow*/}
+                  {/*  deploy={deploy}*/}
+                  {/*  loading={loading}*/}
+                  {/*  actionIdentificationHashes={actionIdentificationHashes}*/}
+                  {/*  getAccountInfo={getAccountInfo}*/}
+                  {/*  getContractInfoByHash={getContractInfoByHash}*/}
+                  {/*  getContractPackageInfoByHash={getContractPackageInfoByHash}*/}
+                  {/*  csprLiveDomainPath={csprLiveDomainPath}*/}
+                  {/*/>*/}
                 </WrappedContainer>
               </BodyText>
             </FlexRow>
           </FlexRow>
-          <DeployResultRow
-            deploy={deploy}
-            loading={loading}
-            actionIdentificationHashes={actionIdentificationHashes}
-            variation={ResultRowVariation.gray}
-            getAccountInfo={getAccountInfo}
-            getContractPackageInfoByHash={getContractPackageInfoByHash}
-            csprLiveDomainPath={csprLiveDomainPath}
-            shouldCollapse
-          />
+          test
+          {/*<DeployResultRow*/}
+          {/*  deploy={deploy}*/}
+          {/*  loading={loading}*/}
+          {/*  actionIdentificationHashes={actionIdentificationHashes}*/}
+          {/*  variation={ResultRowVariation.gray}*/}
+          {/*  getAccountInfo={getAccountInfo}*/}
+          {/*  getContractPackageInfoByHash={getContractPackageInfoByHash}*/}
+          {/*  csprLiveDomainPath={csprLiveDomainPath}*/}
+          {/*  shouldCollapse*/}
+          {/*/>*/}
         </StyledFlexColumn>
       </FlexRow>
     </DesktopFeedItemContainer>
@@ -385,34 +388,35 @@ export const ActivityFeedItem = ({
         </FlexRow>
       </FlexRow>
       <FlexColumn itemsSpacing={12}>
-        <Address
-          logo={logo}
-          name={name}
-          hash={callerPublicKey || callerHash}
-          csprName={callerCsprName || csprName}
-          loading={loading}
-          navigateToPath={`${csprLiveDomainPath}/account/${callerPublicKey || callerHash}`}
-          avatarSize={'small'}
-          hashFontSize={'sm'}
-          minifiedCopyNotification
-        />
+        {/*<Address*/}
+        {/*  logo={logo}*/}
+        {/*  name={name}*/}
+        {/*  hash={callerPublicKey || callerHash}*/}
+        {/*  csprName={callerCsprName || csprName}*/}
+        {/*  loading={loading}*/}
+        {/*  navigateToPath={`${csprLiveDomainPath}/account/${callerPublicKey || callerHash}`}*/}
+        {/*  avatarSize={'small'}*/}
+        {/*  hashFontSize={'sm'}*/}
+        {/*  minifiedCopyNotification*/}
+        {/*/>*/}
 
         <FlexRow itemsSpacing={8}>
           {isWASMProxyTransaction(deploy.executionTypeId) && (
             <WasmProxyBadge lineHeight={'xxs'} />
           )}
           <BodyText size={3} scale={'sm'} lineHeight={'xs'}>
-            <WrappedContainer>
-              <DeployActionRow
-                deploy={deploy}
-                loading={loading}
-                actionIdentificationHashes={actionIdentificationHashes}
-                getAccountInfo={getAccountInfo}
-                getContractInfoByHash={getContractInfoByHash}
-                getContractPackageInfoByHash={getContractPackageInfoByHash}
-                csprLiveDomainPath={csprLiveDomainPath}
-              />
-            </WrappedContainer>
+            test
+            {/*<WrappedContainer>*/}
+            {/*  <DeployActionRow*/}
+            {/*    deploy={deploy}*/}
+            {/*    loading={loading}*/}
+            {/*    actionIdentificationHashes={actionIdentificationHashes}*/}
+            {/*    getAccountInfo={getAccountInfo}*/}
+            {/*    getContractInfoByHash={getContractInfoByHash}*/}
+            {/*    getContractPackageInfoByHash={getContractPackageInfoByHash}*/}
+            {/*    csprLiveDomainPath={csprLiveDomainPath}*/}
+            {/*  />*/}
+            {/*</WrappedContainer>*/}
           </BodyText>
         </FlexRow>
       </FlexColumn>
