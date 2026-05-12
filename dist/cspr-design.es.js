@@ -44862,7 +44862,7 @@ const JC = (e) => {
       ] })
     ] }),
     /* @__PURE__ */ Pe(je, { itemsSpacing: 12, children: [
-      y ? /* @__PURE__ */ $(Rr, { src: y, loading: o, alt: "Account logo" }) : /* @__PURE__ */ $(Rr, { hash: c || n, loading: o }),
+      y ? /* @__PURE__ */ $(Rr, { size: "small", src: y, loading: o, alt: "Account logo" }) : /* @__PURE__ */ $(Rr, { size: "small", hash: c || n, loading: o }),
       /* @__PURE__ */ Pe(QC, { itemsSpacing: 12, children: [
         /* @__PURE__ */ $(je, { justify: "space-between", children: /* @__PURE__ */ Pe(je, { itemsSpacing: 8, children: [
           /* @__PURE__ */ $(ta, { extendedLine: {

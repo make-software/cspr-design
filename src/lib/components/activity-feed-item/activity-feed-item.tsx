@@ -276,9 +276,9 @@ export const ActivityFeedItem = ({
 
       <FlexRow itemsSpacing={12}>
         {logo ? (
-          <Avatar src={logo} loading={loading} alt={'Account logo'} />
+          <Avatar size={'small'} src={logo} loading={loading} alt={'Account logo'} />
         ) : (
-          <Avatar hash={callerPublicKey || callerHash} loading={loading} />
+          <Avatar size={'small'} hash={callerPublicKey || callerHash} loading={loading} />
         )}
         <StyledFlexColumn itemsSpacing={12}>
           <FlexRow justify={'space-between'}>
