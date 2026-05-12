@@ -300,6 +300,7 @@ export const ActivityFeedItem = ({
                       ariaDescription={`Link to Account page`}
                       color={'primaryBlue'}
                     >
+                      test small
                       {csprName || formatHash(callerPublicKey, HashLength.TINY)}
                     </Link>
                   </BodyText>
@@ -308,7 +309,7 @@ export const ActivityFeedItem = ({
               <FlexRow>
                 <TruncateBox size={5}>
                   <BodyText size={3} variation="darkGray" noWrap>
-                    {name}
+                    {name} test big
                   </BodyText>
                 </TruncateBox>
               </FlexRow>

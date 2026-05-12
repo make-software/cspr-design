@@ -44868,8 +44868,14 @@ const JC = (e) => {
           /* @__PURE__ */ $(ta, { extendedLine: {
             title: f,
             caption: "CSPR.name"
-          }, tooltipCaption: l, hash: c || n, children: /* @__PURE__ */ $(zt, { children: /* @__PURE__ */ $(Oe, { lineHeight: "xs", size: 3, scale: "sm", monotype: !f, children: /* @__PURE__ */ $(lr, { href: `${r}/account/${c}`, ariaDescription: "Link to Account page", color: "primaryBlue", children: f || Br(c, Kt.TINY) }) }) }) }),
-          /* @__PURE__ */ $(je, { children: /* @__PURE__ */ $(qi, { size: 5, children: /* @__PURE__ */ $(Oe, { size: 3, variation: "darkGray", noWrap: !0, children: s }) }) })
+          }, tooltipCaption: l, hash: c || n, children: /* @__PURE__ */ $(zt, { children: /* @__PURE__ */ $(Oe, { lineHeight: "xs", size: 3, scale: "sm", monotype: !f, children: /* @__PURE__ */ Pe(lr, { href: `${r}/account/${c}`, ariaDescription: "Link to Account page", color: "primaryBlue", children: [
+            "test small",
+            f || Br(c, Kt.TINY)
+          ] }) }) }) }),
+          /* @__PURE__ */ $(je, { children: /* @__PURE__ */ $(qi, { size: 5, children: /* @__PURE__ */ Pe(Oe, { size: 3, variation: "darkGray", noWrap: !0, children: [
+            s,
+            " test big"
+          ] }) }) })
         ] }) }),
         /* @__PURE__ */ $(je, { children: /* @__PURE__ */ Pe(je, { itemsSpacing: 8, children: [
           Qa(e.executionTypeId) && /* @__PURE__ */ $(Fc, { lineHeight: "xxs" }),
