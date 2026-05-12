@@ -35404,7 +35404,7 @@ const A8 = be(M8).withConfig({
     tooltipCaption: m,
     hashFontSize: t,
     nameTruncateSize: d = 5,
-    avatarSize: b = "default",
+    avatarSize: b,
     horizonalAlign: y = "center",
     itemsSpacing: s = 12
   } = o;

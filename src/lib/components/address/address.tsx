@@ -145,7 +145,7 @@ export const Address = React.forwardRef<Ref, AddressProps>(function Address(
     tooltipCaption,
     hashFontSize,
     nameTruncateSize = 5,
-    avatarSize = 'default',
+    avatarSize,
     horizonalAlign = 'center',
     itemsSpacing = 12,
   } = props;
