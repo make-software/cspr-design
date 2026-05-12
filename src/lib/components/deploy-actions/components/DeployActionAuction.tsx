@@ -6,7 +6,7 @@ import CsprAmountWithFiat from '../../cspr-amount-with-fiat/cspr-amount-with-fia
 import { useDeployActionDataContext } from '../services/deploy-action-context';
 import {AuctionContractIcon} from '../../../icons-index';
 import FlexRow from '../../flex-row/flex-row';
-import Avatar from '../../avatar/avatar';
+import Avatar, { AvatarProps } from '../../avatar/avatar';
 import BodyText from '../../body-text/body-text';
 import Link from '../../link/link';
 import { AccountInfoResult, Deploy } from '../../../types/types';
@@ -49,9 +49,12 @@ const AuctionContractIdentifier = ({
   );
 };
 
-const ValidatorAccountInfo = ({ publicKey, prefix }) => {
+const ValidatorAccountInfo = ({ publicKey, prefix, avatarSize }) => {
   const { getAccountInfo, csprLiveDomainPath } = useDeployActionDataContext();
-  const avatarSize = useMatchMedia(['small', 'default'], []);
+    const accountAvatarSize: AvatarProps['size'] =
+        avatarSize == undefined
+            ? useMatchMedia(['small', 'default'], [])
+            : avatarSize;
 
   const accountInfo = getAccountInfo<AccountInfoResult>(publicKey);
   const validatorLogo = deriveAccountInfo(
@@ -70,7 +73,7 @@ const ValidatorAccountInfo = ({ publicKey, prefix }) => {
         hash={publicKey}
         loading={!publicKey}
         navigateToPath={`${csprLiveDomainPath}/account/${publicKey}`}
-        avatarSize={avatarSize}
+        avatarSize={accountAvatarSize}
         hashFontSize={'sm'}
         minifiedCopyNotification
       />
@@ -143,10 +146,12 @@ const DelegationAuctionAction = ({ deploy }: { deploy: Deploy }) => {
       <ValidatorAccountInfo
         publicKey={args.validator?.parsed as string}
         prefix={initialValidatorPrefix}
+        avatarSize={'small'}
       />
       <ValidatorAccountInfo
         publicKey={args.new_validator?.parsed as string}
         prefix={'to'}
+        avatarSize={'small'}
       />
     </FlexRow>
   );
