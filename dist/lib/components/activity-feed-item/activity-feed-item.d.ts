@@ -8,7 +8,8 @@ interface ActivityFeedItemProps {
     getAccountInfo: (publicKey: string) => AccountInfoResult | null | undefined;
     getContractInfoByHash?: (contractHash: string) => ContractResult | null | undefined;
     getContractPackageInfoByHash?: (contractPackageHash: string) => DeployContractPackageResult | null | undefined;
+    logoSize?: 'default' | 'big' | 'average' | 'medium' | 'small' | 'tiny';
 }
-export declare const ActivityFeedItem: ({ deploy, loading, actionIdentificationHashes, getAccountInfo, getContractPackageInfoByHash, getContractInfoByHash, csprLiveDomainPath, }: ActivityFeedItemProps) => import("react/jsx-runtime").JSX.Element;
+export declare const ActivityFeedItem: ({ deploy, loading, actionIdentificationHashes, getAccountInfo, getContractPackageInfoByHash, getContractInfoByHash, csprLiveDomainPath, logoSize, }: ActivityFeedItemProps) => import("react/jsx-runtime").JSX.Element;
 export default ActivityFeedItem;
 //# sourceMappingURL=activity-feed-item.d.ts.map

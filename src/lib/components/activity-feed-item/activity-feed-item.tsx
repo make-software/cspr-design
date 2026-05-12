@@ -159,6 +159,7 @@ interface ActivityFeedItemProps {
   getContractPackageInfoByHash?: (
     contractPackageHash: string,
   ) => DeployContractPackageResult | null | undefined;
+  logoSize?: 'default' | 'big' | 'average' | 'medium' | 'small' | 'tiny';
 }
 
 export const ActivityFeedItem = ({
@@ -169,6 +170,7 @@ export const ActivityFeedItem = ({
   getContractPackageInfoByHash,
   getContractInfoByHash,
   csprLiveDomainPath,
+  logoSize,
 }: ActivityFeedItemProps) => {
   const {
     callerPublicKey,
@@ -276,9 +278,9 @@ export const ActivityFeedItem = ({
 
       <FlexRow itemsSpacing={12}>
         {logo ? (
-          <Avatar src={logo} loading={loading} alt={'Account logo'} />
+          <Avatar size={logoSize} src={logo} loading={loading} alt={'Account logo'} />
         ) : (
-          <Avatar hash={callerPublicKey || callerHash} loading={loading} />
+          <Avatar size={logoSize} hash={callerPublicKey || callerHash} loading={loading} />
         )}
         <StyledFlexColumn itemsSpacing={12}>
           <FlexRow justify={'space-between'}>
