@@ -1306,7 +1306,7 @@ const p1 = (e, o, g = 20, C = 5) => {
     loading: C,
     hash: P,
     src: x,
-    size: r = "default",
+    size: r,
     transparentBg: c = !1,
     ...n
   } = o, a = Ra(r), i = 2, m = "86400";

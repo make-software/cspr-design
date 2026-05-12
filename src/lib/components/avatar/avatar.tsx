@@ -113,7 +113,7 @@ export const Avatar = React.forwardRef<Ref, AvatarProps>(function Avatar(
     loading,
     hash,
     src,
-    size = 'default',
+    size,
     transparentBg = false,
     ...restProps
   } = props;
