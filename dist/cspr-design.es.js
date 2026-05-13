@@ -1263,17 +1263,14 @@ const p1 = (e, o, g = 20, C = 5) => {
     big: "contentQuaternary"
   };
   return o[e] || o.default;
-}, il = (e = "default") => {
-  const o = {
-    tiny: 0,
-    small: 0,
-    default: 4,
-    average: 4,
-    medium: 4,
-    big: 0
-  };
-  return o[e] || o.default;
-}, ha = be.div.withConfig({
+}, il = (e = "default") => ({
+  tiny: 0,
+  small: 0,
+  default: 4,
+  average: 4,
+  medium: 4,
+  big: 0
+})[e], ha = be.div.withConfig({
   displayName: "avatar__BackgroundWrapper",
   componentId: "sc-1p1ar3a-0"
 })(({
@@ -43654,15 +43651,16 @@ const Kw = {
   ] });
 }, Hc = ({
   publicKey: e,
-  prefix: o
+  prefix: o,
+  avatarSize: g
 }) => {
   const {
-    getAccountInfo: g,
-    csprLiveDomainPath: C
-  } = br(), P = yn(["small", "default"], []), x = g(e), r = lo(x?.account_info || x?.centralized_account_info), c = x?.account_info?.info?.owner?.name;
+    getAccountInfo: C,
+    csprLiveDomainPath: P
+  } = br(), x = g ?? yn(["small", "default"], []), r = C(e), c = lo(r?.account_info || r?.centralized_account_info), n = r?.account_info?.info?.owner?.name;
   return e ? /* @__PURE__ */ Pe(Pt, { children: [
     /* @__PURE__ */ $(Oe, { size: 3, variation: "darkGray", children: o }),
-    /* @__PURE__ */ $(Dn, { logo: r && r?.logo, name: c, hash: e, loading: !e, navigateToPath: `${C}/account/${e}`, avatarSize: P, hashFontSize: "sm", minifiedCopyNotification: !0 })
+    /* @__PURE__ */ $(Dn, { logo: c && c?.logo, name: n, hash: e, loading: !e, navigateToPath: `${P}/account/${e}`, avatarSize: x, hashFontSize: "sm", minifiedCopyNotification: !0 })
   ] }) : null;
 }, Xw = ({
   deploy: e
@@ -43699,8 +43697,8 @@ const Kw = {
   return /* @__PURE__ */ Pe(je, { align: "center", gap: 8, children: [
     /* @__PURE__ */ $(Oe, { size: 3, monotype: !0, variation: "black", children: kd[g?.name || ""] }),
     P && /* @__PURE__ */ $(ua, { amount: P, rate: o }),
-    /* @__PURE__ */ $(Hc, { publicKey: C.validator?.parsed, prefix: x }),
-    /* @__PURE__ */ $(Hc, { publicKey: C.new_validator?.parsed, prefix: "to" })
+    /* @__PURE__ */ $(Hc, { publicKey: C.validator?.parsed, prefix: x, avatarSize: "small" }),
+    /* @__PURE__ */ $(Hc, { publicKey: C.new_validator?.parsed, prefix: "to", avatarSize: "small" })
   ] });
 }, eC = ({
   deploy: e
