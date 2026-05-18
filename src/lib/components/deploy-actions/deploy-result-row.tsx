@@ -134,27 +134,30 @@ const getSortedResultComponents = ({
     switch (action.type) {
       case DeployResultRowType.NFT:
         return (
-            <DeployResultNft key={action.transform_idx} nftAction={action} />
+            <div>0</div>
+            // <DeployResultNft key={action.transform_idx} nftAction={action} />
         );
       case DeployResultRowType.FT:
         return (
-            <DeployResultCep18
-                key={action.transform_idx}
-                ftAction={action as FTTransactionResult}
-            />
+            <div>1</div>
+            // <DeployResultCep18
+            //     key={action.transform_idx}
+            //     ftAction={action as FTTransactionResult}
+            // />
         );
       case DeployResultRowType.NT:
         return (
-            <TransferActionRow
-                key={action.transfer_index}
-                loading={false}
-                timeTransactionCurrencyRate={deploy.timeTransactionCurrencyRate}
-                transfer={action}
-                actionPoolAccountHash={
-                  actionIdentificationHashes.auction_pool_account_hash
-                }
-                renderAsResultAction
-            />
+            <div>2</div>
+            // <TransferActionRow
+            //     key={action.transfer_index}
+            //     loading={false}
+            //     timeTransactionCurrencyRate={deploy.timeTransactionCurrencyRate}
+            //     transfer={action}
+            //     actionPoolAccountHash={
+            //       actionIdentificationHashes.auction_pool_account_hash
+            //     }
+            //     renderAsResultAction
+            // />
         );
       default:
         return null;
