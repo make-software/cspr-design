@@ -1,4 +1,4 @@
-import { getNamedKeyPrefix, hashPrefixRegExpV2 } from './named-key-prefix';
+import { hashPrefixRegExpV2 } from './named-key-prefix';
 
 export interface SplitDataType {
   prefix: string;
@@ -6,32 +6,21 @@ export interface SplitDataType {
 }
 
 export const deriveSplitDataFromNamedKeyValue = (
-    namedKeyValue: string,
+    namedKeyValue: string
 ): SplitDataType => {
-  const formattedPrefix = getNamedKeyPrefix(namedKeyValue);
+  const [hash, lastDigits] = namedKeyValue
+      .replace(hashPrefixRegExpV2, '')
+      .split('-');
 
-  const cleanedValue = namedKeyValue.replace(hashPrefixRegExpV2, '');
+  const formattedPrefix = namedKeyValue.match(hashPrefixRegExpV2)
+      ? namedKeyValue.match(hashPrefixRegExpV2)![0]
+      : '';
 
-  console.log('cleanedValue',cleanedValue);
-  console.log('namedKeyValue',namedKeyValue);
+  const formattedHash = lastDigits ? `${hash}-${lastDigits}` : `${hash}`;
 
-  const isURef = namedKeyValue.includes('uref-');
-
-  console.log('isURef',isURef);
-
-  if (isURef) {
-    return {
-      prefix: formattedPrefix,
-      hash: cleanedValue,
-    };
-  }
-
-  const parts = cleanedValue.split('-');
-  const hash = parts[0];
-  const lastDigits = parts.slice(1).join('-');
 
   return {
     prefix: formattedPrefix,
-    hash: lastDigits ? `${hash}-${lastDigits}` : hash,
+    hash: formattedHash,
   };
 };
