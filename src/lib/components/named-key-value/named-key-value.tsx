@@ -13,45 +13,42 @@ interface NamedKeyValueProps {
     csprLiveDomainPath: string;
 }
 
-export const NamedKeyValue =
-    ({
-         namedKey,
-         noPrefix,
-         hashLength,
-         csprLiveDomainPath
-     }: NamedKeyValueProps) => {
-        const responsiveHashLength = useMatchMedia([
+export const NamedKeyValue = ({
+                                  namedKey,
+                                  noPrefix,
+                                  hashLength,
+                                  csprLiveDomainPath,
+                              }: NamedKeyValueProps) => {
+    const { prefix, hash } = deriveSplitDataFromNamedKeyValue(namedKey);
+
+    const isURefNamedKey = namedKey.includes(NamedKeyPrefix.UREF);
+
+    const responsiveHashLength = useMatchMedia(
+        [
             HashLength.TINY,
             HashLength.MEDIUM,
             HashLength.FULL,
             HashLength.FULL,
-        ], [hashLength]);
+        ],
+        [hashLength],
+    );
 
+    const resolvedHashLength = hashLength ?? responsiveHashLength;
 
-        const {prefix, hash,} = deriveSplitDataFromNamedKeyValue(namedKey);
+    const redirectHash = isURefNamedKey ? namedKey : hash;
+    const redirectPath = `${csprLiveDomainPath}/search/${redirectHash}`;
 
-        const displayValue = namedKey.includes(NamedKeyPrefix.UREF)
-            ? namedKey
-            : hash;
+    return (
+        <FlexRow>
+            <Link color="hash" href={redirectPath}>
+                {!noPrefix && prefix}
 
-        const isURefNamedKey = namedKey.includes(NamedKeyPrefix.UREF);
-        const redirectHash = isURefNamedKey ? namedKey : hash;
-
-        const redirectPath = `${csprLiveDomainPath}/search/${redirectHash}`;
-        return (
-            <FlexRow>
-                {redirectPath ? (
-                    <Link color={'hash'}  href={redirectPath}>
-                        {!noPrefix && prefix}
-                        {formatHash(displayValue, hashLength ?? responsiveHashLength)}
-                    </Link>
-                ) : (
-                    formatHash(displayValue, hashLength ?? responsiveHashLength)
-                )}
-            </FlexRow>
-        );
-    };
+                {isURefNamedKey
+                    ? namedKey
+                    : formatHash(hash, resolvedHashLength)}
+            </Link>
+        </FlexRow>
+    );
+};
 
 export default NamedKeyValue;
-
-
