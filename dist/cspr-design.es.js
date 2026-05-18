@@ -44628,7 +44628,7 @@ const Dc = {
   theme: e
 }) => ({
   borderRadius: "4px",
-  background: `${e.styleguideColors.backgroundSecondary}73`,
+  background: `${e.styleguideColors.backgroundSecondary}80`,
   padding: "10px 16px",
   position: "relative",
   span: {

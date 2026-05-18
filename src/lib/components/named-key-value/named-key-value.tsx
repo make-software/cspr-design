@@ -12,12 +12,13 @@ interface NamedKeyValueProps {
     csprLiveDomainPath: string;
 }
 
-export const NamedKeyValue = ({
-                                  namedKey,
-                                  noPrefix,
-                                  hashLength,
-                                  csprLiveDomainPath,
-                              }: NamedKeyValueProps) => {
+export const NamedKeyValue = (
+    {
+        namedKey,
+        noPrefix,
+        hashLength,
+    csprLiveDomainPath,
+}: NamedKeyValueProps) => {
     const { prefix, hash } = deriveSplitDataFromNamedKeyValue(namedKey);
 
     const responsiveHashLength = useMatchMedia(

@@ -43,7 +43,7 @@ const DefaultResultItem = styled(FlexRow)(({ theme }) => ({
 
 const GrayResultItem = styled(FlexRow)(({ theme }) => ({
   borderRadius: '4px',
-  background: `${theme.styleguideColors.backgroundSecondary}73`,
+  background: `${theme.styleguideColors.backgroundSecondary}80`,
   padding: '10px 16px',
   position: 'relative',
   span: {
@@ -277,7 +277,7 @@ export const DeployResultRowComponent = (
 
   const collapsedLabel =
       combinedActionComponents?.length <= 1 ? `View ${combinedActionComponents?.length} result`
-          : `View all ${combinedActionComponents?.length} results`;
+      : `View all ${combinedActionComponents?.length} results`;
   const expandedLabel =
       combinedActionComponents?.length <= 1
           ? 'Collapse result'
