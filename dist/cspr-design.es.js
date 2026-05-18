@@ -43466,11 +43466,11 @@ const ts = new RegExp(/^(?:(entity-)?contract(?:-package)?|account-hash|dictiona
   const P = yn([Kt.TINY, Kt.MEDIUM, Kt.FULL, Kt.FULL], []), {
     prefix: x,
     hash: r
-  } = jn(e), n = e.includes(Go.UREF) ? e : r, i = `${C}/search/${n}`;
-  return /* @__PURE__ */ $(je, { children: i ? /* @__PURE__ */ Pe(lr, { color: "hash", href: i, children: [
+  } = jn(e), n = e.includes(Go.UREF) ? e : r, a = `${C}/search/${n}`;
+  return /* @__PURE__ */ $(je, { children: a ? /* @__PURE__ */ Pe(lr, { href: a, children: [
     !o && x,
-    Br(n, g ?? P)
-  ] }) : Br(n, g ?? P) });
+    Br(r, g ?? P)
+  ] }) : Br(r, g ?? P) });
 }, zw = ({
   purse: e,
   fontSize: o = "xs",
