@@ -27,10 +27,12 @@ export const NamedKeyValue =
             HashLength.FULL,
         ], [hashLength]);
 
+
+        const {prefix, hash,} = deriveSplitDataFromNamedKeyValue(namedKey);
+
         const displayValue = namedKey.includes(NamedKeyPrefix.UREF)
             ? namedKey
             : hash;
-        const {prefix, hash,} = deriveSplitDataFromNamedKeyValue(namedKey);
 
         const isURefNamedKey = namedKey.includes(NamedKeyPrefix.UREF);
         const redirectHash = isURefNamedKey ? namedKey : hash;

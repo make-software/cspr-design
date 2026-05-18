@@ -43463,14 +43463,14 @@ const ts = new RegExp(/^(?:(entity-)?contract(?:-package)?|account-hash|dictiona
   hashLength: g,
   csprLiveDomainPath: C
 }) => {
-  const P = yn([Kt.TINY, Kt.MEDIUM, Kt.FULL, Kt.FULL], [g]), x = e.includes(io.UREF) ? e : c, {
-    prefix: r,
-    hash: c
-  } = jn(e), a = e.includes(io.UREF) ? e : c, i = `${C}/search/${a}`;
+  const P = yn([Kt.TINY, Kt.MEDIUM, Kt.FULL, Kt.FULL], [g]), {
+    prefix: x,
+    hash: r
+  } = jn(e), c = e.includes(io.UREF) ? e : r, a = e.includes(io.UREF) ? e : r, i = `${C}/search/${a}`;
   return /* @__PURE__ */ $(je, { children: i ? /* @__PURE__ */ Pe(lr, { color: "hash", href: i, children: [
-    !o && r,
-    Br(x, g ?? P)
-  ] }) : Br(x, g ?? P) });
+    !o && x,
+    Br(c, g ?? P)
+  ] }) : Br(c, g ?? P) });
 }, zw = ({
   purse: e,
   fontSize: o = "xs",
