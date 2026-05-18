@@ -21,7 +21,7 @@ export const NamedKeyValue = ({
                               }: NamedKeyValueProps) => {
     const { prefix, hash } = deriveSplitDataFromNamedKeyValue(namedKey);
 
-    const isURefNamedKey = namedKey.includes(NamedKeyPrefix.UREF);
+    const isURefNamedKey = namedKey.startsWith('uref-');
 
     const responsiveHashLength = useMatchMedia(
         [HashLength.TINY, HashLength.MEDIUM, HashLength.FULL, HashLength.FULL],
@@ -30,12 +30,13 @@ export const NamedKeyValue = ({
 
     const resolvedHashLength = hashLength ?? responsiveHashLength;
 
-    const redirectHash = isURefNamedKey ? namedKey : hash;
+    const redirectHash = namedKey; // keep full for routing
     const redirectPath = `${csprLiveDomainPath}/search/${redirectHash}`;
 
-    const displayValue = isURefNamedKey
-        ? formatHash(hash, resolvedHashLength)
-        : formatHash(hash, resolvedHashLength);
+    const displayValue = formatHash(
+        namedKey,
+        resolvedHashLength
+    );
 
     return (
         <FlexRow>
@@ -46,5 +47,4 @@ export const NamedKeyValue = ({
         </FlexRow>
     );
 };
-
 export default NamedKeyValue;
