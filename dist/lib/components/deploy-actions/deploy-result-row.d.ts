@@ -1,6 +1,6 @@
 import { default as React } from 'react';
 import { ActionIdentificationHashesType } from './deploy-action-row';
-import { DataResponse, Deploy, GetDeployResult } from '../../types/types';
+import { DataResponse, Deploy, GetDeployResult, ContractResult, DeployContractPackageResult, AccountInfoResult } from '../../types/types';
 export declare enum ResultRowVariation {
     default = "default",
     gray = "gray"
@@ -16,10 +16,11 @@ interface DeployResultRowComponentProps {
 }
 export declare const DeployResultRowComponent: (props: DeployResultRowComponentProps) => import("react/jsx-runtime").JSX.Element;
 type DeployResultRowProps = DeployResultRowComponentProps & {
-    getAccountInfo: <T>(publicKey: string) => T | null | undefined;
+    getAccountInfo: (publicKey: string) => AccountInfoResult | null | undefined;
+    getContractPackageInfoByHash?: (contractPackageHash: string) => DeployContractPackageResult | null | undefined;
     getContractInfoByHash?: (contractHash: string) => ContractResult | null | undefined;
-    getContractPackagePath: (hash: string) => string | null;
+    csprLiveDomainPath: string;
 };
 export declare const DeployResultRow: (props: DeployResultRowProps) => import("react/jsx-runtime").JSX.Element | null;
-export {};
+export default DeployResultRow;
 //# sourceMappingURL=deploy-result-row.d.ts.map

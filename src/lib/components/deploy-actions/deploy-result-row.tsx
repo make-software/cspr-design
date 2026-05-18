@@ -14,16 +14,17 @@ import {
   DeployTransferResult,
   FTActionsResult,
   NftActionsResult,
-  GetDeployResult,
+  GetDeployResult, ContractResult, DeployContractPackageResult, AccountInfoResult,
 } from '../../types/types';
 import FlexRow from '../flex-row/flex-row';
 import FlexColumn from '../flex-column/flex-column';
 import ExpandCollapsedButton from '../expand-collapsed/expand-collapsed-button';
 import { getDeployStatus, Status } from '../deploy-status/deploy-status';
-import { isTransferDeploy } from './utils/contract';
-import { isNonNullable } from '../../utils/guards';
-import { NftTypeToEntryPointMap } from '../../types/NFTToken';
-import { FTTransactionResult, FTActionType } from '../../types/FTToken';
+import {isTransferDeploy} from "./utils/contract";
+import {isNonNullable} from "../../utils/guards";
+import {NftTypeToEntryPointMap} from '../../types/NFTToken';
+import {FTTransactionResult, FTActionType} from '../../types/FTToken';
+import BodyText from "../body-text/body-text.tsx";
 
 
 const DefaultResultItem = styled(FlexRow)(({ theme }) => ({
@@ -235,7 +236,6 @@ const manageCollapsingResults = ({
 export const DeployResultRowComponent = (
     props: DeployResultRowComponentProps
 ) => {
-  const { t } = useTranslation();
   const {
     deploy,
     actionIdentificationHashes,
@@ -275,25 +275,21 @@ export const DeployResultRowComponent = (
       ? 0
       : MAXIMUM_VISIBLE_ROWS;
 
-  const collapsedLabel = (
-      <>
-        <Trans t={t}>{isSingleResult ? 'View ' : 'View all '}</Trans>
-        {actionsCount}
-        <Trans t={t}>{isSingleResult ? ' result' : ' results'}</Trans>
-      </>
-  );
-
-  const expandedLabel = isSingleResult
-      ? t('Collapse result')
-      : t('Collapse results');
+  const collapsedLabel =
+      combinedActionComponents?.length <= 1 ? `View ${combinedActionComponents?.length} result`
+          : `View all ${combinedActionComponents?.length} results`;
+  const expandedLabel =
+      combinedActionComponents?.length <= 1
+          ? 'Collapse result'
+          : 'Collapse results';
 
   const showCollapsedButton =
       (shouldCollapse || shouldCollapseDuplicatedResults) &&
-      actionsCount > maxVisibleRows;
+      combinedActionComponents?.length > maxVisibleRows;
 
   return (
       <FlexColumn>
-        {actionsCount
+        {combinedActionComponents?.length
             ? combinedActionComponents
                 .filter((action, i) => (isCollapsed ? i < maxVisibleRows : true))
                 .map((action, idx) => (
@@ -315,18 +311,22 @@ export const DeployResultRowComponent = (
 };
 
 type DeployResultRowProps = DeployResultRowComponentProps & {
-  getAccountInfo: <T>(publicKey: string) => T | null | undefined;
+  getAccountInfo: (publicKey: string) => AccountInfoResult | null | undefined;
+  getContractPackageInfoByHash?: (
+      contractPackageHash: string,
+  ) => DeployContractPackageResult | null | undefined;
   getContractInfoByHash?: (
-      contractHash: string
+      contractHash: string,
   ) => ContractResult | null | undefined;
-  getContractPackagePath: (hash: string) => string | null;
+  csprLiveDomainPath: string;
 };
 
 export const DeployResultRow = (props: DeployResultRowProps) => {
   const {
     getAccountInfo,
+    getContractPackageInfoByHash,
     getContractInfoByHash,
-    getContractPackagePath,
+    csprLiveDomainPath,
     ...rest
   } = props;
   const deployStatus = getDeployStatus(props.deploy);
@@ -357,10 +357,13 @@ export const DeployResultRow = (props: DeployResultRowProps) => {
   return (
       <DeployActionDataProvider
           getAccountInfo={getAccountInfo}
+          getContractPackageInfoByHash={getContractPackageInfoByHash}
           getContractInfoByHash={getContractInfoByHash}
-          getContractPackagePath={getContractPackagePath}
+          csprLiveDomainPath={csprLiveDomainPath}
       >
         <DeployResultRowComponent {...rest} />
       </DeployActionDataProvider>
   );
 };
+
+export default DeployResultRow;
