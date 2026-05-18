@@ -8,25 +8,23 @@ import TransferActionRow from './components/TransferActionRow';
 import { ActionIdentificationHashesType } from './deploy-action-row';
 import { DeployActionDataProvider } from './services/deploy-action-context';
 import {
-  AccountInfoResult,
-  ContractResult,
   ContractTypeId,
   DataResponse,
-  Deploy, DeployContractPackageResult,
+  Deploy,
   DeployTransferResult,
   FTActionsResult,
-  GetDeployResult,
   NftActionsResult,
+  GetDeployResult,
 } from '../../types/types';
 import FlexRow from '../flex-row/flex-row';
-import BodyText from '../body-text/body-text';
 import FlexColumn from '../flex-column/flex-column';
 import ExpandCollapsedButton from '../expand-collapsed/expand-collapsed-button';
 import { getDeployStatus, Status } from '../deploy-status/deploy-status';
-import {isTransferDeploy} from "./utils/contract";
-import {isNonNullable} from "../../utils/guards";
-import {NftTypeToEntryPointMap} from '../../types/NFTToken';
-import {FTTransactionResult, FTActionType} from '../../types/FTToken';
+import { isTransferDeploy } from './utils/contract';
+import { isNonNullable } from '../../utils/guards';
+import { NftTypeToEntryPointMap } from '../../types/NFTToken';
+import { FTTransactionResult, FTActionType } from '../../types/FTToken';
+
 
 const DefaultResultItem = styled(FlexRow)(({ theme }) => ({
   padding: '14px 0',
@@ -44,7 +42,7 @@ const DefaultResultItem = styled(FlexRow)(({ theme }) => ({
 
 const GrayResultItem = styled(FlexRow)(({ theme }) => ({
   borderRadius: '4px',
-  background: `${theme.styleguideColors.backgroundSecondary}80`,
+  background: `${theme.styleguideColors.backgroundSecondary}73`,
   padding: '10px 16px',
   position: 'relative',
   span: {
@@ -60,9 +58,9 @@ const GrayResultItem = styled(FlexRow)(({ theme }) => ({
 
 const ResultItemWrapper = ({ variation, ...props }) => {
   return variation === ResultRowVariation.default ? (
-    <DefaultResultItem {...props} />
+      <DefaultResultItem {...props} />
   ) : (
-    <GrayResultItem {...props} />
+      <GrayResultItem {...props} />
   );
 };
 
@@ -85,7 +83,7 @@ interface DeployResultRowComponentProps {
   deploy: Deploy;
   loading: boolean;
   actionIdentificationHashes: ActionIdentificationHashesType;
-  deployRawData?: DataResponse< GetDeployResult & {api_version: string}> | null;
+  deployRawData?: DataResponse<GetDeployResult> | null;
   actionComponents?: React.ReactElement[] | null;
   variation?: ResultRowVariation;
   shouldCollapse?: boolean;
@@ -175,12 +173,11 @@ const getSortedResultComponents = ({
       getActionElementToRender(action)
   );
 
-  const combinedActionComponents = [
+  return [
     associatedKeyComponent,
     ...sortedActionComponents,
     ...(actionComponents || []),
   ].filter(isNonNullable);
-  return combinedActionComponents;
 };
 
 const manageCollapsingResults = ({
@@ -238,6 +235,7 @@ const manageCollapsingResults = ({
 export const DeployResultRowComponent = (
     props: DeployResultRowComponentProps
 ) => {
+  const { t } = useTranslation();
   const {
     deploy,
     actionIdentificationHashes,
@@ -253,6 +251,8 @@ export const DeployResultRowComponent = (
     actionComponents,
     actionIdentificationHashes,
   });
+  const actionsCount = combinedActionComponents?.length ?? 0;
+  const isSingleResult = actionsCount <= 1;
 
   const [isCollapsed, setCollapsed] = useState<boolean>(shouldCollapse);
 
@@ -275,21 +275,25 @@ export const DeployResultRowComponent = (
       ? 0
       : MAXIMUM_VISIBLE_ROWS;
 
-  const collapsedLabel =
-      combinedActionComponents?.length <= 1 ? `View ${combinedActionComponents?.length} result`
-       : `View all ${combinedActionComponents?.length} results`;
-  const expandedLabel =
-      combinedActionComponents?.length <= 1
-          ? 'Collapse result'
-          : 'Collapse results';
+  const collapsedLabel = (
+      <>
+        <Trans t={t}>{isSingleResult ? 'View ' : 'View all '}</Trans>
+        {actionsCount}
+        <Trans t={t}>{isSingleResult ? ' result' : ' results'}</Trans>
+      </>
+  );
+
+  const expandedLabel = isSingleResult
+      ? t('Collapse result')
+      : t('Collapse results');
 
   const showCollapsedButton =
       (shouldCollapse || shouldCollapseDuplicatedResults) &&
-      combinedActionComponents?.length > maxVisibleRows;
+      actionsCount > maxVisibleRows;
 
   return (
       <FlexColumn>
-        {combinedActionComponents?.length
+        {actionsCount
             ? combinedActionComponents
                 .filter((action, i) => (isCollapsed ? i < maxVisibleRows : true))
                 .map((action, idx) => (
@@ -311,22 +315,18 @@ export const DeployResultRowComponent = (
 };
 
 type DeployResultRowProps = DeployResultRowComponentProps & {
-  getAccountInfo: (publicKey: string) => AccountInfoResult | null | undefined;
-  getContractPackageInfoByHash?: (
-    contractPackageHash: string,
-  ) => DeployContractPackageResult | null | undefined;
+  getAccountInfo: <T>(publicKey: string) => T | null | undefined;
   getContractInfoByHash?: (
-      contractHash: string,
+      contractHash: string
   ) => ContractResult | null | undefined;
-  csprLiveDomainPath: string;
+  getContractPackagePath: (hash: string) => string | null;
 };
 
 export const DeployResultRow = (props: DeployResultRowProps) => {
   const {
     getAccountInfo,
-    getContractPackageInfoByHash,
     getContractInfoByHash,
-    csprLiveDomainPath,
+    getContractPackagePath,
     ...rest
   } = props;
   const deployStatus = getDeployStatus(props.deploy);
@@ -355,15 +355,12 @@ export const DeployResultRow = (props: DeployResultRowProps) => {
     return null;
   }
   return (
-    <DeployActionDataProvider
-      getAccountInfo={getAccountInfo}
-      getContractPackageInfoByHash={getContractPackageInfoByHash}
-      getContractInfoByHash={getContractInfoByHash}
-      csprLiveDomainPath={csprLiveDomainPath}
-    >
-      <DeployResultRowComponent {...rest} />
-    </DeployActionDataProvider>
+      <DeployActionDataProvider
+          getAccountInfo={getAccountInfo}
+          getContractInfoByHash={getContractInfoByHash}
+          getContractPackagePath={getContractPackagePath}
+      >
+        <DeployResultRowComponent {...rest} />
+      </DeployActionDataProvider>
   );
 };
-
-export default DeployResultRow;
