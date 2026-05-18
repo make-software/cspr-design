@@ -12,7 +12,12 @@ export const deriveSplitDataFromNamedKeyValue = (
 
   const cleanedValue = namedKeyValue.replace(hashPrefixRegExpV2, '');
 
+  console.log('cleanedValue',cleanedValue);
+  console.log('namedKeyValue',namedKeyValue);
+
   const isURef = namedKeyValue.includes('uref-');
+
+  console.log('isURef',isURef);
 
   if (isURef) {
     return {
