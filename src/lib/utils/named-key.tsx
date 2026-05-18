@@ -6,17 +6,27 @@ export interface SplitDataType {
 }
 
 export const deriveSplitDataFromNamedKeyValue = (
-  namedKeyValue: string,
+    namedKeyValue: string,
 ): SplitDataType => {
-  const [hash, lastDigits] = namedKeyValue
-    .replace(hashPrefixRegExpV2, '')
-    .split('-');
-
   const formattedPrefix = getNamedKeyPrefix(namedKeyValue);
-  const formattedHash = lastDigits ? `${hash}-${lastDigits}` : `${hash}`;
+
+  const cleanedValue = namedKeyValue.replace(hashPrefixRegExpV2, '');
+
+  const isURef = namedKeyValue.includes('uref-');
+
+  if (isURef) {
+    return {
+      prefix: formattedPrefix,
+      hash: cleanedValue,
+    };
+  }
+
+  const parts = cleanedValue.split('-');
+  const hash = parts[0];
+  const lastDigits = parts.slice(1).join('-');
 
   return {
     prefix: formattedPrefix,
-    hash: formattedHash,
+    hash: lastDigits ? `${hash}-${lastDigits}` : hash,
   };
 };

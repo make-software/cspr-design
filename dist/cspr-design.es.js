@@ -43452,10 +43452,16 @@ const ua = ({
 };
 var Go = /* @__PURE__ */ ((e) => (e.HASH = "hash-", e.CONTRACT = "contract-", e.UREF = "uref-", e.DEPLOY = "deploy-", e.ERA_INFO_PREFIX = "era-", e.BALANCE_PREFIX = "balance-", e.BID_PREFIX = "bid-", e.WITHDRAW_PREFIX = "withdraw-", e.DICTIONARY_PREFIX = "dictionary-", e.ACCOUNT_HASH = "account-hash-", e.CONTRACT_PACKAGE = "contract-package-", e))(Go || {});
 const ts = new RegExp(/^(?:(entity-)?contract(?:-package)?|account-hash|dictionary|withdraw|balance|deploy|uref|hash|era|bid)-[0-9a-f]{64}(?:-\d{3})?$/gi), dM = new RegExp(`(${Object.values(Go).join("|")})(?=[0-9a-fA-F])`, "i"), Dw = (e) => typeof e == "string" && Object.values(Go).some((o) => (e || "").includes(o)), Vw = (e) => Dw(e) && e.match(ts) ? e.match(ts)[0] : "", jn = (e) => {
-  const [o, g] = e.replace(ts, "").split("-"), C = Vw(e), P = g ? `${o}-${g}` : `${o}`;
+  const o = Vw(e), g = e.replace(ts, "");
+  if (e.includes("uref-"))
+    return {
+      prefix: o,
+      hash: g
+    };
+  const P = g.split("-"), x = P[0], r = P.slice(1).join("-");
   return {
-    prefix: C,
-    hash: P
+    prefix: o,
+    hash: r ? `${x}-${r}` : x
   };
 }, Uw = ({
   namedKey: e,
