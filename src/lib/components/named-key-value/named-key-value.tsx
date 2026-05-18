@@ -20,10 +20,16 @@ export const NamedKeyValue =
          hashLength,
          csprLiveDomainPath
      }: NamedKeyValueProps) => {
-        const responsiveHashLength = useMatchMedia(
-            [HashLength.TINY, HashLength.MEDIUM, HashLength.FULL, HashLength.FULL],
-            []
-        );
+        const responsiveHashLength = useMatchMedia([
+            HashLength.TINY,
+            HashLength.MEDIUM,
+            HashLength.FULL,
+            HashLength.FULL,
+        ], [hashLength]);
+
+        const displayValue = namedKey.includes(NamedKeyPrefix.UREF)
+            ? namedKey
+            : hash;
         const {prefix, hash,} = deriveSplitDataFromNamedKeyValue(namedKey);
 
         const isURefNamedKey = namedKey.includes(NamedKeyPrefix.UREF);
@@ -33,12 +39,12 @@ export const NamedKeyValue =
         return (
             <FlexRow>
                 {redirectPath ? (
-                    <Link href={redirectPath}>
+                    <Link color={'hash'}  href={redirectPath}>
                         {!noPrefix && prefix}
-                        {formatHash(hash, hashLength ?? responsiveHashLength)}
+                        {formatHash(displayValue, hashLength ?? responsiveHashLength)}
                     </Link>
                 ) : (
-                    formatHash(hash, hashLength ?? responsiveHashLength)
+                    formatHash(displayValue, hashLength ?? responsiveHashLength)
                 )}
             </FlexRow>
         );
