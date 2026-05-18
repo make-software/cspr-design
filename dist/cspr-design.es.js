@@ -43477,7 +43477,7 @@ const ts = new RegExp(/^(?:(entity-)?contract(?:-package)?|account-hash|dictiona
   } = jn(e);
   e.startsWith("uref-");
   const r = yn([Kt.TINY, Kt.MEDIUM, Kt.FULL, Kt.FULL], [g]), c = g ?? r, a = `${C}/search/${e}`, i = Dr(e, c);
-  return /* @__PURE__ */ $(je, { children: /* @__PURE__ */ Pe(lr, { color: "hash", href: a, children: [
+  return console.log("RENDER NamedKeyValue", e), /* @__PURE__ */ $(je, { children: /* @__PURE__ */ Pe(lr, { color: "hash", href: a, children: [
     !o && P,
     i
   ] }) });
