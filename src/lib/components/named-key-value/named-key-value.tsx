@@ -32,6 +32,8 @@ export const NamedKeyValue = ({
 
     const displayValue = formatHash(hash, resolvedHashLength);
 
+    console.log('displayValue',displayValue);
+
     return (
         <FlexRow>
             <Link color="hash" href={redirectPath}>
