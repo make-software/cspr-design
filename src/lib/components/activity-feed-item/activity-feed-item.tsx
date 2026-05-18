@@ -320,17 +320,18 @@ export const ActivityFeedItem = ({
                 <WasmProxyBadge lineHeight={'xxs'} />
               )}
               <BodyText size={3} scale={'sm'} lineHeight={'xs'}>
-                <WrappedContainer>
-                  <DeployActionRow
-                    deploy={deploy}
-                    loading={loading}
-                    actionIdentificationHashes={actionIdentificationHashes}
-                    getAccountInfo={getAccountInfo}
-                    getContractInfoByHash={getContractInfoByHash}
-                    getContractPackageInfoByHash={getContractPackageInfoByHash}
-                    csprLiveDomainPath={csprLiveDomainPath}
-                  />
-                </WrappedContainer>
+                test
+                {/*<WrappedContainer>*/}
+                {/*  <DeployActionRow*/}
+                {/*    deploy={deploy}*/}
+                {/*    loading={loading}*/}
+                {/*    actionIdentificationHashes={actionIdentificationHashes}*/}
+                {/*    getAccountInfo={getAccountInfo}*/}
+                {/*    getContractInfoByHash={getContractInfoByHash}*/}
+                {/*    getContractPackageInfoByHash={getContractPackageInfoByHash}*/}
+                {/*    csprLiveDomainPath={csprLiveDomainPath}*/}
+                {/*  />*/}
+                {/*</WrappedContainer>*/}
               </BodyText>
             </FlexRow>
           </FlexRow>
