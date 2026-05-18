@@ -23,8 +23,7 @@ export const TableDataNamedKey = ({
     <FlexRow itemsSpacing={4}>
       <Tooltip scale={'xs'} lineHeight={'xs'} tooltipContent={purse}>
         <BodyText lineHeight={'xs'} size={3} monotype noWrap scale={fontSize}>
-            test100
-          {/*<NamedKeyValue namedKey={purse} hashLength={hashLength} csprLiveDomainPath={csprLiveDomainPath} />*/}
+          <NamedKeyValue namedKey={purse} hashLength={hashLength} csprLiveDomainPath={csprLiveDomainPath} />
         </BodyText>
       </Tooltip>
       <Copy value={purse} minified/>
