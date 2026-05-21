@@ -50,7 +50,7 @@ export const ContractIdentifierWithName = ({
       />
       <TooltipWithExtendedInfo
         extendedLine={{
-          title: contractName,
+          title: contractName ?? undefined,
           caption: 'Contract package name',
         }}
         tooltipCaption={'Contract package hash'}
@@ -64,7 +64,6 @@ export const ContractIdentifierWithName = ({
                   hash={hash}
                   href={path}
                   hashLength={hashLength}
-                  ariaDescription={'Link to contract package'}
                 />
               </BodyText>
               <TruncateBox size={2}>
@@ -85,7 +84,6 @@ export const ContractIdentifierWithName = ({
                 href={path}
                 hash={hash}
                 hashLength={hashLength}
-                ariaDescription={'Link to contract package'}
               />
             </BodyText>
           )}

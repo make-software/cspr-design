@@ -44,9 +44,9 @@ const StyledSvgIcon = styled(SvgIcon)(({ theme }) =>
   })
 );
 
-const StyledLink = styled(Link)<{ withPageTile?: boolean }>(
-  ({ theme, withPageTile }) => ({
-    color: withPageTile ? theme.styleguideColors.contentBlue : '#8FA6FF',
+const StyledLink = styled(Link)<{ $withPageTile?: boolean }>(
+  ({ theme, $withPageTile }) => ({
+    color: $withPageTile ? theme.styleguideColors.contentBlue : '#8FA6FF',
   })
 );
 
@@ -85,7 +85,8 @@ export const EventNotificationBanner = ({
                 href={linkSource}
                 target="_blank"
                 rel="noopener noreferrer"
-                withPageTile={withPageTile}
+                color="inherit"
+                $withPageTile={withPageTile}
               >
                 {linkText}
               </StyledLink>

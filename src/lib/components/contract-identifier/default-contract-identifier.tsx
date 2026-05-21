@@ -50,7 +50,7 @@ export const UnknownContractInfo = ({
         >
           <Link
             href={path}
-            ariaDescription={'Link to contract package details'}
+            aria-description={'Link to contract package details'}
             color={'hash'}
           >
             {formatHash(hash, hashLength)}
@@ -84,7 +84,7 @@ export const DefaultContractIdentifier = ({
   path,
 }: DefaultContractIdentifierProps) => {
   const { latest_version_contract_type_id, icon_url, name, contract_name } =
-    contractPackage;
+    contractPackage ?? ({} as DeployContractPackageResult);
 
   const contractName = truncateName(
     name || contract_name,
@@ -116,10 +116,9 @@ export const DefaultContractIdentifier = ({
           hash={hash}
           tooltipCaption={'Contract Package Hash'}
           extendedLine={{
-            title: name || contract_name,
+            title: name || contract_name || undefined,
             caption: 'Contract name',
           }}
-          monotype
         >
           <BodyText
             size={3}
@@ -130,7 +129,7 @@ export const DefaultContractIdentifier = ({
           >
             <Link
               href={path}
-              ariaDescription={'Link to contract package details'}
+              aria-description={'Link to contract package details'}
               color={'hash'}
             >
               {contractIdentifier}

@@ -35,6 +35,16 @@ export const NFTActivityType = {
   [NftActivityTypeEnum.Revoke]: 'Revoke',
 };
 
+export enum NftTokenEntryPoint {
+  approve = 'approve',
+  burn = 'burn',
+  mint = 'mint',
+  transfer = 'transfer',
+  transfer_from = 'transfer_from',
+  update_token_meta = 'update_token_meta',
+  set_approval_for_all = 'set_approval_for_all',
+}
+
 export const NftTypeToEntryPointMap  = {
   [NftActivityTypeEnum.Mint]: NftTokenEntryPoint.mint,
   [NftActivityTypeEnum.Burn]: NftTokenEntryPoint.burn,
@@ -49,16 +59,6 @@ export enum CsprMarketEntryPoint {
   accept_offer = 'accept_offer',
   cancel_offer = 'cancel_offer',
   make_offer = 'make_offer',
-}
-
-export enum NftTokenEntryPoint {
-  approve = 'approve',
-  burn = 'burn',
-  mint = 'mint',
-  transfer = 'transfer',
-  transfer_from = 'transfer_from',
-  update_token_meta = 'update_token_meta',
-  set_approval_for_all = 'set_approval_for_all',
 }
 
 export interface NFTTokenMetadata {

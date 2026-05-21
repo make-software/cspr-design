@@ -21,7 +21,7 @@ const CsprAmountWithFiat = ({ amount, rate }: CsprAmountWithFiatProps) => {
         <CsprAmount motes={amount} precisionCase={PrecisionCase.small} />
       </BodyText>
       <BodyText size={3} monotype variation="darkGray">
-        ({formatCurrency(currencyAmount, 'USD', {precision: SMALL_PRECISION})})
+        ({formatCurrency(currencyAmount ?? '0', 'USD', {precision: SMALL_PRECISION})})
       </BodyText>
     </>
   );

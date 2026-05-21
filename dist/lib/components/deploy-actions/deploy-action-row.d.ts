@@ -6,7 +6,7 @@ export type ActionIdentificationHashesType = {
     auction_pool_account_hash?: string;
     native_transfer_contract_hash?: string;
 };
-interface DeployActionRowComponentProps {
+export interface DeployActionRowComponentProps {
     deploy: Deploy;
     deployRawData?: DataResponse<GetDeployResult & {
         api_version: string;

@@ -23,6 +23,15 @@ export declare const NFTActivityType: {
     5: string;
     6: string;
 };
+export declare enum NftTokenEntryPoint {
+    approve = "approve",
+    burn = "burn",
+    mint = "mint",
+    transfer = "transfer",
+    transfer_from = "transfer_from",
+    update_token_meta = "update_token_meta",
+    set_approval_for_all = "set_approval_for_all"
+}
 export declare const NftTypeToEntryPointMap: {
     1: NftTokenEntryPoint;
     2: NftTokenEntryPoint;
@@ -36,15 +45,6 @@ export declare enum CsprMarketEntryPoint {
     accept_offer = "accept_offer",
     cancel_offer = "cancel_offer",
     make_offer = "make_offer"
-}
-export declare enum NftTokenEntryPoint {
-    approve = "approve",
-    burn = "burn",
-    mint = "mint",
-    transfer = "transfer",
-    transfer_from = "transfer_from",
-    update_token_meta = "update_token_meta",
-    set_approval_for_all = "set_approval_for_all"
 }
 export interface NFTTokenMetadata {
     name?: string;
