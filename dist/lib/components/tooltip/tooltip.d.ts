@@ -4,6 +4,7 @@ type StyledReactTooltipProps = {
     lineHeight?: 'xs' | 'sm';
     scale?: 'xs' | 'sm';
     paddingScale?: 1 | 2;
+    padding?: string;
 };
 export interface TooltipProps extends BaseProps {
     tooltipContent?: JSX.Element | string | null;

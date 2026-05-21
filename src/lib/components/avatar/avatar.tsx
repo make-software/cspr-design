@@ -75,7 +75,7 @@ const getMargin = (size: string = 'default') => {
     big: 0,
   };
 
-  return marginMap[size] || marginMap.default;
+  return marginMap[size];
 };
 
 export const BackgroundWrapper = styled.div<{
