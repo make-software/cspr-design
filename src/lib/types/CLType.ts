@@ -69,9 +69,13 @@ export type CLTypeParsedAccountResult = {
   Account: string;
 };
 
-export type CLTypeParsedListResult = (CLTypeMapParsedResult | string)[];
+export type CLTypeParsedListResult = (CLTypeMapParsedResult | string | number)[];
 
-export type CLTypeTypeResult = CLTypeMapResult | CLTypeOptionResult | string;
+type CLTypeListResult = {
+  List: CLTypeTypeResult;
+};
+
+export type CLTypeTypeResult = CLTypeMapResult | CLTypeOptionResult | CLTypeListResult | string;
 
 export type CLTypeParsedResult =
   | CLTypeParsedListResult

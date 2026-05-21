@@ -81,7 +81,7 @@ export enum ResultRowVariation {
   gray = 'gray',
 }
 
-interface DeployResultRowComponentProps {
+export interface DeployResultRowComponentProps {
   deploy: Deploy;
   loading: boolean;
   actionIdentificationHashes: ActionIdentificationHashesType;
@@ -108,7 +108,7 @@ const sortActionsByTypeAndOrder = (deploy: Deploy) => {
   const sortedTransfers: DeployTransferResult[] = (deploy.transfers || [])
       .sort(
           (transferA, transferB) =>
-              transferA.transfer_index - transferB.transfer_index
+              (transferA.transfer_index ?? 0) - (transferB.transfer_index ?? 0)
       )
       .map((action) => ({
         ...action,
@@ -116,7 +116,7 @@ const sortActionsByTypeAndOrder = (deploy: Deploy) => {
       }));
 
   const sortedTokenActions = [...nftActions, ...ftActions].sort(
-      (actionA, actionB) => actionA.transform_idx - actionB.transform_idx
+      (actionA, actionB) => (actionA.transform_idx ?? 0) - (actionB.transform_idx ?? 0)
   );
 
   return [...sortedTransfers, ...sortedTokenActions];
@@ -225,7 +225,8 @@ const manageCollapsingResults = ({
 
   const isTransfer = isTransferDeploy(
       deploy.contractHash,
-      deploy.entryPoint?.name
+      deploy.entryPoint?.name,
+      actionIdentificationHashes?.native_transfer_contract_hash || '',
   );
 
   const isAssociatedKeysDeploy =

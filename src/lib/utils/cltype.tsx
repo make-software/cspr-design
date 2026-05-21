@@ -105,7 +105,7 @@ export const convertTransactionArgsToObj = (
   return argsKeys.reduce((prev, curr) => {
     return {
       ...prev,
-      [curr]: args.getByName(curr).toJSON(),
+      [curr]: args.getByName(curr)?.toJSON(),
     };
   }, {});
 };
@@ -122,5 +122,5 @@ export const convertApprovalsFromBytesToString = (
       signer: approval.signer.toHex(),
       signature: approval.signature.toJSON(),
     };
-  }) as Approval[];
+  }) as unknown as Approval[];
 };

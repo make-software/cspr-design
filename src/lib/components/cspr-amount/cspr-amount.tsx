@@ -22,7 +22,7 @@ export function CsprAmount({
   return (
     <TokenAmount
       decimals={CSPR_DECIMALS}
-      amount={motes}
+      amount={motes != null ? String(motes) : null}
       symbol={hideCsprCurrency ? '' : 'CSPR'}
       precision={precision}
     />

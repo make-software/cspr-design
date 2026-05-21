@@ -108,8 +108,8 @@ export const Copy = ({
   const copiedLabelText = isCopied ? copiedLabel : label;
   const copiedLabelStyle = isCopied ? 'green' : 'black';
 
-  const handleCopy = (event: React.MouseEvent<HTMLElement>) => {
-    event.stopPropagation();
+  const handleCopy = (event?: React.MouseEvent<HTMLElement>) => {
+    event?.stopPropagation();
 
     if (value) {
       copyToClipboard(value);

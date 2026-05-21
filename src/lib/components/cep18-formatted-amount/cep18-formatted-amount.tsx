@@ -38,7 +38,7 @@ export function Cep18FormattedAmount({
         <TokenAmount
           amount={amount}
           symbol={ftTokenData.symbol || symbol}
-          decimals={ftTokenData.decimals}
+          decimals={ftTokenData.decimals ?? undefined}
           precision={
             precisionCase
               ? currencyPrecisionByCase(precisionCase)

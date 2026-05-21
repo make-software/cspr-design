@@ -5,7 +5,7 @@ export declare enum ResultRowVariation {
     default = "default",
     gray = "gray"
 }
-interface DeployResultRowComponentProps {
+export interface DeployResultRowComponentProps {
     deploy: Deploy;
     loading: boolean;
     actionIdentificationHashes: ActionIdentificationHashesType;

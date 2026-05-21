@@ -33,7 +33,7 @@ const DeployActionAssociatedKeys = ({
     accountInfo?.account_info || accountInfo?.centralized_account_info,
   );
   const logo = accountInfoData?.logo;
-  const name = accountInfo?.name;
+  const name = accountInfoData?.name;
   const csprName = accountInfo?.cspr_name;
 
   const deployActionText = renderAsResultAction
@@ -50,7 +50,7 @@ const DeployActionAssociatedKeys = ({
           logo={logo}
           name={name}
           hash={publicKey || hash}
-          csprName={csprName}
+          csprName={csprName ?? undefined}
           loading={!hash}
           navigateToPath={`${csprLiveDomainPath}/account/${publicKey || hash}`}
           avatarSize={'small'}

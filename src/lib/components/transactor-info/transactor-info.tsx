@@ -49,7 +49,7 @@ export const TransactorInfo = ({
 
   return type && type === TransactorHashType.hash ? (
     <ContractIdentifier
-      hash={hash}
+      hash={hash || ''}
       hashLength={hashLength}
       hashFontSize={hashFontSize}
       avatarSize={avatarSize}
@@ -57,7 +57,7 @@ export const TransactorInfo = ({
       hideContractType
       withName={withName}
       path={`${csprLiveDomainPath}/contract-package/${hash}`}
-      contractPackage={contractPackage}
+      contractPackage={contractPackage ?? undefined}
     />
   ) : (
     <Address

@@ -64,8 +64,11 @@ type CLTypeOptionResult = {
 export type CLTypeParsedAccountResult = {
     Account: string;
 };
-export type CLTypeParsedListResult = (CLTypeMapParsedResult | string)[];
-export type CLTypeTypeResult = CLTypeMapResult | CLTypeOptionResult | string;
+export type CLTypeParsedListResult = (CLTypeMapParsedResult | string | number)[];
+type CLTypeListResult = {
+    List: CLTypeTypeResult;
+};
+export type CLTypeTypeResult = CLTypeMapResult | CLTypeOptionResult | CLTypeListResult | string;
 export type CLTypeParsedResult = CLTypeParsedListResult | CLTypeParsedAccountResult | CLTypeMapParsedResult | string | number;
 export {};
 //# sourceMappingURL=CLType.d.ts.map
