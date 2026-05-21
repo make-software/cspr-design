@@ -43449,7 +43449,7 @@ const sa = ({
 } : {
   name: e?.info?.owner?.name,
   logo: Hw(e)
-}, Dw = /^(?:(?:entity-)?contract(?:-package)?|account-hash|dictionary|withdraw|balance|deploy|uref|hash|era|bid)-/i, jn = (e) => {
+}, Dw = new RegExp("(?:(entity-)?contract(?:-package)?|account-hash|dictionary|withdraw|balance|deploy|uref|hash|era|bid)-(?=[0-9a-fA-F])", "gi"), jn = (e) => {
   const o = e.match(Dw), g = o ? o[0] : "", C = g ? e.slice(g.length) : e;
   return {
     prefix: g,
@@ -44180,7 +44180,9 @@ function bM(e) {
   return e;
 }
 var ca = /* @__PURE__ */ ((e) => (e.HASH = "hash-", e.CONTRACT = "contract-", e.UREF = "uref-", e.DEPLOY = "deploy-", e.ERA_INFO_PREFIX = "era-", e.BALANCE_PREFIX = "balance-", e.BID_PREFIX = "bid-", e.WITHDRAW_PREFIX = "withdraw-", e.DICTIONARY_PREFIX = "dictionary-", e.ACCOUNT_HASH = "account-hash-", e.CONTRACT_PACKAGE = "contract-package-", e))(ca || {});
-const Hc = new RegExp(/^(?:(entity-)?contract(?:-package)?|account-hash|dictionary|withdraw|balance|deploy|uref|hash|era|bid)-[0-9a-f]{64}(?:-\d{3})?$/gi), wM = new RegExp(`(${Object.values(ca).join("|")})(?=[0-9a-fA-F])`, "i"), EC = (e) => typeof e == "string" && Object.values(ca).some((o) => (e || "").includes(o)), CM = (e) => EC(e) && e.match(Hc) ? e.match(Hc)[0] : "", PC = (e) => {
+const Hc = new RegExp(/^(?:(entity-)?contract(?:-package)?|account-hash|dictionary|withdraw|balance|deploy|uref|hash|era|bid)-[0-9a-f]{64}(?:-\d{3})?$/gi);
+new RegExp(`(${Object.values(ca).join("|")})(?=[0-9a-fA-F])`, "i");
+const EC = (e) => typeof e == "string" && Object.values(ca).some((o) => (e || "").includes(o)), wM = (e) => EC(e) && e.match(Hc) ? e.match(Hc)[0] : "", PC = (e) => {
   const o = tr(e.recipient, "Hash"), g = tr(e.recipient, "Account"), C = tr(e.owner, "Account"), P = tr(e.spender, "Hash");
   return {
     recipientHash: o,
@@ -44824,7 +44826,7 @@ const JC = (e) => {
   /* @__PURE__ */ $(Oe, { scale: "xs", lineHeight: "xs", size: 3, monotype: !0, children: e.blockHash == null ? "N/A" : /* @__PURE__ */ $(lr, { href: o, ariaDescription: "Link to block details", color: "primaryBlue", children: Gr(e.blockHeight) }) }),
   /* @__PURE__ */ $(Oe, { scale: "xs", lineHeight: "xs", size: 3, noWrap: !0, children: "·" }),
   /* @__PURE__ */ $(Oe, { scale: "xs", lineHeight: "xs", size: 3, noWrap: !0, variation: "darkGray", children: Bl(e.timestamp) })
-] }), SM = ({
+] }), CM = ({
   deploy: e,
   loading: o,
   actionIdentificationHashes: g,
@@ -44946,7 +44948,7 @@ const JC = (e) => {
   withPageTile: o
 }) => ({
   color: o ? e.styleguideColors.contentBlue : "#8FA6FF"
-})), _M = ({
+})), SM = ({
   text: e,
   linkText: o,
   linkSource: g,
@@ -45001,7 +45003,7 @@ const JC = (e) => {
   animations: {
     fadeIn: Jc(["0%{opacity:0;}100%{opacity:1;}"])
   }
-}, MM = {
+}, _M = {
   dark: {
     ...Wc,
     colorSpecialCase: {
@@ -45127,7 +45129,7 @@ export {
   X_ as Account,
   nM as AccountInfoRow,
   kw as AccountModel,
-  SM as ActivityFeedItem,
+  CM as ActivityFeedItem,
   Dn as Address,
   v_ as Alert,
   i1 as AlertStatus,
@@ -45199,7 +45201,7 @@ export {
   wS as EmptyImageIcon,
   CS as Erc20AvatarIcon,
   zi as ErrorIcon,
-  _M as EventNotificationBanner,
+  SM as EventNotificationBanner,
   xC as FTActionType,
   rn as FTActionTypeEnum,
   Lr as FTEntryPointType,
@@ -45384,11 +45386,10 @@ export {
   Hw as getAccountInfoLogo,
   jw as getCentralizedAccountInfoLogo,
   oC as getExecutionResultsFromDeployRawData,
-  CM as getNamedKeyPrefix,
+  wM as getNamedKeyPrefix,
   aC as getWasmProxyArguments,
   sC as getWasmProxyArgumentsFromRawData,
   EC as hasNamedKeyPrefix,
-  wM as hashPrefixRegEx,
   Hc as hashPrefixRegExpV2,
   dM as indexBy,
   v6 as isBrowserSupportRelativeDateFormat,
@@ -45402,7 +45403,7 @@ export {
   Ed as motesToCSPR,
   Fa as shortenCsprName,
   A6 as shortenString,
-  MM as themeConfig,
+  _M as themeConfig,
   kl as truncateCSPRName,
   rC as uniq,
   sw as useClickAndTouchAway,
