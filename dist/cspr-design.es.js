@@ -44180,9 +44180,7 @@ function bM(e) {
   return e;
 }
 var ca = /* @__PURE__ */ ((e) => (e.HASH = "hash-", e.CONTRACT = "contract-", e.UREF = "uref-", e.DEPLOY = "deploy-", e.ERA_INFO_PREFIX = "era-", e.BALANCE_PREFIX = "balance-", e.BID_PREFIX = "bid-", e.WITHDRAW_PREFIX = "withdraw-", e.DICTIONARY_PREFIX = "dictionary-", e.ACCOUNT_HASH = "account-hash-", e.CONTRACT_PACKAGE = "contract-package-", e))(ca || {});
-const Hc = new RegExp(/^(?:(entity-)?contract(?:-package)?|account-hash|dictionary|withdraw|balance|deploy|uref|hash|era|bid)-[0-9a-f]{64}(?:-\d{3})?$/gi);
-new RegExp(`(${Object.values(ca).join("|")})(?=[0-9a-fA-F])`, "i");
-const EC = (e) => typeof e == "string" && Object.values(ca).some((o) => (e || "").includes(o)), wM = (e) => EC(e) && e.match(Hc) ? e.match(Hc)[0] : "", PC = (e) => {
+const Hc = new RegExp(/^(?:(entity-)?contract(?:-package)?|account-hash|dictionary|withdraw|balance|deploy|uref|hash|era|bid)-[0-9a-f]{64}(?:-\d{3})?$/gi), wM = new RegExp(`(${Object.values(ca).join("|")})(?=[0-9a-fA-F])`, "i"), EC = (e) => typeof e == "string" && Object.values(ca).some((o) => (e || "").includes(o)), CM = (e) => EC(e) && e.match(Hc) ? e.match(Hc)[0] : "", PC = (e) => {
   const o = tr(e.recipient, "Hash"), g = tr(e.recipient, "Account"), C = tr(e.owner, "Account"), P = tr(e.spender, "Hash");
   return {
     recipientHash: o,
@@ -44826,7 +44824,7 @@ const JC = (e) => {
   /* @__PURE__ */ $(Oe, { scale: "xs", lineHeight: "xs", size: 3, monotype: !0, children: e.blockHash == null ? "N/A" : /* @__PURE__ */ $(lr, { href: o, ariaDescription: "Link to block details", color: "primaryBlue", children: Gr(e.blockHeight) }) }),
   /* @__PURE__ */ $(Oe, { scale: "xs", lineHeight: "xs", size: 3, noWrap: !0, children: "·" }),
   /* @__PURE__ */ $(Oe, { scale: "xs", lineHeight: "xs", size: 3, noWrap: !0, variation: "darkGray", children: Bl(e.timestamp) })
-] }), CM = ({
+] }), SM = ({
   deploy: e,
   loading: o,
   actionIdentificationHashes: g,
@@ -44948,7 +44946,7 @@ const JC = (e) => {
   withPageTile: o
 }) => ({
   color: o ? e.styleguideColors.contentBlue : "#8FA6FF"
-})), SM = ({
+})), _M = ({
   text: e,
   linkText: o,
   linkSource: g,
@@ -45003,7 +45001,7 @@ const JC = (e) => {
   animations: {
     fadeIn: Jc(["0%{opacity:0;}100%{opacity:1;}"])
   }
-}, _M = {
+}, MM = {
   dark: {
     ...Wc,
     colorSpecialCase: {
@@ -45129,7 +45127,7 @@ export {
   X_ as Account,
   nM as AccountInfoRow,
   kw as AccountModel,
-  CM as ActivityFeedItem,
+  SM as ActivityFeedItem,
   Dn as Address,
   v_ as Alert,
   i1 as AlertStatus,
@@ -45201,7 +45199,7 @@ export {
   wS as EmptyImageIcon,
   CS as Erc20AvatarIcon,
   zi as ErrorIcon,
-  SM as EventNotificationBanner,
+  _M as EventNotificationBanner,
   xC as FTActionType,
   rn as FTActionTypeEnum,
   Lr as FTEntryPointType,
@@ -45386,10 +45384,11 @@ export {
   Hw as getAccountInfoLogo,
   jw as getCentralizedAccountInfoLogo,
   oC as getExecutionResultsFromDeployRawData,
-  wM as getNamedKeyPrefix,
+  CM as getNamedKeyPrefix,
   aC as getWasmProxyArguments,
   sC as getWasmProxyArgumentsFromRawData,
   EC as hasNamedKeyPrefix,
+  wM as hashPrefixRegEx,
   Hc as hashPrefixRegExpV2,
   dM as indexBy,
   v6 as isBrowserSupportRelativeDateFormat,
@@ -45401,9 +45400,10 @@ export {
   ol as md5,
   wb as motesToCEP18Token,
   Ed as motesToCSPR,
+  Dw as prefixOnlyRegExp,
   Fa as shortenCsprName,
   A6 as shortenString,
-  _M as themeConfig,
+  MM as themeConfig,
   kl as truncateCSPRName,
   rC as uniq,
   sw as useClickAndTouchAway,
