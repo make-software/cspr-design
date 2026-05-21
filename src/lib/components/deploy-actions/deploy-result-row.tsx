@@ -8,18 +8,15 @@ import TransferActionRow from './components/TransferActionRow';
 import { ActionIdentificationHashesType } from './deploy-action-row';
 import { DeployActionDataProvider } from './services/deploy-action-context';
 import {
-  AccountInfoResult,
-  ContractResult,
   ContractTypeId,
   DataResponse,
-  Deploy, DeployContractPackageResult,
+  Deploy,
   DeployTransferResult,
   FTActionsResult,
-  GetDeployResult,
   NftActionsResult,
+  GetDeployResult, ContractResult, DeployContractPackageResult, AccountInfoResult,
 } from '../../types/types';
 import FlexRow from '../flex-row/flex-row';
-import BodyText from '../body-text/body-text';
 import FlexColumn from '../flex-column/flex-column';
 import ExpandCollapsedButton from '../expand-collapsed/expand-collapsed-button';
 import { getDeployStatus, Status } from '../deploy-status/deploy-status';
@@ -27,6 +24,8 @@ import {isTransferDeploy} from "./utils/contract";
 import {isNonNullable} from "../../utils/guards";
 import {NftTypeToEntryPointMap} from '../../types/NFTToken';
 import {FTTransactionResult, FTActionType} from '../../types/FTToken';
+import BodyText from "../body-text/body-text.tsx";
+
 
 const DefaultResultItem = styled(FlexRow)(({ theme }) => ({
   padding: '14px 0',
@@ -60,9 +59,9 @@ const GrayResultItem = styled(FlexRow)(({ theme }) => ({
 
 const ResultItemWrapper = ({ variation, ...props }) => {
   return variation === ResultRowVariation.default ? (
-    <DefaultResultItem {...props} />
+      <DefaultResultItem {...props} />
   ) : (
-    <GrayResultItem {...props} />
+      <GrayResultItem {...props} />
   );
 };
 
@@ -85,7 +84,7 @@ export interface DeployResultRowComponentProps {
   deploy: Deploy;
   loading: boolean;
   actionIdentificationHashes: ActionIdentificationHashesType;
-  deployRawData?: DataResponse< GetDeployResult & {api_version: string}> | null;
+  deployRawData?: DataResponse<GetDeployResult> | null;
   actionComponents?: React.ReactElement[] | null;
   variation?: ResultRowVariation;
   shouldCollapse?: boolean;
@@ -175,12 +174,11 @@ const getSortedResultComponents = ({
       getActionElementToRender(action)
   );
 
-  const combinedActionComponents = [
+  return [
     associatedKeyComponent,
     ...sortedActionComponents,
     ...(actionComponents || []),
   ].filter(isNonNullable);
-  return combinedActionComponents;
 };
 
 const manageCollapsingResults = ({
@@ -254,6 +252,8 @@ export const DeployResultRowComponent = (
     actionComponents,
     actionIdentificationHashes,
   });
+  const actionsCount = combinedActionComponents?.length ?? 0;
+  const isSingleResult = actionsCount <= 1;
 
   const [isCollapsed, setCollapsed] = useState<boolean>(shouldCollapse);
 
@@ -278,7 +278,7 @@ export const DeployResultRowComponent = (
 
   const collapsedLabel =
       combinedActionComponents?.length <= 1 ? `View ${combinedActionComponents?.length} result`
-       : `View all ${combinedActionComponents?.length} results`;
+      : `View all ${combinedActionComponents?.length} results`;
   const expandedLabel =
       combinedActionComponents?.length <= 1
           ? 'Collapse result'
@@ -314,7 +314,7 @@ export const DeployResultRowComponent = (
 type DeployResultRowProps = DeployResultRowComponentProps & {
   getAccountInfo: (publicKey: string) => AccountInfoResult | null | undefined;
   getContractPackageInfoByHash?: (
-    contractPackageHash: string,
+      contractPackageHash: string,
   ) => DeployContractPackageResult | null | undefined;
   getContractInfoByHash?: (
       contractHash: string,
@@ -356,14 +356,14 @@ export const DeployResultRow = (props: DeployResultRowProps) => {
     return null;
   }
   return (
-    <DeployActionDataProvider
-      getAccountInfo={getAccountInfo}
-      getContractPackageInfoByHash={getContractPackageInfoByHash}
-      getContractInfoByHash={getContractInfoByHash}
-      csprLiveDomainPath={csprLiveDomainPath}
-    >
-      <DeployResultRowComponent {...rest} />
-    </DeployActionDataProvider>
+      <DeployActionDataProvider
+          getAccountInfo={getAccountInfo}
+          getContractPackageInfoByHash={getContractPackageInfoByHash}
+          getContractInfoByHash={getContractInfoByHash}
+          csprLiveDomainPath={csprLiveDomainPath}
+      >
+        <DeployResultRowComponent {...rest} />
+      </DeployActionDataProvider>
   );
 };
 

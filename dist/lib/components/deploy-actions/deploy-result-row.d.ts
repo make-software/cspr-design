@@ -1,6 +1,6 @@
 import { default as React } from 'react';
 import { ActionIdentificationHashesType } from './deploy-action-row';
-import { AccountInfoResult, ContractResult, DataResponse, Deploy, DeployContractPackageResult, GetDeployResult } from '../../types/types';
+import { DataResponse, Deploy, GetDeployResult, ContractResult, DeployContractPackageResult, AccountInfoResult } from '../../types/types';
 export declare enum ResultRowVariation {
     default = "default",
     gray = "gray"
@@ -9,9 +9,7 @@ export interface DeployResultRowComponentProps {
     deploy: Deploy;
     loading: boolean;
     actionIdentificationHashes: ActionIdentificationHashesType;
-    deployRawData?: DataResponse<GetDeployResult & {
-        api_version: string;
-    }> | null;
+    deployRawData?: DataResponse<GetDeployResult> | null;
     actionComponents?: React.ReactElement[] | null;
     variation?: ResultRowVariation;
     shouldCollapse?: boolean;

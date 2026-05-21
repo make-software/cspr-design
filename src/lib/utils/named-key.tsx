@@ -1,22 +1,18 @@
-import { getNamedKeyPrefix, hashPrefixRegExpV2 } from './named-key-prefix';
-
 export interface SplitDataType {
   prefix: string;
   hash: string;
 }
 
+export const prefixOnlyRegExp = new RegExp(`(?:(entity-)?contract(?:-package)?|account-hash|dictionary|withdraw|balance|deploy|uref|hash|era|bid)-(?=[0-9a-fA-F])`,
+  'gi'
+);
+
 export const deriveSplitDataFromNamedKeyValue = (
-  namedKeyValue: string,
+    namedKeyValue: string
 ): SplitDataType => {
-  const [hash, lastDigits] = namedKeyValue
-    .replace(hashPrefixRegExpV2, '')
-    .split('-');
+  const match = namedKeyValue.match(prefixOnlyRegExp);
+  const prefix = match ? match[0] : '';
+  const hash = prefix ? namedKeyValue.slice(prefix.length) : namedKeyValue;
 
-  const formattedPrefix = getNamedKeyPrefix(namedKeyValue);
-  const formattedHash = lastDigits ? `${hash}-${lastDigits}` : `${hash}`;
-
-  return {
-    prefix: formattedPrefix,
-    hash: formattedHash,
-  };
+  return { prefix, hash };
 };
