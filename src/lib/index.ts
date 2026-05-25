@@ -44,6 +44,7 @@ export * from './components/paginated-table/paginated-table';
 export * from './components/paginated-table/table-error';
 export * from './components/paginated-table/table-loader';
 export * from './components/pagination/pagination';
+export * from './components/pagination/pagination-input';
 export * from './components/textarea/textarea';
 export * from './components/truncate-box/truncate-box';
 export * from './components/text/text';
