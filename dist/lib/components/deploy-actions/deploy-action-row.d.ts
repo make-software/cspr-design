@@ -2,6 +2,7 @@ import { AccountInfoResult, ContractResult, DataResponse, Deploy, DeployContract
 export type ActionIdentificationHashesType = {
     auction_manager_contract_hash?: string;
     associated_keys_contract_hash?: string;
+    cspr_market_v1_contract_package_hash?: string;
     cspr_market_contract_package_hash?: string;
     auction_pool_account_hash?: string;
     native_transfer_contract_hash?: string;

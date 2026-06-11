@@ -86,7 +86,8 @@ export declare enum FTEntryPointType {
     approve = "approve",
     mint = "mint",
     burn = "burn",
-    transfer = "transfer"
+    transfer = "transfer",
+    transfer_with_authorization = "transfer_with_authorization"
 }
 export interface FTTokenOwnerResult {
     owner_type?: TransactorHashType;

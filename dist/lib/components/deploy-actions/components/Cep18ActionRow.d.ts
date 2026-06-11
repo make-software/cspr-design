@@ -12,6 +12,6 @@ interface Cep18ActionRowProps {
     to_public_key?: string | null;
     to_type?: TransactorHashType;
 }
-export declare const Cep18ActionRow: ({ amount, contractPackage, from_public_key, from_hash, from_type, to_hash, to_type, to_public_key, actionName, prefix, senderPrefix, }: Cep18ActionRowProps) => import("react/jsx-runtime").JSX.Element;
+export declare const Cep18ActionRow: ({ amount, contractPackage, from_public_key, from_hash, from_type, to_hash, to_type, to_public_key, actionName, prefix, senderPrefix, to_account_info, from_account_info, to_centralized_account_info, from_centralized_account_info, }: Cep18ActionRowProps) => import("react/jsx-runtime").JSX.Element;
 export {};
 //# sourceMappingURL=Cep18ActionRow.d.ts.map

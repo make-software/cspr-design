@@ -33,4 +33,5 @@ export declare const isWASMProxyTransaction: (executionTypeId: number) => execut
  * @param transaction
  */
 export declare const isODRAWasmProxyTransaction: (transaction: any) => boolean;
+export declare const isContractTypeCep18: (contractPackage: any) => boolean;
 //# sourceMappingURL=contract.d.ts.map

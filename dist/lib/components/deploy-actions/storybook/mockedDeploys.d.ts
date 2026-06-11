@@ -1264,6 +1264,274 @@ export declare const csprMarketDeploy: {
     }[];
     ft_token_actions: null;
 };
+export declare const buyMarketDeploy: {
+    deploy_hash: string;
+    block_hash: string;
+    block_height: number;
+    caller_public_key: string;
+    caller_hash: string;
+    execution_type_id: number;
+    contract_package_hash: string;
+    contract_hash: string;
+    entry_point_id: number;
+    args: {
+        collection: {
+            cl_type: string;
+            parsed: string;
+        };
+        amount: {
+            cl_type: string;
+            parsed: string;
+        };
+        args: {
+            cl_type: {
+                List: string;
+            };
+            parsed: number[];
+        };
+        attached_value: {
+            cl_type: string;
+            parsed: string;
+        };
+        entry_point: {
+            cl_type: string;
+            parsed: string;
+        };
+        package_hash: {
+            cl_type: {
+                ByteArray: number;
+            };
+            parsed: string;
+        };
+    };
+    payment_amount: string;
+    refund_amount: string;
+    cost: string;
+    consumed_gas: string;
+    error_message: null;
+    status: string;
+    timestamp: string;
+    rate: number;
+    account_info: null;
+    centralized_account_info: null;
+    contract_package: {
+        contract_package_hash: string;
+        owner_public_key: string;
+        owner_hash: string;
+        name: string;
+        description: string;
+        metadata: {};
+        latest_version_contract_type_id: number;
+        timestamp: string;
+        icon_url: string;
+        website_url: string;
+        coingecko_id: null;
+        latest_version_contract_hash: null;
+        account_info: null;
+        centralized_account_info: null;
+        coingecko_data: null;
+        friendlymarket_data: null;
+        csprtrade_data: null;
+        token_market_data: null;
+    };
+    contract: {
+        block_height: number;
+        contract_hash: string;
+        contract_package_hash: string;
+        contract_type_id: number;
+        contract_version: number;
+        deploy_hash: string;
+        is_disabled: boolean;
+        major_protocol_version: number;
+        timestamp: string;
+    };
+    contract_entrypoint: {
+        action_type_id: null;
+        contract_hash: string;
+        contract_package_hash: string;
+        id: number;
+        name: string;
+    };
+    caller_cspr_name: null;
+    transfers: ({
+        id: number;
+        transfer_index: null;
+        initiator_account_hash: string;
+        from_purse: string;
+        to_purse: string;
+        to_account_hash: null;
+        amount: string;
+        from_purse_public_key: string;
+        to_purse_public_key: null;
+        from_purse_account_info: null;
+        to_purse_account_info: null;
+        from_purse_centralized_account_info: null;
+        to_purse_centralized_account_info: null;
+        from_purse_cspr_name: null;
+        to_purse_cspr_name: null;
+    } | {
+        id: number;
+        transfer_index: null;
+        initiator_account_hash: string;
+        from_purse: string;
+        to_purse: string;
+        to_account_hash: null;
+        amount: string;
+        from_purse_public_key: null;
+        to_purse_public_key: null;
+        from_purse_account_info: null;
+        to_purse_account_info: null;
+        from_purse_centralized_account_info: null;
+        to_purse_centralized_account_info: null;
+        from_purse_cspr_name: null;
+        to_purse_cspr_name: null;
+    } | {
+        id: number;
+        transfer_index: null;
+        initiator_account_hash: string;
+        from_purse: string;
+        to_purse: string;
+        to_account_hash: string;
+        amount: string;
+        from_purse_public_key: null;
+        to_purse_public_key: string;
+        from_purse_account_info: null;
+        to_purse_account_info: null;
+        from_purse_centralized_account_info: null;
+        to_purse_centralized_account_info: null;
+        from_purse_cspr_name: null;
+        to_purse_cspr_name: null;
+    } | {
+        id: number;
+        transfer_index: null;
+        initiator_account_hash: string;
+        from_purse: string;
+        to_purse: string;
+        to_account_hash: string;
+        amount: string;
+        from_purse_public_key: null;
+        to_purse_public_key: string;
+        from_purse_account_info: null;
+        to_purse_account_info: {
+            account_hash: string;
+            url: string;
+            is_active: boolean;
+            info: {
+                nodes: {
+                    location: {
+                        name: string;
+                        country: string;
+                        latitude: number;
+                        longitude: number;
+                    };
+                    public_key: string;
+                    description: string;
+                    functionality: string[];
+                }[];
+                owner: {
+                    name: string;
+                    type: string[];
+                    email: string;
+                    social: {
+                        github: string;
+                        medium: string;
+                        reddit: string;
+                        wechat: string;
+                        keybase: string;
+                        twitter: string;
+                        youtube: string;
+                        facebook: string;
+                        telegram: string;
+                    };
+                    website: string;
+                    branding: {
+                        logo: {
+                            svg: string;
+                            png_256: string;
+                            png_1024: string;
+                        };
+                    };
+                    identity: {
+                        other: null;
+                        ownership_disclosure_url: string;
+                        casper_association_kyc_url: string;
+                        casper_association_kyc_onchain: string;
+                    };
+                    location: {
+                        name: string;
+                        country: string;
+                        latitude: number;
+                        longitude: number;
+                    };
+                    resources: {
+                        other: never[];
+                        privacy_policy_url: string;
+                        code_of_conduct_url: string;
+                        terms_of_service_url: string;
+                    };
+                    description: string;
+                    affiliated_accounts: {
+                        public_key: string;
+                    }[];
+                };
+            };
+            deploy_hash: string;
+            verified_account_hashes: string[];
+            created: string;
+            updated: string;
+        };
+        from_purse_centralized_account_info: null;
+        to_purse_centralized_account_info: null;
+        from_purse_cspr_name: null;
+        to_purse_cspr_name: null;
+    })[];
+    nft_token_actions: {
+        contract_package_hash: string;
+        token_id: string;
+        from_type: number;
+        from_hash: string;
+        to_type: number;
+        to_hash: string;
+        nft_action_id: number;
+        token_tracking_id: number;
+        rate: null;
+        from_public_key: string;
+        to_public_key: string;
+        from_account_info: null;
+        caller_account_info: null;
+        to_account_info: null;
+        from_centralized_account_info: null;
+        caller_centralized_account_info: null;
+        to_centralized_account_info: null;
+        contract_package: {
+            contract_package_hash: string;
+            owner_public_key: string;
+            owner_hash: string;
+            name: string;
+            description: null;
+            metadata: {
+                name: string;
+                symbol: string;
+            };
+            latest_version_contract_type_id: number;
+            timestamp: string;
+            icon_url: null;
+            website_url: null;
+            coingecko_id: null;
+            latest_version_contract_hash: null;
+            account_info: null;
+            centralized_account_info: null;
+            coingecko_data: null;
+            friendlymarket_data: null;
+            csprtrade_data: null;
+            token_market_data: null;
+        };
+        deploy: null;
+        from_cspr_name: null;
+        to_cspr_name: null;
+    }[];
+    ft_token_actions: null;
+};
 export declare const cep18Deploy: {
     deploy_hash: string;
     block_hash: string;
@@ -1634,6 +1902,172 @@ export declare const duplicatedResultsDeploy: {
             coingecko_data: null;
             friendlymarket_data: null;
             csprtrade_data: null;
+        };
+        deploy: null;
+        from_cspr_name: null;
+        to_cspr_name: null;
+    }[];
+};
+export declare const x402Deploy: {
+    deploy_hash: string;
+    block_hash: string;
+    block_height: number;
+    caller_public_key: string;
+    caller_hash: string;
+    execution_type_id: number;
+    contract_package_hash: string;
+    contract_hash: string;
+    entry_point_id: number;
+    args: {
+        amount: {
+            cl_type: string;
+            parsed: string;
+        };
+        from: {
+            cl_type: string;
+            parsed: string;
+        };
+        nonce: {
+            cl_type: {
+                List: string;
+            };
+            parsed: number[];
+        };
+        public_key: {
+            cl_type: string;
+            parsed: string;
+        };
+        signature: {
+            cl_type: {
+                List: string;
+            };
+            parsed: number[];
+        };
+        to: {
+            cl_type: string;
+            parsed: string;
+        };
+        valid_after: {
+            cl_type: string;
+            parsed: string;
+        };
+        valid_before: {
+            cl_type: string;
+            parsed: string;
+        };
+    };
+    payment_amount: string;
+    refund_amount: string;
+    cost: string;
+    consumed_gas: string;
+    error_message: null;
+    status: string;
+    timestamp: string;
+    rate: number;
+    account_info: null;
+    centralized_account_info: {
+        account_hash: string;
+        avatar_url: string;
+        name: string;
+        url: string;
+    };
+    contract_package: {
+        contract_package_hash: string;
+        owner_public_key: string;
+        owner_hash: string;
+        name: string;
+        description: null;
+        metadata: {
+            balances_uref: string;
+            decimals: number;
+            name: string;
+            symbol: string;
+            total_supply_uref: string;
+        };
+        latest_version_contract_type_id: number;
+        timestamp: string;
+        icon_url: null;
+        website_url: null;
+        coingecko_id: null;
+        latest_version_contract_hash: null;
+        account_info: null;
+        centralized_account_info: null;
+        coingecko_data: null;
+        friendlymarket_data: null;
+        csprtrade_data: null;
+        token_market_data: null;
+    };
+    contract: {
+        block_height: number;
+        contract_hash: string;
+        contract_package_hash: string;
+        contract_type_id: number;
+        contract_version: number;
+        deploy_hash: string;
+        is_disabled: boolean;
+        major_protocol_version: number;
+        timestamp: string;
+    };
+    contract_entrypoint: {
+        action_type_id: null;
+        contract_hash: string;
+        contract_package_hash: string;
+        id: number;
+        name: string;
+    };
+    caller_cspr_name: null;
+    transfers: null;
+    nft_token_actions: null;
+    ft_token_actions: {
+        block_height: number;
+        contract_package_hash: string;
+        transform_idx: number;
+        from_type: number;
+        from_hash: string;
+        to_type: number;
+        to_hash: string;
+        ft_action_type_id: number;
+        amount: string;
+        timestamp: null;
+        rate: null;
+        from_public_key: string;
+        to_public_key: string;
+        from_account_info: null;
+        to_account_info: null;
+        caller_account_info: null;
+        from_centralized_account_info: null;
+        to_centralized_account_info: {
+            account_hash: string;
+            avatar_url: string;
+            name: string;
+            url: string;
+        };
+        caller_centralized_account_info: null;
+        contract_package: {
+            contract_package_hash: string;
+            owner_public_key: string;
+            owner_hash: string;
+            name: string;
+            description: null;
+            metadata: {
+                balances_uref: string;
+                decimals: number;
+                name: string;
+                symbol: string;
+                total_supply_uref: string;
+            };
+            latest_version_contract_type_id: number;
+            timestamp: string;
+            icon_url: null;
+            website_url: null;
+            coingecko_id: null;
+            latest_version_contract_hash: null;
+            account_info: null;
+            centralized_account_info: null;
+            coingecko_data: null;
+            friendlymarket_data: null;
+            csprtrade_data: null;
+            token_market_data: null;
         };
         deploy: null;
         from_cspr_name: null;
