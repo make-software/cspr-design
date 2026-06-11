@@ -2,6 +2,8 @@
 //   DeployEntryPointName,
 //   DeployResultWithInfo,
 // } from '@block-explorer/entities';
+import { ContractTypeId } from '../../../types/types';
+
 export const WASM_DEPLOY = 1;
 export const WASM_PROXY_DEPLOY = 7;
 
@@ -65,3 +67,8 @@ export const isODRAWasmProxyTransaction = (
       transaction.args?.attached_value,
   );
 };
+
+export const isContractTypeCep18 = (contractPackage): boolean =>
+  contractPackage?.latest_version_contract_type_id ===
+    ContractTypeId.CustomCep18 ||
+  contractPackage?.latest_version_contract_type_id === ContractTypeId.Cep18;

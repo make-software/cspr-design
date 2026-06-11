@@ -1,5 +1,5 @@
 import { InfoGetDeployResult, DeployExecutionResult } from 'casper-js-sdk';
-import {CLTypeParsedResult, CLTypeTypeResult} from './CLType';
+import { CLTypeParsedResult, CLTypeTypeResult } from './CLType';
 export type ResponseError = { message?: string };
 
 export type DataResponse<T = any> = {
@@ -160,7 +160,7 @@ export type DeployClTypeResult = {
 };
 
 export type DeployArgsResult = {
-  amount?: DeployClTypeResult;
+  amount?: DeployClTypeResult | string;
   spender?: DeployClTypeResult;
   bsc_recipient_address?: DeployClTypeResult;
   contract_hash_str?: DeployClTypeResult;

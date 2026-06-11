@@ -1,5 +1,5 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled, { useTheme } from 'styled-components';
 import Big from 'big.js';
 import { deriveAccountInfo } from '../../utils/account';
 import { isValidPublicKey } from 'casper-js-sdk';
@@ -28,17 +28,22 @@ import Link from '../link/link';
 import {
   formatHash,
   formatNumber,
+  formatTimestamp,
   formatTimestampAge,
   HashLength,
 } from '../../utils/formatters';
 import Tooltip from '../tooltip/tooltip';
 import Avatar from '../avatar/avatar';
 import TruncateBox from '../truncate-box/truncate-box';
-import { isWASMProxyTransaction } from '../deploy-actions/utils/contract';
+import {
+  isContractTypeCep18,
+  isWASMProxyTransaction,
+} from '../deploy-actions/utils/contract';
 import { useMatchMedia } from '../../utils/match-media';
 import { DeployStatus, DeployStatusSize } from '../deploy-status/deploy-status';
 import { WasmProxyBadge } from './wasm-proxy-badge';
 import Address from '../address/address';
+import Badge from '../badge/badge';
 
 const StyledPageTile = styled(PageTile)(() => ({
   marginBottom: 8,
@@ -106,6 +111,25 @@ const StyledFlexColumn = styled(FlexColumn)(({ theme }) =>
   }),
 );
 
+const FacilitatorBadge = () => {
+  const theme = useTheme();
+  return (
+    <Tooltip
+      tooltipContent={
+        'Account that submitted and paid for this transaction. Account that authorized this transaction can be checked on Transaction Details page.'
+      }
+    >
+      <FlexRow gap={3} align={'center'}>
+        <Badge
+          lineHeight={'xxs'}
+          label={'FACILITATOR'}
+          variation={theme.styleguideColors.contentLightBlue}
+        />
+      </FlexRow>
+    </Tooltip>
+  );
+};
+
 const BlockFeedInfo = ({ deploy, path }: { deploy: Deploy; path: string }) => (
   <FlexRow itemsSpacing={8} align={'center'}>
     <BodyText
@@ -150,9 +174,7 @@ export interface ActivityFeedItemProps {
   loading: boolean;
   actionIdentificationHashes: ActionIdentificationHashesType;
   csprLiveDomainPath: string;
-  getAccountInfo: (
-    publicKey: string,
-  ) => AccountInfoResult | null | undefined;
+  getAccountInfo: (publicKey: string) => AccountInfoResult | null | undefined;
   getContractInfoByHash?: (
     contractHash: string,
   ) => ContractResult | null | undefined;
@@ -171,15 +193,17 @@ export const ActivityFeedItem = ({
   csprLiveDomainPath,
 }: ActivityFeedItemProps) => {
   const {
-    callerPublicKey,
     callerHash,
     deployHash,
     paymentAmount,
     refundAmount,
     callerCsprName,
+    entryPoint,
+    contractPackage,
   } = deploy;
 
-  const accountInfo = getAccountInfo(
+  const callerPublicKey = deploy.callerPublicKey || deploy.callerHash;
+  const accountInfo = getAccountInfo<AccountInfoResult>(
     callerPublicKey || callerHash,
   );
 
@@ -199,12 +223,21 @@ export const ActivityFeedItem = ({
     .minus(refundAmount || '0')
     .toString();
 
+  const isCep18 = isContractTypeCep18(contractPackage);
+  const isAuthorizedTransfer =
+    isCep18 && entryPoint?.name === 'transfer_with_authorization';
+
   const onAbove = (
     <DesktopFeedItemContainer itemsSpacing={12}>
       <CommonDataContainer>
         <FlexRow align={'center'}>
           <DeployStatus deployResult={deploy} size={DeployStatusSize.Small} />
-          <Tooltip scale={'xs'} lineHeight={'xs'} tooltipContent={deployHash}>
+          <Tooltip
+            scale={'xs'}
+            lineHeight={'xs'}
+            tooltipContent={deployHash}
+            caption={'Transaction Hash'}
+          >
             <BodyText size={3} scale={'sm'} monotype>
               <Link
                 href={`${csprLiveDomainPath}/transaction/${deploy.deployHash}`}
@@ -217,15 +250,17 @@ export const ActivityFeedItem = ({
           </Tooltip>
         </FlexRow>
         <FlexRow justify={'flex-end'} itemsSpacing={8} align={'baseline'}>
-          <BodyText
-            scale={'xs'}
-            lineHeight={'xs'}
-            size={3}
-            noWrap
-            variation={'darkGray'}
-          >
-            {formatTimestampAge(deploy.timestamp)}
-          </BodyText>
+          <Tooltip tooltipContent={formatTimestamp(deploy.timestamp)}>
+            <BodyText
+              scale={'xs'}
+              lineHeight={'xs'}
+              size={3}
+              noWrap
+              variation={'darkGray'}
+            >
+              {formatTimestampAge(deploy.timestamp)}
+            </BodyText>
+          </Tooltip>
           <BodyText scale={'xs'} lineHeight={'xs'} size={3} noWrap>
             ·
           </BodyText>
@@ -284,7 +319,10 @@ export const ActivityFeedItem = ({
           <FlexRow justify={'space-between'}>
             <FlexRow itemsSpacing={8}>
               <TooltipWithExtendedInfo
-                extendedLine={{ title: csprName ?? undefined, caption: 'CSPR.name' }}
+                extendedLine={{
+                  title: csprName ?? undefined,
+                  caption: 'CSPR.name',
+                }}
                 tooltipCaption={keyTooltipCaption}
                 hash={callerPublicKey || callerHash}
               >
@@ -305,13 +343,16 @@ export const ActivityFeedItem = ({
                   </BodyText>
                 </FlexColumn>
               </TooltipWithExtendedInfo>
-              <FlexRow>
-                <TruncateBox size={5}>
-                  <BodyText size={3} variation="darkGray" noWrap>
-                    {name}
-                  </BodyText>
-                </TruncateBox>
-              </FlexRow>
+              {name ? (
+                <FlexRow>
+                  <TruncateBox size={5}>
+                    <BodyText size={3} variation="darkGray" noWrap>
+                      {name}
+                    </BodyText>
+                  </TruncateBox>
+                </FlexRow>
+              ) : null}
+              {isAuthorizedTransfer ? <FacilitatorBadge /> : null}
             </FlexRow>
           </FlexRow>
           <FlexRow>
@@ -354,7 +395,12 @@ export const ActivityFeedItem = ({
       <FlexRow justify={'space-between'}>
         <FlexRow align={'center'}>
           <DeployStatus deployResult={deploy} size={DeployStatusSize.Small} />
-          <Tooltip tooltipContent={deployHash} scale={'xs'} lineHeight={'xs'}>
+          <Tooltip
+            tooltipContent={deployHash}
+            scale={'xs'}
+            lineHeight={'xs'}
+            caption={'Transaction Hash'}
+          >
             <BodyText scale={'xs'} lineHeight={'xs'} size={3} monotype>
               <Link
                 href={`${csprLiveDomainPath}/transaction/${deploy.deployHash}`}
@@ -384,18 +430,20 @@ export const ActivityFeedItem = ({
         </FlexRow>
       </FlexRow>
       <FlexColumn itemsSpacing={12}>
-        <Address
-          logo={logo}
-          name={name}
-          hash={callerPublicKey || callerHash}
-          csprName={callerCsprName || csprName || undefined}
-          loading={loading}
-          navigateToPath={`${csprLiveDomainPath}/account/${callerPublicKey || callerHash}`}
-          avatarSize={'small'}
-          hashFontSize={'sm'}
-          minifiedCopyNotification
-        />
-
+        <FlexRow itemsSpacing={4} align={'center'} wrap={'wrap'}>
+          <Address
+            logo={logo}
+            name={name}
+            hash={callerPublicKey || callerHash}
+            csprName={callerCsprName || csprName || undefined}
+            loading={loading}
+            navigateToPath={`${csprLiveDomainPath}/account/${callerPublicKey || callerHash}`}
+            avatarSize={'small'}
+            hashFontSize={'sm'}
+            minifiedCopyNotification
+          />
+          {isAuthorizedTransfer ? <FacilitatorBadge /> : null}
+        </FlexRow>
         <FlexRow itemsSpacing={8}>
           {isWASMProxyTransaction(deploy.executionTypeId) && (
             <WasmProxyBadge lineHeight={'xxs'} />

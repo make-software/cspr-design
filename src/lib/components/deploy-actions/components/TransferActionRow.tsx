@@ -14,7 +14,8 @@ import BodyText from '../../body-text/body-text';
 import Address from '../../address/address';
 import { TableDataNamedKey } from '../../table-data-named-key/table-data-named-key';
 import Link from '../../link/link';
-import {AuctionContractIcon} from '../../../icons-index';
+import { AuctionContractIcon } from '../../../icons-index';
+import Tooltip from '../../tooltip/tooltip';
 
 interface TransferActionAccountProps {
   publicKey?: string | null;
@@ -40,9 +41,7 @@ const TransferActionAccount = ({
 }: TransferActionAccountProps) => {
   const { getAccountInfo, csprLiveDomainPath } = useDeployActionDataContext();
 
-  const accountInfo = getAccountInfo(
-    publicKey || accountHash || '',
-  );
+  const accountInfo = getAccountInfo(publicKey || accountHash || '');
   const accountInfoDetails = deriveAccountInfo(
     accountInfo?.account_info ||
       accountInfo?.centralized_account_info ||
@@ -64,13 +63,20 @@ const TransferActionAccount = ({
           loading={loading}
           alt={'Auction contract logo'}
         />
-        <Link
-          href={`${csprLiveDomainPath}/account/${actionPoolAccountHash}`}
-          color={'hash'}
-          aria-description={'Link to account details'}
+        <Tooltip
+          tooltipContent={actionPoolAccountHash}
+          caption={'Account Hash'}
         >
-          Auction Pool
-        </Link>
+          <BodyText size={3} monotype>
+            <Link
+              href={`${csprLiveDomainPath}/account/${actionPoolAccountHash}`}
+              color={'hash'}
+              aria-description={'Link to account details'}
+            >
+              Auction Pool
+            </Link>
+          </BodyText>
+        </Tooltip>
       </FlexRow>
     );
   }

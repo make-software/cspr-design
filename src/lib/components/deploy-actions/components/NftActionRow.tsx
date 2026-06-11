@@ -67,12 +67,8 @@ export const NftActionRow = ({
 }: NftActionRowProps) => {
   const { getAccountInfo, getContractPackageInfoByHash, csprLiveDomainPath } =
     useDeployActionDataContext();
-  const fromAccountInfo = getAccountInfo(
-    from_public_key || from_hash || '',
-  );
-  const toAccountInfo = getAccountInfo(
-    to_public_key || to_hash || '',
-  );
+  const fromAccountInfo = getAccountInfo(from_public_key || from_hash || '');
+  const toAccountInfo = getAccountInfo(to_public_key || to_hash || '');
 
   return (
     <FlexRow align={'center'} itemsSpacing={8}>
@@ -108,7 +104,9 @@ export const NftActionRow = ({
               fromAccountInfo?.centralized_account_info ||
               undefined
             }
-            contractPackage={getContractPackageInfoByHash(from_hash) ?? undefined}
+            contractPackage={
+              getContractPackageInfoByHash(from_hash) ?? undefined
+            }
             csprName={fromAccountInfo?.cspr_name}
             loading={!from_hash}
             publicKey={from_public_key}

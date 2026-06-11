@@ -1557,6 +1557,373 @@ export const csprMarketDeploy = {
   ft_token_actions: null,
 };
 
+export const buyMarketDeploy = {
+  deploy_hash:
+    '78c0b754b9efae4408656b796285d62e07080260093048c68b6e196455380294',
+  block_hash:
+    '4329616e9fb35a4ae1dce6cb798b1ee800f2a97306123df1a7761e6c66c3d590',
+  block_height: 5953274,
+  caller_public_key:
+    '020329169b6c9e632fbeca5677fcad1bb48b87cd80500202911b933c16fa1d107e2e',
+  caller_hash:
+    '102803f72be160c63422103853da0e6630ef99dbd667b37323e4112853dd4b1a',
+  execution_type_id: 7,
+  contract_package_hash: 'cspr_market_contract_package_hash',
+  contract_hash:
+    '328df71fa115f58f6212ab27906c399bdadbe7325014234a975236d5370a1dfb',
+  entry_point_id: 2662054,
+  args: {
+    collection: {
+      cl_type: 'Key',
+      parsed:
+        'hash-da405d7d7a85732cc17f944f7afcacd37590ce0b8666400c51df8823e820269f',
+    },
+    amount: {
+      cl_type: 'U512',
+      parsed: '3000000000',
+    },
+    args: {
+      cl_type: {
+        List: 'U8',
+      },
+      parsed: [
+        4, 0, 0, 0, 10, 0, 0, 0, 99, 111, 108, 108, 101, 99, 116, 105, 111, 110,
+        33, 0, 0, 0, 1, 241, 18, 127, 209, 113, 105, 82, 131, 177, 144, 166, 37,
+        60, 84, 133, 205, 131, 11, 92, 28, 54, 94, 165, 102, 26, 234, 209, 94,
+        0, 220, 20, 37, 11, 8, 0, 0, 0, 116, 111, 107, 101, 110, 95, 105, 100,
+        37, 0, 0, 0, 33, 0, 0, 0, 32, 124, 251, 149, 117, 159, 17, 2, 68, 149,
+        84, 148, 146, 72, 11, 108, 213, 5, 145, 105, 171, 150, 230, 235, 59,
+        231, 243, 90, 5, 4, 197, 155, 47, 14, 3, 6, 0, 0, 0, 97, 109, 111, 117,
+        110, 116, 5, 0, 0, 0, 4, 0, 94, 208, 178, 8, 20, 0, 0, 0, 97, 100, 100,
+        105, 116, 105, 111, 110, 97, 108, 95, 114, 101, 99, 105, 112, 105, 101,
+        110, 116, 1, 0, 0, 0, 0, 13, 11,
+      ],
+    },
+    attached_value: {
+      cl_type: 'U512',
+      parsed: '3000000000',
+    },
+    entry_point: {
+      cl_type: 'String',
+      parsed: 'buy_token',
+    },
+    package_hash: {
+      cl_type: {
+        ByteArray: 32,
+      },
+      parsed:
+        '186988a7ccd2b5053b78a4c519905058f094f583ba26f885f9ae3df631ae2c24',
+    },
+  },
+  payment_amount: '20000000000',
+  refund_amount: '8518555854',
+  cost: '20000000000',
+  consumed_gas: '8641925528',
+  error_message: null,
+  status: 'processed',
+  timestamp: '2025-11-20T10:38:09Z',
+  rate: 0.00597589,
+  account_info: null,
+  centralized_account_info: null,
+  contract_package: {
+    contract_package_hash:
+      '186988a7ccd2b5053b78a4c519905058f094f583ba26f885f9ae3df631ae2c24',
+    owner_public_key:
+      '01fc3b35c25fdce6fc6127fc5da32a828d51eaacab816e80611f23f4cf063bc319',
+    owner_hash:
+      '32568fc73734a690f8344e5a5fc0c41e1d48c174b10829c02c8ec6c438da298f',
+    name: 'CSPR.market',
+    description:
+      'CSPR.market smart contract that manages the marketplace order book and transactions',
+    metadata: {},
+    latest_version_contract_type_id: 9,
+    timestamp: '2025-11-17T15:48:56Z',
+    icon_url: 'https://casper-assets.s3.amazonaws.com/contracts/csprmarket.png',
+    website_url: 'https://cspr.market',
+    coingecko_id: null,
+    latest_version_contract_hash: null,
+    account_info: null,
+    centralized_account_info: null,
+    coingecko_data: null,
+    friendlymarket_data: null,
+    csprtrade_data: null,
+    token_market_data: null,
+  },
+  contract: {
+    block_height: 5938571,
+    contract_hash:
+      '328df71fa115f58f6212ab27906c399bdadbe7325014234a975236d5370a1dfb',
+    contract_package_hash:
+      '186988a7ccd2b5053b78a4c519905058f094f583ba26f885f9ae3df631ae2c24',
+    contract_type_id: 9,
+    contract_version: 1,
+    deploy_hash:
+      '53d845129ae4d542b2faed59e1f0c362e325adc5c3ed9380732061d3a903adc2',
+    is_disabled: false,
+    major_protocol_version: 2,
+    timestamp: '2025-11-17T15:48:56Z',
+  },
+  contract_entrypoint: {
+    action_type_id: null,
+    contract_hash:
+      '328df71fa115f58f6212ab27906c399bdadbe7325014234a975236d5370a1dfb',
+    contract_package_hash:
+      '186988a7ccd2b5053b78a4c519905058f094f583ba26f885f9ae3df631ae2c24',
+    id: 2662054,
+    name: 'buy_token',
+  },
+  caller_cspr_name: null,
+  transfers: [
+    {
+      id: 0,
+      transfer_index: null,
+      initiator_account_hash:
+        '102803f72be160c63422103853da0e6630ef99dbd667b37323e4112853dd4b1a',
+      from_purse:
+        'uref-10ce3ce549f6895dee17d8a767c0d419eeebfdabec92c69f2d5f06cdca4fe957-007',
+      to_purse:
+        'uref-26d48e40b42ec2cc55a88c250814de7096817d59c3bf4dbf38a10c91b8775190-007',
+      to_account_hash: null,
+      amount: '3000000000',
+      from_purse_public_key:
+        '020329169b6c9e632fbeca5677fcad1bb48b87cd80500202911b933c16fa1d107e2e',
+      to_purse_public_key: null,
+      from_purse_account_info: null,
+      to_purse_account_info: null,
+      from_purse_centralized_account_info: null,
+      to_purse_centralized_account_info: null,
+      from_purse_cspr_name: null,
+      to_purse_cspr_name: null,
+    },
+    {
+      id: 0,
+      transfer_index: null,
+      initiator_account_hash:
+        '102803f72be160c63422103853da0e6630ef99dbd667b37323e4112853dd4b1a',
+      from_purse:
+        'uref-26d48e40b42ec2cc55a88c250814de7096817d59c3bf4dbf38a10c91b8775190-007',
+      to_purse:
+        'uref-876691da2b4679f97727ebeef371964ffc179aa02fceeff28229155afe3257f1-007',
+      to_account_hash: null,
+      amount: '3000000000',
+      from_purse_public_key: null,
+      to_purse_public_key: null,
+      from_purse_account_info: null,
+      to_purse_account_info: null,
+      from_purse_centralized_account_info: null,
+      to_purse_centralized_account_info: null,
+      from_purse_cspr_name: null,
+      to_purse_cspr_name: null,
+    },
+    {
+      id: 0,
+      transfer_index: null,
+      initiator_account_hash:
+        '102803f72be160c63422103853da0e6630ef99dbd667b37323e4112853dd4b1a',
+      from_purse:
+        'uref-876691da2b4679f97727ebeef371964ffc179aa02fceeff28229155afe3257f1-007',
+      to_purse:
+        'uref-2dd6ac94ef58a9c219e62b79b45eccc5d43ebd5fbba6c93c4b19803bc84f85dd-004',
+      to_account_hash:
+        'ddfc69e06130a5cb1aaf51254cf913a0ab0c60922f4c33261bbcdbdc8156421a',
+      amount: '2925000000',
+      from_purse_public_key: null,
+      to_purse_public_key:
+        '0203c1e1349b0a5b34246bce27a68de90d842ace31221a363007e483301977611dfa',
+      from_purse_account_info: null,
+      to_purse_account_info: null,
+      from_purse_centralized_account_info: null,
+      to_purse_centralized_account_info: null,
+      from_purse_cspr_name: null,
+      to_purse_cspr_name: null,
+    },
+    {
+      id: 0,
+      transfer_index: null,
+      initiator_account_hash:
+        '102803f72be160c63422103853da0e6630ef99dbd667b37323e4112853dd4b1a',
+      from_purse:
+        'uref-876691da2b4679f97727ebeef371964ffc179aa02fceeff28229155afe3257f1-007',
+      to_purse:
+        'uref-9d1843e6d3b9d40ed878bd591bca25e5cfb28d0ba103ba645f85b10f89264e1e-004',
+      to_account_hash:
+        '32568fc73734a690f8344e5a5fc0c41e1d48c174b10829c02c8ec6c438da298f',
+      amount: '75000000',
+      from_purse_public_key: null,
+      to_purse_public_key:
+        '01fc3b35c25fdce6fc6127fc5da32a828d51eaacab816e80611f23f4cf063bc319',
+      from_purse_account_info: null,
+      to_purse_account_info: {
+        account_hash:
+          '32568fc73734a690f8344e5a5fc0c41e1d48c174b10829c02c8ec6c438da298f',
+        url: 'https://makestake.io',
+        is_active: true,
+        info: {
+          nodes: [
+            {
+              location: {
+                name: 'Ashburn, VA',
+                country: 'US',
+                latitude: 39.04372,
+                longitude: -77.48749,
+              },
+              public_key:
+                '0106ca7c39cd272dbf21a86eeb3b36b7c26e2e9b94af64292419f7862936bca2ca',
+              description: "MAKE's first Casper Testnet validator",
+              functionality: ['validator'],
+            },
+            {
+              location: {
+                name: 'Ashburn, VA',
+                country: 'US',
+                latitude: 39.04372,
+                longitude: -77.48749,
+              },
+              public_key:
+                '017d96b9a63abcb61c870a4f55187a0a7ac24096bdb5fc585c12a686a4d892009e',
+              description: "MAKE's second Casper Testnet validator",
+              functionality: ['validator'],
+            },
+          ],
+          owner: {
+            name: 'MAKE',
+            type: ['validator', 'corporation'],
+            email: 'hello@makegroup.io',
+            social: {
+              github: 'make-software',
+              medium: 'csprsuite',
+              reddit: '',
+              wechat: '',
+              keybase: '',
+              twitter: '@WeAreTeamMAKE',
+              youtube: '@WeAreTeamMAKE',
+              facebook: 'WeAreTeamMAKE',
+              telegram: '',
+            },
+            website: 'https://makegroup.io',
+            branding: {
+              logo: {
+                svg: 'https://makegroup.io/wp-content/uploads/2024/04/logo.svg',
+                png_256:
+                  'https://makegroup.io/wp-content/uploads/2024/04/logo256.png',
+                png_1024:
+                  'https://makegroup.io/wp-content/uploads/2024/04/logo1024.png',
+              },
+            },
+            identity: {
+              other: null,
+              ownership_disclosure_url: 'https://makegroup.io/about/',
+              casper_association_kyc_url: '',
+              casper_association_kyc_onchain: '',
+            },
+            location: {
+              name: 'Cheyenne, WY',
+              country: 'US',
+              latitude: 41.14,
+              longitude: -104.820274,
+            },
+            resources: {
+              other: [],
+              privacy_policy_url: 'https://makegroup.io/privacy-policy/',
+              code_of_conduct_url: '',
+              terms_of_service_url: 'https://makegroup.io/terms-of-service/',
+            },
+            description:
+              'MAKE is the leading technology provider for the Casper Network and creator of the CSPR Product Suite',
+            affiliated_accounts: [
+              {
+                public_key:
+                  '017d96b9a63abcb61c870a4f55187a0a7ac24096bdb5fc585c12a686a4d892009e',
+              },
+              {
+                public_key:
+                  '0106ca7c39cd272dbf21a86eeb3b36b7c26e2e9b94af64292419f7862936bca2ca',
+              },
+              {
+                public_key:
+                  '0202859e04bab609744b291b54ef97b55cb3120c940cd620977f8d2687ca5bd0168c',
+              },
+              {
+                public_key:
+                  '01fc3b35c25fdce6fc6127fc5da32a828d51eaacab816e80611f23f4cf063bc319',
+              },
+            ],
+          },
+        },
+        deploy_hash:
+          'bd17bd27616204e904efb3253423a0af34b6f757bb7835561e3b48ac73460472',
+        verified_account_hashes: [
+          '32568FC73734A690F8344E5A5FC0C41E1D48C174B10829C02C8EC6C438DA298F',
+          'FA12D2DD5547714F8C2754D418AA8C9D59DC88780350CB4254D622E2D4EF7E69',
+        ],
+        created: '2023-06-15T21:52:39Z',
+        updated: '2026-06-09T00:00:11Z',
+      },
+      from_purse_centralized_account_info: null,
+      to_purse_centralized_account_info: null,
+      from_purse_cspr_name: null,
+      to_purse_cspr_name: null,
+    },
+  ],
+  nft_token_actions: [
+    {
+      contract_package_hash:
+        'f1127fd171695283b190a6253c5485cd830b5c1c365ea5661aead15e00dc1425',
+      token_id:
+        '21533924930888251482607369937779277063783850178719434072249562056926613076860',
+      from_type: 0,
+      from_hash:
+        'ddfc69e06130a5cb1aaf51254cf913a0ab0c60922f4c33261bbcdbdc8156421a',
+      to_type: 0,
+      to_hash:
+        '102803f72be160c63422103853da0e6630ef99dbd667b37323e4112853dd4b1a',
+      nft_action_id: 4,
+      token_tracking_id: 455056,
+      rate: null,
+      from_public_key:
+        '0203c1e1349b0a5b34246bce27a68de90d842ace31221a363007e483301977611dfa',
+      to_public_key:
+        '020329169b6c9e632fbeca5677fcad1bb48b87cd80500202911b933c16fa1d107e2e',
+      from_account_info: null,
+      caller_account_info: null,
+      to_account_info: null,
+      from_centralized_account_info: null,
+      caller_centralized_account_info: null,
+      to_centralized_account_info: null,
+      contract_package: {
+        contract_package_hash:
+          'f1127fd171695283b190a6253c5485cd830b5c1c365ea5661aead15e00dc1425',
+        owner_public_key:
+          '016a2a5f1612d846f832f9d5aaeea074f86659dd7e72224c2568c3578154a52929',
+        owner_hash:
+          '7d6d02a18a28bef0af93cf8d961267f24d872bbced15d2bdaf553e6c1adc7ae7',
+        name: 'CSPR.name',
+        description: null,
+        metadata: {
+          name: 'CSPR.name',
+          symbol: 'NAME',
+        },
+        latest_version_contract_type_id: 10,
+        timestamp: '2025-07-15T12:04:37Z',
+        icon_url: null,
+        website_url: null,
+        coingecko_id: null,
+        latest_version_contract_hash: null,
+        account_info: null,
+        centralized_account_info: null,
+        coingecko_data: null,
+        friendlymarket_data: null,
+        csprtrade_data: null,
+        token_market_data: null,
+      },
+      deploy: null,
+      from_cspr_name: null,
+      to_cspr_name: null,
+    },
+  ],
+  ft_token_actions: null,
+};
+
 export const cep18Deploy = {
   deploy_hash:
     '43a3dc81a388eaec80b0444bd45bf3aba15edf1543c82fa7e553600172e82748',
@@ -1862,132 +2229,374 @@ export const nftDeploy = {
 };
 
 export const duplicatedResultsDeploy = {
-  "deploy_hash": "250eeb15c1ea77077bfc4b8b2b35d4dd9e139dfb528fb62414aed290c6eef400",
-  "block_hash": "522e1e131ec2c0078c682003e729605d733e3e5124865fa7504f7f5507c74f1c",
-  "block_height": 6265786,
-  "caller_public_key": "0188ed5156681e57c66d2f3f5baa38126607774a6cba86369fa89970426242413a",
-  "caller_hash": "1856e4a0b23c70b64e4509987680de0d99145fa0cdc71ad9b78760e18ff0deec",
-  "execution_type_id": 4,
-  "contract_package_hash": "20b6b67cc838b43a2168919068c2bedee3ad730d624d86e2e2ae144e902f6de1",
-  "contract_hash": "6e1777c006965596581c3a0379c1d46f7aa518debb128d11d08c5897ff267579",
-  "entry_point_id": 2625978,
-  "args": {
-    "amount": {
-      "cl_type": "U256",
-      "parsed": "7974267226024"
+  deploy_hash:
+    '250eeb15c1ea77077bfc4b8b2b35d4dd9e139dfb528fb62414aed290c6eef400',
+  block_hash:
+    '522e1e131ec2c0078c682003e729605d733e3e5124865fa7504f7f5507c74f1c',
+  block_height: 6265786,
+  caller_public_key:
+    '0188ed5156681e57c66d2f3f5baa38126607774a6cba86369fa89970426242413a',
+  caller_hash:
+    '1856e4a0b23c70b64e4509987680de0d99145fa0cdc71ad9b78760e18ff0deec',
+  execution_type_id: 4,
+  contract_package_hash:
+    '20b6b67cc838b43a2168919068c2bedee3ad730d624d86e2e2ae144e902f6de1',
+  contract_hash:
+    '6e1777c006965596581c3a0379c1d46f7aa518debb128d11d08c5897ff267579',
+  entry_point_id: 2625978,
+  args: {
+    amount: {
+      cl_type: 'U256',
+      parsed: '7974267226024',
     },
-    "spender": {
-      "cl_type": "Key",
-      "parsed": "hash-e3b30447e4e67526689e8eed97f4d276a3448b77c8c27e7df451dd59ecc83a5e"
-    }
-  },
-  "payment_amount": "5000000000",
-  "amount": null,
-  "currency_cost": 0,
-  "refund_amount": "3456371610",
-  "cost": "5000000000",
-  "consumed_gas": "391504519",
-  "error_message": null,
-  "status": "processed",
-  "timestamp": "2025-12-19T10:49:08Z",
-  "rate": 0.00466498,
-  "account_info": null,
-  "centralized_account_info": null,
-  "contract_package": {
-    "contract_package_hash": "20b6b67cc838b43a2168919068c2bedee3ad730d624d86e2e2ae144e902f6de1",
-    "owner_public_key": "0193fba0ea4f79984067fe50c3064dccde11ede3c4913c160f2452bd6710c72217",
-    "owner_hash": "55c081be92939b87d1cac05916e9273056edaa67cf3cefb561157160082be739",
-    "name": "Staked CSPR (sCSPR)",
-    "description": "Liquid staking token representing a proportionate share of staked CSPR held by this contract",
-    "metadata": {
-      "balances_uref": "uref-8cfe212b407be125618f7c6db2e3601caeb04e8e7a7b68a52412b5306cf3217b-007",
-      "decimals": 9,
-      "name": "Staked CSPR",
-      "symbol": "sCSPR",
-      "total_supply_uref": "uref-3ae72401fff282ac073963ee76ae8b153bc9c813c834e89c82a2ad6135ae2bef-007"
+    spender: {
+      cl_type: 'Key',
+      parsed:
+        'hash-e3b30447e4e67526689e8eed97f4d276a3448b77c8c27e7df451dd59ecc83a5e',
     },
-    "latest_version_contract_type_id": 2,
-    "timestamp": "2025-06-18T19:17:08Z",
-    "icon_url": "https://casper-assets.s3.amazonaws.com/contracts/staked-cspr.png",
-    "website_url": "https://testnet.wiselending.com/liquid-staking",
-    "coingecko_id": null,
-    "latest_version_contract_hash": null,
-    "account_info": null,
-    "centralized_account_info": null,
-    "coingecko_data": null,
-    "friendlymarket_data": null,
-    "csprtrade_data": null
   },
-  "contract": {
-    "block_height": 5172205,
-    "contract_hash": "6e1777c006965596581c3a0379c1d46f7aa518debb128d11d08c5897ff267579",
-    "contract_package_hash": "20b6b67cc838b43a2168919068c2bedee3ad730d624d86e2e2ae144e902f6de1",
-    "contract_type_id": 2,
-    "contract_version": 1,
-    "deploy_hash": "63388150fda5108ed343e122b5eacdf3b1ef09b5ae6ebde43f4bb2e8d1733ea6",
-    "is_disabled": false,
-    "major_protocol_version": 2,
-    "timestamp": "2025-06-18T19:17:08Z"
+  payment_amount: '5000000000',
+  amount: null,
+  currency_cost: 0,
+  refund_amount: '3456371610',
+  cost: '5000000000',
+  consumed_gas: '391504519',
+  error_message: null,
+  status: 'processed',
+  timestamp: '2025-12-19T10:49:08Z',
+  rate: 0.00466498,
+  account_info: null,
+  centralized_account_info: null,
+  contract_package: {
+    contract_package_hash:
+      '20b6b67cc838b43a2168919068c2bedee3ad730d624d86e2e2ae144e902f6de1',
+    owner_public_key:
+      '0193fba0ea4f79984067fe50c3064dccde11ede3c4913c160f2452bd6710c72217',
+    owner_hash:
+      '55c081be92939b87d1cac05916e9273056edaa67cf3cefb561157160082be739',
+    name: 'Staked CSPR (sCSPR)',
+    description:
+      'Liquid staking token representing a proportionate share of staked CSPR held by this contract',
+    metadata: {
+      balances_uref:
+        'uref-8cfe212b407be125618f7c6db2e3601caeb04e8e7a7b68a52412b5306cf3217b-007',
+      decimals: 9,
+      name: 'Staked CSPR',
+      symbol: 'sCSPR',
+      total_supply_uref:
+        'uref-3ae72401fff282ac073963ee76ae8b153bc9c813c834e89c82a2ad6135ae2bef-007',
+    },
+    latest_version_contract_type_id: 2,
+    timestamp: '2025-06-18T19:17:08Z',
+    icon_url:
+      'https://casper-assets.s3.amazonaws.com/contracts/staked-cspr.png',
+    website_url: 'https://testnet.wiselending.com/liquid-staking',
+    coingecko_id: null,
+    latest_version_contract_hash: null,
+    account_info: null,
+    centralized_account_info: null,
+    coingecko_data: null,
+    friendlymarket_data: null,
+    csprtrade_data: null,
   },
-  "contract_entrypoint": {
-    "action_type_id": null,
-    "contract_hash": "6e1777c006965596581c3a0379c1d46f7aa518debb128d11d08c5897ff267579",
-    "contract_package_hash": "20b6b67cc838b43a2168919068c2bedee3ad730d624d86e2e2ae144e902f6de1",
-    "id": "2625978",
-    "name": "approve"
+  contract: {
+    block_height: 5172205,
+    contract_hash:
+      '6e1777c006965596581c3a0379c1d46f7aa518debb128d11d08c5897ff267579',
+    contract_package_hash:
+      '20b6b67cc838b43a2168919068c2bedee3ad730d624d86e2e2ae144e902f6de1',
+    contract_type_id: 2,
+    contract_version: 1,
+    deploy_hash:
+      '63388150fda5108ed343e122b5eacdf3b1ef09b5ae6ebde43f4bb2e8d1733ea6',
+    is_disabled: false,
+    major_protocol_version: 2,
+    timestamp: '2025-06-18T19:17:08Z',
   },
-  "caller_cspr_name": null,
-  "transfers": null,
-  "nft_token_actions": null,
-  "ft_token_actions": [
+  contract_entrypoint: {
+    action_type_id: null,
+    contract_hash:
+      '6e1777c006965596581c3a0379c1d46f7aa518debb128d11d08c5897ff267579',
+    contract_package_hash:
+      '20b6b67cc838b43a2168919068c2bedee3ad730d624d86e2e2ae144e902f6de1',
+    id: '2625978',
+    name: 'approve',
+  },
+  caller_cspr_name: null,
+  transfers: null,
+  nft_token_actions: null,
+  ft_token_actions: [
     {
-      "block_height": 6265786,
-      "contract_package_hash": "20b6b67cc838b43a2168919068c2bedee3ad730d624d86e2e2ae144e902f6de1",
-      "transform_idx": 6,
-      "from_type": 0,
-      "from_hash": "1856e4a0b23c70b64e4509987680de0d99145fa0cdc71ad9b78760e18ff0deec",
-      "to_type": 1,
-      "to_hash": "e3b30447e4e67526689e8eed97f4d276a3448b77c8c27e7df451dd59ecc83a5e",
-      "ft_action_type_id": 3,
-      "amount": "7974267226024",
-      "timestamp": null,
-      "rate": null,
-      "from_public_key": "0188ed5156681e57c66d2f3f5baa38126607774a6cba86369fa89970426242413a",
-      "to_public_key": null,
-      "from_account_info": null,
-      "to_account_info": null,
-      "caller_account_info": null,
-      "from_centralized_account_info": null,
-      "to_centralized_account_info": null,
-      "caller_centralized_account_info": null,
-      "contract_package": {
-        "contract_package_hash": "20b6b67cc838b43a2168919068c2bedee3ad730d624d86e2e2ae144e902f6de1",
-        "owner_public_key": "0193fba0ea4f79984067fe50c3064dccde11ede3c4913c160f2452bd6710c72217",
-        "owner_hash": "55c081be92939b87d1cac05916e9273056edaa67cf3cefb561157160082be739",
-        "name": "Staked CSPR (sCSPR)",
-        "description": "Liquid staking token representing a proportionate share of staked CSPR held by this contract",
-        "metadata": {
-          "balances_uref": "uref-8cfe212b407be125618f7c6db2e3601caeb04e8e7a7b68a52412b5306cf3217b-007",
-          "decimals": 9,
-          "name": "Staked CSPR",
-          "symbol": "sCSPR",
-          "total_supply_uref": "uref-3ae72401fff282ac073963ee76ae8b153bc9c813c834e89c82a2ad6135ae2bef-007"
+      block_height: 6265786,
+      contract_package_hash:
+        '20b6b67cc838b43a2168919068c2bedee3ad730d624d86e2e2ae144e902f6de1',
+      transform_idx: 6,
+      from_type: 0,
+      from_hash:
+        '1856e4a0b23c70b64e4509987680de0d99145fa0cdc71ad9b78760e18ff0deec',
+      to_type: 1,
+      to_hash:
+        'e3b30447e4e67526689e8eed97f4d276a3448b77c8c27e7df451dd59ecc83a5e',
+      ft_action_type_id: 3,
+      amount: '7974267226024',
+      timestamp: null,
+      rate: null,
+      from_public_key:
+        '0188ed5156681e57c66d2f3f5baa38126607774a6cba86369fa89970426242413a',
+      to_public_key: null,
+      from_account_info: null,
+      to_account_info: null,
+      caller_account_info: null,
+      from_centralized_account_info: null,
+      to_centralized_account_info: null,
+      caller_centralized_account_info: null,
+      contract_package: {
+        contract_package_hash:
+          '20b6b67cc838b43a2168919068c2bedee3ad730d624d86e2e2ae144e902f6de1',
+        owner_public_key:
+          '0193fba0ea4f79984067fe50c3064dccde11ede3c4913c160f2452bd6710c72217',
+        owner_hash:
+          '55c081be92939b87d1cac05916e9273056edaa67cf3cefb561157160082be739',
+        name: 'Staked CSPR (sCSPR)',
+        description:
+          'Liquid staking token representing a proportionate share of staked CSPR held by this contract',
+        metadata: {
+          balances_uref:
+            'uref-8cfe212b407be125618f7c6db2e3601caeb04e8e7a7b68a52412b5306cf3217b-007',
+          decimals: 9,
+          name: 'Staked CSPR',
+          symbol: 'sCSPR',
+          total_supply_uref:
+            'uref-3ae72401fff282ac073963ee76ae8b153bc9c813c834e89c82a2ad6135ae2bef-007',
         },
-        "latest_version_contract_type_id": 2,
-        "timestamp": "2025-06-18T19:17:08Z",
-        "icon_url": "https://casper-assets.s3.amazonaws.com/contracts/staked-cspr.png",
-        "website_url": "https://testnet.wiselending.com/liquid-staking",
-        "coingecko_id": null,
-        "latest_version_contract_hash": null,
-        "account_info": null,
-        "centralized_account_info": null,
-        "coingecko_data": null,
-        "friendlymarket_data": null,
-        "csprtrade_data": null
+        latest_version_contract_type_id: 2,
+        timestamp: '2025-06-18T19:17:08Z',
+        icon_url:
+          'https://casper-assets.s3.amazonaws.com/contracts/staked-cspr.png',
+        website_url: 'https://testnet.wiselending.com/liquid-staking',
+        coingecko_id: null,
+        latest_version_contract_hash: null,
+        account_info: null,
+        centralized_account_info: null,
+        coingecko_data: null,
+        friendlymarket_data: null,
+        csprtrade_data: null,
       },
-      "deploy": null,
-      "from_cspr_name": null,
-      "to_cspr_name": null
-    }
-  ]
-}
+      deploy: null,
+      from_cspr_name: null,
+      to_cspr_name: null,
+    },
+  ],
+};
+
+export const x402Deploy = {
+  deploy_hash:
+    '4b1891d8b315859c8317dcbce5c9b40fe60445150d8778690af5cc6d322995e4',
+  block_hash:
+    '62570391267dadbc6ee130899938cb14b1fb928e7210ff73fddf16740f7a7a3d',
+  block_height: 7972944,
+  caller_public_key:
+    '0202b2d69e2e66d9858ae7b19bfe802135ae93658146e48e1f8e1f762e00032a3449',
+  caller_hash:
+    '81d557c9dcaadea97c34d79bf7b6af07aa9d760e5dd1aabf78a45fb39e072c3a',
+  execution_type_id: 4,
+  contract_package_hash:
+    '9cb429cc8b28384935308571b1c903087ec8e4b32f212040e5d9d6132068bd29',
+  contract_hash:
+    '30fd09d521a39f015cae4a7f6c7c4d2d7af933816874edf5413b0c5cf266c46d',
+  entry_point_id: 2704737,
+  args: {
+    amount: {
+      cl_type: 'U256',
+      parsed: '10000',
+    },
+    from: {
+      cl_type: 'Key',
+      parsed:
+        'account-hash-313d2a19e961f0f8ab3ca595daa0511aa2b82acd8df6d1642dc80d3c7ca49977',
+    },
+    nonce: {
+      cl_type: {
+        List: 'U8',
+      },
+      parsed: [
+        138, 153, 55, 163, 78, 56, 147, 105, 74, 73, 237, 216, 20, 198, 2, 80,
+        220, 143, 228, 165, 64, 165, 91, 127, 185, 75, 28, 144, 206, 111, 231,
+        118,
+      ],
+    },
+    public_key: {
+      cl_type: 'PublicKey',
+      parsed:
+        '02025ac4f5a299662a8e2adc678db6e1f90a41c04fc24d2b434827c2648074aa5cf8',
+    },
+    signature: {
+      cl_type: {
+        List: 'U8',
+      },
+      parsed: [
+        2, 237, 53, 47, 162, 86, 173, 72, 185, 150, 201, 160, 174, 74, 164, 38,
+        74, 217, 24, 222, 78, 88, 190, 13, 246, 18, 157, 43, 87, 196, 94, 1,
+        175, 3, 82, 98, 198, 88, 158, 86, 229, 115, 152, 117, 193, 222, 188, 44,
+        224, 228, 110, 131, 37, 89, 63, 253, 111, 153, 116, 154, 175, 223, 143,
+        142, 44,
+      ],
+    },
+    to: {
+      cl_type: 'Key',
+      parsed:
+        'account-hash-81d557c9dcaadea97c34d79bf7b6af07aa9d760e5dd1aabf78a45fb39e072c3a',
+    },
+    valid_after: {
+      cl_type: 'U256',
+      parsed: '1779801980',
+    },
+    valid_before: {
+      cl_type: 'U256',
+      parsed: '1779802640',
+    },
+  },
+  payment_amount: '14000000000',
+  refund_amount: '6383901551',
+  cost: '14000000000',
+  consumed_gas: '5488131265',
+  error_message: null,
+  status: 'processed',
+  timestamp: '2026-05-26T13:36:20Z',
+  rate: 0.00290423,
+  account_info: null,
+  centralized_account_info: {
+    account_hash:
+      '81d557c9dcaadea97c34d79bf7b6af07aa9d760e5dd1aabf78a45fb39e072c3a',
+    avatar_url:
+      'https://casper-assets.s3.amazonaws.com/accounts/x402-facilitator.png',
+    name: 'x402 Facilitator (CSPR.cloud)',
+    url: 'https://cspr.build/cspr-cloud/#x402',
+  },
+  contract_package: {
+    contract_package_hash:
+      '9cb429cc8b28384935308571b1c903087ec8e4b32f212040e5d9d6132068bd29',
+    owner_public_key:
+      '0203c2049f9e36c843be29376f017d0a00d7b08f0369d71d2439488b0f4887ba9b4c',
+    owner_hash:
+      '53280c6857d1d8bbeec6b7c77ff51e28cbd8948962dc46f6bbd6dce38acfb57d',
+    name: 'xtest2',
+    description: null,
+    metadata: {
+      balances_uref:
+        'uref-79e4fc56958bd27daccb3c8d417f3d9f57c7203f57e5a2353c4c9c608f1be276-007',
+      decimals: 2,
+      name: 'xtest2',
+      symbol: 'XTEST2',
+      total_supply_uref:
+        'uref-837b57978d1fda1a7bf2d73dd0afdcacae81eccc6876e8ba39b1e9b688611296-007',
+    },
+    latest_version_contract_type_id: 2,
+    timestamp: '2026-05-26T13:20:38Z',
+    icon_url: null,
+    website_url: null,
+    coingecko_id: null,
+    latest_version_contract_hash: null,
+    account_info: null,
+    centralized_account_info: null,
+    coingecko_data: null,
+    friendlymarket_data: null,
+    csprtrade_data: null,
+    token_market_data: null,
+  },
+  contract: {
+    block_height: 7972827,
+    contract_hash:
+      '30fd09d521a39f015cae4a7f6c7c4d2d7af933816874edf5413b0c5cf266c46d',
+    contract_package_hash:
+      '9cb429cc8b28384935308571b1c903087ec8e4b32f212040e5d9d6132068bd29',
+    contract_type_id: 2,
+    contract_version: 1,
+    deploy_hash:
+      '07c14ce9d60c41820f98eadfaf2f5f2ac802c1a626aeddc65d4b8aa436a9d71f',
+    is_disabled: false,
+    major_protocol_version: 2,
+    timestamp: '2026-05-26T13:20:38Z',
+  },
+  contract_entrypoint: {
+    action_type_id: null,
+    contract_hash:
+      '30fd09d521a39f015cae4a7f6c7c4d2d7af933816874edf5413b0c5cf266c46d',
+    contract_package_hash:
+      '9cb429cc8b28384935308571b1c903087ec8e4b32f212040e5d9d6132068bd29',
+    id: 2704737,
+    name: 'transfer_with_authorization',
+  },
+  caller_cspr_name: null,
+  transfers: null,
+  nft_token_actions: null,
+  ft_token_actions: [
+    {
+      block_height: 7972944,
+      contract_package_hash:
+        '9cb429cc8b28384935308571b1c903087ec8e4b32f212040e5d9d6132068bd29',
+      transform_idx: 14,
+      from_type: 0,
+      from_hash:
+        '313d2a19e961f0f8ab3ca595daa0511aa2b82acd8df6d1642dc80d3c7ca49977',
+      to_type: 0,
+      to_hash:
+        '81d557c9dcaadea97c34d79bf7b6af07aa9d760e5dd1aabf78a45fb39e072c3a',
+      ft_action_type_id: 2,
+      amount: '10000',
+      timestamp: null,
+      rate: null,
+      from_public_key:
+        '02025ac4f5a299662a8e2adc678db6e1f90a41c04fc24d2b434827c2648074aa5cf8',
+      to_public_key:
+        '0202b2d69e2e66d9858ae7b19bfe802135ae93658146e48e1f8e1f762e00032a3449',
+      from_account_info: null,
+      to_account_info: null,
+      caller_account_info: null,
+      from_centralized_account_info: null,
+      to_centralized_account_info: {
+        account_hash:
+          '81d557c9dcaadea97c34d79bf7b6af07aa9d760e5dd1aabf78a45fb39e072c3a',
+        avatar_url:
+          'https://casper-assets.s3.amazonaws.com/accounts/x402-facilitator.png',
+        name: 'x402 Facilitator (CSPR.cloud)',
+        url: 'https://cspr.build/cspr-cloud/#x402',
+      },
+      caller_centralized_account_info: null,
+      contract_package: {
+        contract_package_hash:
+          '9cb429cc8b28384935308571b1c903087ec8e4b32f212040e5d9d6132068bd29',
+        owner_public_key:
+          '0203c2049f9e36c843be29376f017d0a00d7b08f0369d71d2439488b0f4887ba9b4c',
+        owner_hash:
+          '53280c6857d1d8bbeec6b7c77ff51e28cbd8948962dc46f6bbd6dce38acfb57d',
+        name: 'xtest2',
+        description: null,
+        metadata: {
+          balances_uref:
+            'uref-79e4fc56958bd27daccb3c8d417f3d9f57c7203f57e5a2353c4c9c608f1be276-007',
+          decimals: 2,
+          name: 'xtest2',
+          symbol: 'XTEST2',
+          total_supply_uref:
+            'uref-837b57978d1fda1a7bf2d73dd0afdcacae81eccc6876e8ba39b1e9b688611296-007',
+        },
+        latest_version_contract_type_id: 2,
+        timestamp: '2026-05-26T13:20:38Z',
+        icon_url: null,
+        website_url: null,
+        coingecko_id: null,
+        latest_version_contract_hash: null,
+        account_info: null,
+        centralized_account_info: null,
+        coingecko_data: null,
+        friendlymarket_data: null,
+        csprtrade_data: null,
+        token_market_data: null,
+      },
+      deploy: null,
+      from_cspr_name: null,
+      to_cspr_name: null,
+    },
+  ],
+};

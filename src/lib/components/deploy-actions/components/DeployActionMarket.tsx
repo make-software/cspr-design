@@ -13,6 +13,7 @@ import BodyText from '../../body-text/body-text';
 import Link from '../../link/link';
 import { guardedDeriveSplitDataFromArguments } from '../../../utils/deploy-args';
 import Address from '../../address/address';
+import { CLTypeUInt256, CLValueParser } from 'casper-js-sdk';
 
 const marketActionNameMap = {
   [CsprMarketEntryPoint.delist_token]: 'Delist',
@@ -20,21 +21,50 @@ const marketActionNameMap = {
   [CsprMarketEntryPoint.accept_offer]: 'Accept offer',
   [CsprMarketEntryPoint.cancel_offer]: 'Cancel offer',
   [CsprMarketEntryPoint.make_offer]: 'Make offer',
+  [CsprMarketEntryPoint.buy_token]: 'Buy token',
+};
+
+const parseUInt256Bytes = (value: Array<any> | string): string | null => {
+  if (!Array.isArray(value)) return value;
+
+  try {
+    const { result } = CLValueParser.fromBytesByType(
+      Uint8Array.from(value),
+      CLTypeUInt256,
+    );
+    return result.toString();
+  } catch (e) {
+    console.error(
+      'Failed to parse UInt256 bytes. Parsing failed and this likely indicates an invalid token key value',
+      e,
+    );
+    return null;
+  }
 };
 
 const getNftTokenIdsFromArguments = (args) => {
-  const hasTokens = args.tokens?.parsed || args.token_id?.parsed;
-  if (hasTokens) {
-    const tokens = args.tokens?.parsed
-      ? args.tokens.parsed.map((token) =>
-          typeof token === 'string' ? token : token.key,
-        )
-      : [];
-    const ids = [...tokens, args.token_id?.parsed].filter(isNonNullable);
+  const tokensParsed = args.tokens?.parsed;
+  const tokenIdParsed = args.token_id?.parsed;
 
-    return [...new Set(ids)];
+  if (!tokensParsed && !tokenIdParsed) {
+    return null;
   }
-  return null;
+
+  const normalizeToken = (token: { key: string | any[] } | string) => {
+    if (typeof token === 'string') return token;
+    if (Array.isArray(token?.key)) return parseUInt256Bytes(token.key);
+    return token?.key;
+  };
+
+  const tokens: (string | null)[] = Array.isArray(tokensParsed)
+    ? tokensParsed.map(normalizeToken)
+    : [];
+
+  const tokenId = parseUInt256Bytes(tokenIdParsed);
+
+  const ids = [...tokens, tokenId].filter(isNonNullable);
+
+  return [...new Set(ids)];
 };
 
 const MarketContractIdentifier = ({
@@ -214,6 +244,56 @@ const ListMarketAction = ({
   );
 };
 
+const BuyTokenAction = ({
+  deploy,
+  collectionHash,
+  nftTokenIds,
+}: {
+  deploy: Deploy;
+  collectionHash: string;
+  nftTokenIds: string[] | null;
+}) => {
+  const { entryPoint, contractPackage, args, timeTransactionCurrencyRate } =
+    deploy;
+  const { csprLiveDomainPath, getContractPackageInfoByHash } =
+    useDeployActionDataContext();
+  const amount = args?.amount?.parsed || (args?.amount as string);
+  return (
+    <FlexRow align={'center'} itemsSpacing={8}>
+      <BodyText monotype size={3} wordBreak noWrap variation={'black'}>
+        {marketActionNameMap[entryPoint?.name || '']}
+      </BodyText>
+      {collectionHash && (
+        <NftCollectionIdentifier
+          contractPackage={getContractPackageInfoByHash(collectionHash)}
+          path={`${csprLiveDomainPath}/contract-package/${collectionHash}`}
+        />
+      )}
+      <NftTokenIds
+        nftTokenIds={nftTokenIds}
+        collectionHash={collectionHash}
+        csprLiveDomainPath={csprLiveDomainPath}
+      />
+      <BodyText size={3} variation={'darkGray'}>
+        for
+      </BodyText>
+      {amount && (
+        <CsprAmountWithFiat
+          amount={amount.toString()}
+          rate={timeTransactionCurrencyRate}
+        />
+      )}
+      <BodyText size={3} variation={'darkGray'}>
+        on
+      </BodyText>
+      <MarketContractIdentifier
+        contractPackage={contractPackage}
+        path={`${csprLiveDomainPath}/contract-package/${contractPackage.contract_package_hash}`}
+      />
+    </FlexRow>
+  );
+};
+
 const DefaultMarketAction = ({ deploy }: { deploy: Deploy }) => {
   const { entryPoint, contractPackage } = deploy;
   const { csprLiveDomainPath } = useDeployActionDataContext();
@@ -238,10 +318,9 @@ const DeployActionMarket = ({ deploy }: { deploy: Deploy }) => {
 
   const entryPointName = entryPoint?.name || '';
 
-  const collectionHash = guardedDeriveSplitDataFromArguments(
-    args.collection,
-    'Hash',
-  );
+  const collectionHash = args.collection?.parsed
+    ? guardedDeriveSplitDataFromArguments(args.collection, 'Hash')?.hash
+    : args.collection;
 
   const isOfferAction =
     entryPointName === CsprMarketEntryPoint.accept_offer ||
@@ -252,13 +331,15 @@ const DeployActionMarket = ({ deploy }: { deploy: Deploy }) => {
     entryPointName === CsprMarketEntryPoint.delist_token ||
     entryPointName === CsprMarketEntryPoint.list_token;
 
+  const isBuyAction = entryPointName === CsprMarketEntryPoint.buy_token;
+
   const nftTokenIds = getNftTokenIdsFromArguments(deploy.args);
 
   if (isOfferAction && collectionHash) {
     return (
       <OfferMarketAction
         deploy={deploy}
-        collectionHash={collectionHash?.hash}
+        collectionHash={collectionHash}
         nftTokenIds={nftTokenIds}
       />
     );
@@ -268,7 +349,17 @@ const DeployActionMarket = ({ deploy }: { deploy: Deploy }) => {
     return (
       <ListMarketAction
         deploy={deploy}
-        collectionHash={collectionHash?.hash}
+        collectionHash={collectionHash}
+        nftTokenIds={nftTokenIds}
+      />
+    );
+  }
+
+  if (isBuyAction && collectionHash) {
+    return (
+      <BuyTokenAction
+        deploy={deploy}
+        collectionHash={collectionHash}
         nftTokenIds={nftTokenIds}
       />
     );

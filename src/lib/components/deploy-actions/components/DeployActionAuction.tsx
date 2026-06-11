@@ -4,7 +4,7 @@ import { deriveAccountInfo } from '../../../utils/account.tsx';
 import { useMatchMedia } from '../../../utils/match-media';
 import CsprAmountWithFiat from '../../cspr-amount-with-fiat/cspr-amount-with-fiat';
 import { useDeployActionDataContext } from '../services/deploy-action-context';
-import {AuctionContractIcon} from '../../../icons-index';
+import { AuctionContractIcon } from '../../../icons-index';
 import FlexRow from '../../flex-row/flex-row';
 import Avatar from '../../avatar/avatar';
 import BodyText from '../../body-text/body-text';
@@ -50,13 +50,22 @@ const AuctionContractIdentifier = ({
   );
 };
 
-const ValidatorAccountInfo = ({ publicKey, prefix, avatarSize }) => {
-  const { getAccountInfo, csprLiveDomainPath } = useDeployActionDataContext();
-    const accountAvatarSize: AvatarProps['size'] =
-        avatarSize == undefined
-            ? useMatchMedia(['small', 'default'], [])
-            : avatarSize;
+interface ValidatorAccountInfoProps {
+  publicKey: string | null;
+  prefix: string;
+  avatarSize?: AvatarProps['size'];
+}
 
+const ValidatorAccountInfo = ({
+  publicKey,
+  prefix,
+  avatarSize,
+}: ValidatorAccountInfoProps) => {
+  const { getAccountInfo, csprLiveDomainPath } = useDeployActionDataContext();
+  const accountAvatarSize: AvatarProps['size'] =
+    avatarSize == undefined
+      ? useMatchMedia(['small', 'default'], [])
+      : avatarSize;
   const accountInfo = getAccountInfo(publicKey);
   const validatorAccountInfo = deriveAccountInfo(
     accountInfo?.account_info || accountInfo?.centralized_account_info,
@@ -142,7 +151,10 @@ const DelegationAuctionAction = ({ deploy }: { deploy: Deploy }) => {
         {auctionActionNameMap[entryPoint?.name || '']}
       </BodyText>
       {amount && (
-        <CsprAmountWithFiat amount={amount} rate={timeTransactionCurrencyRate} />
+        <CsprAmountWithFiat
+          amount={amount}
+          rate={timeTransactionCurrencyRate}
+        />
       )}
       <ValidatorAccountInfo
         publicKey={args.validator?.parsed as string}
