@@ -38,15 +38,15 @@ export const Cep18ActionRow = ({
   actionName,
   prefix,
   senderPrefix,
+  to_account_info,
+  from_account_info,
+  to_centralized_account_info,
+  from_centralized_account_info,
 }: Cep18ActionRowProps) => {
   const { getAccountInfo, getContractPackageInfoByHash, csprLiveDomainPath } =
     useDeployActionDataContext();
-  const fromAccountInfo = getAccountInfo(
-    from_public_key || from_hash || '',
-  );
-  const toAccountInfo = getAccountInfo(
-    to_public_key || to_hash || '',
-  );
+  const fromAccountInfo = getAccountInfo(from_public_key || from_hash || '');
+  const toAccountInfo = getAccountInfo(to_public_key || to_hash || '');
 
   return (
     <FlexRow align={'center'} itemsSpacing={8}>
@@ -94,9 +94,13 @@ export const Cep18ActionRow = ({
             accountInfo={
               fromAccountInfo?.account_info ||
               fromAccountInfo?.centralized_account_info ||
+              from_centralized_account_info ||
+              from_account_info ||
               undefined
             }
-            contractPackage={getContractPackageInfoByHash(from_hash) ?? undefined}
+            contractPackage={
+              getContractPackageInfoByHash(from_hash) ?? undefined
+            }
             csprName={fromAccountInfo?.cspr_name}
             publicKey={from_public_key}
             hashFontSize={'sm'}
@@ -117,6 +121,8 @@ export const Cep18ActionRow = ({
             accountInfo={
               toAccountInfo?.account_info ||
               toAccountInfo?.centralized_account_info ||
+              to_centralized_account_info ||
+              to_account_info ||
               undefined
             }
             contractPackage={getContractPackageInfoByHash(to_hash) ?? undefined}

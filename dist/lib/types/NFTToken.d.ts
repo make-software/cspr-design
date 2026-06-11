@@ -44,7 +44,8 @@ export declare enum CsprMarketEntryPoint {
     list_token = "list_token",
     accept_offer = "accept_offer",
     cancel_offer = "cancel_offer",
-    make_offer = "make_offer"
+    make_offer = "make_offer",
+    buy_token = "buy_token"
 }
 export interface NFTTokenMetadata {
     name?: string;

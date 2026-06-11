@@ -29,7 +29,12 @@ export const NftTokenId = ({ token_id, path }) => {
   );
 
   return token_id.length > MIN_TRUNCATE_HASH_LENGTH ? (
-    <Tooltip tooltipContent={token_id} scale={'xs'} lineHeight={'xs'}>
+    <Tooltip
+      tooltipContent={token_id}
+      scale={'xs'}
+      lineHeight={'xs'}
+      caption={'Token ID'}
+    >
       {tokenIdContent}
     </Tooltip>
   ) : (

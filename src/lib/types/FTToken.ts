@@ -103,6 +103,7 @@ export enum FTEntryPointType {
   mint = 'mint',
   burn = 'burn',
   transfer = 'transfer',
+  transfer_with_authorization = 'transfer_with_authorization',
 }
 
 export interface FTTokenOwnerResult {

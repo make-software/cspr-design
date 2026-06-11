@@ -4,10 +4,16 @@ import { deriveSplitDataFromNamedKeyValue } from '../../../utils/named-key';
 import FlexRow from '../../flex-row/flex-row';
 import BodyText from '../../body-text/body-text';
 import { ContractIdentifier } from '../../contract-identifier/contract-identifier';
+import { isObject } from '../../../utils/guards';
 
 const DeployActionCsprFun = ({ deploy }) => {
-  const contractHash = deploy.args.token_to_trade_contract_hash_key.parsed;
-  const { hash } = deriveSplitDataFromNamedKeyValue(contractHash);
+  const contractHash = isObject(
+    deploy.args.token_to_trade_contract_hash_key.parsed,
+  )
+    ? deploy.args.token_to_trade_contract_hash_key.parsed?.Hash
+    : deploy.args.token_to_trade_contract_hash_key.parsed;
+
+  const { hash } = deriveSplitDataFromNamedKeyValue(contractHash || '');
   const { getContractInfoByHash, csprLiveDomainPath } =
     useDeployActionDataContext();
 

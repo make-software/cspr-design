@@ -4,12 +4,18 @@ import BodyText from '../../body-text/body-text';
 import { Deploy } from '../../../types/types';
 import { useDeployActionDataContext } from '../services/deploy-action-context';
 import { ContractIdentifier } from '../../contract-identifier/contract-identifier';
+import { HashLength } from '../../../utils/formatters';
+import { useMatchMedia } from '../../../utils/match-media';
 
 const DeployActionDefault = ({ deploy }: { deploy: Deploy }) => {
   const { csprLiveDomainPath } = useDeployActionDataContext();
+  const responsiveHashSize = useMatchMedia(
+    [HashLength.TINY, HashLength.TINY, HashLength.FULL, HashLength.FULL],
+    [],
+  );
   return (
     <FlexRow align={'center'} itemsSpacing={8}>
-      <BodyText monotype size={3} wordBreak noWrap variation={'black'}>
+      <BodyText monotype size={3} wordBreak variation={'black'}>
         {deploy.entryPoint?.name}
       </BodyText>
       <BodyText variation={'darkGray'} size={3}>
@@ -20,6 +26,7 @@ const DeployActionDefault = ({ deploy }: { deploy: Deploy }) => {
         contractPackage={deploy.contractPackage}
         avatarSize={'small'}
         hashFontSize={'sm'}
+        hashLength={responsiveHashSize}
         path={`${csprLiveDomainPath}/contract-package/${deploy.contractPackage.contract_package_hash}`}
       />
     </FlexRow>

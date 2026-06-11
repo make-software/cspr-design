@@ -3,12 +3,13 @@ export interface SplitDataType {
   hash: string;
 }
 
-export const prefixOnlyRegExp = new RegExp(`(?:(entity-)?contract(?:-package)?|account-hash|dictionary|withdraw|balance|deploy|uref|hash|era|bid)-(?=[0-9a-fA-F])`,
-  'gi'
+export const prefixOnlyRegExp = new RegExp(
+  `(?:(entity-)?contract(?:-package)?|account-hash|dictionary|withdraw|balance|deploy|uref|hash|era|bid)-(?=[0-9a-fA-F])`,
+  'gi',
 );
 
 export const deriveSplitDataFromNamedKeyValue = (
-    namedKeyValue: string
+  namedKeyValue: string,
 ): SplitDataType => {
   const match = namedKeyValue.match(prefixOnlyRegExp);
   const prefix = match ? match[0] : '';

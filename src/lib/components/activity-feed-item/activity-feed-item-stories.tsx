@@ -4,6 +4,7 @@ import { Meta, StoryFn } from '@storybook/react';
 import {
   associatedKeysDeploy,
   auctionDeploy,
+  buyMarketDeploy,
   cep18Deploy,
   csprFunDeploy,
   csprMarketDeploy,
@@ -13,6 +14,7 @@ import {
   mockedContractPackageInfos,
   nftDeploy,
   transferDeploy,
+  x402Deploy,
 } from '../deploy-actions/storybook/mockedDeploys';
 import { ActivityFeedItem } from './activity-feed-item';
 import FlexColumn from '../flex-column/flex-column';
@@ -30,6 +32,8 @@ export default {
       native_transfer_contract_hash: 'native_transfer_contract_hash',
       auction_manager_contract_hash: 'auction_manager_contract_hash',
       associated_keys_contract_hash: 'associated_keys_contract_hash',
+      cspr_market_v1_contract_package_hash:
+        'cspr_market_v1_contract_package_hash',
       cspr_market_contract_package_hash: 'cspr_market_contract_package_hash',
     },
     getAccountInfo: (hash) =>
@@ -84,6 +88,12 @@ const exampleComponents = [
     ),
   },
   {
+    templateLabel: 'Buy cspr market action feed item:',
+    renderComponent: (args) => (
+      <ActivityFeedItem {...args} deploy={MapDeploy(buyMarketDeploy)} />
+    ),
+  },
+  {
     templateLabel: 'CEP-18 action feed item:',
     renderComponent: (args) => (
       <ActivityFeedItem {...args} deploy={MapDeploy(cep18Deploy)} />
@@ -93,6 +103,12 @@ const exampleComponents = [
     templateLabel: 'Nft action feed item:',
     renderComponent: (args) => (
       <ActivityFeedItem {...args} deploy={MapDeploy(nftDeploy)} />
+    ),
+  },
+  {
+    templateLabel: 'x402 action feed item:',
+    renderComponent: (args) => (
+      <ActivityFeedItem {...args} deploy={MapDeploy(x402Deploy)} />
     ),
   },
 ];

@@ -26,11 +26,12 @@ import {
   GetDeployResult,
 } from '../../types/types';
 import { Transaction } from 'casper-js-sdk';
-import {getWasmProxyArgumentsFromRawData} from "../../utils/deploy-action-helpers";
+import { getWasmProxyArgumentsFromRawData } from '../../utils/deploy-action-helpers';
 
 export type ActionIdentificationHashesType = {
   auction_manager_contract_hash?: string;
   associated_keys_contract_hash?: string;
+  cspr_market_v1_contract_package_hash?: string;
   cspr_market_contract_package_hash?: string;
   auction_pool_account_hash?: string;
   native_transfer_contract_hash?: string;
@@ -38,7 +39,10 @@ export type ActionIdentificationHashesType = {
 
 export interface DeployActionRowComponentProps {
   deploy: Deploy;
-  deployRawData?: DataResponse< GetDeployResult & {api_version: string} > | undefined | null;
+  deployRawData?:
+    | DataResponse<GetDeployResult & { api_version: string }>
+    | undefined
+    | null;
   loading: boolean;
   actionIdentificationHashes: ActionIdentificationHashesType;
 }
@@ -147,10 +151,13 @@ export const DeployActionRowComponent = ({
     );
   }
 
-  if (
+  const isMarketAction =
     contractPackageHash ===
-    actionIdentificationHashes.cspr_market_contract_package_hash
-  ) {
+      actionIdentificationHashes.cspr_market_v1_contract_package_hash ||
+    contractPackageHash ===
+      actionIdentificationHashes.cspr_market_contract_package_hash;
+
+  if (isMarketAction) {
     return <DeployActionMarket deploy={deployWithConvertedArgs} />;
   }
 

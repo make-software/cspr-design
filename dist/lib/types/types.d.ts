@@ -146,7 +146,7 @@ export type DeployClTypeResult = {
     parsed: CLTypeParsedResult | string | null;
 };
 export type DeployArgsResult = {
-    amount?: DeployClTypeResult;
+    amount?: DeployClTypeResult | string;
     spender?: DeployClTypeResult;
     bsc_recipient_address?: DeployClTypeResult;
     contract_hash_str?: DeployClTypeResult;

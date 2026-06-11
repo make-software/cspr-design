@@ -5,7 +5,7 @@ import {
   guardedDeriveSplitDataFromArguments,
 } from '../../../utils/deploy-args';
 import { NftTokenEntryPoint } from '../../../types/NFTToken';
-import {NamedKeyPrefix} from "../../../utils/named-key-prefix";
+import { NamedKeyPrefix } from '../../../utils/named-key-prefix';
 
 export interface MessageDataAccount {
   accountHash?: string;
@@ -44,12 +44,14 @@ const getCep18TransactorsDataFromArgs = (args) => {
   );
   const ownerHash = guardedDeriveSplitDataFromArguments(args.owner, 'Account');
   const spenderHash = guardedDeriveSplitDataFromArguments(args.spender, 'Hash');
+  const toAccountHash = guardedDeriveSplitDataFromArguments(args.to, 'Account');
 
   return {
     recipientHash,
     recipientAccountHash,
     ownerHash,
     spenderHash,
+    toAccountHash,
   };
 };
 
@@ -66,10 +68,12 @@ export const prepareFtActionMessageDataForDeployDetails = (
     [FTEntryPointType.approve]: 'Approve transfer rights',
     [FTEntryPointType.burn]: 'Burn',
     [FTEntryPointType.mint]: 'Mint',
+    [FTEntryPointType.transfer_with_authorization]: 'Authorized transfer',
   };
 
   const contractPrefixesMap = {
     [FTEntryPointType.transfer]: 'of',
+    [FTEntryPointType.transfer_with_authorization]: 'of',
     [FTEntryPointType.burn]: 'of',
     [FTEntryPointType.mint]: 'of',
     [FTEntryPointType.approve]: 'for',
@@ -77,18 +81,30 @@ export const prepareFtActionMessageDataForDeployDetails = (
 
   const senderPrefixesMap = {
     [FTEntryPointType.transfer]: 'from',
+    [FTEntryPointType.transfer_with_authorization]: 'from',
+
     [FTEntryPointType.burn]: 'owned by',
     [FTEntryPointType.mint]: 'to',
     [FTEntryPointType.approve]: 'to',
   };
 
-  const { recipientHash, recipientAccountHash, ownerHash, spenderHash } =
-    getCep18TransactorsDataFromArgs(args);
-
+  const {
+    recipientHash,
+    recipientAccountHash,
+    ownerHash,
+    spenderHash,
+    toAccountHash,
+  } = getCep18TransactorsDataFromArgs(args);
+  const hasTransactorHashInArgs =
+    recipientHash ||
+    recipientAccountHash ||
+    ownerHash ||
+    spenderHash ||
+    toAccountHash;
   if (
     actionName[entryPointName] === undefined ||
     !amount ||
-    !(recipientHash || recipientAccountHash || ownerHash || spenderHash)
+    !hasTransactorHashInArgs
   ) {
     return null;
   }
@@ -97,7 +113,8 @@ export const prepareFtActionMessageDataForDeployDetails = (
   const senderPrefix = senderPrefixesMap[entryPointName];
   const contractPrefix = contractPrefixesMap[entryPointName];
 
-  const isTransactorAccount = (transactor) => transactor?.prefix === NamedKeyPrefix.ACCOUNT_HASH
+  const isTransactorAccount = (transactor) =>
+    transactor?.prefix === NamedKeyPrefix.ACCOUNT_HASH;
 
   const actionOutcome: Partial<MessageData> = {
     amount,
@@ -111,12 +128,25 @@ export const prepareFtActionMessageDataForDeployDetails = (
         hashType: TransactorHashType.account,
       },
     }),
+    ...(toAccountHash?.hash && {
+      prefix2: 'to',
+      account2: {
+        hash: toAccountHash?.hash,
+        publicKey:
+          toAccountHash?.hash && getPublicKeyByAccountHash(toAccountHash.hash),
+        hashType: TransactorHashType.account,
+      },
+    }),
     ...(spenderHash?.hash && {
       prefix1: senderPrefix,
       account1: {
         hash: spenderHash?.hash,
-        publicKey: isTransactorAccount(spenderHash) ? spenderHash?.hash && getPublicKeyByAccountHash(spenderHash.hash) : null,
-        hashType:  isTransactorAccount(spenderHash) ?  TransactorHashType.account : TransactorHashType.hash
+        publicKey: isTransactorAccount(spenderHash)
+          ? spenderHash?.hash && getPublicKeyByAccountHash(spenderHash.hash)
+          : null,
+        hashType: isTransactorAccount(spenderHash)
+          ? TransactorHashType.account
+          : TransactorHashType.hash,
       },
     }),
     // here could be a case when recipientAccountHash and recipientHash are both present
