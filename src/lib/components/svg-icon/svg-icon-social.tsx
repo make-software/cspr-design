@@ -81,11 +81,14 @@ export type SocialMediaType =
   | 'linkedin'
   | 'website';
 
-/* eslint-disable-next-line */
-export interface SvgIconSocialProps extends BaseProps {
-  socialMediaType: SocialMediaType;
-  userId: string;
-}
+export type SvgIconSocialProps = BaseProps &
+  Omit<
+    React.AnchorHTMLAttributes<HTMLAnchorElement>,
+    keyof BaseProps | 'href' | 'color'
+  > & {
+    socialMediaType: SocialMediaType;
+    userId: string;
+  };
 
 const Container = styled(Link)<Omit<SvgIconSocialProps, 'userId'>>(
   ({ theme, socialMediaType: type }) => ({
@@ -111,19 +114,25 @@ const Container = styled(Link)<Omit<SvgIconSocialProps, 'userId'>>(
 export const SvgIconSocial = React.forwardRef<
   HTMLAnchorElement,
   SvgIconSocialProps
->(({ socialMediaType: type, userId, ...props }: SvgIconSocialProps, ref) => {
-  return (
-    <Container
-      ref={ref}
-      color="inherit"
-      socialMediaType={type}
-      href={getSocialMediaUrl(type, userId)}
-      {...props}
-      aria-label={`Go to ${type}`}
-    >
-      <SvgIcon src={getMediaLogo[type]} alt={type} />
-    </Container>
-  );
-});
+>(
+  (
+    { socialMediaType: type, userId, rel, ...props }: SvgIconSocialProps,
+    ref,
+  ) => {
+    return (
+      <Container
+        ref={ref}
+        color="inherit"
+        socialMediaType={type}
+        href={getSocialMediaUrl(type, userId)}
+        {...props}
+        rel={rel ?? 'noopener'}
+        aria-label={`Go to ${type}`}
+      >
+        <SvgIcon src={getMediaLogo[type]} alt={type} />
+      </Container>
+    );
+  },
+);
 
 export default SvgIconSocial;

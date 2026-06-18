@@ -39800,8 +39800,9 @@ const Bv = be.div.withConfig({
 })), WS = St.forwardRef(({
   socialMediaType: e,
   userId: o,
-  ...g
-}, C) => /* @__PURE__ */ $(zv, { ref: C, color: "inherit", socialMediaType: e, href: Uv(e, o), ...g, "aria-label": `Go to ${e}`, children: /* @__PURE__ */ $(_t, { src: Vv[e], alt: e }) })), Fv = be.div.withConfig({
+  rel: g,
+  ...C
+}, P) => /* @__PURE__ */ $(zv, { ref: P, color: "inherit", socialMediaType: e, href: Uv(e, o), ...C, rel: g ?? "noopener", "aria-label": `Go to ${e}`, children: /* @__PURE__ */ $(_t, { src: Vv[e], alt: e }) })), Fv = be.div.withConfig({
   displayName: "tab-menu-container__StyledWrapper",
   componentId: "sc-9x52i1-0"
 })(({
