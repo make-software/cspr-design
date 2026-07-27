@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import SvgIcon from '../svg-icon/svg-icon';
 import { getImageProxyUrl } from '../../utils/cache-asset';
 import Identicon from '../identicon/identicon.tsx';
-import { Erc20AvatarIcon, HashIcon } from '../../icons-index.ts';
+import { HashIcon } from '../../icons-index.ts';
 import Skeleton from 'react-loading-skeleton';
 
 export const isValidAccountHash = (
@@ -20,7 +20,14 @@ export const isValidAccountHash = (
 export interface AvatarProps<T = any> {
   hash?: string | null;
   src?: string | null;
-  size?: 'default' | 'big' | 'average' | 'medium' | 'small' | 'tiny';
+  size?:
+    | 'default'
+    | 'big'
+    | 'average'
+    | 'semiMedium'
+    | 'medium'
+    | 'small'
+    | 'tiny';
   loading?: boolean;
   transparentBg?: boolean;
   [key: string]: any;
@@ -45,6 +52,7 @@ const getSize = (size: string = 'default'): number => {
     small: 20,
     average: 28,
     default: 32,
+    semiMedium: 56,
     medium: 80,
     big: 124,
   };
@@ -58,6 +66,7 @@ const getBgColor = (size: string = 'default') => {
     small: 'contentTertiary',
     default: 'contentQuaternary',
     average: 'contentQuaternary',
+    semiMedium: 'contentQuaternary',
     medium: 'contentQuaternary',
     big: 'contentQuaternary',
   };
@@ -71,6 +80,7 @@ const getMargin = (size: string = 'default') => {
     small: 0,
     default: 4,
     average: 4,
+    semiMedium: 4,
     medium: 4,
     big: 0,
   };

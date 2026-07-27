@@ -1249,6 +1249,7 @@ const g1 = (e, o, g = 20, C = 5) => {
     small: 20,
     average: 28,
     default: 32,
+    semiMedium: 56,
     medium: 80,
     big: 124
   };
@@ -1259,6 +1260,7 @@ const g1 = (e, o, g = 20, C = 5) => {
     small: "contentTertiary",
     default: "contentQuaternary",
     average: "contentQuaternary",
+    semiMedium: "contentQuaternary",
     medium: "contentQuaternary",
     big: "contentQuaternary"
   };
@@ -1268,6 +1270,7 @@ const g1 = (e, o, g = 20, C = 5) => {
   small: 0,
   default: 4,
   average: 4,
+  semiMedium: 4,
   medium: 4,
   big: 0
 })[e], ma = be.div.withConfig({
