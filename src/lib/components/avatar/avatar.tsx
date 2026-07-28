@@ -39,6 +39,7 @@ const getCornerRadius = (size: string = 'default') => {
     small: 2,
     default: 2,
     average: 4,
+    semiMedium: 12,
     medium: 12,
     big: 12,
   };
