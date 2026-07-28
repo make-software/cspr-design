@@ -1239,7 +1239,7 @@ const g1 = (e, o, g = 20, C = 5) => {
     small: 2,
     default: 2,
     average: 4,
-    semiMedium: 12,
+    semiMedium: 4,
     medium: 12,
     big: 12
   };
