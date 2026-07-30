@@ -16,7 +16,15 @@ const meta = {
       control: { type: 'text' },
     },
     size: {
-      options: ['tiny', 'small', 'default', 'average', 'medium', 'big'],
+      options: [
+        'tiny',
+        'small',
+        'default',
+        'semiMedium',
+        'average',
+        'medium',
+        'big',
+      ],
       control: { type: 'radio' },
     },
     loading: {

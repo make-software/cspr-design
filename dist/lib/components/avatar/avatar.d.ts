@@ -3,7 +3,7 @@ export declare const isValidAccountHash: (accountHash?: string | null) => accoun
 export interface AvatarProps<T = any> {
     hash?: string | null;
     src?: string | null;
-    size?: 'default' | 'big' | 'average' | 'medium' | 'small' | 'tiny';
+    size?: 'default' | 'big' | 'average' | 'semiMedium' | 'medium' | 'small' | 'tiny';
     loading?: boolean;
     transparentBg?: boolean;
     [key: string]: any;
