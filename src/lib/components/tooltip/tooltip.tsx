@@ -30,38 +30,37 @@ export interface TooltipProps extends BaseProps {
 }
 
 const StyledReactTooltip = styled(
-    AriakitTooltip,
+  AriakitTooltip,
 ).withConfig<StyledReactTooltipProps>({
-    shouldForwardProp: (prop) => prop !== 'paddingScale',
+  shouldForwardProp: (prop) => prop !== 'paddingScale',
 })(({ theme, lineHeight = 'sm', scale = 'sm', paddingScale = 2, padding }) => ({
-    zIndex: theme.zIndex.tooltip,
-    color: theme.styleguideColors.contentPrimary,
-    backgroundColor: theme.styleguideColors.backgroundPrimary,
-    borderRadius: theme.borderRadius.base,
-    padding: padding || theme.padding[paddingScale],
-    boxShadow: theme.boxShadow.tooltip,
+  zIndex: theme.zIndex.tooltip,
+  color: theme.styleguideColors.contentPrimary,
+  backgroundColor: theme.styleguideColors.backgroundPrimary,
+  borderRadius: theme.borderRadius.base,
+  padding: padding || theme.padding[paddingScale],
+  boxShadow: theme.boxShadow.tooltip,
 
-    transition: 'opacity 250ms ease-in-out',
-    opacity: 0,
-    fontSize: matchSize(
-      {
-        sm: '1.3rem',
-        xs: '0.8125rem',
-      },
-      scale,
-    ),
-    lineHeight: matchSize(
-      {
-        sm: '1.5rem',
-        xs: '1.25rem',
-      },
-      lineHeight,
-    ),
-    '&[data-enter]': {
-      opacity: 1,
+  transition: 'opacity 250ms ease-in-out',
+  opacity: 0,
+  fontSize: matchSize(
+    {
+      sm: '1.3rem',
+      xs: '0.8125rem',
     },
-  }),
-);
+    scale,
+  ),
+  lineHeight: matchSize(
+    {
+      sm: '1.5rem',
+      xs: '1.25rem',
+    },
+    lineHeight,
+  ),
+  '&[data-enter]': {
+    opacity: 1,
+  },
+}));
 
 export const Tooltip = React.forwardRef<
   Ref,
@@ -113,7 +112,14 @@ export const Tooltip = React.forwardRef<
               .join(' '),
           })}
         />
-        <StyledReactTooltip paddingScale={paddingScale} padding={padding} store={tooltip} ref={ref} {...props} id={tooltipId}>
+        <StyledReactTooltip
+          paddingScale={paddingScale}
+          padding={padding}
+          store={tooltip}
+          ref={ref}
+          {...props}
+          id={tooltipId}
+        >
           <div style={{ maxWidth }}>
             <FlexColumn itemsSpacing={8}>
               <FlexColumn>

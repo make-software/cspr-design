@@ -20,6 +20,9 @@ test('keyboard description, Escape, ref/event composition, focus leaves normally
     'aria-describedby',
     (await tip.getAttribute('id')) as string,
   );
+  await expect(button).toHaveAccessibleDescription(
+    'Caption Wallet details Additional details',
+  );
   await expect(page.getByTestId('container').getByRole('tooltip')).toHaveCount(
     0,
   );

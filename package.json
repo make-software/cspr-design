@@ -23,6 +23,7 @@
   },
   "scripts": {
     "test": "vitest run",
+    "test:consumer": "node tests/consumer.mjs",
     "test:browser": "npm run build:dist && playwright test",
     "build:dist": "npm run reexport-icons && vite build && npm run copy-assets-vite",
     "copy-assets-vite": "shx cp -r src/lib/assets/ dist/",
