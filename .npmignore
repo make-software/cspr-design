@@ -8,3 +8,9 @@
 /.prettierrc
 /globals.d.ts
 /tsconfig.json
+/tests/
+/vitest.config.ts
+/playwright.config.ts
+/test-results/
+/playwright-report/
+/.verification/

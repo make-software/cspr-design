@@ -1,9 +1,9 @@
 import React from 'react';
 import {
-  Tooltip as ReakitTooltip,
-  TooltipReference,
-  useTooltipState,
-} from 'reakit/Tooltip';
+  Tooltip as AriakitTooltip,
+  TooltipAnchor,
+  useTooltipStore,
+} from '@ariakit/react/tooltip';
 import styled from 'styled-components';
 import { BaseProps } from '../../types';
 import BodyText from '../body-text/body-text';
@@ -30,38 +30,37 @@ export interface TooltipProps extends BaseProps {
 }
 
 const StyledReactTooltip = styled(
-    ReakitTooltip,
+  AriakitTooltip,
 ).withConfig<StyledReactTooltipProps>({
-    shouldForwardProp: (prop) => prop !== 'paddingScale',
+  shouldForwardProp: (prop) => prop !== 'paddingScale',
 })(({ theme, lineHeight = 'sm', scale = 'sm', paddingScale = 2, padding }) => ({
-    zIndex: theme.zIndex.tooltip,
-    color: theme.styleguideColors.contentPrimary,
-    backgroundColor: theme.styleguideColors.backgroundPrimary,
-    borderRadius: theme.borderRadius.base,
-    padding: padding || theme.padding[paddingScale],
-    boxShadow: theme.boxShadow.tooltip,
+  zIndex: theme.zIndex.tooltip,
+  color: theme.styleguideColors.contentPrimary,
+  backgroundColor: theme.styleguideColors.backgroundPrimary,
+  borderRadius: theme.borderRadius.base,
+  padding: padding || theme.padding[paddingScale],
+  boxShadow: theme.boxShadow.tooltip,
 
-    transition: 'opacity 250ms ease-in-out',
-    opacity: 0,
-    fontSize: matchSize(
-      {
-        sm: '1.3rem',
-        xs: '0.8125rem',
-      },
-      scale,
-    ),
-    lineHeight: matchSize(
-      {
-        sm: '1.5rem',
-        xs: '1.25rem',
-      },
-      lineHeight,
-    ),
-    '&[data-enter]': {
-      opacity: 1,
+  transition: 'opacity 250ms ease-in-out',
+  opacity: 0,
+  fontSize: matchSize(
+    {
+      sm: '1.3rem',
+      xs: '0.8125rem',
     },
-  }),
-);
+    scale,
+  ),
+  lineHeight: matchSize(
+    {
+      sm: '1.5rem',
+      xs: '1.25rem',
+    },
+    lineHeight,
+  ),
+  '&[data-enter]': {
+    opacity: 1,
+  },
+}));
 
 export const Tooltip = React.forwardRef<
   Ref,
@@ -83,7 +82,10 @@ export const Tooltip = React.forwardRef<
     },
     ref,
   ) => {
-    const tooltip = useTooltipState({ animated: 250 });
+    // Ariakit derives the animation lifetime from the existing CSS transition.
+    const tooltip = useTooltipStore({ showTimeout: 0 });
+    const generatedId = React.useId();
+    const tooltipId = props.id || generatedId;
     const maxWidth = limitWidth
       ? typeof limitWidth === 'string'
         ? limitWidth
@@ -100,10 +102,24 @@ export const Tooltip = React.forwardRef<
 
     return (
       <>
-        <TooltipReference {...tooltip} ref={children.ref} {...children.props}>
-          {(referenceProps) => React.cloneElement(children, referenceProps)}
-        </TooltipReference>
-        <StyledReactTooltip paddingScale={paddingScale} padding={padding} {...tooltip} {...props}>
+        <TooltipAnchor
+          store={tooltip}
+          render={React.cloneElement(children, {
+            // Modern Ariakit tooltips are visual-only by default. Preserve the
+            // Reakit description contract without replacing the child's name.
+            'aria-describedby': [children.props['aria-describedby'], tooltipId]
+              .filter(Boolean)
+              .join(' '),
+          })}
+        />
+        <StyledReactTooltip
+          paddingScale={paddingScale}
+          padding={padding}
+          store={tooltip}
+          ref={ref}
+          {...props}
+          id={tooltipId}
+        >
           <div style={{ maxWidth }}>
             <FlexColumn itemsSpacing={8}>
               <FlexColumn>
