@@ -19,7 +19,7 @@ export interface StatusMessageProps {
     /** Able to provide any background color or a path to it from theme
      *
      * NOTE: default color will not work in that case */
-    backgroundColor?: string;
+    variant?: 'default' | 'filled';
 }
 export declare const Alert: (props: StatusMessageProps) => import("react/jsx-runtime").JSX.Element;
 export default Alert;

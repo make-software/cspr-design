@@ -30,6 +30,14 @@ const Icons = {
 };
 
 const StatusBackgroundColors = {
+  [AlertStatus.Success]: { color: 'borderPrimary', alpha: 'FF' },
+  [AlertStatus.Info]: { color: 'borderPrimary', alpha: 'FF' },
+  [AlertStatus.Warning]: { color: 'borderPrimary', alpha: 'FF' },
+  [AlertStatus.Error]: { color: 'fillSecondaryRedHover', alpha: 'FF' },
+  [AlertStatus.Pending]: { color: 'fillSecondary', alpha: 'FF' },
+};
+
+const StatusBackgroundColorsTinted = {
   [AlertStatus.Success]: { color: 'contentGreen', alpha: '1A' },
   [AlertStatus.Info]: { color: 'borderPrimary', alpha: 'FF' },
   [AlertStatus.Warning]: { color: 'contentLightYellow', alpha: 'CC' },
@@ -46,9 +54,13 @@ const StatusSvgColors = {
 };
 
 const Container = styled(FlexRow)<
-  Pick<StatusMessageProps, 'status' | 'backgroundColor'>
->(({ theme, status, backgroundColor }) => {
-  const background = StatusBackgroundColors[status];
+  Pick<StatusMessageProps, 'status' | 'variant'>
+>(({ theme, status, variant }) => {
+  const background =
+    variant === 'default'
+      ? StatusBackgroundColors[status]
+      : StatusBackgroundColorsTinted[status];
+
   const calculatedBackgroundColor = background
     ? `${theme.styleguideColors[background.color].slice(0, 7)}${background.alpha}`
     : undefined;
@@ -57,7 +69,7 @@ const Container = styled(FlexRow)<
     minHeight: 52,
     padding: 16,
     borderRadius: theme.borderRadius.base,
-    backgroundColor: backgroundColor || calculatedBackgroundColor,
+    backgroundColor: calculatedBackgroundColor,
     svg: {
       color: theme.styleguideColors[StatusSvgColors[status]],
     },
@@ -77,22 +89,25 @@ export interface StatusMessageProps {
   /** Able to provide any background color or a path to it from theme
    *
    * NOTE: default color will not work in that case */
-  backgroundColor?: string;
+  variant?: 'default' | 'filled';
 }
 
 export const Alert = (props: StatusMessageProps) => {
-  const { message, title, status, scale = 'sm', lineHeight = 'sm' } = props;
+  const {
+    message,
+    title,
+    status,
+    scale = 'sm',
+    lineHeight = 'sm',
+    variant = 'default',
+  } = props;
 
   const iconPath = props.iconSrc ? props.iconSrc : Icons[status];
   const statusAlert = (props.iconSrc ? '' : status) as AlertStatus;
 
   if (title) {
     return (
-      <Container
-        status={statusAlert}
-        itemsSpacing={8}
-        backgroundColor={props.backgroundColor}
-      >
+      <Container status={statusAlert} itemsSpacing={8} variant={variant}>
         <FlexColumn itemsSpacing={8}>
           <FlexRow align={'center'} itemsSpacing={8}>
             <SvgIcon
