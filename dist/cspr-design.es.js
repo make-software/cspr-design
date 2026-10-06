@@ -1157,12 +1157,12 @@ const fy = {
   status: t,
   variant: c
 }) => {
-  const h = c === "default" ? py[t] : hy[t], S = h ? `${e.styleguideColors[h.color].slice(0, 7)}${h.alpha}` : void 0;
+  const h = c === "default" ? py[t] : hy[t], S = h ? e.styleguideColors[h.color] : void 0, g = S && /^#[\da-f]{6}$/i.test(S) ? `${S}${h.alpha ?? ""}` : S;
   return {
     minHeight: 52,
     padding: 16,
     borderRadius: e.borderRadius.base,
-    backgroundColor: S,
+    backgroundColor: g,
     svg: {
       color: e.styleguideColors[yy[t]]
     }
@@ -1182,7 +1182,7 @@ const fy = {
       /* @__PURE__ */ W(Be, { size: 1, lineHeight: g, scale: S, variation: "black", children: c })
     ] }),
     /* @__PURE__ */ W(Be, { variation: "black", size: 3, lineHeight: g, scale: S, children: t })
-  ] }) }) : /* @__PURE__ */ Le(l0, { status: r, align: "center", itemsSpacing: 8, children: [
+  ] }) }) : /* @__PURE__ */ Le(l0, { status: r, align: "center", itemsSpacing: 8, variant: n, children: [
     /* @__PURE__ */ W(vt, { src: s }),
     /* @__PURE__ */ W(Be, { size: 3, lineHeight: g, scale: S, variation: "black", children: t })
   ] });

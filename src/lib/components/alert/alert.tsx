@@ -61,9 +61,13 @@ const Container = styled(FlexRow)<
       ? StatusBackgroundColors[status]
       : StatusBackgroundColorsTinted[status];
 
-  const calculatedBackgroundColor = background
-    ? `${theme.styleguideColors[background.color].slice(0, 7)}${background.alpha}`
+  const color = background
+    ? theme.styleguideColors[background.color]
     : undefined;
+  const calculatedBackgroundColor =
+    color && /^#[\da-f]{6}$/i.test(color)
+      ? `${color}${background.alpha ?? ''}`
+      : color;
 
   return {
     minHeight: 52,
@@ -138,7 +142,12 @@ export const Alert = (props: StatusMessageProps) => {
   }
 
   return (
-    <Container status={statusAlert} align="center" itemsSpacing={8}>
+    <Container
+      status={statusAlert}
+      align="center"
+      itemsSpacing={8}
+      variant={variant}
+    >
       <SvgIcon src={iconPath} />
       <BodyText
         size={3}
