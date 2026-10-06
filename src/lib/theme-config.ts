@@ -100,6 +100,7 @@ export interface ThemeVariationType {
     contentGreen: string;
     contentViolet: string;
     contentYellow: string;
+    contentLightYellow: string;
     contentWarmGreen: string;
     contentLightBlue: string;
   };
@@ -210,6 +211,7 @@ export const themeConfig: ThemeConfigType = {
       contentGreen: '#4CD99A',
       contentViolet: '#A880FF',
       contentYellow: '#E0BB38',
+      contentLightYellow: '#FDF5DA26',
       contentWarmGreen: '#BDD94C',
       contentLightBlue: '#8FA6FF',
     },
@@ -269,6 +271,7 @@ export const themeConfig: ThemeConfigType = {
       contentGreen: '#31DE91',
       contentViolet: '#8B5BF1',
       contentYellow: '#F1BF0B',
+      contentLightYellow: '#FDF5DACC',
       contentWarmGreen: '#BBDE31',
       contentLightBlue: '#375AE9',
     },

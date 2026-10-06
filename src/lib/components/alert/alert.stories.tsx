@@ -29,6 +29,12 @@ const meta = {
       control: { type: 'text' },
       description: 'The message to display in the alert',
     },
+    variant: {
+      control: { type: 'radio' },
+      options: ['default', 'filled'],
+      description:
+        'Able to switch between default and filled variant. Default variant will use the default background color for the status, while filled variant will use the background color provided in the theme.',
+    },
   },
 } satisfies Meta<typeof Alert>;
 
