@@ -45,19 +45,19 @@ const StatusSvgColors = {
   [AlertStatus.Pending]: 'contentLightBlue',
 };
 
-const Container = styled(FlexRow)<Pick<StatusMessageProps, 'status'>>(({
-  theme,
-  status,
-}) => {
+const Container = styled(FlexRow)<
+  Pick<StatusMessageProps, 'status' | 'backgroundColor'>
+>(({ theme, status, backgroundColor }) => {
   const background = StatusBackgroundColors[status];
+  const calculatedBackgroundColor = background
+    ? `${theme.styleguideColors[background.color].slice(0, 7)}${background.alpha}`
+    : undefined;
 
   return {
     minHeight: 52,
     padding: 16,
     borderRadius: theme.borderRadius.base,
-    backgroundColor: background
-      ? `${theme.styleguideColors[background.color].slice(0, 7)}${background.alpha}`
-      : undefined,
+    backgroundColor: backgroundColor || calculatedBackgroundColor,
     svg: {
       color: theme.styleguideColors[StatusSvgColors[status]],
     },
@@ -74,6 +74,10 @@ export interface StatusMessageProps {
    *
    * NOTE: default status icons will not work in that case */
   iconSrc?: string;
+  /** Able to provide any background color or a path to it from theme
+   *
+   * NOTE: default color will not work in that case */
+  backgroundColor?: string;
 }
 
 export const Alert = (props: StatusMessageProps) => {
@@ -84,7 +88,11 @@ export const Alert = (props: StatusMessageProps) => {
 
   if (title) {
     return (
-      <Container status={statusAlert} itemsSpacing={8}>
+      <Container
+        status={statusAlert}
+        itemsSpacing={8}
+        backgroundColor={props.backgroundColor}
+      >
         <FlexColumn itemsSpacing={8}>
           <FlexRow align={'center'} itemsSpacing={8}>
             <SvgIcon

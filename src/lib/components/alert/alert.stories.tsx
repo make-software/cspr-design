@@ -29,6 +29,11 @@ const meta = {
       control: { type: 'text' },
       description: 'The message to display in the alert',
     },
+    backgroundColor: {
+      control: { type: 'color' },
+      description:
+        'Able to provide any background color or a path to it from theme. NOTE: default color will not work in that case',
+    },
   },
 } satisfies Meta<typeof Alert>;
 

@@ -1133,14 +1133,15 @@ const fy = {
   componentId: "sc-h63w8q-0"
 })(({
   theme: e,
-  status: t
+  status: t,
+  backgroundColor: c
 }) => {
-  const c = py[t];
+  const h = py[t], S = h ? `${e.styleguideColors[h.color].slice(0, 7)}${h.alpha}` : void 0;
   return {
     minHeight: 52,
     padding: 16,
     borderRadius: e.borderRadius.base,
-    backgroundColor: c ? `${e.styleguideColors[c.color].slice(0, 7)}${c.alpha}` : void 0,
+    backgroundColor: c || S,
     svg: {
       color: e.styleguideColors[hy[t]]
     }
@@ -1153,7 +1154,7 @@ const fy = {
     scale: S = "sm",
     lineHeight: g = "sm"
   } = e, n = e.iconSrc ? e.iconSrc : fy[h], s = e.iconSrc ? "" : h;
-  return c ? /* @__PURE__ */ W(l0, { status: s, itemsSpacing: 8, children: /* @__PURE__ */ Le(Ht, { itemsSpacing: 8, children: [
+  return c ? /* @__PURE__ */ W(l0, { status: s, itemsSpacing: 8, backgroundColor: e.backgroundColor, children: /* @__PURE__ */ Le(Ht, { itemsSpacing: 8, children: [
     /* @__PURE__ */ Le(je, { align: "center", itemsSpacing: 8, children: [
       /* @__PURE__ */ W(vt, { src: n, alt: `Alert icon with ${s} status` }),
       /* @__PURE__ */ W(Be, { size: 1, lineHeight: g, scale: S, variation: "black", children: c })
