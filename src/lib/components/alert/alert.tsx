@@ -30,12 +30,12 @@ const Icons = {
 };
 
 const StatusBackgroundColors = {
-  [AlertStatus.Success]: 'borderPrimary',
-  [AlertStatus.Info]: 'borderPrimary',
-  [AlertStatus.Warning]: 'borderPrimary',
-  [AlertStatus.Error]: 'fillSecondaryRedHover',
-  [AlertStatus.Pending]: 'fillSecondary',
-};
+  [AlertStatus.Success]: { color: 'contentGreen', alpha: '1A' },
+  [AlertStatus.Info]: { color: 'borderPrimary', alpha: 'FF' },
+  [AlertStatus.Warning]: { color: 'contentLightYellow', alpha: 'CC' },
+  [AlertStatus.Error]: { color: 'borderRed', alpha: '1A' },
+  [AlertStatus.Pending]: { color: 'fillSecondary', alpha: 'FF' },
+} as const;
 
 const StatusSvgColors = {
   [AlertStatus.Success]: 'contentGreen',
@@ -45,17 +45,24 @@ const StatusSvgColors = {
   [AlertStatus.Pending]: 'contentLightBlue',
 };
 
-const Container = styled(FlexRow)<Pick<StatusMessageProps, 'status'>>(
-  ({ theme, status }) => ({
+const Container = styled(FlexRow)<Pick<StatusMessageProps, 'status'>>(({
+  theme,
+  status,
+}) => {
+  const background = StatusBackgroundColors[status];
+
+  return {
     minHeight: 52,
     padding: 16,
     borderRadius: theme.borderRadius.base,
-    backgroundColor: theme.styleguideColors[StatusBackgroundColors[status]],
+    backgroundColor: background
+      ? `${theme.styleguideColors[background.color].slice(0, 7)}${background.alpha}`
+      : undefined,
     svg: {
       color: theme.styleguideColors[StatusSvgColors[status]],
     },
-  }),
-);
+  };
+});
 
 export interface StatusMessageProps {
   title?: React.ReactNode | string;
