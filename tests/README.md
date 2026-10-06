@@ -1,6 +1,6 @@
 # Tooltip migration verification
 
-Use Node 20.19+ or Node 22.12+ (Vite 7), not Node 18.
+Use Node 20.20+ or Node 22.12+ (Vite 7), not Node 18.
 
 ```sh
 npm ci --legacy-peer-deps=false --strict-peer-deps
