@@ -92,6 +92,7 @@ export interface ThemeVariationType {
         contentGreen: string;
         contentViolet: string;
         contentYellow: string;
+        contentLightYellow: string;
         contentWarmGreen: string;
         contentLightBlue: string;
     };

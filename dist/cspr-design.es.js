@@ -1102,11 +1102,26 @@ const fy = {
   error: Ja,
   warning: sy
 }, py = {
-  success: "borderPrimary",
-  info: "borderPrimary",
-  warning: "borderPrimary",
-  error: "fillSecondaryRedHover",
-  pending: "fillSecondary"
+  success: {
+    color: "contentGreen",
+    alpha: "1A"
+  },
+  info: {
+    color: "borderPrimary",
+    alpha: "FF"
+  },
+  warning: {
+    color: "contentLightYellow",
+    alpha: "CC"
+  },
+  error: {
+    color: "borderRed",
+    alpha: "1A"
+  },
+  pending: {
+    color: "fillSecondary",
+    alpha: "FF"
+  }
 }, hy = {
   success: "contentGreen",
   info: "contentSecondary",
@@ -1119,15 +1134,18 @@ const fy = {
 })(({
   theme: e,
   status: t
-}) => ({
-  minHeight: 52,
-  padding: 16,
-  borderRadius: e.borderRadius.base,
-  backgroundColor: e.styleguideColors[py[t]],
-  svg: {
-    color: e.styleguideColors[hy[t]]
-  }
-})), hO = (e) => {
+}) => {
+  const c = py[t];
+  return {
+    minHeight: 52,
+    padding: 16,
+    borderRadius: e.borderRadius.base,
+    backgroundColor: c ? `${e.styleguideColors[c.color].slice(0, 7)}${c.alpha}` : void 0,
+    svg: {
+      color: e.styleguideColors[hy[t]]
+    }
+  };
+}), hO = (e) => {
   const {
     message: t,
     title: c,
@@ -47037,6 +47055,7 @@ const FM = (e) => {
       contentGreen: "#4CD99A",
       contentViolet: "#A880FF",
       contentYellow: "#E0BB38",
+      contentLightYellow: "#FDF5DA26",
       contentWarmGreen: "#BDD94C",
       contentLightBlue: "#8FA6FF"
     },
@@ -47097,6 +47116,7 @@ const FM = (e) => {
       contentGreen: "#31DE91",
       contentViolet: "#8B5BF1",
       contentYellow: "#F1BF0B",
+      contentLightYellow: "#FDF5DACC",
       contentWarmGreen: "#BBDE31",
       contentLightBlue: "#375AE9"
     },
