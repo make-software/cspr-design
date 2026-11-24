@@ -300,7 +300,7 @@ export function Dropdown(props: DropdownProps) {
                 {itemNameGetter(selectedItem) || placeholder}
               </BodyText>
               <SvgIcon
-                src={isOpen ? UpIcon : DownIcon}
+                src={UpIcon}
                 rotate={isOpen}
                 onKeyDown={(ev) => {
                   if (ev.key === 'Enter') {
